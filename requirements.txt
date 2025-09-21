@@ -1,61 +1,64 @@
-# Core PDF Processing
-pdfplumber>=0.10.0
+# Project LANTERN - PDF Processing Pipeline Requirements
+# Team 5 - DAMG7245 Fall 2025
+
+# Core PDF Processing and Text Extraction
+pdfplumber>=0.11.0
 pytesseract>=0.3.10
-camelot-py[cv]>=0.10.1
-tabula-py>=2.8.0
+Pillow>=10.4.0
 
-# Layout Detection & Advanced Parsing
+# Data Manipulation and Analysis
+pandas>=2.1.0
+numpy>=1.25.0
+
+# Table Extraction (Lab 2)
+camelot-py[cv]>=0.11.0
+tabula-py>=2.9.0
+
+# Layout Detection and Computer Vision (Lab 3)
 layoutparser>=0.3.4
-torch>=2.0.0
-torchvision>=0.15.0
-detectron2>=0.6.0
-docling>=1.0.0
+opencv-python>=4.8.1
+torch>=2.1.0
+torchvision>=0.16.0
+detectron2>=0.6
 
-# XBRL Processing
-arelle>=2.0.0
-python-xbrl>=1.1.0
+# Advanced PDF Understanding (Lab 4)
+docling>=2.0.0
+docling-core>=2.0.0
+
+# SEC Filings Download
 sec-edgar-downloader>=5.0.0
 
-# Data Processing & ML
-pandas>=2.0.0
-numpy>=1.24.0
-scikit-learn>=1.3.0
-matplotlib>=3.7.0
-seaborn>=0.12.0
-
-# Cloud APIs
-boto3>=1.28.0
-google-cloud-documentai>=2.20.0
-azure-ai-formrecognizer>=3.3.0
-
-# Pipeline & Versioning
-dvc>=3.0.0
-dvc[s3]>=3.0.0
-
-# Text Processing & Evaluation
-nltk>=3.8
-spacy>=3.6.0
-jiwer>=3.0.0
-fuzzywuzzy>=0.18.0
-python-Levenshtein>=0.20.0
-
-# Web & API
+# Additional utilities
+tqdm>=4.66.0
 requests>=2.31.0
-beautifulsoup4>=4.12.0
+beautifulsoup4>=4.12.2
 
-# Utilities
-tqdm>=4.65.0
-click>=8.1.0
-python-dotenv>=1.0.0
-pyyaml>=6.0
-jsonlines>=3.1.0
-openpyxl>=3.1.0
-
-# Development & Testing
+# Development and Testing
 pytest>=7.4.0
 pytest-cov>=4.1.0
-black>=23.0.0
-flake8>=6.0.0
-mypy>=1.5.0
-jupyter>=1.0.0
-ipykernel>=6.25.0
+
+# Jupyter and Notebook Support
+jupyterlab>=4.0.0
+notebook>=7.0.0
+ipython>=8.12.0
+
+# Data Science Extras
+matplotlib>=3.7.0
+seaborn>=0.12.0
+plotly>=5.17.0
+
+# Text Processing
+nltk>=3.8.1
+spacy>=3.7.0
+
+# JSON and Configuration
+jsonlines>=4.0.0
+pyyaml>=6.0.1
+
+# File Format Support
+openpyxl>=3.1.0
+xlsxwriter>=3.1.0
+
+# Performance and Monitoring
+psutil>=5.9.0
+memory-profiler>=0.61.0
