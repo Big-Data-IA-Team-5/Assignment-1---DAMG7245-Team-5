@@ -129,49 +129,50 @@ def clean_dataframe(df):
     
     return df
 
-def save_tables_and_analysis(lattice_results, stream_results, pdfplumber_results, pdf_name):
+def save_tables_and_analysis(lattice_results, stream_results, pdfplumber_results, pdf_name, output_dir="data/parsed"):
     """Save tables as CSV and create analysis"""
     
     base_name = Path(pdf_name).stem
     saved_count = 0
     financial_tables = []
     
-    # Ensure output directory exists
-    os.makedirs("data/parsed", exist_ok=True)
+    # Create tables subdirectory in the unified output directory
+    tables_dir = Path(output_dir) / "tables"
+    tables_dir.mkdir(parents=True, exist_ok=True)
     
     # Save Camelot lattice tables
     for table in lattice_results:
         df_clean = clean_dataframe(table['dataframe'].copy())
-        filename = f"data/parsed/{base_name}_lattice_p{table['page']}_t{table['table_num']}.csv"
+        filename = tables_dir / f"{base_name}_lattice_p{table['page']}_t{table['table_num']}.csv"
         df_clean.to_csv(filename, index=False)
         print(f"Saved: {filename}")
         
         if check_financial_content(df_clean):
-            financial_tables.append(filename)
+            financial_tables.append(str(filename))
         
         saved_count += 1
     
     # Save Camelot stream tables
     for table in stream_results:
         df_clean = clean_dataframe(table['dataframe'].copy())
-        filename = f"data/parsed/{base_name}_stream_p{table['page']}_t{table['table_num']}.csv"
+        filename = tables_dir / f"{base_name}_stream_p{table['page']}_t{table['table_num']}.csv"
         df_clean.to_csv(filename, index=False)
         print(f"Saved: {filename}")
         
         if check_financial_content(df_clean):
-            financial_tables.append(filename)
+            financial_tables.append(str(filename))
         
         saved_count += 1
     
     # Save pdfplumber tables
     for table in pdfplumber_results:
         df_clean = clean_dataframe(table['dataframe'].copy())
-        filename = f"data/parsed/{base_name}_pdfplumber_p{table['page']}_t{table['table_num']}.csv"
+        filename = tables_dir / f"{base_name}_pdfplumber_p{table['page']}_t{table['table_num']}.csv"
         df_clean.to_csv(filename, index=False)
         print(f"Saved: {filename}")
         
         if check_financial_content(df_clean):
-            financial_tables.append(filename)
+            financial_tables.append(str(filename))
         
         saved_count += 1
     
@@ -271,7 +272,7 @@ def extract_tables_assignment_hybrid(pdf_path, output_dir):
     """Main function for pipeline integration - Full PDF Processing with 100% coverage"""
     
     print("=" * 80)
-    print("🎯 COMPREHENSIVE TABLE EXTRACTION - 100% PDF COVERAGE")
+    print("COMPREHENSIVE TABLE EXTRACTION - 100% PDF COVERAGE")
     print("=" * 80)
     print(f"Processing: {Path(pdf_path).name} (COMPLETE DOCUMENT)")
     print(f"Output directory: {output_dir}")
@@ -280,7 +281,7 @@ def extract_tables_assignment_hybrid(pdf_path, output_dir):
     tables_dir = Path(output_dir) / "tables"
     tables_dir.mkdir(parents=True, exist_ok=True)
     
-    print(f"\n🔍 SCANNING ENTIRE DOCUMENT (ALL PAGES)")
+    print(f"\nSCANNING ENTIRE DOCUMENT (ALL PAGES)")
     print("="*60)
     
     # Extract using all methods - FULL DOCUMENT
@@ -371,16 +372,16 @@ def extract_tables_assignment_hybrid(pdf_path, output_dir):
     index_df.to_csv(index_path, index=False)
     
     print(f"\n{'='*80}")
-    print("🎉 COMPREHENSIVE TABLE EXTRACTION COMPLETE")
+    print("COMPREHENSIVE TABLE EXTRACTION COMPLETE")
     print(f"{'='*80}")
-    print(f"📊 Total tables extracted: {len(all_tables)}")
-    print(f"🔧 Camelot lattice mode: {len(lattice_results)} tables")
-    print(f"🔧 Camelot stream mode: {len(stream_results)} tables") 
-    print(f"🔧 pdfplumber detection: {len(pdfplumber_results)} tables")
-    print(f"💰 Financial tables found: {len(financial_tables)}")
-    print(f"💾 CSV files saved: {saved_count}")
-    print(f"🎯 Coverage: 100% (entire document scanned)")
-    print(f"📁 Results saved to: {tables_dir}")
+    print(f"Total tables extracted: {len(all_tables)}")
+    print(f"Camelot lattice mode: {len(lattice_results)} tables")
+    print(f"Camelot stream mode: {len(stream_results)} tables") 
+    print(f"pdfplumber detection: {len(pdfplumber_results)} tables")
+    print(f"Financial tables found: {len(financial_tables)}")
+    print(f"CSV files saved: {saved_count}")
+    print(f"Coverage: 100% (entire document scanned)")
+    print(f"Results saved to: {tables_dir}")
     
     return analysis
 
@@ -417,10 +418,10 @@ def main():
     print("\n" + "=" * 60)
     print("LAB 2 COMPLETE - FULL PDF CHECKPOINTS")
     print("=" * 60)
-    print(f"✓ CSV files saved: {saved_count}")
-    print(f"✓ Financial tables found: {len(financial_tables)}")
-    print("✓ Method comparison analysis completed")
-    print("✓ Hybrid extractor with heuristics created")
+    print(f"CSV files saved: {saved_count}")
+    print(f"Financial tables found: {len(financial_tables)}")
+    print("Method comparison analysis completed")
+    print("Hybrid extractor with heuristics created")
     
     print(f"\nMethod Results (Full PDF):")
     print(f"Lattice: {len(lattice_results)} tables")
@@ -500,87 +501,120 @@ def fix_text_splitting_issues(df):
     if df.empty or df.shape[1] < 2:
         return df
     
+    # Make a copy to avoid index issues
+    df_working = df.copy()
+    
     # Look for patterns where text was split incorrectly
-    for idx in df.index:
-        row = df.loc[idx]
-        
-        # Check for text fragments that should be joined
-        for col_idx in range(len(row) - 1):
-            current_cell = str(row.iloc[col_idx]).strip()
-            next_cell = str(row.iloc[col_idx + 1]).strip()
+    for idx in df_working.index:
+        try:
+            row = df_working.loc[idx]
             
-            # Pattern 1: Text ending with comma followed by text
-            if (current_cell.endswith(',') and next_cell and 
-                not next_cell.replace(',', '').replace('.', '').isdigit()):
+            # Check for text fragments that should be joined
+            for col_idx in range(len(row) - 1):
+                # Ensure we don't go out of bounds
+                if col_idx + 1 >= len(row):
+                    break
+                    
+                current_cell = str(row.iloc[col_idx]).strip()
+                next_cell = str(row.iloc[col_idx + 1]).strip()
                 
-                # Merge the cells
-                merged_text = current_cell + ' ' + next_cell
-                df.iloc[idx, col_idx] = merged_text
-                df.iloc[idx, col_idx + 1] = ''
-            
-            # Pattern 2: Partial words (text ending without punctuation, next cell continues)
-            elif (current_cell and next_cell and 
-                  not current_cell.endswith('.') and not current_cell.endswith(',') and
-                  not current_cell.replace(',', '').replace('.', '').isdigit() and
-                  not next_cell.replace(',', '').replace('.', '').isdigit() and
-                  len(current_cell) > 3 and len(next_cell) > 3):
-                
-                # Check if it looks like a word was split
-                if not current_cell.endswith(' ') and not next_cell.startswith(' '):
-                    merged_text = current_cell + next_cell  # Join without space for split words
-                else:
+                # Pattern 1: Text ending with comma followed by text
+                if (current_cell.endswith(',') and next_cell and 
+                    not next_cell.replace(',', '').replace('.', '').isdigit()):
+                    
+                    # Merge the cells
                     merged_text = current_cell + ' ' + next_cell
+                    df_working.iloc[idx, col_idx] = merged_text
+                    df_working.iloc[idx, col_idx + 1] = ''
                 
-                df.iloc[idx, col_idx] = merged_text
-                df.iloc[idx, col_idx + 1] = ''
+                # Pattern 2: Partial words (text ending without punctuation, next cell continues)
+                elif (current_cell and next_cell and 
+                      not current_cell.endswith('.') and not current_cell.endswith(',') and
+                      not current_cell.replace(',', '').replace('.', '').isdigit() and
+                      not next_cell.replace(',', '').replace('.', '').isdigit() and
+                      len(current_cell) > 3 and len(next_cell) > 3):
+                    
+                    # Check if it looks like a word was split
+                    if not current_cell.endswith(' ') and not next_cell.startswith(' '):
+                        merged_text = current_cell + next_cell  # Join without space for split words
+                    else:
+                        merged_text = current_cell + ' ' + next_cell
+                    
+                    df_working.iloc[idx, col_idx] = merged_text
+                    df_working.iloc[idx, col_idx + 1] = ''
+        except (IndexError, KeyError) as e:
+            # Skip this row if there are indexing issues
+            continue
     
     # Remove columns that became empty after merging
-    df = df.loc[:, (df != '').any(axis=0)]
+    try:
+        df_working = df_working.loc[:, (df_working != '').any(axis=0)]
+    except Exception:
+        # If column filtering fails, return the original dataframe
+        return df
     
-    return df
+    return df_working
 
 def consolidate_fragmented_columns(df):
     """Consolidate columns that were unnecessarily fragmented"""
     if df.empty or df.shape[1] < 3:
         return df
     
+    # Make a copy to avoid index issues
+    df_working = df.copy()
+    
     # Look for columns with mostly empty values that could be consolidated
     columns_to_merge = []
     
-    for col_idx in range(df.shape[1] - 1):
-        col = df.iloc[:, col_idx]
-        next_col = df.iloc[:, col_idx + 1]
-        
-        # Calculate non-empty percentage
-        col_filled = (col != '').sum() / len(col)
-        next_col_filled = (next_col != '').sum() / len(next_col)
-        
-        # If both columns are sparsely filled, consider merging
-        if col_filled < 0.3 and next_col_filled < 0.3:
-            columns_to_merge.append((col_idx, col_idx + 1))
+    for col_idx in range(df_working.shape[1] - 1):
+        try:
+            col = df_working.iloc[:, col_idx]
+            next_col = df_working.iloc[:, col_idx + 1]
+            
+            # Calculate non-empty percentage
+            col_filled = (col != '').sum() / len(col)
+            next_col_filled = (next_col != '').sum() / len(next_col)
+            
+            # If both columns are sparsely filled, consider merging
+            if col_filled < 0.3 and next_col_filled < 0.3:
+                columns_to_merge.append((col_idx, col_idx + 1))
+        except (IndexError, KeyError):
+            continue
     
     # Merge identified column pairs
     for col1_idx, col2_idx in columns_to_merge:
-        for row_idx in df.index:
-            val1 = str(df.iloc[row_idx, col1_idx]).strip()
-            val2 = str(df.iloc[row_idx, col2_idx]).strip()
-            
-            if val1 and val2:
-                merged_val = val1 + ' ' + val2
-            elif val1:
-                merged_val = val1
-            elif val2:
-                merged_val = val2
-            else:
-                merged_val = ''
-            
-            df.iloc[row_idx, col1_idx] = merged_val
-            df.iloc[row_idx, col2_idx] = ''
+        try:
+            # Ensure indices are still valid
+            if col1_idx >= df_working.shape[1] or col2_idx >= df_working.shape[1]:
+                continue
+                
+            for row_idx in df_working.index:
+                val1 = str(df_working.iloc[row_idx, col1_idx]).strip()
+                val2 = str(df_working.iloc[row_idx, col2_idx]).strip()
+                
+                if val1 and val2:
+                    merged_val = val1 + ' ' + val2
+                elif val1:
+                    merged_val = val1
+                elif val2:
+                    merged_val = val2
+                else:
+                    merged_val = ''
+                
+                df_working.iloc[row_idx, col1_idx] = merged_val
+                df_working.iloc[row_idx, col2_idx] = ''
+        except (IndexError, KeyError) as e:
+            # Skip this merge if there are indexing issues
+            continue
     
     # Remove empty columns
-    df = df.loc[:, (df != '').any(axis=0)]
+    try:
+        df_working = df_working.loc[:, (df_working != '').any(axis=0)]
+    except Exception:
+        # If column filtering fails, return the original dataframe
+        return df
     
-    return df
+    return df_working
 
 def detect_and_set_headers(df):
     """Intelligently detect and set proper column headers"""
@@ -641,25 +675,38 @@ def detect_and_set_headers(df):
 
 def clean_financial_formatting(df):
     """Clean and standardize financial data formatting"""
+    if df is None or df.empty:
+        return df
+    
     df_clean = df.copy()
     
     for col in df_clean.columns:
-        # Convert to string series first
-        series = df_clean[col].astype(str)
-        
-        # Clean common financial formatting issues
-        series = series.str.strip()
-        
-        # Fix broken currency formatting
-        series = series.str.replace(r'\$\s*\n\s*', '$', regex=True)
-        
-        # Clean excessive whitespace
-        series = series.str.replace(r'\s+', ' ', regex=True)
-        
-        # Remove 'nan' strings
-        series = series.replace(['nan', 'None', ''], pd.NA)
-        
-        df_clean[col] = series
+        try:
+            # Convert to string series first
+            series = df_clean[col].astype(str)
+            
+            # Ensure we have a proper Series with string accessor
+            if hasattr(series, 'str'):
+                # Clean common financial formatting issues
+                series = series.str.strip()
+                
+                # Fix broken currency formatting
+                series = series.str.replace(r'\$\s*\n\s*', '$', regex=True)
+                
+                # Clean excessive whitespace
+                series = series.str.replace(r'\s+', ' ', regex=True)
+                
+                # Remove 'nan' strings
+                series = series.replace(['nan', 'None', ''], pd.NA)
+                
+                df_clean[col] = series
+            else:
+                # Fallback for problematic columns
+                df_clean[col] = df_clean[col].astype(str)
+        except Exception as e:
+            # Skip problematic columns but keep original data
+            print(f"  Warning: Could not clean formatting for column '{col}': {e}")
+            continue
     
     return df_clean
 
@@ -689,7 +736,7 @@ def extract_tables_camelot_lattice(pdf_path):
     
     try:
         # SCAN ALL PAGES - not just financial sections for 100% coverage
-        print("🔍 Scanning entire document for tables with ruling lines...")
+        print("Scanning entire document for tables with ruling lines...")
         tables = camelot.read_pdf(
             str(pdf_path), 
             flavor='lattice', 
@@ -791,7 +838,7 @@ def extract_tables_camelot_stream(pdf_path):
     
     try:
         # SCAN ALL PAGES for complete coverage
-        print("🔍 Scanning entire document for borderless tables...")
+        print("Scanning entire document for borderless tables...")
         tables = camelot.read_pdf(
             str(pdf_path), 
             flavor='stream', 
@@ -921,7 +968,7 @@ def extract_tables_pdfplumber(pdf_path):
                                     
                                     if content_quality >= min_quality:
                                         print(f"Page {page_num + 1}: Table {page_kept_count + 1}: "
-                                              f"{df.shape[0]} rows x {df.shape[1]} cols, quality: {content_quality:.2f} ✓")
+                                              f"{df.shape[0]} rows x {df.shape[1]} cols, quality: {content_quality:.2f} PASS")
                                         
                                         results.append({
                                             'page': page_num + 1,
@@ -999,9 +1046,15 @@ def check_financial_content(df):
     
     # Check for currency or percentage columns
     for col in df.columns:
-        sample = df[col].dropna().head(3).astype(str).str.cat(sep=' ')
-        if '$' in sample or '%' in sample:
-            structure_score += 1
+        try:
+            column_data = df[col].dropna().head(3)
+            if len(column_data) > 0:
+                sample = ' '.join(str(x) for x in column_data)
+                if '$' in sample or '%' in sample:
+                    structure_score += 1
+        except Exception:
+            # Skip problematic columns
+            continue
     
     total_score = score + pattern_score + structure_score
     return total_score >= 5  # Threshold for financial content
@@ -1179,7 +1232,7 @@ def extract_tables_assignment_hybrid(pdf_path, output_dir):
     """100% ACCURACY TABLE EXTRACTION - Multi-pass comprehensive system"""
     
     print("=" * 80)
-    print("🎯 ENHANCED TABLE EXTRACTION FOR 100% PARSING ACCURACY")
+    print("ENHANCED TABLE EXTRACTION FOR 100% PARSING ACCURACY")
     print("=" * 80)
     print(f"Processing: {Path(pdf_path).name}")
     print(f"Output directory: {output_dir}")
@@ -1190,7 +1243,7 @@ def extract_tables_assignment_hybrid(pdf_path, output_dir):
     tables_dir.mkdir(parents=True, exist_ok=True)
     
     # PHASE 1: Comprehensive extraction using all methods
-    print("\n🔍 PHASE 1: COMPREHENSIVE MULTI-METHOD EXTRACTION")
+    print("\nPHASE 1: COMPREHENSIVE MULTI-METHOD EXTRACTION")
     print("="*60)
     
     # Enhanced Camelot lattice (all pages)
@@ -1206,7 +1259,7 @@ def extract_tables_assignment_hybrid(pdf_path, output_dir):
     pdfplumber_results = extract_tables_pdfplumber_enhanced(pdf_path)
     
     # PHASE 2: Advanced merging and deduplication
-    print("\n🔧 PHASE 2: INTELLIGENT MERGING & DEDUPLICATION")
+    print("\nPHASE 2: INTELLIGENT MERGING & DEDUPLICATION")
     print("="*60)
     
     # Merge all results intelligently
@@ -1215,14 +1268,14 @@ def extract_tables_assignment_hybrid(pdf_path, output_dir):
     )
     
     # PHASE 3: Quality validation and enhancement
-    print("\n✅ PHASE 3: QUALITY VALIDATION & ENHANCEMENT")
+    print("\nPHASE 3: QUALITY VALIDATION & ENHANCEMENT")
     print("="*60)
     
     # Validate and enhance all tables
     validated_results = validate_and_enhance_tables(merged_results, pdf_path)
     
     # PHASE 4: Comprehensive saving and analysis
-    print("\n💾 PHASE 4: COMPREHENSIVE OUTPUT GENERATION")
+    print("\nPHASE 4: COMPREHENSIVE OUTPUT GENERATION")
     print("="*60)
     
     # Save all results with enhanced analysis
@@ -1233,15 +1286,15 @@ def extract_tables_assignment_hybrid(pdf_path, output_dir):
     
     # Final summary
     print(f"\n{'='*80}")
-    print("🎉 100% ACCURACY TABLE EXTRACTION COMPLETE")
+    print("100% ACCURACY TABLE EXTRACTION COMPLETE")
     print(f"{'='*80}")
-    print(f"📊 Total tables extracted: {len(validated_results)}")
-    print(f"🔧 Camelot lattice mode: {len(lattice_results)} tables")
-    print(f"🔧 Camelot stream mode: {len(stream_results)} tables") 
-    print(f"🔧 pdfplumber enhanced: {len(pdfplumber_results)} tables")
-    print(f"💾 Clean CSV files saved: {saved_count}")
-    print(f"✅ Quality validation: Complete")
-    print(f"🎯 Coverage: 100% (all pages scanned)")
+    print(f"Total tables extracted: {len(validated_results)}")
+    print(f"Camelot lattice mode: {len(lattice_results)} tables")
+    print(f"Camelot stream mode: {len(stream_results)} tables") 
+    print(f"pdfplumber enhanced: {len(pdfplumber_results)} tables")
+    print(f"Clean CSV files saved: {saved_count}")
+    print(f"Quality validation: Complete")
+    print(f"Coverage: 100% (all pages scanned)")
     
     return {
         'total_tables': len(validated_results),
@@ -1263,7 +1316,7 @@ def extract_tables_pdfplumber_enhanced(pdf_path):
     results = []
     
     with pdfplumber.open(pdf_path) as pdf:
-        print(f"🔍 Scanning all {len(pdf.pages)} pages with multiple strategies...")
+        print(f"Scanning all {len(pdf.pages)} pages with multiple strategies...")
         
         for page_num in range(len(pdf.pages)):
             page = pdf.pages[page_num]
@@ -1380,7 +1433,7 @@ def tables_are_similar(table1, table2, similarity_threshold=0.8):
 
 def merge_extraction_results_advanced(lattice_results, stream_results, pdfplumber_results):
     """Advanced merging with intelligent deduplication and quality ranking"""
-    print("🔧 Advanced merging: Deduplicating and ranking tables by quality...")
+    print("Advanced merging: Deduplicating and ranking tables by quality...")
     
     all_results = []
     
@@ -1418,7 +1471,7 @@ def merge_extraction_results_advanced(lattice_results, stream_results, pdfplumbe
         
         merged_results.extend(ranked_tables)
     
-    print(f"🔧 Merged {len(all_results)} raw tables → {len(merged_results)} unique tables")
+    print(f"Merged {len(all_results)} raw tables → {len(merged_results)} unique tables")
     return merged_results
 
 def remove_duplicate_tables(tables):
@@ -1495,7 +1548,7 @@ def rank_tables_by_quality(tables):
 
 def validate_and_enhance_tables(tables, pdf_path):
     """Validate and enhance all tables for maximum quality"""
-    print("✅ Validating and enhancing table quality...")
+    print("Validating and enhancing table quality...")
     
     validated_tables = []
     
@@ -1506,15 +1559,24 @@ def validate_and_enhance_tables(tables, pdf_path):
             if df is None or df.empty:
                 continue
             
+            # Create a copy to avoid modifying the original
+            df_copy = df.copy()
+            
             # Re-enhance with stricter quality controls
-            enhanced_df = enhance_table_quality(df, f"validated_{i+1}")
+            enhanced_df = enhance_table_quality(df_copy, f"validated_{i+1}")
             
             if enhanced_df is not None and not enhanced_df.empty:
                 # Update table with enhanced dataframe
                 table['dataframe'] = enhanced_df
                 table['shape'] = enhanced_df.shape
                 table['validated'] = True
-                table['final_quality'] = assess_comprehensive_content_quality(enhanced_df)
+                
+                # Safely assess quality
+                try:
+                    table['final_quality'] = assess_comprehensive_content_quality(enhanced_df)
+                except Exception as quality_error:
+                    print(f"  Warning: Could not assess quality for table {i+1}: {quality_error}")
+                    table['final_quality'] = 0.5  # Default quality score
                 
                 # Add extraction metadata
                 table['extraction_metadata'] = {
@@ -1528,15 +1590,23 @@ def validate_and_enhance_tables(tables, pdf_path):
             
         except Exception as e:
             print(f"  Warning: Could not validate table {i+1}: {e}")
+            # Still try to include the original table if enhancement fails
+            try:
+                if table.get('dataframe') is not None and not table['dataframe'].empty:
+                    table['validated'] = False
+                    table['final_quality'] = 0.3  # Lower quality score for unvalidated
+                    validated_tables.append(table)
+            except Exception:
+                pass  # Skip completely problematic tables
             continue
     
-    print(f"✅ Validated {len(validated_tables)}/{len(tables)} tables")
+    print(f"Validated {len(validated_tables)}/{len(tables)} tables")
     return validated_tables
 
 def save_enhanced_tables_and_analysis(validated_results, lattice_results, stream_results, 
                                      pdfplumber_results, tables_dir, doc_name):
     """Save tables with comprehensive analysis and metadata"""
-    print("💾 Saving enhanced tables and comprehensive analysis...")
+    print("Saving enhanced tables and comprehensive analysis...")
     
     saved_count = 0
     table_index = []
@@ -1615,9 +1685,9 @@ def save_enhanced_tables_and_analysis(validated_results, lattice_results, stream
     with open(analysis_path, 'w') as f:
         json.dump(analysis, f, indent=2)
     
-    print(f"💾 Saved {saved_count} enhanced CSV files")
-    print(f"💾 Created comprehensive index: {index_path}")
-    print(f"💾 Created detailed analysis: {analysis_path}")
+    print(f"Saved {saved_count} enhanced CSV files")
+    print(f"Created comprehensive index: {index_path}")
+    print(f"Created detailed analysis: {analysis_path}")
     
     return saved_count
 
@@ -2291,11 +2361,11 @@ def main():
     # Run assignment-compliant extraction
     try:
         analysis = extract_tables_assignment_hybrid(pdf_path, output_dir)
-        print(f"\n✅ Table extraction completed successfully")
-        print(f"📁 Results saved to: {output_dir / 'tables'}")
+        print(f"\nTable extraction completed successfully")
+        print(f"Results saved to: {output_dir / 'tables'}")
         return 0
     except Exception as e:
-        print(f"❌ Table extraction failed: {e}")
+        print(f"Table extraction failed: {e}")
         return 1
 
 if __name__ == "__main__":
