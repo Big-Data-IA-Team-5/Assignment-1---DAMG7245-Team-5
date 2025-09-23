@@ -7,15 +7,23 @@ A comprehensive, production-ready pipeline for extracting, analyzing, and conver
 ## 🚀 Quick Start
 
 ```bash
+# Clone and navigate to the project
+cd Assignment-1---DAMG7245-Team-5
+
 # Install dependencies
-cd project-lantern
 pip install -r requirements.txt
 
-# Run complete pipeline
-python3 run_complete_pipeline.py --out data/parsed --hybrid-tables
+# Or use conda environment
+conda env create -f environment.yml
+conda activate damg7245-team5
+
+# Run individual components
+python src/text/extract_text.py
+python src/tables/extract_tables.py
+python src/docling/extract_docling.py
 ```
 
-This single command processes all PDFs in `data/raw/` through all 6 labs and produces clean, structured outputs.
+Place your PDF files in `data/raw/` directory and run the extraction modules individually for text, tables, and advanced document processing.
 
 ## 📊 Pipeline Overview
 
@@ -23,65 +31,69 @@ Project LANTERN provides end-to-end extraction, analysis, and conversion capabil
 
 ### **Lab Components**
 
-| Lab | Component | Description | Status |
-|-----|-----------|-------------|--------|
-| **Lab 1** | Text Extraction | pdfplumber + OCR fallback | ✅ Working |
-| **Lab 2** | Table Extraction | Camelot + pdfplumber comparison | ✅ Working |
-| **Lab 3** | Layout Detection | LayoutParser with PubLayNet | ✅ Working |
-| **Lab 4** | Advanced PDF Understanding | Docling processing + Lab 4 completion analysis | ✅ Working |
-| **Lab 5** | Metadata & Provenance Tagging | Semantic classification | ✅ Working |
-| **Lab 6** | Multi-Format Conversion | Markdown, JSON, TXT | ✅ Working |
+| Lab | Component | Implementation | Status |
+|-----|-----------|----------------|--------|
+| **Lab 1** | Text Extraction | `src/text/extract_text.py` | ✅ Implemented |
+| **Lab 2** | Table Extraction | `src/tables/extract_tables.py` | ✅ Implemented |
+| **Lab 3** | Layout Detection | Not yet implemented | ⏳ Pending |
+| **Lab 4** | Advanced PDF Understanding | `src/docling/extract_docling.py` | ✅ Implemented |
+| **Lab 5** | Metadata & Provenance Tagging | Not yet implemented | ⏳ Pending |
+| **Lab 6** | Multi-Format Conversion | Not yet implemented | ⏳ Pending |
 
 ## 🏗️ Project Structure
 
 ```
-Big_data_1.1/
-└── project-lantern/                    # ← Main project directory
-    ├── run_complete_pipeline.py        # ← Single command pipeline runner
-    ├── src/                             # ← Modular lab components
-    │   ├── text/extract_text.py         # Lab 1: Text extraction
-    │   ├── tables/extract_tables.py     # Lab 2: Camelot-only tables
-    │   ├── layout/extract_layout.py     # Lab 3: Layout detection
-    │   ├── docling/extract_docling.py   # Lab 4: Docling processing
-    │   ├── metadata/extract_metadata.py # Lab 5: Metadata tagging
-    │   └── formats/convert_formats.py   # Lab 6: Format conversion
-    ├── data/
-    │   ├── raw/                         # Input PDFs
-    │   └── parsed/                      # Timestamped output directories
-    ├── requirements.txt                 # Python dependencies
-    └── README.md                        # This file
+Assignment-1---DAMG7245-Team-5/
+├── README.md                        # Project documentation
+├── SETUP_COMPLETE.md               # Setup completion status
+├── LICENSE                         # License file
+├── requirements.txt                # Python dependencies
+├── environment.yml                 # Conda environment file
+├── setup.py                       # Python package setup
+├── dvc.yaml                       # DVC pipeline configuration
+├── configs/                       # Configuration files
+│   ├── model_config.yaml          # Model configuration
+│   └── pipeline_config.yaml       # Pipeline configuration
+├── src/                           # Source code modules
+│   ├── text/                      # Text extraction components
+│   │   ├── __init__.py
+│   │   └── extract_text.py        # Lab 1: Text extraction
+│   ├── tables/                    # Table extraction components
+│   │   ├── __init__.py
+│   │   └── extract_tables.py      # Lab 2: Table extraction
+│   └── docling/                   # Docling processing components
+│       ├── __init__.py
+│       └── extract_docling.py     # Lab 4: Docling processing
+├── data/                          # Data directory
+│   ├── raw/                       # Input PDFs (Intel.pdf)
+│   └── parsed/                    # Processed output data
+├── tests/                         # Test files
+│   └── __init__.py
+├── utils/                         # Utility scripts
+│   ├── download_filings.py        # SEC filing download utility
+│   └── fix_directory_naming.py    # Directory naming fixes
+└── docs/                          # Documentation
 ```
 
 ## 📁 Output Structure
 
-Each pipeline run creates a unified timestamped directory:
+Each processing module creates outputs in the `data/parsed/` directory:
 
 ```
-data/parsed/<filename>_YYYYMMDD_HHMMSS/
-├── text/                   # Lab 1: Extracted text with OCR fallback
+data/parsed/
+├── text/                   # Text extraction outputs
 │   ├── extracted_text.txt
-│   └── _ocr_pages.json
-├── tables/                 # Lab 2: Extracted tables (CSV format)
+│   └── metadata.json
+├── tables/                 # Table extraction outputs
 │   ├── *.csv              # Individual tables
-│   └── _comprehensive_analysis.json
-├── layout/                 # Lab 3: Layout analysis and blocks
-│   ├── layout_blocks.json
-│   └── layout_aware_extraction.json
-├── docling/               # Lab 4: Docling advanced processing + comprehensive analysis
-│   ├── output.json
-│   ├── output.md
-│   ├── comparison.txt
-│   ├── lab4_complete_analysis.json     # Complete technical analysis
-│   ├── lab4_executive_summary.json     # Executive summary
-│   └── lab4_completion_report.md       # Compliance report
-├── metadata/              # Lab 5: Semantic metadata with provenance
-│   ├── *_summary.json
-│   └── *.jsonl
-└── formats/               # Lab 6: Multi-format outputs (MD/JSON/TXT)
-    ├── *.md               # Markdown
-    ├── *.json             # JSON
-    └── *.txt              # Plain text
+│   └── analysis.json      # Table extraction analysis
+└── docling/               # Docling processing outputs
+    ├── output.json
+    ├── output.md
+    └── analysis.json
 ```
+
+**Note**: The exact output structure may vary depending on the specific implementation of each module and the processed document.
 
 ## 🛠️ Installation & Setup
 
@@ -91,9 +103,10 @@ data/parsed/<filename>_YYYYMMDD_HHMMSS/
 
 ### Setup Instructions
 
-1. **Navigate to project:**
+1. **Clone and navigate to project:**
    ```bash
-   cd project-lantern
+   git clone <repository-url>
+   cd Assignment-1---DAMG7245-Team-5
    ```
 
 2. **Create virtual environment (recommended):**
@@ -102,9 +115,17 @@ data/parsed/<filename>_YYYYMMDD_HHMMSS/
    source .venv/bin/activate  # On Windows: .venv\Scripts\activate
    ```
 
-3. **Install Dependencies**:
+3. **Install Dependencies** (Choose one method):
+   
+   **Method 1: Using pip**
    ```bash
    pip install -r requirements.txt
+   ```
+   
+   **Method 2: Using conda**
+   ```bash
+   conda env create -f environment.yml
+   conda activate damg7245-team5
    ```
 
 4. **Place Input PDFs**:
@@ -112,97 +133,45 @@ data/parsed/<filename>_YYYYMMDD_HHMMSS/
    cp your_document.pdf data/raw/
    ```
 
-5. **Run Pipeline**:
+5. **Run Individual Components**:
    ```bash
-   python3 run_complete_pipeline.py --out data/parsed --hybrid-tables
+   # Text extraction
+   python src/text/extract_text.py
+   
+   # Table extraction
+   python src/tables/extract_tables.py
+   
+   # Docling processing
+   python src/docling/extract_docling.py
    ```
 
-### Command Line Options
+### Available Utilities
 ```bash
-python3 run_complete_pipeline.py [OPTIONS]
+# Download SEC filings
+python utils/download_filings.py
 
-Options:
-  --out PATH           Output directory (default: data/parsed)
-  --hybrid-tables      Use hybrid table extraction methods
-  --skip-docling       Skip Docling processing (if not installed)
-  --verbose           Enable verbose logging
-```
-
-### Example Commands
-```bash
-# Full pipeline with hybrid table extraction
-python3 run_complete_pipeline.py --out data/parsed --hybrid-tables
-
-# Skip Docling if not configured
-python3 run_complete_pipeline.py --out data/parsed --hybrid-tables --skip-docling
-
-# Run complete Lab 4 analysis (separate command)
-python3 src/docling/extract_docling.py --complete-lab4
-
-# Custom output directory
-python3 run_complete_pipeline.py --out /custom/path --hybrid-tables
-
-# Verbose logging for debugging
-python3 run_complete_pipeline.py --out data/parsed --hybrid-tables --verbose
+# Fix directory naming issues
+python utils/fix_directory_naming.py
 ```
 
 ## 🎯 Key Features
 
-### **✅ 100% Success Rate**
-- All 6 labs validated and working
-- Comprehensive error handling and logging
-- Production-ready reliability
+### **✅ Currently Implemented**
+- **Text Extraction (Lab 1)**: Advanced text extraction using pdfplumber with OCR fallback capabilities
+- **Table Extraction (Lab 2)**: Comprehensive table detection and extraction using Camelot with multiple modes
+- **Advanced PDF Understanding (Lab 4)**: Docling integration for AI-powered document structure detection
 
-### **🏆 Lab 4: Advanced PDF Understanding with Docling**
+### **🚧 In Development**
+- **Layout Detection (Lab 3)**: Document layout analysis and block detection
+- **Metadata & Provenance Tagging (Lab 5)**: Semantic classification and metadata extraction
+- **Multi-Format Conversion (Lab 6)**: Output conversion to multiple structured formats
 
-**Goal**: Implement advanced PDF understanding using Docling's AI-powered document processing and provide comprehensive comparison analysis.
-
-**Core Features Implemented**:
-- **Docling Processing**: Advanced AI-powered structure detection and extraction
-- **Reading Order Preservation**: Maintains logical document flow and semantic understanding
-- **Table Detection**: AI-enhanced table recognition with layout understanding
-- **Formula Detection**: Equation and mathematical expression identification
-- **Comprehensive Analysis**: Complete comparison with traditional methods
-
-**Lab 4 Completion Features**:
-- ✅ **Complete Technical Analysis**: Detailed performance metrics and comparison framework
-- ✅ **DVC Integration Strategy**: Parallel pipeline implementation with intelligent routing
-- ✅ **Executive Summary**: Key findings and business impact analysis
-- ✅ **Compliance Reporting**: 100% completion status with next steps
-
-**Advanced Capabilities**:
-- **Parallel DVC Implementation**: Run both Docling and traditional pipelines simultaneously
-- **Intelligent Document Routing**: Classify documents for optimal processing method
-- **Quality Assurance**: Cross-validation and confidence scoring
-- **Performance Benchmarking**: 25-40% accuracy improvement, 15-30% speed enhancement
-
-### **🏆 Lab 2: Table Extraction Methods & Comparison**
-
-**Goal**: Extract structured financial tables and compare different methods for borderless tables and complex layouts.
-
-**Core Methods Implemented**:
-- **Camelot Lattice Mode**: Relies on ruling lines for table detection
-- **Camelot Stream Mode**: Infers columns by grouping text spans
-- **pdfplumber Table Detection**: Finds lines, merges overlapping segments, identifies intersections and groups cells into tables
-- **Hybrid Extractor**: Chooses lattice or stream based on heuristics (presence of ruling lines) or merges outputs from both
-
-**Assignment Checkpoints Achieved**:
-- ✅ **Clean CSV Extraction**: Balance sheets and income statements in structured CSV format
-- ✅ **Method Comparison Analysis**: Comprehensive comparison of why different methods work better for specific table types
-- ✅ **Hybrid Approach**: Intelligent method selection based on ruling line detection and quality scoring
-- ✅ **Row/Column Structure Preservation**: Analysis of which method best maintains financial data structure
-
-### **📊 Unified Output**
-- **Timestamped Directories**: Each run creates a unique output folder
-- **Complete Provenance**: Full metadata tracking and semantic classification
-- **Multiple Formats**: Markdown, JSON, and TXT outputs for maximum compatibility
-- **Structured Layout**: Organized block detection and classification
-
-### **🔧 Production Ready**
-- **Single Command Execution**: Complete pipeline in one command
-- **Comprehensive Logging**: Detailed execution logs and validation
-- **Error Recovery**: Robust fallback mechanisms
-- **Scalable Architecture**: Modular design for easy extension
+### **📊 Project Management Features**
+- **DVC Integration**: Pipeline versioning and reproducibility with `dvc.yaml`
+- **Configuration Management**: Centralized configuration in `configs/` directory
+- **Modular Architecture**: Clean separation of concerns with individual processing modules
+- **Comprehensive Testing**: Test framework setup in `tests/` directory
+- **Utility Scripts**: Helper scripts for data management and processing
 
 ## � Performance & Results
 
@@ -233,26 +202,28 @@ python3 run_complete_pipeline.py --out data/parsed --hybrid-tables --verbose
 
 ## 🧪 Testing & Validation
 
-### Run Pipeline Test
+### Run Individual Components
 ```bash
-# Test with existing sample data
-python3 run_complete_pipeline.py --out data/parsed --hybrid-tables
+# Test text extraction with sample data
+python src/text/extract_text.py --input data/raw/Intel.pdf
+
+# Test table extraction
+python src/tables/extract_tables.py --input data/raw/Intel.pdf
+
+# Test Docling processing
+python src/docling/extract_docling.py --input data/raw/Intel.pdf
 
 # Verify outputs
 ls -la data/parsed/
 ```
 
-### Individual Lab Testing
+### Run Tests
 ```bash
-# Test specific components
-python3 src/tables/extract_tables.py --help
-python3 src/text/extract_text.py --help
+# Run unit tests (if implemented)
+python -m pytest tests/
 
-# Run complete Lab 4 analysis
-python3 src/docling/extract_docling.py --complete-lab4
-
-# Test individual Docling extraction
-python3 src/docling/extract_docling.py --in data/raw/document.pdf --out test_output
+# Or run specific test modules
+python tests/test_module.py
 ```
 
 ## 🔧 Troubleshooting
@@ -262,22 +233,35 @@ python3 src/docling/extract_docling.py --in data/raw/document.pdf --out test_out
 1. **Missing Dependencies**:
    ```bash
    pip install -r requirements.txt
+   # Or
+   conda env create -f environment.yml
    ```
 
-2. **Docling Not Available**:
+2. **Python Environment Issues**:
    ```bash
-   python3 run_complete_pipeline.py --skip-docling
+   # Activate your virtual environment
+   source .venv/bin/activate  # Linux/Mac
+   # Or
+   conda activate damg7245-team5
    ```
 
 3. **Permission Errors**:
    ```bash
-   chmod +x run_complete_pipeline.py
+   chmod +x src/text/extract_text.py
+   chmod +x src/tables/extract_tables.py
+   chmod +x src/docling/extract_docling.py
    ```
 
 4. **Memory Issues**:
    - Process smaller PDF files
    - Increase system memory
-   - Use --skip-docling flag
+   - Monitor memory usage during processing
+
+5. **Module Import Errors**:
+   ```bash
+   # Make sure you're in the project root directory
+   export PYTHONPATH="${PYTHONPATH}:$(pwd)"
+   ```
 
 ## 🎉 Assignment Compliance Status
 
@@ -325,27 +309,31 @@ python3 src/docling/extract_docling.py --in data/raw/document.pdf --out test_out
 
 ## 🚀 Usage Examples
 
-### **Basic Pipeline Run**
+### **Individual Component Testing**
 ```bash
-python3 run_complete_pipeline.py --out data/parsed --hybrid-tables
+# Test text extraction
+python src/text/extract_text.py --input data/raw/Intel.pdf --output data/parsed/
+
+# Test table extraction
+python src/tables/extract_tables.py --input data/raw/Intel.pdf --output data/parsed/
+
+# Test Docling processing
+python src/docling/extract_docling.py --input data/raw/Intel.pdf --output data/parsed/
 ```
 
-### **Custom Output Directory**
+### **Utility Scripts**
 ```bash
-python3 run_complete_pipeline.py --out /custom/path --hybrid-tables
+# Download SEC filings
+python utils/download_filings.py
+
+# Fix directory naming issues
+python utils/fix_directory_naming.py
 ```
 
-### **Individual Lab Testing**
-```bash
-# Test table extraction only
-python3 src/tables/extract_tables.py --in data/raw/document.pdf --out test_output --method hybrid
-
-# Test complete Lab 4 analysis
-python3 src/docling/extract_docling.py --complete-lab4
-
-# Test individual Docling extraction
-python3 src/docling/extract_docling.py --in data/raw/document.pdf --out test_output
-```
+### **Configuration Management**
+Configuration files are available in the `configs/` directory:
+- `configs/model_config.yaml` - Model configuration settings
+- `configs/pipeline_config.yaml` - Pipeline configuration settings
 
 ## 📈 Performance
 

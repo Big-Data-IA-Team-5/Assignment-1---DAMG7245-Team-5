@@ -217,11 +217,11 @@ def save_extracted_data(pages_data, ocr_pages, pdf_name, out_dir):
         f.write(f"- **OCR engine:** Tesseract with config '--oem 3 --psm 6'\n")
         f.write(f"- **OCR resolution:** 300 DPI for optimal accuracy\n")
     
-    print(f"✅ Lab 1 Text Extraction Complete:")
-    print(f"   📄 Per-page .txt files: {len(pages_data)} files created")
-    print(f"   📝 OCR log: {len(ocr_pages)} pages required OCR")
-    print(f"   📊 Word bounding boxes: Saved for layout analysis")
-    print(f"   📁 Output location: {text_root}")
+    print(f"Lab 1 Text Extraction Complete:")
+    print(f"   Per-page .txt files: {len(pages_data)} files created")
+    print(f"   OCR log: {len(ocr_pages)} pages required OCR")
+    print(f"   Word bounding boxes: Saved for layout analysis")
+    print(f"   Output location: {text_root}")
 
 def main():
     parser = argparse.ArgumentParser(description="Lab 1: Text Extraction with pdfplumber + OCR fallback")
@@ -238,7 +238,7 @@ def main():
         pdf_files = [input_path]
     
     for pdf_path in pdf_files:
-        print(f"\n🔄 Processing: {pdf_path.name}")
+        print(f"\nProcessing: {pdf_path.name}")
         pages_data, ocr_pages = extract_text_with_pdfplumber(pdf_path)
         save_extracted_data(pages_data, ocr_pages, pdf_path.name, out_dir)
 
