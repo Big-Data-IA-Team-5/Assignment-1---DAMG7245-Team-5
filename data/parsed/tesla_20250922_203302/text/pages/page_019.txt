@@ -1,0 +1,50 @@
+Table of Contents
+Note 6 – Other Long-Term Liabilities
+Our other long-term liabilities consisted of the following (in millions):
+June 30, December 31,
+2025 2024
+Accrued warranty reserve $ 5,286 $ 4,799
+Operating lease liabilities 5,022 4,603
+Other non-current liabilities 1,235 1,093
+Total other long-term liabilities $ 11,543 $ 10,495
+Note 7 – Debt
+The following is a summary of our debt and finance leases as of June 30, 2025 (in millions):
+Net Carrying Value Unpaid Unused
+Principal Committed Contractual Contractual
+Current Long-Term Balance Amount (1) Interest Rates Maturity Date
+Recourse debt:
+RCF Credit Agreement $ — $ — $ — $ 5,000 Not applicable January 2028
+Other 1 2 3 — 4.70-5.75% July 2025-January 2031
+Total recourse debt 1 2 3 5,000
+Non-recourse debt:
+Automotive Asset-backed Notes 1,878 1,532 3,421 — 2.53-6.57% June 2026-June 2035
+China Working Capital Facility — 2,790 2,790 — 2.11% March 2026-April 2026 (2)
+Energy Asset-backed Notes 53 384 441 — 5.08-6.25% June 2050
+Cash Equity Debt 30 286 324 — 5.25-5.81% July 2033-January 2035
+Total non-recourse debt 1,961 4,992 6,976 —
+Total debt 1,962 4,994 $ 6,979 $ 5,000
+Finance leases 78 186
+Total debt and finance leases $ 2,040 $ 5,180
+The following is a summary of our debt and finance leases as of December 31, 2024 (in millions):
+Net Carrying Value Unpaid Unused
+Principal Committed Contractual Contractual
+Current Long-Term Balance Amount (1) Interest Rates Maturity Date
+Recourse debt:
+RCF Credit Agreement $ — $ — $ — $ 5,000 Not applicable January 2028
+Other 4 3 7 — 4.70-5.75% March 2025-January 2031
+Total recourse debt 4 3 7 5,000
+Non-recourse debt:
+Automotive Asset-backed Notes 2,255 2,059 4,329 — 3.45-6.57% September 2025-June 2035
+China Working Capital Facility — 2,740 2,740 — 1.92% April 2025 (2)
+Energy Asset-backed Notes 54 434 493 — 4.80-6.25% December 2025-June 2050
+Cash Equity Debt 30 299 338 — 5.25-5.81% July 2033-January 2035
+Total non-recourse debt 2,339 5,532 7,900 —
+Total debt 2,343 5,535 $ 7,907 $ 5,000
+Finance leases 113 222
+Total debt and finance leases $ 2,456 $ 5,757
+(1) There are no restrictions on draw-down or use for general corporate purposes with respect to any available committed funds under our RCF Credit
+Agreement, except certain specified conditions prior to draw-down. Refer to the notes to the consolidated financial statements included in our reporting
+on Form 10-K for the year ended December 31, 2024 for the terms of the facility.
+(2) As we have the intent and ability to refinance the loan on a long-term basis, we recorded it in Debt and finance leases, net of current portion in the
+consolidated balance sheets.
+19

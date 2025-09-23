@@ -1,0 +1,46 @@
+Table of Contents
+On July 4, 2025, the U.S. H.R.1, an act to provide for reconciliation pursuant to title II of H. Con. Res. 14. (“the OBBBA”) was enacted. The OBBBA
+introduces multiple tax law and other legislative changes, including modifications to income tax provisions such as domestic research and development
+expenses, capital expenditures, and U.S. taxation of international earnings; the repeal or acceleration of the sunset of certain tax credits under the 2022
+Inflation Reduction Act and elimination of certain penalties for violations of certain regulatory credit programs. We are currently evaluating the impact of
+these provisions on our consolidated financial statements, including loss of certain regulatory credit sales tied to our products and changes to the costs of our
+products.
+Recently adopted accounting pronouncements
+ASU 2023-08
+In December 2023, the FASB issued ASU No. 2023-08, Accounting for and Disclosure of Crypto Assets (Subtopic 350-60) (“new crypto assets
+standard”). The new crypto assets standard requires certain crypto assets to be measured at fair value separately on the balance sheet with changes reported
+in the statement of operations each reporting period. The new crypto assets standard also enhances the other intangible asset disclosure requirements by
+requiring the name, cost basis, fair value, and number of units for each significant crypto asset holding. During the fourth quarter of 2024, we adopted the
+new crypto assets standard on a modified retrospective approach effective January 1, 2024. As such, the previously reported consolidated financial
+statements for the three and six months ended June 30, 2024 have been recast to reflect the adoption of the new crypto assets standard.The following table
+presents the effects of these changes on the Company’s consolidated financial statements:
+As of June 30, 2024
+Adjustments from Adoption of
+the New Crypto Assets
+Consolidated Balance Sheets (unaudited): As Previously Reported Standard As Adjusted
+Assets
+Digital assets, net $ 184 $ 538 $ 722
+Deferred tax assets $ 6,692 $ (119) $ 6,573
+Stockholders' equity
+Retained earnings $ 30,489 $ 419 $ 30,908
+Three Months Ended June 30, 2024
+Adjustments from Adoption of
+the New Crypto Assets
+Consolidated Statement of Operations (unaudited): As Previously Reported Standard As Adjusted
+Other income (expense), net $ 20 $ (100) $ (80)
+Provision for income taxes $ 393 $ (22) $ 371
+Net income attributable to common stockholders $ 1,478 $ (78) $ 1,400
+Net income per share attributable to common stockholders:
+Basic $ 0.46 $ (0.02) $ 0.44
+Diluted $ 0.42 $ (0.02) $ 0.40
+Six Months Ended June 30, 2024
+Adjustments from Adoption of
+the New Crypto Assets
+Consolidated Statement of Operations (unaudited): As Previously Reported Standard As Adjusted
+Other income, net $ 128 $ 235 $ 363
+Provision for income taxes $ 802 $ 52 $ 854
+Net income attributable to common stockholders $ 2,607 $ 183 $ 2,790
+Net income per share attributable to common stockholders:
+Basic $ 0.83 $ 0.06 $ 0.89
+Diluted $ 0.76 $ 0.05 $ 0.81
+15
