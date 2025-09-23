@@ -1,0 +1,1 @@
+See output.md and output.json for Docling results. Compare with traditional pipeline outputs in text/ and tables/.

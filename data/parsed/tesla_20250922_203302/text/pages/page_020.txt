@@ -1,0 +1,39 @@
+Table of Contents
+Recourse debt refers to debt that is recourse to our general assets. Non-recourse debt refers to debt that is recourse to only assets of our subsidiaries.
+The differences between the unpaid principal balances and the net carrying values are due to debt discounts or deferred issuance costs. As of June 30, 2025,
+we were in material compliance with all financial debt covenants.
+China Working Capital Facility
+In March 2025, the China Working Capital Facility was amended to extend the availability of funds through April 2028. In addition, the maturity date
+for each borrowing is the earlier of one year from the date the funds are drawn or April 2029. Borrowings will bear interest at a rate equal to the Loan Prime
+Rate published by the People’s Bank of China minus 0.99%.
+Note 8 – Equity Incentive Plans
+Performance-Based Grants
+From time to time, the Compensation Committee of our Board of Directors grants certain employees performance-based restricted stock units and stock
+options.
+As of June 30, 2025, we had unrecognized stock-based compensation expense of $709 million under these grants to purchase or receive an aggregate
+7.2 million shares of our common stock. For awards probable of achievement, we estimate the unrecognized stock-based compensation expense of $637
+million will be recognized over a weighted-average period of 3.6 years.
+For the three and six months ended June 30, 2025, we recorded $54 million and $92 million, respectively, of stock-based compensation expense related
+to these grants, net of forfeitures. For the three and six months ended June 30, 2024, stock-based compensation expense related to these grants, net of
+forfeitures, were immaterial.
+Summary Stock-Based Compensation Information
+The following table summarizes our stock-based compensation expense by line item in the consolidated statements of operations (in millions):
+Three Months Ended June 30, Six Months Ended June 30,
+2025 2024 2025 2024
+Cost of revenues $ 213 $ 180 $ 422 $ 382
+Research and development 298 169 575 381
+Selling, general and administrative 124 88 211 198
+Restructuring and other — 2 — 2
+Total $ 635 $ 439 $ 1,208 $ 963
+Note 9 – Income Taxes
+Our effective tax rate was 23% and 25% for the three and six months ended June 30, 2025, respectively, compared to 21% and 23% for the three and six
+months ended June 30, 2024, respectively. The change in our effective tax rate was primarily due to the changes in the mix of our jurisdictional earnings.
+Our effective tax rates for the first three and six months of 2025 and 2024 as compared to the U.S. federal statutory rate of 21% were primarily
+impacted by the mix of our jurisdictional earnings subject to different tax rates, valuation allowances on our deferred tax assets and benefits from our U.S.
+research and development credits, and manufacturing production credits.
+Note 10 – Commitments and Contingencies
+Operating Lease Arrangements in Buffalo, New York and Shanghai, China
+For a description of our operating lease arrangements in Buffalo, New York, and Shanghai, China, refer to Note 14, Commitments and Contingencies, in
+our Annual Report on Form 10-K for the year ended December 31, 2024. As of June 30, 2025, we have met and expect to meet the requirements under these
+arrangements, as may be modified and discussed from time to time, based on our current and anticipated level of operations.
+20

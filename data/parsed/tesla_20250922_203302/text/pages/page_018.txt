@@ -1,0 +1,36 @@
+Table of Contents
+Note 4 – Property, Plant and Equipment, Net
+Our property, plant and equipment, net, consisted of the following (in millions):
+June 30, December 31,
+2025 2024
+Machinery, equipment, vehicles and office furniture $ 19,492 $ 18,339
+Land and buildings 11,290 10,677
+AI infrastructure 6,172 5,152
+Tooling 4,576 3,883
+Leasehold improvements 4,116 3,688
+Computer equipment, hardware and software 3,017 2,902
+Construction in progress 7,739 6,783
+Property, plant and equipment 56,402 51,424
+Less: Accumulated depreciation (17,828) (15,588)
+Property, plant and equipment, net $ 38,574 $ 35,836
+Construction in progress is primarily comprised of ongoing construction and expansion of our facilities, equipment and tooling related to the
+manufacturing of our products as well as AI-related assets which have not yet been placed in service.
+Depreciation expense during the three and six months ended June 30, 2025 was $1.15 billion and $2.30 billion, respectively. Depreciation expense
+during the three and six months ended June 30, 2024 was $981 million and $1.91 billion, respectively.
+Note 5 – Accrued Liabilities and Other
+Our accrued liabilities and other current liabilities consisted of the following (in millions):
+June 30, December 31,
+2025 2024
+Accrued purchases (1) $ 2,278 $ 2,253
+Accrued warranty reserve, current portion 2,226 1,917
+Payroll and related costs 1,662 1,532
+Taxes payable (2) 1,051 1,367
+Customer deposits 1,412 993
+Operating lease liabilities, current portion 892 807
+Sales return reserve, current portion 385 305
+Other current liabilities 1,613 1,549
+Total $ 11,519 $ 10,723
+(1) Accrued purchases primarily reflects receipts of goods and services for which we had not yet been invoiced. As we are invoiced for these goods and
+services, this balance will reduce and accounts payable will increase.
+(2) Taxes payable primarily includes value added tax, income tax, sales tax, property tax and use tax payables.
+18

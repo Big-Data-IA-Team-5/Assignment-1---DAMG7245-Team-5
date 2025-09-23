@@ -1,0 +1,43 @@
+Table of Contents
+Certain Investigations and Other Matters
+We regularly receive requests for information, including subpoenas, from regulators and governmental authorities such as the National Highway Traffic
+Safety Administration, the National Transportation Safety Board, the Securities and Exchange Commission (“SEC”), the Department of Justice (“DOJ”), and
+various local, state, federal, and international agencies. The ongoing requests for information include topics such as operations, technology (e.g., vehicle
+functionality, vehicle incidents, Autopilot and FSD Capability and Robotaxi), compliance, finance, data privacy, and other matters related to Tesla’s business,
+its personnel, and related parties. We routinely cooperate with such formal and informal requests for information, investigations, and other inquiries. To our
+knowledge no government agency in any ongoing investigation has concluded that any wrongdoing occurred. We cannot predict the outcome or impact of any
+ongoing matters. Should the government decide to pursue an enforcement action, there exists the possibility of a material adverse impact on our business,
+results of operations, prospects, cash flows, financial position or brand.
+We are also subject to various other legal proceedings, risks and claims that arise from the normal course of business activities. For example, during the
+second quarter of 2023, a foreign news outlet reported that it obtained certain misappropriated data including, purportedly non-public Tesla business and
+personal information. Tesla made notifications to potentially affected individuals (current and former employees) and regulatory authorities and worked with
+certain law enforcement and other authorities. On August 5, 2023, a putative class action was filed in the United States District Court for the Northern
+District of California, purportedly on behalf of all U.S. individuals impacted by the data incident, followed by several additional lawsuits, that each assert
+claims under various state laws and seeks monetary damages and other relief. If an unfavorable ruling or development were to occur in these or other
+possible legal proceedings, risks and claims, there exists the possibility of a material adverse impact on our business, results of operations, prospects, cash
+flows, financial position or brand.
+Note 11 – Variable Interest Entity Arrangements
+The aggregate carrying values of the variable interest entities’ assets and liabilities, after elimination of any intercompany transactions and balances, in
+the consolidated balance sheets were as follows (in millions):
+June 30, December 31,
+2025 2024
+Assets
+Current assets
+Cash and cash equivalents $ 59 $ 49
+Accounts receivable, net 27 18
+Prepaid expenses and other current assets 250 276
+Total current assets 336 343
+Operating lease vehicles, net 340 392
+Solar energy systems, net 2,241 2,310
+Other non-current assets 191 183
+Total assets $ 3,108 $ 3,228
+Liabilities
+Current liabilities
+Accrued liabilities and other $ 35 $ 32
+Deferred revenue 6 6
+Current portion of debt and finance leases 1,748 2,114
+Total current liabilities 1,789 2,152
+Deferred revenue, net of current portion 63 71
+Debt and finance leases, net of current portion 1,422 1,834
+Total liabilities $ 3,274 $ 4,057
+24
