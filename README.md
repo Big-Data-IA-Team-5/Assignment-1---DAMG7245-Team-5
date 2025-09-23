@@ -1,357 +1,204 @@
-````markdown
-# Project LANTERN - Big Data PDF Processing Pipeline
+# Project LANTERN – PDF Processing Pipeline
 
-**Team 5 - DAMG7245 Fall 2025**  
-A comprehensive, production-ready pipeline for extracting, analyzing, and converting SEC filings and complex PDFs into structured data formats suitable for RAG systems, financial analysis, and machine learning applications.
+**Team 5 – DAMG7245, Fall 2025**
 
-## 🚀 Quick Start
+A production-ready pipeline to extract text, tables, layout, and metadata from PDFs. Outputs structured data in multiple formats suitable for RAG systems, financial analysis, and ML applications.
+
+## Table of Contents
+
+- [Overview](#overview)
+- [System Requirements](#system-requirements)
+- [Environment Setup](#environment-setup)
+- [Project Structure](#project-structure)
+- [Pipeline Labs](#pipeline-labs)
+- [Usage Examples](#usage-examples)
+- [Output Structure](#output-structure)
+- [Troubleshooting](#troubleshooting)
+- [Performance](#performance)
+- [Team & License](#team--license)
+
+## Overview
+
+Project LANTERN provides end-to-end extraction, analysis, and conversion of PDF documents. Features include:
+
+- Text extraction with OCR fallback
+- Hybrid table extraction (Camelot + pdfplumber)
+- Layout analysis and semantic classification
+- AI-powered document understanding (Docling)
+- Metadata & provenance tagging
+- Multi-format conversion (JSON, Markdown, TXT)
+
+The pipeline handles SEC filings and other structured/unstructured PDFs efficiently.
+
+## System Requirements
+
+- **Python**: 3.8+
+- **RAM**: 4GB minimum (8GB recommended)
+- **Disk Space**: 2GB free
+- **OS**: Windows, macOS, Linux
+
+### Key Dependencies
+
+- `pdfplumber` – PDF text extraction
+- `camelot-py` – Table extraction
+- `pytesseract` – OCR
+- `pandas`, `numpy` – Data processing
+- `layoutparser` – Layout detection (optional)
+- `docling` – AI PDF understanding (optional)
+- `torch` – ML features
+
+### System Dependencies
+
+- **macOS**: `brew install tesseract`, `xcode-select --install`
+- **Linux**: `sudo apt-get install tesseract-ocr libtesseract-dev python3-dev build-essential`
+- **Windows**: Install [Tesseract OCR](https://github.com/UB-Mannheim/tesseract/wiki) and add to PATH
+
+## Environment Setup
 
 ```bash
-# Clone and navigate to the project
-cd Assignment-1---DAMG7245-Team-5
+# Create virtual environment
+python3 -m venv venv
+source venv/bin/activate  # Linux/macOS
+venv\Scripts\activate     # Windows
 
-# Install dependencies
+# Install Python dependencies
+pip install --upgrade pip setuptools wheel
 pip install -r requirements.txt
-
-# Or use conda environment
-conda env create -f environment.yml
-conda activate damg7245-team5
-
-# Run individual components
-python src/text/extract_text.py
-python src/tables/extract_tables.py
-python src/docling/extract_docling.py
 ```
 
-Place your PDF files in `data/raw/` directory and run the extraction modules individually for text, tables, and advanced document processing.
+### Optional automatic setup
 
-## 📊 Pipeline Overview
+```bash
+# Linux/macOS
+chmod +x setup.sh && ./setup.sh
 
-Project LANTERN provides end-to-end extraction, analysis, and conversion capabilities through 6 integrated labs, producing structured outputs suitable for RAG systems, financial analysis, and machine learning applications.
+# Windows
+setup.bat
+```
 
-### **Lab Components**
-
-| Lab | Component | Implementation | Status |
-|-----|-----------|----------------|--------|
-| **Lab 1** | Text Extraction | `src/text/extract_text.py` | ✅ Implemented |
-| **Lab 2** | Table Extraction | `src/tables/extract_tables.py` | ✅ Implemented |
-| **Lab 3** | Layout Detection | Not yet implemented | ⏳ Pending |
-| **Lab 4** | Advanced PDF Understanding | `src/docling/extract_docling.py` | ✅ Implemented |
-| **Lab 5** | Metadata & Provenance Tagging | Not yet implemented | ⏳ Pending |
-| **Lab 6** | Multi-Format Conversion | Not yet implemented | ⏳ Pending |
-
-## 🏗️ Project Structure
+## Project Structure
 
 ```
 Assignment-1---DAMG7245-Team-5/
-├── README.md                        # Project documentation
-├── SETUP_COMPLETE.md               # Setup completion status
-├── LICENSE                         # License file
-├── requirements.txt                # Python dependencies
-├── environment.yml                 # Conda environment file
-├── setup.py                       # Python package setup
-├── dvc.yaml                       # DVC pipeline configuration
-├── configs/                       # Configuration files
-│   ├── model_config.yaml          # Model configuration
-│   └── pipeline_config.yaml       # Pipeline configuration
-├── src/                           # Source code modules
-│   ├── text/                      # Text extraction components
-│   │   ├── __init__.py
-│   │   └── extract_text.py        # Lab 1: Text extraction
-│   ├── tables/                    # Table extraction components
-│   │   ├── __init__.py
-│   │   └── extract_tables.py      # Lab 2: Table extraction
-│   └── docling/                   # Docling processing components
-│       ├── __init__.py
-│       └── extract_docling.py     # Lab 4: Docling processing
-├── data/                          # Data directory
-│   ├── raw/                       # Input PDFs (Intel.pdf)
-│   └── parsed/                    # Processed output data
-├── tests/                         # Test files
-│   └── __init__.py
-├── utils/                         # Utility scripts
-│   ├── download_filings.py        # SEC filing download utility
-│   └── fix_directory_naming.py    # Directory naming fixes
-└── docs/                          # Documentation
+├── run_complete_pipeline.py      # Main script
+├── requirements.txt              # Python dependencies
+├── data/
+│   ├── raw/      # Input PDFs
+│   └── parsed/   # Pipeline outputs
+├── src/                          # 6 lab modules
+│   ├── text/      # Lab 1
+│   ├── tables/    # Lab 2
+│   ├── layout/    # Lab 3
+│   ├── docling/   # Lab 4
+│   ├── metadata/  # Lab 5
+│   └── formats/   # Lab 6
+├── configs/      # Config files
+├── utils/        # Helper scripts
+├── tests/        # Test files
+└── docs/         # Documentation
 ```
 
-## 📁 Output Structure
+## Pipeline Labs
 
-Each processing module creates outputs in the `data/parsed/` directory:
+| Lab | Purpose | Output |
+|-----|---------|--------|
+| **Lab 1** | Text Extraction | .txt files |
+| **Lab 2** | Table Extraction | .csv files |
+| **Lab 3** | Layout Analysis | Layout structure .json |
+| **Lab 4** | AI Processing | .json & .md outputs |
+| **Lab 5** | Metadata Tagging | .jsonl metadata |
+| **Lab 6** | Format Conversion | JSON, Markdown, TXT |
+
+### Features
+
+- One-click pipeline execution or individual lab runs
+- Timestamped folders for outputs
+- Error recovery if one lab fails
+- Flexible execution options
+
+## Usage Examples
+
+### Complete Pipeline
+```bash
+# Copy PDFs to raw folder
+cp your_file.pdf data/raw/
+
+# Run pipeline
+python3 run_complete_pipeline.py --out data/parsed --hybrid-tables --verbose
+```
+
+### Individual Labs
+```bash
+# Lab 1
+python3 src/text/extract_text.py --in data/raw/your_file.pdf --out data/parsed/
+
+# Lab 2
+python3 src/tables/extract_tables.py --in data/raw/your_file.pdf --out data/parsed/ --hybrid
+
+# Lab 3
+python3 src/layout/extract_layout.py --in data/raw/your_file.pdf --out data/parsed/
+
+# Lab 4
+python3 src/docling/extract_docling.py --in data/raw/your_file.pdf --out data/parsed/
+
+# Lab 5
+python3 src/metadata/extract_metadata.py --in data/raw/your_file.pdf --out data/parsed/
+
+# Lab 6
+python3 src/formats/convert_formats.py --in data/parsed/metadata/doc.jsonl --out data/parsed/
+```
+
+### Utility Scripts
+```bash
+python utils/check_system.py         # Verify environment
+python utils/download_filings.py     # Download SEC filings
+python utils/fix_directory_naming.py # Fix directory issues
+```
+
+## Output Structure
 
 ```
 data/parsed/
-├── text/                   # Text extraction outputs
-│   ├── extracted_text.txt
-│   └── metadata.json
-├── tables/                 # Table extraction outputs
-│   ├── *.csv              # Individual tables
-│   └── analysis.json      # Table extraction analysis
-└── docling/               # Docling processing outputs
-    ├── output.json
-    ├── output.md
-    └── analysis.json
+├── your_document_<timestamp>/
+│   ├── text/       # Lab 1
+│   ├── tables/     # Lab 2
+│   ├── layout/     # Lab 3
+│   ├── docling/    # Lab 4
+│   ├── metadata/   # Lab 5
+│   └── formats/    # Lab 6
+├── LANTERN_Pipeline_Report_<timestamp>.md
+└── pipeline_summary_<timestamp>.json
 ```
 
-**Note**: The exact output structure may vary depending on the specific implementation of each module and the processed document.
-
-## 🛠️ Installation & Setup
-
-### Prerequisites
-- Python 3.8+
-- Virtual environment (recommended)
-
-### Setup Instructions
-
-1. **Clone and navigate to project:**
-   ```bash
-   git clone <repository-url>
-   cd Assignment-1---DAMG7245-Team-5
-   ```
-
-2. **Create virtual environment (recommended):**
-   ```bash
-   python3 -m venv .venv
-   source .venv/bin/activate  # On Windows: .venv\Scripts\activate
-   ```
-
-3. **Install Dependencies** (Choose one method):
-   
-   **Method 1: Using pip**
-   ```bash
-   pip install -r requirements.txt
-   ```
-   
-   **Method 2: Using conda**
-   ```bash
-   conda env create -f environment.yml
-   conda activate damg7245-team5
-   ```
-
-4. **Place Input PDFs**:
-   ```bash
-   cp your_document.pdf data/raw/
-   ```
-
-5. **Run Individual Components**:
-   ```bash
-   # Text extraction
-   python src/text/extract_text.py
-   
-   # Table extraction
-   python src/tables/extract_tables.py
-   
-   # Docling processing
-   python src/docling/extract_docling.py
-   ```
-
-### Available Utilities
-```bash
-# Download SEC filings
-python utils/download_filings.py
-
-# Fix directory naming issues
-python utils/fix_directory_naming.py
-```
-
-## 🎯 Key Features
-
-### **✅ Currently Implemented**
-- **Text Extraction (Lab 1)**: Advanced text extraction using pdfplumber with OCR fallback capabilities
-- **Table Extraction (Lab 2)**: Comprehensive table detection and extraction using Camelot with multiple modes
-- **Advanced PDF Understanding (Lab 4)**: Docling integration for AI-powered document structure detection
-
-### **🚧 In Development**
-- **Layout Detection (Lab 3)**: Document layout analysis and block detection
-- **Metadata & Provenance Tagging (Lab 5)**: Semantic classification and metadata extraction
-- **Multi-Format Conversion (Lab 6)**: Output conversion to multiple structured formats
-
-### **📊 Project Management Features**
-- **DVC Integration**: Pipeline versioning and reproducibility with `dvc.yaml`
-- **Configuration Management**: Centralized configuration in `configs/` directory
-- **Modular Architecture**: Clean separation of concerns with individual processing modules
-- **Comprehensive Testing**: Test framework setup in `tests/` directory
-- **Utility Scripts**: Helper scripts for data management and processing
-
-## � Performance & Results
-
-### Recent Test Results
-- **Processing Time**: ~3-5 minutes for large documents (99+ pages)
-- **Success Rate**: 100% (all 6 labs completed)
-- **Memory Usage**: Optimized for large document processing
-- **Output Quality**: Production-grade structured data
-
-### Example Pipeline Execution (Intel PDF)
-- **✅ Lab 1**: Text extraction completed successfully
-- **✅ Lab 2**: 177 high-quality tables extracted with method comparison
-- **✅ Lab 3**: 5,256 layout blocks detected and classified  
-- **✅ Lab 4**: Advanced Docling processing (72 tables detected) + comprehensive analysis
-- **✅ Lab 5**: 5,870 metadata records with semantic classification
-- **✅ Lab 6**: Multi-format outputs (MD: 399.7 KB, JSON: 8.6 MB, TXT: 386.5 KB)
-
-### Lab 4 Specific Results
-- **Docling Performance**: 25-40% accuracy improvement over traditional methods
-- **Processing Speed**: 15-30% faster for complex documents
-- **DVC Integration**: Parallel pipeline strategy with intelligent routing
-- **Analysis Reports**: Complete technical analysis, executive summary, and compliance report
-
-### System Requirements
-- **Memory**: 4GB+ RAM recommended
-- **Storage**: 1GB+ free space for outputs
-- **CPU**: Multi-core processor for faster processing
-
-## 🧪 Testing & Validation
-
-### Run Individual Components
-```bash
-# Test text extraction with sample data
-python src/text/extract_text.py --input data/raw/Intel.pdf
-
-# Test table extraction
-python src/tables/extract_tables.py --input data/raw/Intel.pdf
-
-# Test Docling processing
-python src/docling/extract_docling.py --input data/raw/Intel.pdf
-
-# Verify outputs
-ls -la data/parsed/
-```
-
-### Run Tests
-```bash
-# Run unit tests (if implemented)
-python -m pytest tests/
-
-# Or run specific test modules
-python tests/test_module.py
-```
-
-## 🔧 Troubleshooting
+## Troubleshooting
 
 ### Common Issues
 
-1. **Missing Dependencies**:
-   ```bash
-   pip install -r requirements.txt
-   # Or
-   conda env create -f environment.yml
-   ```
+- **Command not found**: Use `python3` and activate virtual environment
+- **Module not found**: `pip install -r requirements.txt`
+- **No PDFs found**: Ensure PDFs are in `data/raw/`
+- **Permission denied**: `chmod +x run_complete_pipeline.py setup.sh`
+- **Out of memory**: Close other applications, process smaller PDFs first
 
-2. **Python Environment Issues**:
-   ```bash
-   # Activate your virtual environment
-   source .venv/bin/activate  # Linux/Mac
-   # Or
-   conda activate damg7245-team5
-   ```
-
-3. **Permission Errors**:
-   ```bash
-   chmod +x src/text/extract_text.py
-   chmod +x src/tables/extract_tables.py
-   chmod +x src/docling/extract_docling.py
-   ```
-
-4. **Memory Issues**:
-   - Process smaller PDF files
-   - Increase system memory
-   - Monitor memory usage during processing
-
-5. **Module Import Errors**:
-   ```bash
-   # Make sure you're in the project root directory
-   export PYTHONPATH="${PYTHONPATH}:$(pwd)"
-   ```
-
-## 🎉 Assignment Compliance Status
-
-### **✅ Lab 4 — Advanced PDF Understanding Implementation**
-
-**Assignment Requirements Met:**
-- ✅ **Docling Integration**: Complete implementation of advanced PDF processing
-- ✅ **Performance Analysis**: Comprehensive benchmarking and comparison framework
-- ✅ **DVC Strategy**: Parallel pipeline implementation with intelligent routing
-- ✅ **Technical Analysis**: Detailed evaluation of accuracy and speed improvements
-- ✅ **Compliance Reporting**: 100% completion status with executive summary
-
-**Lab 4 Checkpoints Achieved:**
-- ✅ **Advanced Structure Detection**: AI-powered layout understanding and element classification
-- ✅ **Reading Order Preservation**: Semantic document flow maintenance
-- ✅ **Comparative Analysis**: Detailed comparison with traditional extraction methods
-- ✅ **Production Strategy**: Parallel DVC implementation with intelligent document routing
-
-**Core Implementation Details:**
-- **Performance Metrics**: 25-40% accuracy improvement, 15-30% speed enhancement
-- **Intelligent Routing**: Document classification for optimal processing method selection
-- **Quality Assurance**: Cross-validation and confidence scoring mechanisms
-- **Executive Reporting**: Business impact analysis and strategic recommendations
-
-### **✅ Part 2 — Table Extraction Implementation**
-
-**Assignment Requirements Met:**
-- ✅ **Camelot Lattice Mode**: Implemented (relies on ruling lines)
-- ✅ **Camelot Stream Mode**: Implemented (infers columns by grouping text spans)  
-- ✅ **pdfplumber Comparison**: Implemented (finds lines, merges overlapping segments, identifies intersections)
-- ✅ **Method Comparison**: Comprehensive analysis of output quality and structure preservation
-- ✅ **Clean CSV Output**: Balance sheets and income statements in structured format
-- ✅ **Hybrid Extractor**: Chooses lattice/stream based on ruling line heuristics and quality scoring
-
-**Assignment Checkpoints Achieved:**
-- ✅ **Clean Financial CSV**: Generated balance sheet/income statement tables in CSV format
-- ✅ **Method Preference Analysis**: Detailed analysis of why methods work better for specific table types (borderless vs ruled)
-- ✅ **Hybrid Approach**: Intelligent selection based on ruling line detection and quality comparison
-
-**Core Implementation Details:**
-- **Ruling Line Detection**: Heuristic analysis to determine lattice vs stream preference
-- **Quality Scoring**: Accuracy, completeness, and structure preservation metrics
-- **Method Trade-offs**: Comprehensive comparison showing lattice excels with borders, stream with borderless tables
-- **pdfplumber Integration**: Full implementation of intersection-based table detection for comparison
-
-## 🚀 Usage Examples
-
-### **Individual Component Testing**
+### Logs
 ```bash
-# Test text extraction
-python src/text/extract_text.py --input data/raw/Intel.pdf --output data/parsed/
-
-# Test table extraction
-python src/tables/extract_tables.py --input data/raw/Intel.pdf --output data/parsed/
-
-# Test Docling processing
-python src/docling/extract_docling.py --input data/raw/Intel.pdf --output data/parsed/
+# Monitor execution
+tail -f pipeline_execution.log
 ```
 
-### **Utility Scripts**
-```bash
-# Download SEC filings
-python utils/download_filings.py
+## Performance
 
-# Fix directory naming issues
-python utils/fix_directory_naming.py
-```
+- **Processing Time**: ~4-6 min for 100-page PDF
+- **Memory Usage**: ~4GB RAM
+- **Success Rate**: Reliable for most PDF types
+- **Output Quality**: Structured, production-ready
+- **Scalability**: Handles multiple PDFs with timestamped organization
 
-### **Configuration Management**
-Configuration files are available in the `configs/` directory:
-- `configs/model_config.yaml` - Model configuration settings
-- `configs/pipeline_config.yaml` - Pipeline configuration settings
+## Team
 
-## 📈 Performance
+**Team 5 – DAMG7245, Fall 2025**  
+Big Data Analytics Project – SEC Filing Processing Pipeline
 
-- **Processing Time**: ~4 minutes for 99-page SEC filing
-- **Memory Usage**: Optimized for large document processing
-- **Output Quality**: Production-grade structured data
-- **Reliability**: 100% success rate with comprehensive validation
+## License
 
-## 👥 Team
-
-**Team 5 — DAMG7245 (Fall 2025)**
-- Big Data Analytics Project
-- SEC Filing Processing Pipeline
-
-## 📄 License
-
-MIT License - See project files for details.
-
----
-
-**🎯 Ready for Production**: This pipeline delivers clean, structured, validated outputs suitable for RAG systems, financial analysis, and machine learning applications.
+MIT License – See project files for details
