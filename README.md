@@ -6,15 +6,15 @@ A production-ready pipeline to extract text, tables, layout, and metadata from P
 
 System Requirements
 
-Python 3.8+
+Python: 3.8+
 
-4GB RAM minimum (8GB recommended)
+RAM: 4GB minimum (8GB recommended)
 
-2GB free disk space
+Disk Space: 2GB free
 
-Windows, macOS, Linux
+OS: Windows, macOS, Linux
 
-Dependencies
+Dependencies:
 
 pdfplumber – PDF text extraction
 
@@ -45,9 +45,9 @@ pip install --upgrade pip setuptools wheel
 pip install -r requirements.txt
 
 
-For OCR, install Tesseract:
+Install Tesseract for OCR:
 
-macOS: brew install tesseract, xcode-select --install
+macOS: brew install tesseract && xcode-select --install
 
 Linux: sudo apt-get install tesseract-ocr libtesseract-dev python3-dev build-essential
 
@@ -68,9 +68,9 @@ Assignment-1---DAMG7245-Team-5/
 │   ├── docling/   # Lab 4
 │   ├── metadata/  # Lab 5
 │   ├── formats/   # Lab 6
-│   └── google_ai/ # Lab 7 (optional AI integration)
+│   └── google_ai/ # Lab 7 (optional)
 ├── credentials/   # Secure keys
-├── reports/       # Analysis reports
+├── reports/       # AI analysis reports
 ├── configs/
 ├── utils/
 ├── tests/
@@ -102,7 +102,7 @@ python3 src/metadata/extract_metadata.py --in data/raw/your_file.pdf --out data/
 python3 src/formats/convert_formats.py --in data/parsed/metadata/doc.jsonl --out data/parsed/
 
 
-Optional Lab 7 (Google AI):
+Optional Lab 7 (Google Document AI):
 
 python3 src/google_ai/run_lab7.py --pdf data/raw/tesla.pdf --pages 5 12
 
@@ -122,7 +122,7 @@ data/parsed/
 └── pipeline_summary_<timestamp>.json
 
 
-Lab 7 AI results (if used):
+Lab 7 AI results (optional):
 
 reports/google_ai/lab7_session_<timestamp>/
 ├── temp_pdfs/
@@ -137,7 +137,7 @@ Command not found: Use python3 and activate virtual environment
 
 Module not found: pip install -r requirements.txt
 
-No PDFs found: Ensure files are in data/raw/
+No PDFs found: Ensure files exist in data/raw/
 
 Permission denied: chmod +x run_complete_pipeline.py setup.sh
 
@@ -152,18 +152,17 @@ tail -f lab7_execution.log
 
 Performance
 
-100-page PDF: ~4-6 min processing, ~4GB RAM
+100-page PDF: ~4–6 min, ~4GB RAM
 
-2-page Lab 7 AI extraction: ~3-5 sec, ~2GB RAM
+2-page Lab 7 AI extraction: ~3–5 sec, ~2GB RAM
 
 High success rate and output quality
 
-Timestamped folders for traceability and multiple PDFs
+Timestamped folders for traceability
 
 Team
 
 Team 5 – DAMG7245, Fall 2025
-
 Big Data Analytics Project – SEC Filing Processing Pipeline
 
 Lab 7 Contributors:
