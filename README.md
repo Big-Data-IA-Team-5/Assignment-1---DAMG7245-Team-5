@@ -1,48 +1,48 @@
-Absolutely! Here’s a **complete GitHub-ready README** for Project LANTERN with **clickable Table of Contents** so users can quickly navigate to each section. You can copy this **as one file** into your repo.
 
-````markdown
+---
+
 # Project LANTERN – PDF Processing Pipeline
 
-**Team 5 – DAMG7245, Fall 2025**  
+**Team 5 – DAMG7245, Fall 2025**
 
-A production-ready pipeline to extract text, tables, layout, and metadata from PDFs. Outputs structured data in multiple formats suitable for RAG systems, financial analysis, and ML applications.  
+A production-ready pipeline to extract text, tables, layout, and metadata from PDFs. Outputs structured data in multiple formats suitable for RAG systems, financial analysis, and ML applications.
 
 ---
 
 ## Table of Contents
 
-- [System Requirements](#system-requirements)  
-- [Dependencies](#dependencies)  
-- [Environment Setup](#environment-setup)  
-- [Project Structure](#project-structure)  
-- [Pipeline Labs](#pipeline-labs)  
-- [Usage Examples](#usage-examples)  
-- [Output Structure](#output-structure)  
-- [Troubleshooting](#troubleshooting)  
-- [Performance](#performance)  
-- [Team](#team)  
-- [License](#license)  
+* [System Requirements](#system-requirements)
+* [Dependencies](#dependencies)
+* [Environment Setup](#environment-setup)
+* [Project Structure](#project-structure)
+* [Pipeline Labs](#pipeline-labs)
+* [Usage Examples](#usage-examples)
+* [Output Structure](#output-structure)
+* [Troubleshooting](#troubleshooting)
+* [Performance](#performance)
+* [Team](#team)
+* [License](#license)
 
 ---
 
 ## System Requirements
 
-- **Python:** 3.8+  
-- **RAM:** 4GB minimum (8GB recommended)  
-- **Disk Space:** 2GB free  
-- **OS:** Windows, macOS, Linux  
+* **Python:** 3.8+
+* **RAM:** 4GB minimum (8GB recommended)
+* **Disk Space:** 2GB free
+* **OS:** Windows, macOS, Linux
 
 ---
 
 ## Dependencies
 
-- `pdfplumber` – PDF text extraction  
-- `camelot-py` – Table extraction  
-- `pytesseract` – OCR  
-- `pandas`, `numpy` – Data manipulation  
-- `layoutparser` (optional) – Layout detection  
-- `docling` (optional) – AI PDF understanding  
-- `torch` – ML features  
+* `pdfplumber` – PDF text extraction
+* `camelot-py` – Table extraction
+* `pytesseract` – OCR
+* `pandas`, `numpy` – Data manipulation
+* `layoutparser` (optional) – Layout detection
+* `docling` (optional) – AI PDF understanding
+* `torch` – ML features
 
 ---
 
@@ -57,7 +57,7 @@ venv\Scripts\activate          # Windows
 # Install dependencies
 pip install --upgrade pip setuptools wheel
 pip install -r requirements.txt
-````
+```
 
 **Install Tesseract for OCR:**
 
@@ -211,4 +211,4 @@ Big Data Analytics Project – SEC Filing Processing Pipeline
 
 MIT License – see project files for details
 
-```
+---
