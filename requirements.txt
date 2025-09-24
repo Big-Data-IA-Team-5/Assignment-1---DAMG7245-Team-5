@@ -1,57 +1,24 @@
-# Project LANTERN - Essential PDF Processing Requirements
-# Team 5 - DAMG7245 Fall 2025
-# Streamlined version - only essential packages for faster installation
-
-# ============================================================================
-# CORE DEPENDENCIES (Required for basic functionality)
-# ============================================================================
-
-# Core PDF Processing and Text Extraction
 pdfplumber>=0.10.0,<0.12.0
 pytesseract>=0.3.8,<0.4.0
 Pillow>=9.0.0,<11.0.0
-
-# Data Manipulation and Analysis
 pandas>=1.5.0,<3.0.0
 numpy>=1.21.0,<2.0.0
-
-# Table Extraction (Lab 2)
 camelot-py[base]>=0.10.1,<0.12.0
 tabula-py>=2.5.0,<3.0.0
-
-# Additional utilities
 tqdm>=4.60.0,<5.0.0
 requests>=2.25.0,<3.0.0
 beautifulsoup4>=4.9.0,<5.0.0
-
-# JSON and Configuration
-jsonlines>=3.0.0,<5.0.0
 pyyaml>=6.0,<7.0
-
-# ============================================================================
-# OPTIONAL - Install separately if needed
-# ============================================================================
-# For advanced features, install these manually:
-# pip install torch torchvision (for ML features)
-# pip install opencv-python (for computer vision)
-# pip install docling docling-core (for advanced PDF understanding)
-# pip install jupyterlab matplotlib (for data visualization)
-# pip install layoutparser (for layout detection)
-
-# ============================================================================
-# PLATFORM-SPECIFIC NOTES
-# ============================================================================
-# 
-# Windows Users:
-# - Install Visual C++ Build Tools if compilation errors occur
-# - Some packages may need pre-built wheels from https://www.lfd.uci.edu/~gohlke/pythonlibs/
-#
-# macOS Users:
-# - Install Xcode Command Line Tools: xcode-select --install
-# - For M1/M2 Macs, use: pip install --upgrade pip setuptools wheel
-#
-# Linux Users:
-# - Install system dependencies: apt-get install python3-dev build-essential
-# - For Ubuntu/Debian: apt-get install tesseract-ocr libtesseract-dev
-#
-# ============================================================================
+jsonlines>=3.0.0,<5.0.0
+layoutparser>=0.3.4,<0.4.0
+docling>=0.1.0,<1.0.0
+docling-core>=0.1.0,<1.0.0
+matplotlib>=3.5.0,<4.0.0
+jiwer>=3.0.0,<4.0.0
+pytest>=7.0.0,<9.0.0
+dvc>=3.0.0,<4.0.0
+google-cloud-documentai>=2.18.0,<3.0.0
+google-cloud-storage>=2.10.0,<3.0.0
+google-auth>=2.20.0,<3.0.0
+google-api-python-client>=2.100.0,<3.0.0
+PyPDF2>=3.0.0,<4.0.0PyPDF2>=3.0.0,<4.0.0
