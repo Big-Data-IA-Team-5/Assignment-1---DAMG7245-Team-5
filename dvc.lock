@@ -1,0 +1,51 @@
+schema: '2.0'
+stages:
+  full_pipeline:
+    cmd: python3 run_complete_pipeline.py --out data/parsed --hybrid-tables
+    deps:
+    - path: data/raw/
+      hash: md5
+      md5: b79081232b1f5bf69d9348fd8403cb8b.dir
+      size: 959948
+      nfiles: 6
+    - path: run_complete_pipeline.py
+      hash: md5
+      md5: b1fe4343c6aff8eeb8d47af19e9e0d85
+      size: 33080
+    - path: src/
+      hash: md5
+      md5: ac8417d78745031042d914e70f5f8d79.dir
+      size: 368290
+      nfiles: 20
+    outs:
+    - path: data/parsed/
+      hash: md5
+      md5: c33cc373677f1f1f67db41ab9cb9525f.dir
+      size: 15506641
+      nfiles: 328
+  lab7_processing:
+    cmd: python3 google_ai/run_lab7.py --pdf data/raw/tesla.pdf --pages 5 12
+    deps:
+    - path: data/raw/tesla.pdf
+      hash: md5
+      md5: d35072b96ed7cfb8c2fd4df6e6f3566b
+      size: 305624
+    - path: google_ai/
+      hash: md5
+      md5: 89ed539cb62bb6b428d8916b4dd0d089.dir
+      size: 143730
+      nfiles: 10
+    - path: google_ai/lab7_google_ai_integration.py
+      hash: md5
+      md5: be3eab04bf58a8ef1214573bd2d55a44
+      size: 30335
+    - path: google_ai/run_lab7.py
+      hash: md5
+      md5: f17b15e225596c831107b69437e172ab
+      size: 1490
+    outs:
+    - path: reports/google_ai/
+      hash: md5
+      md5: 2d169efaf90278a16774192e612b0e45.dir
+      size: 2342797
+      nfiles: 14
