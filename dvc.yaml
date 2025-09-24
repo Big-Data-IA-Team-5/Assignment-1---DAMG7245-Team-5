@@ -1,1 +1,24 @@
- 
+stages:
+  full_pipeline:
+    cmd: python3 run_complete_pipeline.py --out data/parsed --hybrid-tables
+    deps:
+    - run_complete_pipeline.py
+    - src/
+    - data/raw/
+    outs:
+    - data/parsed/
+    desc: Complete LANTERN pipeline processing (Labs 1-6)
+    metrics:
+    - data/parsed/pipeline_summary_*.json
+  lab7_processing:
+    cmd: python3 google_ai/run_lab7.py --pdf data/raw/tesla.pdf --pages 5 12
+    deps:
+    - google_ai/run_lab7.py
+    - google_ai/lab7_google_ai_integration.py
+    - google_ai/
+    - data/raw/tesla.pdf
+    outs:
+    - reports/google_ai/
+    desc: Lab 7 Google Document AI processing (pages mode)
+    metrics:
+    - reports/google_ai/*/parsed_results/summary*.json
