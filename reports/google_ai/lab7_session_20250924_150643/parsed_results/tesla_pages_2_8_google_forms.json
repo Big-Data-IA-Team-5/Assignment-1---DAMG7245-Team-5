@@ -1,0 +1,152 @@
+[
+  {
+    "page_number": 1,
+    "field_index": 0,
+    "field_id": "p1_f0",
+    "field_name": "Item 4.",
+    "field_value": "Controls and Procedures",
+    "name_layout": {
+      "element_type": "form_field_name",
+      "text": "",
+      "confidence": 0.5973751544952393,
+      "bounding_poly": {
+        "vertices": []
+      },
+      "orientation": 1
+    },
+    "value_layout": {
+      "element_type": "form_field_value",
+      "text": "",
+      "confidence": 0.5973751544952393,
+      "bounding_poly": {
+        "vertices": []
+      },
+      "orientation": 1
+    }
+  },
+  {
+    "page_number": 1,
+    "field_index": 1,
+    "field_id": "p1_f1",
+    "field_name": "Item 3.",
+    "field_value": "Quantitative",
+    "name_layout": {
+      "element_type": "form_field_name",
+      "text": "",
+      "confidence": 0.39865753054618835,
+      "bounding_poly": {
+        "vertices": []
+      },
+      "orientation": 1
+    },
+    "value_layout": {
+      "element_type": "form_field_value",
+      "text": "",
+      "confidence": 0.39865753054618835,
+      "bounding_poly": {
+        "vertices": []
+      },
+      "orientation": 1
+    }
+  },
+  {
+    "page_number": 1,
+    "field_index": 2,
+    "field_id": "p1_f2",
+    "field_name": "Consolidated Balance Sheets",
+    "field_value": "Item 1.\nFinancial Statements",
+    "name_layout": {
+      "element_type": "form_field_name",
+      "text": "",
+      "confidence": 0.3980753421783447,
+      "bounding_poly": {
+        "vertices": []
+      },
+      "orientation": 1
+    },
+    "value_layout": {
+      "element_type": "form_field_value",
+      "text": "",
+      "confidence": 0.3980753421783447,
+      "bounding_poly": {
+        "vertices": []
+      },
+      "orientation": 1
+    }
+  },
+  {
+    "page_number": 2,
+    "field_index": 0,
+    "field_id": "p2_f0",
+    "field_name": "Additional",
+    "field_value": "Common Stock",
+    "name_layout": {
+      "element_type": "form_field_name",
+      "text": "",
+      "confidence": 0.6881168484687805,
+      "bounding_poly": {
+        "vertices": []
+      },
+      "orientation": 1
+    },
+    "value_layout": {
+      "element_type": "form_field_value",
+      "text": "",
+      "confidence": 0.6881168484687805,
+      "bounding_poly": {
+        "vertices": []
+      },
+      "orientation": 1
+    }
+  },
+  {
+    "page_number": 2,
+    "field_index": 1,
+    "field_id": "p2_f1",
+    "field_name": "Additional",
+    "field_value": "Common Stock",
+    "name_layout": {
+      "element_type": "form_field_name",
+      "text": "",
+      "confidence": 0.6793053150177002,
+      "bounding_poly": {
+        "vertices": []
+      },
+      "orientation": 1
+    },
+    "value_layout": {
+      "element_type": "form_field_value",
+      "text": "",
+      "confidence": 0.6793053150177002,
+      "bounding_poly": {
+        "vertices": []
+      },
+      "orientation": 1
+    }
+  },
+  {
+    "page_number": 2,
+    "field_index": 2,
+    "field_id": "p2_f2",
+    "field_name": "Three Months Ended June 30,",
+    "field_value": "2024",
+    "name_layout": {
+      "element_type": "form_field_name",
+      "text": "",
+      "confidence": 0.4585852026939392,
+      "bounding_poly": {
+        "vertices": []
+      },
+      "orientation": 1
+    },
+    "value_layout": {
+      "element_type": "form_field_value",
+      "text": "",
+      "confidence": 0.4585852026939392,
+      "bounding_poly": {
+        "vertices": []
+      },
+      "orientation": 1
+    }
+  }
+]

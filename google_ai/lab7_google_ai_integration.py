@@ -21,23 +21,17 @@ from datetime import datetime
 
 import logging
 
-# Add src to Python path
-sys.path.append(str(Path(__file__).parent.parent.parent))
+# Add current directory to Python path
+sys.path.append(str(Path(__file__).parent))
 
 try:
-    from src.google_ai.page_extractor import PDFPageExtractor
-    from src.google_ai.document_processor import process_pdf_with_google_ai
-    from src.google_ai.result_parser import parse_google_ai_result
+    from page_extractor import PDFPageExtractor
+    from document_processor import process_pdf_with_google_ai
+    from result_parser import parse_google_ai_result
 except ImportError as e:
-    # Try alternative import paths
-    try:
-        from page_extractor import PDFPageExtractor
-        from document_processor import process_pdf_with_google_ai
-        from result_parser import parse_google_ai_result
-    except ImportError:
-        print(f"Import error: {e}")
-        print("Make sure you're running from the project root directory or the google_ai folder.")
-        sys.exit(1)
+    print(f"Import error: {e}")
+    print("Make sure you're running from the project root directory or the google_ai folder.")
+    sys.exit(1)
 
 # Configure logging
 logging.basicConfig(

@@ -1,0 +1,638 @@
+[
+  {
+    "page_number": 1,
+    "table_index": 0,
+    "table_id": "p1_t0",
+    "header_rows": [
+      [
+        "Item 1.",
+        "Financial Statements"
+      ]
+    ],
+    "body_rows": [
+      [
+        "",
+        "Consolidated Balance Sheets"
+      ],
+      [
+        "",
+        "Consolidated Statements of Operations"
+      ],
+      [
+        "",
+        "Consolidated Statements of Comprehensive Income"
+      ],
+      [
+        "",
+        "Consolidated Statements of Redeemable Noncontrolling Interests and Equity"
+      ],
+      [
+        "",
+        "Consolidated Statements of Cash Flows"
+      ],
+      [
+        "",
+        "Notes to Consolidated Financial Statements"
+      ],
+      [
+        "Item 2.",
+        "Management's Discussion and Analysis of Financial Condition and Results of Operations"
+      ],
+      [
+        "Item 3.",
+        "Quantitative and Qualitative Disclosures about Market Risk"
+      ],
+      [
+        "Item 4.",
+        "Controls and Procedures"
+      ]
+    ],
+    "all_rows": [
+      [
+        "Item 1.",
+        "Financial Statements"
+      ],
+      [
+        "",
+        "Consolidated Balance Sheets"
+      ],
+      [
+        "",
+        "Consolidated Statements of Operations"
+      ],
+      [
+        "",
+        "Consolidated Statements of Comprehensive Income"
+      ],
+      [
+        "",
+        "Consolidated Statements of Redeemable Noncontrolling Interests and Equity"
+      ],
+      [
+        "",
+        "Consolidated Statements of Cash Flows"
+      ],
+      [
+        "",
+        "Notes to Consolidated Financial Statements"
+      ],
+      [
+        "Item 2.",
+        "Management's Discussion and Analysis of Financial Condition and Results of Operations"
+      ],
+      [
+        "Item 3.",
+        "Quantitative and Qualitative Disclosures about Market Risk"
+      ],
+      [
+        "Item 4.",
+        "Controls and Procedures"
+      ]
+    ],
+    "row_count": 10,
+    "col_count": 2,
+    "layout": {
+      "element_type": "table",
+      "text": "",
+      "confidence": 0.9637731313705444,
+      "bounding_poly": {
+        "vertices": [
+          {
+            "x": 43,
+            "y": 364
+          },
+          {
+            "x": 1393,
+            "y": 364
+          },
+          {
+            "x": 1393,
+            "y": 743
+          },
+          {
+            "x": 43,
+            "y": 743
+          }
+        ]
+      },
+      "orientation": 1
+    }
+  },
+  {
+    "page_number": 1,
+    "table_index": 1,
+    "table_id": "p1_t1",
+    "header_rows": [
+      [
+        "Item 1.\nItem 1A.\nItem 2.\nItem 3.\nItem 4.",
+        "Legal Proceedings\nRisk Factors\nUnregistered Sales of Equity Securities and Use of Proceeds\nDefaults Upon Senior Securities\nMine Safety Disclosures"
+      ]
+    ],
+    "body_rows": [
+      [
+        "Item 5.",
+        "Other Information"
+      ],
+      [
+        "Item 6.",
+        "Exhibits"
+      ]
+    ],
+    "all_rows": [
+      [
+        "Item 1.\nItem 1A.\nItem 2.\nItem 3.\nItem 4.",
+        "Legal Proceedings\nRisk Factors\nUnregistered Sales of Equity Securities and Use of Proceeds\nDefaults Upon Senior Securities\nMine Safety Disclosures"
+      ],
+      [
+        "Item 5.",
+        "Other Information"
+      ],
+      [
+        "Item 6.",
+        "Exhibits"
+      ]
+    ],
+    "row_count": 3,
+    "col_count": 2,
+    "layout": {
+      "element_type": "table",
+      "text": "",
+      "confidence": 0.8779518008232117,
+      "bounding_poly": {
+        "vertices": [
+          {
+            "x": 43,
+            "y": 826
+          },
+          {
+            "x": 1086,
+            "y": 826
+          },
+          {
+            "x": 1086,
+            "y": 1080
+          },
+          {
+            "x": 43,
+            "y": 1080
+          }
+        ]
+      },
+      "orientation": 1
+    }
+  },
+  {
+    "page_number": 2,
+    "table_index": 0,
+    "table_id": "p2_t0",
+    "header_rows": [
+      [
+        "Six Months Ended June 30, 2024",
+        "Redeemable\nNoncontrolling\nInterests",
+        "Common Shares",
+        "Stock\nAmount",
+        "Additional\nPaid-In\nCapital",
+        "Other\nComprehensive Loss",
+        "Retained\nEarnings",
+        "Total\nStockholders'\nEquity",
+        "Noncontrolling\nInterests in\nSubsidiaries",
+        "Total\nEquity",
+        ""
+      ]
+    ],
+    "body_rows": [
+      [
+        "Balance as of December 31,\n2023",
+        "$\n242",
+        "3,185",
+        "$\n3",
+        "$\n34,892",
+        "$\n(143)",
+        "$\n27,882",
+        "$\n62,634",
+        "733",
+        "$\n63,367",
+        ""
+      ],
+      [
+        "Adjustments for prior periods\nfrom adopting ASU 2023-08,\nnet of tax",
+        "|",
+        "",
+        "I",
+        "",
+        "",
+        "236",
+        "236",
+        "|",
+        "236",
+        ""
+      ],
+      [
+        "Issuance of common stock for\nequity incentive awards\nStock-based compensation",
+        "||",
+        "9\nI",
+        "| |",
+        "447\n1,062",
+        "| |",
+        "| |",
+        "447\n1,062",
+        "| |",
+        "447\n1,062",
+        ""
+      ],
+      [
+        "Distributions to noncontrolling\ninterests\nBuy-outs of noncontrolling",
+        "(8)",
+        "☐",
+        "☐",
+        "I",
+        "☐",
+        "I",
+        "",
+        "(37)",
+        "(37",
+        ")"
+      ],
+      [
+        "interests\nNet income",
+        "(166)\n4",
+        "| |",
+        "| |",
+        "42\n1",
+        "I",
+        "2,790",
+        "42\n2,790",
+        "NI\n27",
+        "42\n2,817",
+        ""
+      ],
+      [
+        "Other comprehensive loss",
+        "",
+        "",
+        "",
+        "",
+        "(324)",
+        "",
+        "(324)",
+        "",
+        "(324",
+        ")"
+      ],
+      [
+        "Balance as of June 30, 2024",
+        "$\n72",
+        "3,194",
+        "$\n3",
+        "$\n36,443",
+        "$\n(467)",
+        "$\n30,908",
+        "$\n66,887",
+        "$\n723",
+        "$\n67,610",
+        ""
+      ]
+    ],
+    "all_rows": [
+      [
+        "Six Months Ended June 30, 2024",
+        "Redeemable\nNoncontrolling\nInterests",
+        "Common Shares",
+        "Stock\nAmount",
+        "Additional\nPaid-In\nCapital",
+        "Other\nComprehensive Loss",
+        "Retained\nEarnings",
+        "Total\nStockholders'\nEquity",
+        "Noncontrolling\nInterests in\nSubsidiaries",
+        "Total\nEquity",
+        ""
+      ],
+      [
+        "Balance as of December 31,\n2023",
+        "$\n242",
+        "3,185",
+        "$\n3",
+        "$\n34,892",
+        "$\n(143)",
+        "$\n27,882",
+        "$\n62,634",
+        "733",
+        "$\n63,367",
+        ""
+      ],
+      [
+        "Adjustments for prior periods\nfrom adopting ASU 2023-08,\nnet of tax",
+        "|",
+        "",
+        "I",
+        "",
+        "",
+        "236",
+        "236",
+        "|",
+        "236",
+        ""
+      ],
+      [
+        "Issuance of common stock for\nequity incentive awards\nStock-based compensation",
+        "||",
+        "9\nI",
+        "| |",
+        "447\n1,062",
+        "| |",
+        "| |",
+        "447\n1,062",
+        "| |",
+        "447\n1,062",
+        ""
+      ],
+      [
+        "Distributions to noncontrolling\ninterests\nBuy-outs of noncontrolling",
+        "(8)",
+        "☐",
+        "☐",
+        "I",
+        "☐",
+        "I",
+        "",
+        "(37)",
+        "(37",
+        ")"
+      ],
+      [
+        "interests\nNet income",
+        "(166)\n4",
+        "| |",
+        "| |",
+        "42\n1",
+        "I",
+        "2,790",
+        "42\n2,790",
+        "NI\n27",
+        "42\n2,817",
+        ""
+      ],
+      [
+        "Other comprehensive loss",
+        "",
+        "",
+        "",
+        "",
+        "(324)",
+        "",
+        "(324)",
+        "",
+        "(324",
+        ")"
+      ],
+      [
+        "Balance as of June 30, 2024",
+        "$\n72",
+        "3,194",
+        "$\n3",
+        "$\n36,443",
+        "$\n(467)",
+        "$\n30,908",
+        "$\n66,887",
+        "$\n723",
+        "$\n67,610",
+        ""
+      ]
+    ],
+    "row_count": 8,
+    "col_count": 11,
+    "layout": {
+      "element_type": "table",
+      "text": "",
+      "confidence": 0.9894027709960938,
+      "bounding_poly": {
+        "vertices": [
+          {
+            "x": 42,
+            "y": 792
+          },
+          {
+            "x": 1725,
+            "y": 792
+          },
+          {
+            "x": 1725,
+            "y": 1424
+          },
+          {
+            "x": 42,
+            "y": 1424
+          }
+        ]
+      },
+      "orientation": 1
+    }
+  },
+  {
+    "page_number": 2,
+    "table_index": 1,
+    "table_id": "p2_t1",
+    "header_rows": [
+      [
+        "Three Months Ended June 30,\n2024",
+        "Redeemable\nNoncontrolling\nInterests",
+        "Common Shares",
+        "Stock\nAmount",
+        "Additional\nPaid-In\nCapital",
+        "Other\nComprehensive Loss",
+        "Retained\nEarnings",
+        "Total\nStockholders'\nEquity",
+        "Noncontrolling\nInterests in\nSubsidiaries",
+        "Total\nEquity"
+      ]
+    ],
+    "body_rows": [
+      [
+        "Balance as of March 31, 2024",
+        "$\n73",
+        "3,189",
+        "$\n3",
+        "$\n35,763",
+        "$\n(399)",
+        "$\n29,508",
+        "$\n64,875",
+        "$\n729",
+        "$\n65,604"
+      ],
+      [
+        "Issuance of common stock for\nequity incentive awards\nStock-based compensation",
+        "",
+        "5",
+        "",
+        "196\n484",
+        "",
+        "",
+        "196\n484",
+        "",
+        "196\n484"
+      ],
+      [
+        "Distributions to noncontrolling\ninterests",
+        "(2)\n13",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "(21)",
+        "(21)"
+      ],
+      [
+        "Net income",
+        "1",
+        "",
+        "",
+        "",
+        "",
+        "1,400",
+        "1,400",
+        "15",
+        "1,415"
+      ],
+      [
+        "Other comprehensive loss",
+        "-",
+        "",
+        "",
+        "",
+        "(68)",
+        "",
+        "(68)",
+        "",
+        "(68)"
+      ],
+      [
+        "Balance as of June 30, 2024",
+        "$\n72",
+        "3,194",
+        "$\n3",
+        "$\n36,443",
+        "$\n(467)",
+        "$\n30,908",
+        "$\n66,887",
+        "$\n723",
+        "$\n67,610"
+      ]
+    ],
+    "all_rows": [
+      [
+        "Three Months Ended June 30,\n2024",
+        "Redeemable\nNoncontrolling\nInterests",
+        "Common Shares",
+        "Stock\nAmount",
+        "Additional\nPaid-In\nCapital",
+        "Other\nComprehensive Loss",
+        "Retained\nEarnings",
+        "Total\nStockholders'\nEquity",
+        "Noncontrolling\nInterests in\nSubsidiaries",
+        "Total\nEquity"
+      ],
+      [
+        "Balance as of March 31, 2024",
+        "$\n73",
+        "3,189",
+        "$\n3",
+        "$\n35,763",
+        "$\n(399)",
+        "$\n29,508",
+        "$\n64,875",
+        "$\n729",
+        "$\n65,604"
+      ],
+      [
+        "Issuance of common stock for\nequity incentive awards\nStock-based compensation",
+        "",
+        "5",
+        "",
+        "196\n484",
+        "",
+        "",
+        "196\n484",
+        "",
+        "196\n484"
+      ],
+      [
+        "Distributions to noncontrolling\ninterests",
+        "(2)\n13",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "(21)",
+        "(21)"
+      ],
+      [
+        "Net income",
+        "1",
+        "",
+        "",
+        "",
+        "",
+        "1,400",
+        "1,400",
+        "15",
+        "1,415"
+      ],
+      [
+        "Other comprehensive loss",
+        "-",
+        "",
+        "",
+        "",
+        "(68)",
+        "",
+        "(68)",
+        "",
+        "(68)"
+      ],
+      [
+        "Balance as of June 30, 2024",
+        "$\n72",
+        "3,194",
+        "$\n3",
+        "$\n36,443",
+        "$\n(467)",
+        "$\n30,908",
+        "$\n66,887",
+        "$\n723",
+        "$\n67,610"
+      ]
+    ],
+    "row_count": 7,
+    "col_count": 10,
+    "layout": {
+      "element_type": "table",
+      "text": "",
+      "confidence": 0.9878174662590027,
+      "bounding_poly": {
+        "vertices": [
+          {
+            "x": 8,
+            "y": 301
+          },
+          {
+            "x": 1754,
+            "y": 301
+          },
+          {
+            "x": 1754,
+            "y": 746
+          },
+          {
+            "x": 8,
+            "y": 746
+          }
+        ]
+      },
+      "orientation": 1
+    }
+  }
+]

@@ -21,4 +21,4 @@ google-cloud-documentai>=2.18.0,<3.0.0
 google-cloud-storage>=2.10.0,<3.0.0
 google-auth>=2.20.0,<3.0.0
 google-api-python-client>=2.100.0,<3.0.0
-PyPDF2>=3.0.0,<4.0.0PyPDF2>=3.0.0,<4.0.0
+PyPDF2>=3.0.0,<4.0.0

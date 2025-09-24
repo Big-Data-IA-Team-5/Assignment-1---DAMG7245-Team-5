@@ -16,6 +16,7 @@ A production-ready pipeline to extract text, tables, layout, and metadata from P
 * [Environment Setup](#environment-setup)
 * [Project Structure](#project-structure)
 * [Pipeline Labs](#pipeline-labs)
+* [Lab 7: Google Document AI Integration](#lab-7-google-document-ai-integration)
 * [Usage Examples](#usage-examples)
 * [Output Structure](#output-structure)
 * [Troubleshooting](#troubleshooting)
@@ -108,6 +109,136 @@ Assignment-1---DAMG7245-Team-5/
 
 ---
 
+## Lab 7: Google Document AI Integration
+
+**🚀 Enhanced AI-Powered PDF Analysis**
+
+Lab 7 integrates Google's Document AI for advanced PDF processing and intelligent comparison with traditional parsing methods.
+
+### ✨ Features
+
+- **Smart Page Selection**: Choose specific pages or random sampling
+- **AI-Powered Extraction**: Advanced text, table, and layout detection
+- **Comparative Analysis**: Compare Google AI vs. traditional parsing results
+- **Comprehensive Reporting**: Detailed analysis with metrics and insights
+- **Organized Output**: Structured folder hierarchy for easy navigation
+
+### 🔧 Setup Requirements
+
+1. **Google Cloud Credentials**: Place your service account JSON in `credentials/google-credentials.json`
+2. **Processor Configuration**: Update `configs/google_ai_config.json` with your processor ID
+3. **Environment Variables** (optional but recommended):
+   ```bash
+   export GOOGLE_APPLICATION_CREDENTIALS="path/to/your/credentials.json"
+   ```
+
+### 📋 Usage Options
+
+**Option 1: Random Page Processing (Recommended)**
+```bash
+# Process 2 random pages - best for quick testing
+python3 google_ai/run_lab7.py --pdf data/raw/tesla.pdf --random 2
+
+# Process 3 random pages with reproducible seed
+python3 google_ai/run_lab7.py --pdf data/raw/tesla.pdf --random 3 --seed 42
+```
+
+**Option 2: Specific Page Processing**
+```bash
+# Process specific pages (e.g., pages 5 and 12)
+python3 google_ai/run_lab7.py --pdf data/raw/tesla.pdf --pages 5 12
+
+# Process single page
+python3 google_ai/run_lab7.py --pdf data/raw/tesla.pdf --pages 8
+```
+
+**Option 3: Direct Script Execution**
+```bash
+# Run from google_ai directory
+cd google_ai
+python3 lab7_google_ai_integration.py --pdf ../data/raw/tesla.pdf --random 2
+```
+
+### 📊 Output Structure
+
+Lab 7 creates organized output in `reports/google_ai/lab7_session_<timestamp>/`:
+
+```
+reports/google_ai/lab7_session_20250924_150404/
+├── temp_pdfs/                     # Extracted page PDFs
+│   └── tesla_pages_2_8.pdf
+├── raw_google_ai_results/         # Raw Google AI JSON responses
+│   └── tesla_pages_2_8_google_ai.json
+├── parsed_results/                # Structured extraction results
+│   ├── tesla_pages_2_8_google_text.txt
+│   ├── tesla_pages_2_8_google_p1_t0.csv    # Table data
+│   ├── tesla_pages_2_8_google_entities.json
+│   ├── tesla_pages_2_8_google_forms.json
+│   └── tesla_pages_2_8_google_summary.md
+├── parsed_data_comparison/        # Traditional vs AI comparison
+│   └── parsed_data_vs_google_ai_comparison.json
+└── final_reports/                 # Comprehensive analysis
+    └── lab7_comprehensive_report_20250924_150409.md
+```
+
+### 🎯 What Lab 7 Analyzes
+
+**Document Content Detection:**
+- **Text Extraction**: Full text with confidence scores
+- **Table Recognition**: Advanced table detection and structure analysis
+- **Named Entities**: Person names, organizations, dates, locations
+- **Form Fields**: Key-value pairs and structured data
+- **Layout Analysis**: Document structure and hierarchy
+
+**Comparison Metrics:**
+- **Text Similarity**: Character-level comparison with existing extractions
+- **Table Count**: Number of tables detected by different methods
+- **Processing Speed**: Performance benchmarks
+- **Accuracy Assessment**: Quality metrics and confidence scores
+
+### 📈 Sample Output
+
+When you run Lab 7, you'll see output like:
+```
+INFO: Randomly selected pages: [2, 8] (1-indexed)
+INFO: Google AI processing completed
+INFO: Found:
+  - Pages: 2
+  - Tables: 4 
+  - Entities: 2
+  - Form Fields: 6
+INFO: Workflow completed successfully!
+Report: reports/google_ai/lab7_session_20250924_150404/final_reports/lab7_comprehensive_report_20250924_150409.md
+```
+
+### ⚠️ Important Notes
+
+- **Page Limits**: Google Document AI has a 15-page limit for non-imageless mode
+- **Random Pages**: The `--random` option selects different pages each time (use `--seed` for reproducibility)
+- **Processing Time**: Typically 3-5 seconds for 2 pages
+- **Credentials**: Ensure your Google Cloud credentials are properly configured
+
+### 🔍 Recent Example Run
+
+**Command Used:**
+```bash
+python3 google_ai/run_lab7.py --pdf data/raw/tesla.pdf --random 2
+```
+
+**Pages Selected:** Pages 2 and 8 (randomly selected from 39 total pages)
+
+**Results Found:**
+- ✅ 2 pages processed successfully
+- ✅ 4 tables detected and extracted to CSV files
+- ✅ 2 named entities identified
+- ✅ 6 form fields extracted
+- ✅ Complete comparative analysis with existing parsed data
+- ⚡ Total processing time: ~4.7 seconds
+
+**Generated Report:** `reports/google_ai/lab7_session_20250924_150643/final_reports/lab7_comprehensive_report_20250924_150648.md`
+
+---
+
 ## Usage Examples
 
 **Run full pipeline:**
@@ -127,10 +258,17 @@ python3 src/metadata/extract_metadata.py --in data/raw/your_file.pdf --out data/
 python3 src/formats/convert_formats.py --in data/parsed/metadata/doc.jsonl --out data/parsed/
 ```
 
-**Optional Lab 7 (Google AI):**
+**Lab 7 (Google Document AI Integration):**
 
 ```bash
-python3 src/google_ai/run_lab7.py --pdf data/raw/tesla.pdf --pages 5 12
+# 🎯 RECOMMENDED: Process 2 random pages for quick AI analysis
+python3 google_ai/run_lab7.py --pdf data/raw/tesla.pdf --random 2
+
+# Process specific pages if you need particular sections
+python3 google_ai/run_lab7.py --pdf data/raw/tesla.pdf --pages 5 12
+
+# Use seed for reproducible random selection
+python3 google_ai/run_lab7.py --pdf data/raw/tesla.pdf --random 3 --seed 42
 ```
 
 ---

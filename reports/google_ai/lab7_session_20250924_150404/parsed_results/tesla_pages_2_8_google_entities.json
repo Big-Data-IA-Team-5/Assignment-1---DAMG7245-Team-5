@@ -1,0 +1,28 @@
+[
+  {
+    "type": "generic_entities",
+    "mention_text": "",
+    "normalized_value": null,
+    "confidence": 0.0,
+    "page_references": [
+      {
+        "page": 0,
+        "layout_type": 0,
+        "layout_id": ""
+      }
+    ]
+  },
+  {
+    "type": "generic_entities",
+    "mention_text": "",
+    "normalized_value": null,
+    "confidence": 0.0,
+    "page_references": [
+      {
+        "page": 1,
+        "layout_type": 0,
+        "layout_id": ""
+      }
+    ]
+  }
+]
