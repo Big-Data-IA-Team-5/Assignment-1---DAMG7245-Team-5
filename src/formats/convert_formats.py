@@ -11,14 +11,26 @@ import logging
 from datetime import datetime
 from pathlib import Path
 
-# Set up logging
+# Set ### JSON Format
+- **### Plain Text Format
+- **File Size**: {file_sizes.get('text', 0):.1f} KB
+- **Structure Preservation**: Structure lost
+- **Human Readability**: Good (simple)
+- **LLM Compatibility**: Limited (no structure context)Size**: {file_sizes.get('json', 0):.1f} KB  
+- **Structure Preservation**: Perfect (all metadata preserved)
+- **Human Readability**: Moderate (requires tools)
+- **LLM Compatibility**: Good with proper parsinggging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 
 def convert_metadata_to_formats(jsonl_path, output_dir):
     """
-    Convert JSONL metadata to three different storage formats:
+    Convert JSONL metadata to three different storage     if result and any(result.values()):
+        logger.info("Lab 6 completed successfully")
+        return True
+    else:
+        logger.error("Lab 6 failed")ts:
     - Markdown: Human-readable with structure preservation (best for RAG)
     - JSON: Machine-readable structured data (best for programmatic access)
     - TXT: Plain text baseline (structure lost, universal compatibility)
@@ -98,13 +110,13 @@ def convert_metadata_to_formats(jsonl_path, output_dir):
     with open(summary_path, "w", encoding="utf-8") as f:
         json.dump(summary, f, indent=2, ensure_ascii=False)
 
-    print(f"\n✅ Format conversion completed for {doc_id}")
+    print(f"\nFormat conversion completed for {doc_id}")
     print(f"Total records processed: {len(records)}")
     print(f"Formats created:")
     for format_name, file_path in results.items():
         if file_path and file_path.exists():
             size_kb = file_path.stat().st_size / 1024
-            print(f"  📄 {format_name.upper()}: {file_path.name} ({size_kb:.1f} KB)")
+            print(f"  {format_name.upper()}: {file_path.name} ({size_kb:.1f} KB)")
 
     return results
 
@@ -308,11 +320,11 @@ This analysis compares three storage formats for the extracted document content:
 
 ## Format Comparison
 
-### 📄 Markdown Format
+### Markdown Format
 - **File Size**: {file_sizes.get('markdown', 0):.1f} KB
-- **Structure Preservation**: ✅ Excellent
-- **Human Readability**: ✅ Excellent  
-- **LLM Compatibility**: ✅ Excellent for RAG
+- **Structure Preservation**: Excellent
+- **Human Readability**: Excellent  
+- **LLM Compatibility**: Excellent for RAG
 - **Use Case**: **RECOMMENDED** for retrieval-augmented generation (RAG) pipelines
 - **Pros**: 
   - Preserves semantic structure (headings, sections, tables)

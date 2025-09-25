@@ -461,18 +461,37 @@ def main() -> int:
     args = parse_args()
     setup_logging(args.verbose)
 
-    pdf_path = Path(args.input_pdf)
+    input_path = Path(args.input_pdf)
     output_dir = Path(args.output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
 
-    if not pdf_path.exists():
-        LOG.error("PDF not found: %s", pdf_path)
+    if not input_path.exists():
+        LOG.error("Input path not found: %s", input_path)
         return 1
 
+    # Handle both file and directory input
+    if input_path.is_file() and input_path.suffix.lower() == '.pdf':
+        pdf_files = [input_path]
+    elif input_path.is_dir():
+        pdf_files = list(input_path.glob('*.pdf'))
+        if not pdf_files:
+            LOG.error("No PDF files found in directory: %s", input_path)
+            return 1
+    else:
+        LOG.error("Input must be a PDF file or directory containing PDFs: %s", input_path)
+        return 1
+
+    LOG.info("Found %d PDF file(s) to process", len(pdf_files))
+    
     try:
-        result = extract_tables_assignment_hybrid(pdf_path, output_dir, use_hybrid=args.hybrid)
-        LOG.info("Table extraction completed.")
-        LOG.info("Result: %s", json.dumps(result, indent=2))
+        all_results = {}
+        for pdf_path in pdf_files:
+            LOG.info("Processing PDF: %s", pdf_path.name)
+            result = extract_tables_assignment_hybrid(pdf_path, output_dir, use_hybrid=args.hybrid)
+            all_results[pdf_path.name] = result
+            
+        LOG.info("Table extraction completed for all files.")
+        LOG.info("Results: %s", json.dumps(all_results, indent=2))
         return 0
     except Exception as e:
         LOG.exception("Table extraction failed: %s", e)

@@ -405,11 +405,11 @@ def process_lab4_results(doc_id, company, fiscal_year, pdf_path, unified_base):
 
 
 # CONFIGURATION TO RUN
-if __name__ == "__main__":
+def main():
     parser = argparse.ArgumentParser(
         description="Lab 5: Extract comprehensive metadata from all lab outputs"
     )
-    parser.add_argument("--in", dest="input_path", required=True, help="Input PDF file")
+    parser.add_argument("--in", dest="input_path", required=True, help="Input PDF file or directory")
     parser.add_argument(
         "--out", dest="output_dir", required=True, help="Unified output directory"
     )
@@ -421,11 +421,34 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
-    extract_metadata(
-        pdf_path=args.input_path,
-        doc_id=args.doc_id,
-        company=args.company,
-        fiscal_year=args.fiscal_year,
-        output_dir=args.output_dir,
-        unified_dir=args.output_dir,
-    )
+    input_path = Path(args.input_path)
+    
+    # Handle both file and directory input
+    if input_path.is_file() and input_path.suffix.lower() == '.pdf':
+        pdf_files = [input_path]
+    elif input_path.is_dir():
+        pdf_files = list(input_path.glob('*.pdf'))
+        if not pdf_files:
+            print(f"No PDF files found in directory: {input_path}")
+            exit(1)
+    else:
+        print(f"Input must be a PDF file or directory containing PDFs: {input_path}")
+        exit(1)
+
+    # Process each PDF file
+    for i, pdf_path in enumerate(pdf_files):
+        doc_id = f"{args.doc_id}_{i+1}" if len(pdf_files) > 1 else args.doc_id
+        print(f"Processing {pdf_path.name} (doc_id: {doc_id})")
+        
+        extract_metadata(
+            pdf_path=pdf_path,
+            doc_id=doc_id,
+            company=args.company,
+            fiscal_year=args.fiscal_year,
+            output_dir=args.output_dir,
+            unified_dir=args.output_dir,
+        )
+
+
+if __name__ == "__main__":
+    main()

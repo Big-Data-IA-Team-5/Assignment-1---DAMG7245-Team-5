@@ -2,18 +2,27 @@ import argparse
 import json
 from pathlib import Path
 
-import layoutparser as lp
 import pandas as pd
 import pdfplumber
+
+# Optional layoutparser import
+try:
+    import layoutparser as lp
+    LAYOUTPARSER_AVAILABLE = True
+except ImportError:
+    lp = None
+    LAYOUTPARSER_AVAILABLE = False
 
 
 def load_simple_layout_model():
     """
     Load layout model - fallback to manual analysis if Detectron2 not available
     """
+    if not LAYOUTPARSER_AVAILABLE:
+        print("layoutparser not available, using manual layout detection")
+        return None
+        
     try:
-        import layoutparser as lp
-
         if lp.is_detectron2_available():
             # Try to use Detectron2 model if available
             model = lp.AutoLayoutModel(

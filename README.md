@@ -1,7 +1,7 @@
 
 ---
 
-# 📄 Smart PDF Processing Pipeline with Dynamic DVC
+# Smart PDF Processing Pipeline with Dynamic DVC
 
 **Team 5 – DAMG7245, Fall 2025**
 
@@ -9,25 +9,25 @@ A **production-ready, self-configuring** pipeline that extracts **text, tables, 
 
 ---
 
-## 🧭 Table of Contents
+## Table of Contents
 
-* [🚀 One-Command Setup](#-one-command-setup)
-* [🔧 System Requirements](#-system-requirements)
-* [⚡ Quick Start](#-quick-start)
-* [🛠️ Advanced Setup](#️-advanced-setup)
-* [📊 DVC Pipeline Usage](#-dvc-pipeline-usage)
-* [🏗️ Project Structure](#️-project-structure)
-* [🔬 Pipeline Labs](#-pipeline-labs)
-* [🤖 Lab 7: Google Document AI (Optional)](#-lab-7-google-document-ai-optional)
-* [📤 Output Structure](#-output-structure)
-* [🧩 Troubleshooting](#-troubleshooting)
-* [⚡ Performance](#-performance)
-* [👥 Team](#-team)
-* [📝 License](#-license)
+* [One-Command Setup](#one-command-setup)
+* [System Requirements](#system-requirements)
+* [Quick Start](#quick-start)
+* [Advanced Setup](#advanced-setup)
+* [DVC Pipeline Usage](#dvc-pipeline-usage)
+* [Project Structure](#project-structure)
+* [Pipeline Labs](#pipeline-labs)
+* [Lab 7: Google Document AI (Optional)](#lab-7-google-document-ai-optional)
+* [Output Structure](#output-structure)
+* [Troubleshooting](#troubleshooting)
+* [Performance](#performance)
+* [Team](#team)
+* [License](#license)
 
 ---
 
-## 🚀 One-Command Setup
+## One-Command Setup
 
 Works with **any Python 3.7+** (auto-adapts to 3.7–3.12):
 
@@ -45,14 +45,14 @@ dvc repro
 
 **What the smart setup does**
 
-* ✅ Detects Python version and OS
-* ✅ Creates virtual env and pins compatible dependencies
-* ✅ Initializes DVC (if needed)
-* ✅ Generates activation scripts for your OS
+* Detects Python version and OS
+* Creates virtual env and pins compatible dependencies
+* Initializes DVC (if needed)
+* Generates activation scripts for your OS
 
 ---
 
-## 🔧 System Requirements
+## System Requirements
 
 * **Python**: 3.7+ (3.10–3.12 recommended)
 * **RAM**: 4 GB minimum (8 GB+ for long PDFs)
@@ -72,7 +72,7 @@ dvc repro
 
 ---
 
-## ⚡ Quick Start
+## Quick Start
 
 ### Option A — Smart (Recommended)
 
@@ -106,7 +106,7 @@ python3 setup/verify_setup.py
 
 ---
 
-## 🛠️ Advanced Setup
+## Advanced Setup
 
 **Dynamic requirements (auto-selects versions by Python runtime)**
 
@@ -124,11 +124,11 @@ pip install -r setup/requirements.txt
 
 ---
 
-## 📊 DVC Pipeline Usage
+## DVC Pipeline Usage
 
 **Why DVC?** Reproducible ML workflows, intelligent caching, data lineage tracking, and seamless collaboration across teams.
 
-### 🔄 **Complete DVC Pipeline Architecture**
+### Complete DVC Pipeline Architecture
 
 ```mermaid
 graph TD
@@ -150,15 +150,15 @@ graph TD
     F --> G[data/intermediate/formats/]
 ```
 
-### 🎯 **DVC Pipeline Features**
+### DVC Pipeline Features
 
-#### ✅ **Reproducible Machine Learning Pipeline**
+#### Reproducible Machine Learning Pipeline
 - **Sequential Dependencies**: Each stage depends on previous outputs
 - **Intelligent Caching**: DVC only reruns changed stages
 - **Data Lineage**: Complete tracking from raw PDFs to final outputs
 - **Version Control**: Full pipeline state preserved in `dvc.lock`
 
-#### 📊 **Pipeline Stages Overview**
+#### Pipeline Stages Overview
 
 | Stage | Input | Output | Description |
 |-------|-------|--------|-------------|
@@ -168,7 +168,7 @@ graph TD
 | `docling` | `raw/ + text/ + tables/ + layout/` | `data/intermediate/docling/` | Advanced PDF AI analysis |
 | `export` | All previous stages | `data/intermediate/metadata/` + `formats/` | Metadata tagging + multi-format conversion |
 
-### 🚀 **DVC Pipeline Commands**
+### DVC Pipeline Commands
 
 #### **Basic Pipeline Operations**
 ```bash
@@ -207,7 +207,7 @@ git log --oneline dvc.lock          # See pipeline evolution history
 dvc repro --force                    # Force rerun all stages
 ```
 
-### 🔍 **Pipeline Output Analysis**
+### Pipeline Output Analysis
 
 #### **Processing Results (Latest Run)**
 - **Parse Stage**: 39 pages processed, 0 pages required OCR
@@ -229,7 +229,7 @@ data/intermediate/
 
 ---
 
-## 🏗️ Enhanced Project Structure
+## Enhanced Project Structure
 
 ```
 Assignment-1---DAMG7245-Team-5/
@@ -301,7 +301,7 @@ Assignment-1---DAMG7245-Team-5/
 
 ---
 
-## 🔬 Pipeline Labs
+## Pipeline Labs
 
 | Lab       | Purpose                                 | Outputs                    | Status     |
 | --------- | --------------------------------------- | -------------------------- | ---------- |
@@ -329,7 +329,7 @@ python3 src/formats/convert_formats.py --in data/parsed/<doc>/metadata/<doc>.jso
 
 ---
 
-## 🤖 Lab 7: Google Document AI (Optional)
+## Lab 7: Google Document AI (Optional)
 
 **What it adds**
 
@@ -360,7 +360,7 @@ python3 google_ai/run_lab7.py --pdf data/raw/tesla.pdf --pages 5 12
 
 ---
 
-## 📤 Output Structure
+## Output Structure
 
 ### Main pipeline
 
@@ -393,7 +393,7 @@ reports/google_ai/lab7_session_<timestamp>/
 
 ---
 
-## 🧩 Troubleshooting
+## Troubleshooting
 
 ### Environment
 
@@ -451,7 +451,7 @@ dvc repro --verbose
 
 ---
 
-## ⚡ Performance (Typical)
+## Performance (Typical)
 
 * **100-page PDF**: ~4–6 minutes, ~4 GB RAM
 * **Lab 7** (2 pages): ~3–5 seconds, ~2 GB RAM
@@ -459,7 +459,7 @@ dvc repro --verbose
 
 ---
 
-## 👥 Team
+## Team
 
 **Team 5 – DAMG7245 (Fall 2025)**
 Big Data Analytics Project – SEC Filing Processing Pipeline
