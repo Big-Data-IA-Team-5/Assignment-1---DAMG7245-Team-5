@@ -49,3 +49,80 @@ stages:
       md5: 2d169efaf90278a16774192e612b0e45.dir
       size: 2342797
       nfiles: 14
+  parse:
+    cmd: .venv/bin/python src/text/extract_text.py --in data/raw/tesla.pdf --out
+      data/intermediate/
+    deps:
+    - path: data/raw/
+      hash: md5
+      md5: 82438b2a98e83e24cfae525c00989264.dir
+      size: 401903
+      nfiles: 4
+    - path: src/text/extract_text.py
+      hash: md5
+      md5: 266239dee30f61ce1cb3413606b466e4
+      size: 11573
+    outs:
+    - path: data/intermediate/text/
+      hash: md5
+      md5: f9254a094967851a7f53b14148b35fa9.dir
+      size: 6385539
+      nfiles: 81
+  tables:
+    cmd: .venv/bin/python src/tables/extract_tables.py --in data/raw/tesla.pdf 
+      --out data/intermediate/ --hybrid
+    deps:
+    - path: data/intermediate/text/
+      hash: md5
+      md5: f9254a094967851a7f53b14148b35fa9.dir
+      size: 6385539
+      nfiles: 81
+    - path: data/raw/
+      hash: md5
+      md5: 82438b2a98e83e24cfae525c00989264.dir
+      size: 401903
+      nfiles: 4
+    - path: src/tables/
+      hash: md5
+      md5: 7623e615ac36d1d7e31ae5418f62837d.dir
+      size: 154806
+      nfiles: 10
+    - path: src/tables/extract_tables.py
+      hash: md5
+      md5: a6635066ae867b505160da9006f29c40
+      size: 17958
+    outs:
+    - path: data/intermediate/tables/
+      hash: md5
+      md5: 05410dbc31dd77fc872fb2b9623bb4af.dir
+      size: 119662
+      nfiles: 89
+  layout:
+    cmd: .venv/bin/python src/layout/extract_layout.py --in data/raw/tesla.pdf 
+      --out data/intermediate/
+    deps:
+    - path: data/intermediate/tables/
+      hash: md5
+      md5: 05410dbc31dd77fc872fb2b9623bb4af.dir
+      size: 119662
+      nfiles: 89
+    - path: data/intermediate/text/
+      hash: md5
+      md5: f9254a094967851a7f53b14148b35fa9.dir
+      size: 6385539
+      nfiles: 81
+    - path: data/raw/
+      hash: md5
+      md5: 82438b2a98e83e24cfae525c00989264.dir
+      size: 401903
+      nfiles: 4
+    - path: src/layout/extract_layout.py
+      hash: md5
+      md5: 84636eab1e80184e81f92b78948a8fe2
+      size: 11215
+    outs:
+    - path: data/intermediate/layout/
+      hash: md5
+      md5: 43d1b599223ec6ee10c82e41c8c369ef.dir
+      size: 2198591
+      nfiles: 41

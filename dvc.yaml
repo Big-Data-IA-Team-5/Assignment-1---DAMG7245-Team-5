@@ -1,20 +1,60 @@
 stages:
-  full_pipeline:
-    cmd: python3 run_complete_pipeline.py --out data/parsed --hybrid-tables
+  parse:
+    cmd: .venv/bin/python src/text/extract_text.py --in data/raw/tesla.pdf --out data/intermediate/
     deps:
-    - run_complete_pipeline.py
-    - src/
+    - src/text/extract_text.py
     - data/raw/
     outs:
-    - data/parsed/
-    desc: Complete LANTERN pipeline processing (Labs 1-6)
-  lab7_processing:
-    cmd: python3 google_ai/run_lab7.py --pdf data/raw/tesla.pdf --pages 5 12
+    - data/intermediate/text/
+    desc: Parse PDF text extraction with OCR fallback
+
+  tables:
+    cmd: .venv/bin/python src/tables/extract_tables.py --in data/raw/tesla.pdf --out data/intermediate/ --hybrid
     deps:
-    - google_ai/run_lab7.py
-    - google_ai/lab7_google_ai_integration.py
-    - google_ai/
-    - data/raw/tesla.pdf
+    - src/tables/extract_tables.py
+    - src/tables/
+    - data/raw/
+    - data/intermediate/text/
     outs:
-    - reports/google_ai/
-    desc: Lab 7 Google Document AI processing (pages mode)
+    - data/intermediate/tables/
+    desc: Extract tables using hybrid Camelot + pdfplumber approach
+
+  layout:
+    cmd: .venv/bin/python src/layout/extract_layout.py --in data/raw/tesla.pdf --out data/intermediate/
+    deps:
+    - src/layout/extract_layout.py
+    - data/raw/
+    - data/intermediate/text/
+    - data/intermediate/tables/
+    outs:
+    - data/intermediate/layout/
+    desc: Detect and analyze document layout structure
+
+  docling:
+    cmd: .venv/bin/python src/docling/extract_docling.py --in data/raw/tesla.pdf --out data/intermediate/
+    deps:
+    - src/docling/extract_docling.py
+    - data/raw/
+    - data/intermediate/text/
+    - data/intermediate/tables/
+    - data/intermediate/layout/
+    outs:
+    - data/intermediate/docling/
+    desc: Advanced document analysis with Docling
+
+  export:
+    cmd: >
+      .venv/bin/python src/metadata/extract_metadata.py --in data/raw/ --out data/intermediate/ --unified-dir data/intermediate/ &&
+      .venv/bin/python src/formats/convert_formats.py --in data/intermediate/metadata/ --out data/intermediate/
+    deps:
+    - src/metadata/extract_metadata.py
+    - src/formats/convert_formats.py
+    - data/raw/
+    - data/intermediate/text/
+    - data/intermediate/tables/
+    - data/intermediate/layout/
+    - data/intermediate/docling/
+    outs:
+    - data/intermediate/metadata/
+    - data/intermediate/formats/
+    desc: Export metadata and convert to multiple formats (JSON, Markdown, TXT)
