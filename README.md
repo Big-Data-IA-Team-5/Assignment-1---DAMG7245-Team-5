@@ -171,48 +171,7 @@ python3 google_ai/run_lab7.py --pdf data/raw/tesla.pdf --pages 5 12
 
 ---
 
-## Architecture Diagram
 
-```python
-from diagrams import Diagram, Cluster
-from diagrams.onprem.client import User
-from diagrams.onprem.compute import Server
-from diagrams.onprem.database import Postgresql, Elasticsearch
-from diagrams.custom import Custom
-
-with Diagram("Project LANTERN Architecture", filename="lantern_architecture", show=True, outformat="svg", direction="LR"):
-
-    user = User("Browser / Mobile")
-
-    with Cluster("Pipeline Orchestrator / Labs"):
-        ingestion = Server("PDF Ingestion")
-        lab1 = Custom("Text Extraction\n(pdfplumber)", "./icons/pdfplumber.svg")
-        lab2 = Custom("Table Extraction\n(Camelot)", "./icons/camelot.svg")
-        lab3 = Server("Layout Analysis\n(LayoutParser)")
-        lab4 = Custom("Docling AI", "./icons/docling.svg")
-        lab5_6 = Server("Metadata & Format Conversion")
-        lab7 = Custom("Google Document AI", "./icons/google_ai.svg")
-        lab11 = Custom("XBRL Verification\n(Arelle/Python)", "./icons/xbrl.svg")
-
-        ingestion >> lab1 >> lab2 >> lab3 >> lab4 >> lab5_6
-        lab5_6 >> lab11
-        lab1 >> lab7
-        lab2 >> lab7
-        lab3 >> lab7
-        lab7 >> lab5_6
-
-    db_metadata = Postgresql("Metadata DB")
-    db_search = Elasticsearch("Search / Index")
-    lab5_6 >> db_metadata
-    lab5_6 >> db_search
-    lab7 >> db_metadata
-    lab11 >> db_metadata
-    user >> ingestion
-```
-
-* Generates a professional **SVG diagram** with custom icons for PDFPlumber, Camelot, Docling, Google AI, and XBRL.
-
----
 
 ## Output Structure
 
