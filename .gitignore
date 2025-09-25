@@ -1,0 +1,343 @@
+# =============================================================================# =============================================================================
+
+# TEAM COLLABORATION - PRIVATE REPOSITORY# TEAM COLLABORATION - PRIVATE REPOSITORY
+
+# =============================================================================# =============================================================================
+
+# Note: This repository should be PRIVATE for team collaboration# Note: This repository should be PRIVATE for team collaboration
+
+# Team members can access all files including credentials and configurations# Team members can access all files including credentials and configurations
+
+# Only temporary/generated files are excluded from version control# Only temporary/generated files are excluded from version control
+
+
+
+# =============================================================================# =============================================================================
+
+# DVC AND DATA MANAGEMENT# DVC AND DATA MANAGEMENT
+
+# =============================================================================# =============================================================================
+
+# DVC-managed pipeline outputs# DVC-managed pipeline outputs
+
+/data/parsed//data/parsed/
+
+/reports/google_ai//reports/google_ai/
+
+/data/raw//data/raw/
+
+!/data/raw/.gitkeep!/data/raw/.gitkeep
+
+/data/intermediate//data/intermediate/
+
+/versioned_outputs//versioned_outputs/
+
+/metrics//metrics/
+
+
+
+# DVC cache and temporary files# DVC cache and temporary files
+
+.dvc/cache/.dvc/cache/
+
+.dvc/tmp/.dvc/tmp/
+
+.dvc/plots/.dvc/plots/
+
+
+
+# =============================================================================# =============================================================================
+
+# PYTHON# PYTHON
+
+# =============================================================================# =============================================================================
+
+__pycache__/__pycache__/
+
+*.py[cod]*.py[cod]
+
+*$py.class*$py.class
+
+*.so*.so
+
+.Python.Python
+
+build/build/
+
+develop-eggs/develop-eggs/
+
+dist/dist/
+
+downloads/downloads/
+
+eggs/eggs/
+
+.eggs/.eggs/
+
+lib/lib/
+
+lib64/lib64/
+
+parts/parts/
+
+sdist/sdist/
+
+var/var/
+
+wheels/wheels/
+
+pip-wheel-metadata/pip-wheel-metadata/
+
+share/python-wheels/share/python-wheels/
+
+*.egg-info/*.egg-info/
+
+.installed.cfg.installed.cfg
+
+*.egg*.egg
+
+MANIFESTMANIFEST
+
+
+
+# PyInstaller# PyInstaller
+
+*.manifest*.manifest
+
+*.spec*.spec
+
+
+
+# Unit test / coverage reports# Unit test / coverage reports
+
+htmlcov/htmlcov/
+
+.tox/.tox/
+
+.nox/.nox/
+
+.coverage.coverage
+
+.coverage.*.coverage.*
+
+.cache.cache
+
+nosetests.xmlnosetests.xml
+
+coverage.xmlcoverage.xml
+
+*.cover*.cover
+
+*.py,cover*.py,cover
+
+.hypothesis/.hypothesis/
+
+.pytest_cache/.pytest_cache/
+
+
+
+# Jupyter Notebook checkpoints# Jupyter Notebook checkpoints
+
+.ipynb_checkpoints/.ipynb_checkpoints/
+
+*/.ipynb_checkpoints/*/.ipynb_checkpoints/
+
+
+
+# =============================================================================# =============================================================================
+
+# VIRTUAL ENVIRONMENTS# VIRTUAL ENVIRONMENTS
+
+# =============================================================================# =============================================================================
+
+.env.env
+
+.env.local.env.local
+
+.env.personal.env.personal
+
+.venv.venv
+
+env/env/
+
+venv/venv/
+
+ENV/ENV/
+
+env.bak/env.bak/
+
+venv.bak/venv.bak/
+
+.conda/.conda/
+
+conda-meta/conda-meta/
+
+
+
+# =============================================================================# =============================================================================
+
+# IDE AND EDITORS# IDE AND EDITORS
+
+# =============================================================================# =============================================================================
+
+.vscode/.vscode/
+
+.idea/.idea/
+
+*.swp*.swp
+
+*.swo*.swo
+
+*~*~
+
+.project.project
+
+.classpath.classpath
+
+.settings/.settings/
+
+*.sublime-project*.sublime-project
+
+*.sublime-workspace*.sublime-workspace
+
+
+
+# =============================================================================# =============================================================================
+
+# OPERATING SYSTEM# OPERATING SYSTEM
+
+# =============================================================================# =============================================================================
+
+# macOS# macOS
+
+.DS_Store.DS_Store
+
+.DS_Store?.DS_Store?
+
+._*._*
+
+.Spotlight-V100.Spotlight-V100
+
+.Trashes.Trashes
+
+.AppleDouble.AppleDouble
+
+.LSOverride.LSOverride
+
+
+
+# Windows# Windows
+
+ehthumbs.dbehthumbs.db
+
+Thumbs.dbThumbs.db
+
+Desktop.iniDesktop.ini
+
+
+
+# Linux# Linux
+
+*~*~
+
+.directory.directory
+
+
+
+# =============================================================================# =============================================================================
+
+# LOGS AND TEMPORARY FILES# LOGS AND TEMPORARY FILES
+
+# =============================================================================# =============================================================================
+
+# Personal log files (keep shared logs, ignore personal ones)# Personal log files (keep shared logs, ignore personal ones)
+
+*_personal.log*_personal.log
+
+*_local.log*_local.log
+
+debug_*.logdebug_*.log
+
+
+
+# Temporary files# Temporary files
+
+*.tmp*.tmp
+
+*.temp*.temp
+
+temp/<<<<<<< HEAD
+
+tmp/temp/
+
+*.baktmp/
+
+*.backup*.bak
+
+*.backup
+
+# =============================================================================
+
+# APPLICATION SPECIFIC# =============================================================================
+
+# =============================================================================# APPLICATION SPECIFIC
+
+# Cache directories# =============================================================================
+
+.cache/# Cache directories
+
+cache/.cache/
+
+*.cachecache/
+
+*.cache
+
+# Backup credential files
+
+credentials/*-backup*# Large data files that shouldn't be in version control
+
+credentials/*-copy*# (Keep small sample files, exclude large datasets)
+
+credentials/*-temp*/data/raw/*.pdf
+
+/data/raw/temp_pdfs/
+
+# Large data files that shouldn't be in version control/data/raw/large_datasets/
+
+/data/raw/*.pdf
+
+/data/raw/temp_pdfs/# Personal copies of XBRL files
+
+/data/raw/large_datasets//data/raw/xbrl/*_personal*
+
+/data/raw/xbrl/*_backup*
+
+# Personal copies of XBRL files
+
+/data/raw/xbrl/*_personal*# Model files and large binaries
+
+/data/raw/xbrl/*_backup**.pkl
+*.pickle
+*.joblib
+*.h5
+*.hdf5
+*.onnx
+*.pb
+
+# =============================================================================
+# DEVELOPMENT AND TESTING
+# =============================================================================
+# Test outputs
+test-results/
+test-output/
+.coverage
+coverage/
+
+# Benchmark results
+benchmark/
+benchmarks/
+=======
+
+# Cache
+.cache/
+>>>>>>> d9891ed843341984be4f8eabd556979f3733eebc
