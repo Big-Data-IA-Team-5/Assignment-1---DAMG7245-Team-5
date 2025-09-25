@@ -1,6 +1,7 @@
 
-````markdown
-# 🎯 Project LANTERN - Smart PDF Processing with XBRL Cross-Verification
+---
+
+# Project LANTERN – Smart PDF & XBRL Processing Pipeline (Enhanced Visuals)
 
 **Team 5 – DAMG7245, Fall 2025**
 
@@ -10,52 +11,16 @@
 
 ---
 
-## 🆕 XBRL Cross-Verification System
-
-### Features Implemented
-- **XBRL Parsing** using Simple XML parser + Arelle fallback
-- **Financial Data Extraction** (Revenue, Net Income, Total Assets)
-- **PDF-XBRL Alignment** via mapping dictionary
-- **Cross-Verification**: Validate CSV tables against XBRL
-- **Discrepancy Reporting**: Identify root causes (OCR / parsing / tagging)
-- **Automated Mapping** using NLP similarity and taxonomy lookup
-- **Interactive Notebook**: Demonstration of XBRL extraction and comparison
-- **Match/Mismatch Analysis**: Summary with potential causes and fixes
-
-### Quick Demo
-```python
-from src.xbrl.simple_xbrl_parser import SimpleXBRLParser
-
-parser = SimpleXBRLParser()
-xbrl_data = parser.parse_xbrl_file('data/raw/xbrl/tsla-20250630.xml')
-
-revenue_data = xbrl_data[xbrl_data['concept'].str.contains('Revenue', case=False)]
-print(f"✅ Extracted {len(xbrl_data)} facts, {len(revenue_data)} revenue concepts")
-
-# Cross-verify with PDF tables
-python3 src/xbrl/lab11_xbrl.py --tables data/intermediate/tables --xbrl data/raw/xbrl
-````
-
-### Tesla XBRL Validation Results
-
-* **389 XBRL Facts** parsed successfully
-* **52 Revenue Concepts** identified and matched
-* **36 Potential Matches** between PDF and XBRL
-* **95% Validation Accuracy**
-* **2 Exact Matches** with 100% precision
-
----
-
 ## Table of Contents
 
-* [One-Command Setup](#one-command-setup)
+* [Overview](#overview)
 * [System Requirements](#system-requirements)
-* [Quick Start](#quick-start)
-* [Advanced Setup](#advanced-setup)
-* [DVC Pipeline Usage](#dvc-pipeline-usage)
-* [Project Structure](#project-structure)
+* [Setup & Quick Start](#setup--quick-start)
 * [Pipeline Labs](#pipeline-labs)
-* [Lab 7: Google Document AI (Optional)](#lab-7-google-document-ai-optional)
+* [DVC Pipeline](#dvc-pipeline)
+* [XBRL Cross-Verification](#xbrl-cross-verification)
+* [Optional Google Document AI Integration](#optional-google-document-ai-integration)
+* [Architecture Diagram](#architecture-diagram)
 * [Output Structure](#output-structure)
 * [Troubleshooting](#troubleshooting)
 * [Performance](#performance)
@@ -64,67 +29,38 @@ python3 src/xbrl/lab11_xbrl.py --tables data/intermediate/tables --xbrl data/raw
 
 ---
 
-## One-Command Setup
+## Overview
 
-```bash
-git clone https://github.com/Big-Data-IA-Team-5/Assignment-1---DAMG7245-Team-5.git
-cd Assignment-1---DAMG7245-Team-5
+Project LANTERN processes **PDF filings** and **XBRL data** to extract and validate:
 
-python3 setup/smart_setup.py
-source activate.sh            # Windows: activate.bat
-dvc repro
-```
-
-Smart setup:
-
-* Detects Python version & OS
-* Creates virtual environment
-* Initializes DVC (if needed)
-* Generates OS-specific activation scripts
+* Text, tables, layout, metadata
+* AI-enhanced PDF understanding (Docling)
+* Optional Google Document AI extraction
+* XBRL cross-verification for key financial metrics
 
 ---
 
 ## System Requirements
 
-* Python 3.7+ (3.10–3.12 recommended)
-* RAM: 4 GB minimum (8 GB+ for large PDFs)
-* Disk: 2 GB free
-* OS: Windows / macOS / Linux
-
-Optional:
-
-* Tesseract OCR (auto-detected if installed)
-* Java (for some Camelot backends)
-* Google Document AI credentials for Lab 7
-
-System packages:
-
-* macOS: `brew install tesseract && xcode-select --install`
-* Ubuntu/Debian: `sudo apt-get install -y tesseract-ocr libtesseract-dev build-essential`
-* Windows: Install [Tesseract OCR (UB Mannheim build)](https://github.com/UB-Mannheim/tesseract/wiki) and add to PATH
+* **Python:** 3.7+ (3.10–3.12 recommended)
+* **RAM:** 4 GB minimum (8 GB+ for large PDFs)
+* **Disk Space:** 2 GB free
+* **OS:** Windows, macOS, Linux
+* **Optional:** Tesseract OCR, Java, Google AI credentials
 
 ---
 
-## Quick Start
-
-### Smart Setup (Recommended)
+## Setup & Quick Start
 
 ```bash
-python3 setup/smart_setup.py                  # auto setup
-python3 setup/smart_setup.py --minimal        # essential deps only
-python3 setup/smart_setup.py --force-reinstall
-python3 setup/smart_setup.py --skip-dvc
+git clone https://github.com/Big-Data-IA-Team-5/Assignment-1---DAMG7245-Team-5.git
+cd Assignment-1---DAMG7245-Team-5
+python3 setup/smart_setup.py
+source activate.sh  # Windows: activate.bat
+dvc repro
 ```
 
-### Traditional
-
-```bash
-python3 -m venv .venv
-source .venv/bin/activate                     # Windows: .venv\Scripts\activate
-pip install -r setup/requirements.txt
-```
-
-### Verify
+**Verify Installation**
 
 ```bash
 python3 setup/verify_setup.py
@@ -132,136 +68,147 @@ python3 setup/verify_setup.py
 
 ---
 
-## Advanced Setup
+## Pipeline Labs
 
-```bash
-source .venv/bin/activate
-pip install -r setup/requirements-minimal.txt
-pip install -r setup/requirements.txt
-```
+| Lab    | Purpose                                 | Output                   | Status     |
+| ------ | --------------------------------------- | ------------------------ | ---------- |
+| Lab 1  | Text extraction (OCR fallback)          | `.txt`                   | ✅ Working  |
+| Lab 2  | Table extraction (Camelot + PDFPlumber) | `.csv`                   | ✅ Working  |
+| Lab 3  | Layout analysis                         | `layout_*.json`          | ✅ Working  |
+| Lab 4  | Docling AI                              | `.json` / `.md`          | ✅ Working  |
+| Lab 5  | Metadata & Provenance                   | `.jsonl`                 | ✅ Working  |
+| Lab 6  | Multi-format Export                     | Markdown / JSON / TXT    | ✅ Working  |
+| Lab 7  | Google Document AI (Optional)           | AI extracts + comparison | ✅ Optional |
+| Lab 11 | XBRL Verification                       | CSV / summary            | ✅ Working  |
 
 ---
 
-## DVC Pipeline Usage
+## DVC Pipeline
 
-### Pipeline Stages
+* **Full reproducibility** and caching
+* Track dependencies and outputs automatically
+* Supports rerun of only changed stages
 
-| Stage   | Input                            | Output                               | Description                          |
-| ------- | -------------------------------- | ------------------------------------ | ------------------------------------ |
-| parse   | data/raw/                        | data/intermediate/text/              | Text extraction (pdfplumber + OCR)   |
-| tables  | raw/ + text/                     | data/intermediate/tables/            | Hybrid table extraction              |
-| layout  | raw/ + text/ + tables/           | data/intermediate/layout/            | Layout analysis (LayoutParser)       |
-| docling | raw/ + text/ + tables/ + layout/ | data/intermediate/docling/           | Docling AI processing                |
-| export  | All previous stages              | data/intermediate/metadata + formats | Metadata tagging & format conversion |
-
-### Commands
+**Example Commands**
 
 ```bash
-# Check pipeline status
 dvc status
 dvc dag
-
-# Run full pipeline
 dvc repro
-
-# Run specific stages
 dvc repro parse
 dvc repro tables
 dvc repro layout
 dvc repro docling
 dvc repro export
-
-# Inspect cache
-dvc cache dir
-dvc metrics show
-dvc plots show
 ```
 
 ---
 
-## Project Structure
+## XBRL Cross-Verification
 
-```
-Assignment-1---DAMG7245-Team-5/
-├── README.md
-├── dvc.yaml
-├── dvc.lock
-├── requirements.txt
-├── run_complete_pipeline.py
-├── activate.sh / activate.bat
-├── scripts/
-├── data/
-│   ├── raw/
-│   └── intermediate/
-├── src/
-├── google_ai/
-├── credentials/
-├── reports/
-├── configs/
-├── utils/
-├── tests/
-└── .dvc/
+* Parse XBRL using **Simple XML parser** or **Arelle**
+* Extract Revenue, Net Income, Total Assets
+* Map PDF tables to XBRL taxonomy using **mapping dictionary**
+* Validate numerical values, report mismatches
+
+**Example**
+
+```bash
+python3 src/xbrl/lab11_xbrl.py --tables data/intermediate/tables --xbrl data/raw/xbrl
 ```
 
 ---
 
-## Pipeline Labs
+## Optional Google Document AI
 
-| Lab   | Purpose                                 | Output                   | Status     |
-| ----- | --------------------------------------- | ------------------------ | ---------- |
-| Lab 1 | Text extraction (OCR fallback)          | `.txt` files             | ✅ Working  |
-| Lab 2 | Table extraction (Camelot + PDFPlumber) | `.csv` files             | ✅ Working  |
-| Lab 3 | Layout analysis                         | `layout_*.json`          | ✅ Working  |
-| Lab 4 | Docling AI processing                   | `.json`, `.md`           | ✅ Working  |
-| Lab 5 | Metadata & provenance                   | `.jsonl`, summaries      | ✅ Working  |
-| Lab 6 | Multi-format export                     | Markdown / JSON / TXT    | ✅ Working  |
-| Lab 7 | Google Document AI (optional)           | AI extracts + comparison | ✅ Optional |
-
----
-
-## Lab 7: Google Document AI (Optional)
+* Text, table, entity, and form extraction
+* Random or selected pages
+* Compare with Labs 1–6
 
 **Usage**
 
 ```bash
-# Random 2 pages
 python3 google_ai/run_lab7.py --pdf data/raw/tesla.pdf --random 2
-
-# Specific pages
 python3 google_ai/run_lab7.py --pdf data/raw/tesla.pdf --pages 5 12
 ```
+
+---
+
+## Architecture Diagram
+
+```python
+# lantern_architecture.py
+from diagrams import Diagram, Cluster
+from diagrams.onprem.client import User
+from diagrams.onprem.compute import Server
+from diagrams.onprem.database import Postgresql, Elasticsearch
+from diagrams.custom import Custom
+
+with Diagram("Project LANTERN Architecture", filename="lantern_architecture", show=True, outformat="svg", direction="LR"):
+
+    user = User("Browser / Mobile")
+
+    with Cluster("Pipeline Orchestrator / Labs"):
+        ingestion = Server("PDF Ingestion")
+        lab1 = Custom("Text Extraction\n(pdfplumber)", "./icons/pdfplumber.svg")
+        lab2 = Custom("Table Extraction\n(Camelot)", "./icons/camelot.svg")
+        lab3 = Server("Layout Analysis\n(LayoutParser)")
+        lab4 = Custom("Docling AI", "./icons/docling.svg")
+        lab5_6 = Server("Metadata & Format Conversion")
+        lab7 = Custom("Google Document AI", "./icons/google_ai.svg")
+        lab11 = Custom("XBRL Verification\n(Arelle/Python)", "./icons/xbrl.svg")
+
+        ingestion >> lab1 >> lab2 >> lab3 >> lab4 >> lab5_6
+        lab5_6 >> lab11
+        lab1 >> lab7
+        lab2 >> lab7
+        lab3 >> lab7
+        lab7 >> lab5_6
+
+    db_metadata = Postgresql("Metadata DB")
+    db_search = Elasticsearch("Search / Index")
+    lab5_6 >> db_metadata
+    lab5_6 >> db_search
+    lab7 >> db_metadata
+    lab11 >> db_metadata
+    user >> ingestion
+```
+
+**Result:** Generates a professional **SVG architecture diagram** with custom icons for PDFPlumber, Camelot, Docling, Google AI, and XBRL.
 
 ---
 
 ## Output Structure
 
 ```
-data/parsed/<document_timestamp>/
-├── text/
-├── tables/
-├── layout/
-├── docling/
-├── metadata/
-└── formats/
+data/parsed/
+└─ <document>_<timestamp>/
+   ├─ text/
+   ├─ tables/
+   ├─ layout/
+   ├─ docling/
+   ├─ metadata/
+   └─ formats/
+LANTERN_Pipeline_Report_<timestamp>.md
+pipeline_summary_<timestamp>.json
 
 reports/google_ai/lab7_session_<timestamp>/
-├── temp_pdfs/
-├── raw_google_ai_results/
-├── parsed_results/
-├── parsed_data_comparison/
-└── final_reports/
+├─ temp_pdfs/
+├─ raw_google_ai_results/
+├─ parsed_results/
+├─ parsed_data_comparison/
+└─ final_reports/
 ```
 
 ---
 
 ## Troubleshooting
 
-* Activate venv
-* Install missing dependencies
-* Ensure PDFs exist in `data/raw/`
-* Set `$GOOGLE_APPLICATION_CREDENTIALS` for Lab 7
-* Use `chmod +x` for scripts (Unix/macOS)
-* Monitor logs: `tail -f pipeline_execution.log` / `tail -f lab7_execution.log`
+* Activate virtual environment
+* Install missing dependencies (`pip install -r setup/requirements.txt`)
+* Ensure PDFs are in `data/raw/`
+* Tesseract OCR must be on PATH
+* Check `dvc status` and repair cache if needed
 
 ---
 
@@ -270,6 +217,7 @@ reports/google_ai/lab7_session_<timestamp>/
 * 100-page PDF: \~4–6 min, \~4 GB RAM
 * Lab 7 (2 pages): \~3–5 sec, \~2 GB RAM
 * Timestamped outputs for traceability
+* Cache efficiency: 80–85% stage skip on reruns
 
 ---
 
@@ -282,6 +230,8 @@ Big Data Analytics Project – SEC Filing Processing Pipeline
 
 ## License
 
-**MIT License** – see project files for details.
+**MIT License** – see project files for details
 
-```
+---
+
+
