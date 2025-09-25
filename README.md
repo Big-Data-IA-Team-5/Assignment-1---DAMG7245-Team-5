@@ -1,4 +1,5 @@
 
+
 ---
 
 # Project LANTERN – Smart PDF & XBRL Processing Pipeline
@@ -249,8 +250,8 @@ reports/google_ai/lab7_session_<timestamp>/
 
 ## Performance
 
-* 100-page PDF: \~4–6 minutes, \~4 GB RAM
-* Lab 7 (2 pages): \~3–5 seconds, \~2 GB RAM
+* 100-page PDF: ~4–6 minutes, ~4 GB RAM
+* Lab 7 (2 pages): ~3–5 seconds, ~2 GB RAM
 * Timestamped outputs for traceability
 * Cache efficiency: 80–85% stage skip on reruns
 
@@ -280,3 +281,5 @@ It supports:
 * Architecture diagram code ready to generate SVG
 
 ---
+
+
