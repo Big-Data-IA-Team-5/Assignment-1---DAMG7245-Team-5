@@ -18,7 +18,6 @@
 * [Setup & Quick Start](#setup--quick-start)
 * [Pipeline Labs](#pipeline-labs)
 * [DVC Pipeline](#dvc-pipeline)
-* [Pipeline Diagram](#pipeline-diagram)
 * [Lab 11: XBRL Cross-Verification](#lab-11-xbrl-cross-verification)
 * [Optional Google Document AI](#optional-google-document-ai)
 * [Output Structure](#output-structure)
@@ -145,37 +144,7 @@ dvc pull                 # Download from remote
 dvc checkout             # Restore workspace
 ```
 
----
 
-## Pipeline Diagram
-
-```mermaid
-graph TD
-    A[data/raw/*.pdf] --> B[Lab 1: Text Extraction]
-    A --> C[Lab 2: Table Extraction]
-    B --> C
-    A --> D[Lab 3: Layout Analysis]
-    B --> D
-    C --> D
-    A --> E[Lab 4: Docling AI Analysis]
-    B --> E
-    C --> E
-    D --> E
-    A --> F[Lab 5-6: Metadata & Format Export]
-    B --> F
-    C --> F
-    D --> F
-    E --> F
-    F --> G[data/intermediate/formats/]
-    B --> H[Lab 7: Google Document AI]
-    C --> H
-    D --> H
-    H --> F
-    F --> I[Lab 11: XBRL Cross-Verification]
-    F --> J[Databases / Storage]
-    I --> J
-
----
 
 ## Lab 11: XBRL Cross-Verification
 
