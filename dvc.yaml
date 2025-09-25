@@ -1,1 +1,107 @@
- 
+stages:
+  # Stage 1: Raw PDF input (tracked by DVC)
+  # Note: Raw PDFs are already tracked in data/raw.dvc
+  
+  # Stage 2: Parse - Text extraction from PDFs 
+  parse:
+    cmd: python3 src/text/extract_text.py --in data/raw/ --out data/intermediate/
+    deps:
+      - data/raw/
+      - src/text/extract_text.py
+    outs:
+      - data/intermediate/text/
+    desc: "Lab 1: Extract text from PDFs with pdfplumber and OCR fallback"
+    
+  # Stage 3: Tables - Extract tables from PDFs
+  tables:
+    cmd: python3 src/tables/extract_tables.py --in data/raw/ --out data/intermediate/ --hybrid
+    deps:
+      - data/raw/
+      - data/intermediate/text/  # Depends on parse stage output
+      - src/tables/
+      - src/tables/extract_tables.py
+    outs:
+      - data/intermediate/tables/
+    desc: "Lab 2: Hybrid table extraction with Camelot and pdfplumber"
+    
+  # Stage 4: Layout - Detect layout and structure
+  layout:
+    cmd: python3 src/layout/extract_layout.py --in data/raw/ --out data/intermediate/
+    deps:
+      - data/raw/
+      - data/intermediate/text/   # Depends on parse stage
+      - data/intermediate/tables/ # Depends on tables stage
+      - src/layout/extract_layout.py
+    outs:
+      - data/intermediate/layout/
+    desc: "Lab 3: Layout detection with LayoutParser"
+    
+  # Stage 5: Docling - Advanced PDF understanding
+  docling:
+    cmd: python3 src/docling/extract_docling.py --in data/raw/ --out data/intermediate/
+    deps:
+      - data/raw/
+      - data/intermediate/text/   # Depends on parse stage
+      - data/intermediate/tables/ # Depends on tables stage  
+      - data/intermediate/layout/ # Depends on layout stage
+      - src/docling/extract_docling.py
+    outs:
+      - data/intermediate/docling/
+    desc: "Lab 4: Advanced PDF understanding with Docling"
+    
+  # Stage 6: Export - Metadata extraction and format conversion
+  export:
+    cmd: >
+      python3 src/metadata/extract_metadata.py 
+      --in data/raw/ 
+      --out data/intermediate/ 
+      --doc-id pdf_doc 
+      --company "Document Company" 
+      --fiscal-year 2024 &&
+      python3 src/formats/convert_formats.py 
+      --in data/intermediate/metadata/pdf_doc.jsonl 
+      --out data/intermediate/
+    deps:
+      - data/raw/
+      - data/intermediate/text/    # Depends on all previous stages
+      - data/intermediate/tables/
+      - data/intermediate/layout/
+      - data/intermediate/docling/
+      - src/metadata/extract_metadata.py
+      - src/formats/convert_formats.py
+    outs:
+      - data/intermediate/metadata/
+      - data/intermediate/formats/
+    desc: "Labs 5-6: Metadata tagging and multi-format conversion"
+    
+  # Stage 7: XBRL Cross-Verification
+  xbrl_validation:
+    cmd: python3 src/xbrl/lab11_xbrl.py --tables data/intermediate/tables --xbrl data/raw/xbrl --output reports/xbrl
+    deps:
+      - src/xbrl/
+      - data/intermediate/tables/  # Depends on tables extraction
+      - data/raw/xbrl/            # XBRL files for validation
+    outs:
+      - data/intermediate/xbrl_validation/
+      - reports/xbrl/
+    desc: "Lab 11: XBRL cross-verification against PDF table data"
+
+
+
+  
+
+# DVC Pipeline Parameters
+params:
+  - configs/pipeline_config.yaml
+
+# Metrics tracking for pipeline outputs
+metrics:
+  - data/intermediate/
+  - data/parsed/
+
+# Optional: Pipeline visualization
+# plots:
+#   - data/intermediate/metadata/processing_metrics.json:
+#       x: stage
+#       y: processing_time
+#       title: "Pipeline Stage Processing Times"

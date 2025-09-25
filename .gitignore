@@ -1,64 +1,126 @@
-# =============================================================================# =============================================================================
+# =============================================================================<<<<<<< HEAD
 
-# TEAM COLLABORATION - PRIVATE REPOSITORY# TEAM COLLABORATION - PRIVATE REPOSITORY
+# TEAM COLLABORATION - PRIVATE REPOSITORY# =============================================================================# =============================================================================
 
-# =============================================================================# =============================================================================
+# =============================================================================
 
-# Note: This repository should be PRIVATE for team collaboration# Note: This repository should be PRIVATE for team collaboration
+# This repository is PRIVATE for team collaboration# TEAM COLLABORATION - PRIVATE REPOSITORY# TEAM COLLABORATION - PRIVATE REPOSITORY
 
-# Team members can access all files including credentials and configurations# Team members can access all files including credentials and configurations
+# Team members can see ALL files including:
 
-# Only temporary/generated files are excluded from version control# Only temporary/generated files are excluded from version control
+# ✅ credentials/google-credentials.json# =============================================================================# =============================================================================
 
+# ✅ credentials/damg-big-data-*.json  
 
+# ✅ lab7_execution.log# Note: This repository should be PRIVATE for team collaboration# Note: This repository should be PRIVATE for team collaboration
 
-# =============================================================================# =============================================================================
+# ✅ pipeline_execution.log
 
-# DVC AND DATA MANAGEMENT# DVC AND DATA MANAGEMENT
+# ✅ .setup_info.json# Team members can access all files including credentials and configurations# Team members can access all files including credentials and configurations
 
-# =============================================================================# =============================================================================
+# ✅ runs_registry.json
 
-# DVC-managed pipeline outputs# DVC-managed pipeline outputs
-
-/data/parsed//data/parsed/
-
-/reports/google_ai//reports/google_ai/
-
-/data/raw//data/raw/
-
-!/data/raw/.gitkeep!/data/raw/.gitkeep
-
-/data/intermediate//data/intermediate/
-
-/versioned_outputs//versioned_outputs/
-
-/metrics//metrics/
+# ❌ Only public cannot access anything (repository is private)# Only temporary/generated files are excluded from version control# Only temporary/generated files are excluded from version control
 
 
+
+# =============================================================================
+
+# MINIMAL EXCLUSIONS - ONLY TEMPORARY/CACHE FILES
+
+# =============================================================================# =============================================================================# =============================================================================
+
+
+
+# Python cache# DVC AND DATA MANAGEMENT# DVC AND DATA MANAGEMENT
+
+__pycache__/
+
+*.py[cod]# =============================================================================# =============================================================================
+
+*$py.class
+
+*.pyc# DVC-managed pipeline outputs# DVC-managed pipeline outputs
+
+
+
+# Virtual environments (personal installations)/data/parsed//data/parsed/
+
+.venv/
+
+venv//reports/google_ai//reports/google_ai/
+
+.env.local
+
+.env.personal/data/raw//data/raw/
+
+
+
+# IDE personal settings!/data/raw/.gitkeep!/data/raw/.gitkeep
+
+.vscode/settings.json
+
+.idea/workspace.xml/data/intermediate//data/intermediate/
+
+
+
+# OS generated files/versioned_outputs//versioned_outputs/
+
+.DS_Store
+
+.DS_Store?/metrics//metrics/
+
+._*
+
+Thumbs.db
+
+ehthumbs.db
 
 # DVC cache and temporary files# DVC cache and temporary files
 
-.dvc/cache/.dvc/cache/
+# Temporary files only
 
-.dvc/tmp/.dvc/tmp/
+*.tmp.dvc/cache/.dvc/cache/
 
-.dvc/plots/.dvc/plots/
+*.temp
+
+*~.dvc/tmp/.dvc/tmp/
+
+*.bak
+
+*.backup.dvc/plots/.dvc/plots/
 
 
 
-# =============================================================================# =============================================================================
+# Cache directories
 
-# PYTHON# PYTHON
+.cache/
 
-# =============================================================================# =============================================================================
+__pycache__/# =============================================================================# =============================================================================
 
-__pycache__/__pycache__/
 
-*.py[cod]*.py[cod]
 
-*$py.class*$py.class
+# DVC cache (large files)# PYTHON# PYTHON
 
-*.so*.so
+.dvc/cache/
+
+.dvc/tmp/# =============================================================================# =============================================================================
+
+
+
+# Large data outputs (keep structure, exclude large files)__pycache__/__pycache__/
+
+/data/parsed/
+
+/versioned_outputs/*.py[cod]*.py[cod]
+
+
+
+# Personal backup files*$py.class*$py.class
+
+*_personal_backup*
+
+*_local_copy**.so*.so
 
 .Python.Python
 
@@ -337,6 +399,70 @@ coverage/
 benchmark/
 benchmarks/
 =======
+
+# Cache
+.cache/
+>>>>>>> d9891ed843341984be4f8eabd556979f3733eebc
+=======
+# DVC-managed pipeline outputs
+/data/parsed/
+/reports/google_ai/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp
 
 # Cache
 .cache/
