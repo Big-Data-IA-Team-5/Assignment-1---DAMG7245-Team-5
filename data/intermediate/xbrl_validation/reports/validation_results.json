@@ -1,0 +1,93 @@
+{
+  "session_id": "dvc_pipeline_20250925_055922",
+  "timestamp": "2025-09-25T05:59:22.334813",
+  "xbrl_summary": {
+    "total_facts": 389,
+    "revenue_facts": 52,
+    "unique_concepts": 91,
+    "periods_covered": [
+      "2025-06-30",
+      "2024-12-31",
+      "2024-06-30",
+      "2023-12-31",
+      "2025-03-31"
+    ]
+  },
+  "pdf_summary": {
+    "total_tables": 91,
+    "revenue_tables": [
+      "tesla _camelot_stream_p25_t30.csv",
+      "tesla _pdfplumber_p20_t1.csv"
+    ],
+    "processed_files": [
+      {
+        "filename": "tesla _camelot_stream_p37_t42.csv",
+        "rows": 18,
+        "columns": 7,
+        "contains_revenue": false
+      },
+      {
+        "filename": "tesla _pdfplumber_p7_t2.csv",
+        "rows": 8,
+        "columns": 27,
+        "contains_revenue": false
+      },
+      {
+        "filename": "tesla _pdfplumber_p32_t3.csv",
+        "rows": 1,
+        "columns": 16,
+        "contains_revenue": false
+      },
+      {
+        "filename": "tesla _pdfplumber_p16_t2.csv",
+        "rows": 7,
+        "columns": 18,
+        "contains_revenue": false
+      },
+      {
+        "filename": "tesla _camelot_stream_p7_t8.csv",
+        "rows": 30,
+        "columns": 17,
+        "contains_revenue": false
+      },
+      {
+        "filename": "tesla _pdfplumber_p32_t2.csv",
+        "rows": 1,
+        "columns": 17,
+        "contains_revenue": false
+      },
+      {
+        "filename": "tesla _pdfplumber_p7_t1.csv",
+        "rows": 7,
+        "columns": 27,
+        "contains_revenue": false
+      },
+      {
+        "filename": "tesla _pdfplumber_p16_t1.csv",
+        "rows": 7,
+        "columns": 24,
+        "contains_revenue": false
+      },
+      {
+        "filename": "tesla _camelot_stream_p25_t30.csv",
+        "rows": 10,
+        "columns": 13,
+        "contains_revenue": true
+      },
+      {
+        "filename": "tesla _pdfplumber_p20_t1.csv",
+        "rows": 5,
+        "columns": 12,
+        "contains_revenue": true
+      }
+    ]
+  },
+  "cross_verification": {
+    "potential_matches": 36,
+    "exact_matches": 2,
+    "close_matches": 34,
+    "match_rate": "95%",
+    "validation_status": "PASSED"
+  },
+  "pipeline_status": "SUCCESS"
+}

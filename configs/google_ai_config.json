@@ -2,7 +2,7 @@
   "google_document_ai": {
     "project_id": "damg-big-data",
     "location": "us",
-    "processor_id": "87ecf5a99c3c01d7",
+    "processor_id": "72ee797fb9016ded",
     "credentials_path": "credentials/google-credentials.json"
   },
   "output_settings": {

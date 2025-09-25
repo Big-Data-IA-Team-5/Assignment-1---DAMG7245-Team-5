@@ -1,0 +1,11 @@
+{
+  "python_version": "3.9.6",
+  "platform": "Darwin arm64",
+  "installation_date": "1758778975.1081867",
+  "venv_path": "/Users/pranavpatel/Downloads/Big_data_1.1/untitled folder/untitled folder/Assignment-1---DAMG7245-Team-5/.venv",
+  "options": {
+    "force_reinstall": true,
+    "skip_dvc": false,
+    "minimal": false
+  }
+}

@@ -1,13 +1,28 @@
 import argparse
-from pathlib import Path
-from datetime import datetime
 import json
+from datetime import datetime
+from pathlib import Path
 
 # Import functions from individual labs
 from lab1_text_extraction import extract_text_with_pdfplumber, save_extracted_data
-from src.tables.extract_tables import extract_tables_camelot_lattice, extract_tables_camelot_stream, extract_tables_pdfplumber, extract_tables_assignment_hybrid
-from lab3_layout_detection_simple import manual_layout_detection, route_blocks_to_extractors, save_layout_detection_results
-from lab4_docling_advanced import load_pdf_with_docling, analyze_docling_structure, export_docling_formats
+from lab3_layout_detection_simple import (
+    manual_layout_detection,
+    route_blocks_to_extractors,
+    save_layout_detection_results,
+)
+from lab4_docling_advanced import (
+    analyze_docling_structure,
+    export_docling_formats,
+    load_pdf_with_docling,
+)
+
+from src.tables.extract_tables import (
+    extract_tables_assignment_hybrid,
+    extract_tables_camelot_lattice,
+    extract_tables_camelot_stream,
+    extract_tables_pdfplumber,
+)
+
 
 def run_pipeline(pdf_path, output_dir):
     """Run the integrated pipeline for text, table, layout, and Docling extraction."""
@@ -39,10 +54,17 @@ def run_pipeline(pdf_path, output_dir):
 
     print("\nPipeline completed successfully.")
 
+
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Run the integrated pipeline for PDF processing.")
-    parser.add_argument('--in', dest='input_pdf', required=True, help='Path to the input PDF file.')
-    parser.add_argument('--out', dest='output_dir', required=True, help='Directory to save the outputs.')
+    parser = argparse.ArgumentParser(
+        description="Run the integrated pipeline for PDF processing."
+    )
+    parser.add_argument(
+        "--in", dest="input_pdf", required=True, help="Path to the input PDF file."
+    )
+    parser.add_argument(
+        "--out", dest="output_dir", required=True, help="Directory to save the outputs."
+    )
     args = parser.parse_args()
 
     pdf_path = Path(args.input_pdf)
