@@ -1,60 +1,95 @@
 stages:
+  # Stage 1: Raw PDF input (tracked by DVC)
+  # Note: Raw PDFs are already tracked in data/raw.dvc
+  
+  # Stage 2: Parse - Text extraction from PDFs 
   parse:
-    cmd: .venv/bin/python src/text/extract_text.py --in data/raw/tesla.pdf --out data/intermediate/
+    cmd: python3 src/text/extract_text.py --in data/raw/ --out data/intermediate/
     deps:
-    - src/text/extract_text.py
-    - data/raw/
+      - data/raw/
+      - src/text/extract_text.py
     outs:
-    - data/intermediate/text/
-    desc: Parse PDF text extraction with OCR fallback
-
+      - data/intermediate/text/
+    desc: "Lab 1: Extract text from PDFs with pdfplumber and OCR fallback"
+    
+  # Stage 3: Tables - Extract tables from PDFs
   tables:
-    cmd: .venv/bin/python src/tables/extract_tables.py --in data/raw/tesla.pdf --out data/intermediate/ --hybrid
+    cmd: python3 src/tables/extract_tables.py --in data/raw/ --out data/intermediate/ --hybrid
     deps:
-    - src/tables/extract_tables.py
-    - src/tables/
-    - data/raw/
-    - data/intermediate/text/
+      - data/raw/
+      - data/intermediate/text/  # Depends on parse stage output
+      - src/tables/
+      - src/tables/extract_tables.py
     outs:
-    - data/intermediate/tables/
-    desc: Extract tables using hybrid Camelot + pdfplumber approach
-
+      - data/intermediate/tables/
+    desc: "Lab 2: Hybrid table extraction with Camelot and pdfplumber"
+    
+  # Stage 4: Layout - Detect layout and structure
   layout:
-    cmd: .venv/bin/python src/layout/extract_layout.py --in data/raw/tesla.pdf --out data/intermediate/
+    cmd: python3 src/layout/extract_layout.py --in data/raw/ --out data/intermediate/
     deps:
-    - src/layout/extract_layout.py
-    - data/raw/
-    - data/intermediate/text/
-    - data/intermediate/tables/
+      - data/raw/
+      - data/intermediate/text/   # Depends on parse stage
+      - data/intermediate/tables/ # Depends on tables stage
+      - src/layout/extract_layout.py
     outs:
-    - data/intermediate/layout/
-    desc: Detect and analyze document layout structure
-
+      - data/intermediate/layout/
+    desc: "Lab 3: Layout detection with LayoutParser"
+    
+  # Stage 5: Docling - Advanced PDF understanding
   docling:
-    cmd: .venv/bin/python src/docling/extract_docling.py --in data/raw/tesla.pdf --out data/intermediate/
+    cmd: python3 src/docling/extract_docling.py --in data/raw/ --out data/intermediate/
     deps:
-    - src/docling/extract_docling.py
-    - data/raw/
-    - data/intermediate/text/
-    - data/intermediate/tables/
-    - data/intermediate/layout/
+      - data/raw/
+      - data/intermediate/text/   # Depends on parse stage
+      - data/intermediate/tables/ # Depends on tables stage  
+      - data/intermediate/layout/ # Depends on layout stage
+      - src/docling/extract_docling.py
     outs:
-    - data/intermediate/docling/
-    desc: Advanced document analysis with Docling
-
+      - data/intermediate/docling/
+    desc: "Lab 4: Advanced PDF understanding with Docling"
+    
+  # Stage 6: Export - Metadata extraction and format conversion
   export:
     cmd: >
-      .venv/bin/python src/metadata/extract_metadata.py --in data/raw/ --out data/intermediate/ --unified-dir data/intermediate/ &&
-      .venv/bin/python src/formats/convert_formats.py --in data/intermediate/metadata/ --out data/intermediate/
+      python3 src/metadata/extract_metadata.py 
+      --in data/raw/ 
+      --out data/intermediate/ 
+      --doc-id pdf_doc 
+      --company "Document Company" 
+      --fiscal-year 2024 &&
+      python3 src/formats/convert_formats.py 
+      --in data/intermediate/metadata/pdf_doc.jsonl 
+      --out data/intermediate/
     deps:
-    - src/metadata/extract_metadata.py
-    - src/formats/convert_formats.py
-    - data/raw/
-    - data/intermediate/text/
-    - data/intermediate/tables/
-    - data/intermediate/layout/
-    - data/intermediate/docling/
+      - data/raw/
+      - data/intermediate/text/    # Depends on all previous stages
+      - data/intermediate/tables/
+      - data/intermediate/layout/
+      - data/intermediate/docling/
+      - src/metadata/extract_metadata.py
+      - src/formats/convert_formats.py
     outs:
-    - data/intermediate/metadata/
-    - data/intermediate/formats/
-    desc: Export metadata and convert to multiple formats (JSON, Markdown, TXT)
+      - data/intermediate/metadata/
+      - data/intermediate/formats/
+    desc: "Labs 5-6: Metadata tagging and multi-format conversion"
+
+
+
+  
+
+# DVC Pipeline Parameters
+params:
+  - configs/pipeline_config.yaml
+
+# Metrics tracking for pipeline outputs
+metrics:
+  - data/intermediate/
+  - data/parsed/
+
+# Optional: Pipeline visualization
+# plots:
+#   - data/intermediate/metadata/processing_metrics.json:
+#       x: stage
+#       y: processing_time
+#       title: "Pipeline Stage Processing Times"

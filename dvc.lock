@@ -50,12 +50,12 @@ stages:
       size: 2342797
       nfiles: 14
   parse:
-    cmd: .venv/bin/python src/text/extract_text.py --in data/raw/tesla.pdf --out
+    cmd: python3 src/text/extract_text.py --in data/raw/ --out 
       data/intermediate/
     deps:
     - path: data/raw/
       hash: md5
-      md5: 82438b2a98e83e24cfae525c00989264.dir
+      md5: 353cb1dc323f32f64f4f9f92c642157e.dir
       size: 401903
       nfiles: 4
     - path: src/text/extract_text.py
@@ -65,64 +65,148 @@ stages:
     outs:
     - path: data/intermediate/text/
       hash: md5
-      md5: f9254a094967851a7f53b14148b35fa9.dir
-      size: 6385539
+      md5: a3255ecd698d9370857932547fe927ae.dir
+      size: 6385541
       nfiles: 81
   tables:
-    cmd: .venv/bin/python src/tables/extract_tables.py --in data/raw/tesla.pdf 
-      --out data/intermediate/ --hybrid
+    cmd: python3 src/tables/extract_tables.py --in data/raw/ --out 
+      data/intermediate/ --hybrid
     deps:
     - path: data/intermediate/text/
       hash: md5
-      md5: f9254a094967851a7f53b14148b35fa9.dir
-      size: 6385539
+      md5: a3255ecd698d9370857932547fe927ae.dir
+      size: 6385541
       nfiles: 81
     - path: data/raw/
       hash: md5
-      md5: 82438b2a98e83e24cfae525c00989264.dir
+      md5: 353cb1dc323f32f64f4f9f92c642157e.dir
       size: 401903
       nfiles: 4
     - path: src/tables/
       hash: md5
-      md5: 7623e615ac36d1d7e31ae5418f62837d.dir
-      size: 154806
+      md5: 41218439bac7eb7c3d829027c356f716.dir
+      size: 155556
       nfiles: 10
     - path: src/tables/extract_tables.py
       hash: md5
-      md5: a6635066ae867b505160da9006f29c40
-      size: 17958
+      md5: 79ea8001c2d0d902f13100a1bce72599
+      size: 18708
     outs:
     - path: data/intermediate/tables/
       hash: md5
-      md5: 05410dbc31dd77fc872fb2b9623bb4af.dir
-      size: 119662
-      nfiles: 89
+      md5: fc26de85884d9635e9154c81c08e38bb.dir
+      size: 119371
+      nfiles: 93
   layout:
-    cmd: .venv/bin/python src/layout/extract_layout.py --in data/raw/tesla.pdf 
-      --out data/intermediate/
+    cmd: python3 src/layout/extract_layout.py --in data/raw/ --out 
+      data/intermediate/
     deps:
     - path: data/intermediate/tables/
       hash: md5
-      md5: 05410dbc31dd77fc872fb2b9623bb4af.dir
-      size: 119662
-      nfiles: 89
+      md5: fc26de85884d9635e9154c81c08e38bb.dir
+      size: 119371
+      nfiles: 93
     - path: data/intermediate/text/
       hash: md5
-      md5: f9254a094967851a7f53b14148b35fa9.dir
-      size: 6385539
+      md5: a3255ecd698d9370857932547fe927ae.dir
+      size: 6385541
       nfiles: 81
     - path: data/raw/
       hash: md5
-      md5: 82438b2a98e83e24cfae525c00989264.dir
+      md5: 353cb1dc323f32f64f4f9f92c642157e.dir
       size: 401903
       nfiles: 4
     - path: src/layout/extract_layout.py
       hash: md5
-      md5: 84636eab1e80184e81f92b78948a8fe2
-      size: 11215
+      md5: 8406be585914a4ee6f34b6ab02d7d67e
+      size: 11463
     outs:
     - path: data/intermediate/layout/
       hash: md5
-      md5: 43d1b599223ec6ee10c82e41c8c369ef.dir
-      size: 2198591
+      md5: d44d1aeea6ebbc9273af2e61ac5102a6.dir
+      size: 2198593
       nfiles: 41
+  docling:
+    cmd: python3 src/docling/extract_docling.py --in data/raw/ --out 
+      data/intermediate/
+    deps:
+    - path: data/intermediate/layout/
+      hash: md5
+      md5: d44d1aeea6ebbc9273af2e61ac5102a6.dir
+      size: 2198593
+      nfiles: 41
+    - path: data/intermediate/tables/
+      hash: md5
+      md5: fc26de85884d9635e9154c81c08e38bb.dir
+      size: 119371
+      nfiles: 93
+    - path: data/intermediate/text/
+      hash: md5
+      md5: a3255ecd698d9370857932547fe927ae.dir
+      size: 6385541
+      nfiles: 81
+    - path: data/raw/
+      hash: md5
+      md5: 353cb1dc323f32f64f4f9f92c642157e.dir
+      size: 401903
+      nfiles: 4
+    - path: src/docling/extract_docling.py
+      hash: md5
+      md5: bbe2237fe1d03c29a678ad1d03ee701a
+      size: 17168
+    outs:
+    - path: data/intermediate/docling/
+      hash: md5
+      md5: e30eec4ba82ed33cc5753fd12e5ebc84.dir
+      size: 1777049
+      nfiles: 3
+  export:
+    cmd: "python3 src/metadata/extract_metadata.py  --in data/raw/  --out data/intermediate/\
+      \  --doc-id pdf_doc  --company \"Document Company\"  --fiscal-year 2024 && python3
+      src/formats/convert_formats.py  --in data/intermediate/metadata/pdf_doc.jsonl\
+      \  --out data/intermediate/\n"
+    deps:
+    - path: data/intermediate/docling/
+      hash: md5
+      md5: e30eec4ba82ed33cc5753fd12e5ebc84.dir
+      size: 1777049
+      nfiles: 3
+    - path: data/intermediate/layout/
+      hash: md5
+      md5: d44d1aeea6ebbc9273af2e61ac5102a6.dir
+      size: 2198593
+      nfiles: 41
+    - path: data/intermediate/tables/
+      hash: md5
+      md5: fc26de85884d9635e9154c81c08e38bb.dir
+      size: 119371
+      nfiles: 93
+    - path: data/intermediate/text/
+      hash: md5
+      md5: a3255ecd698d9370857932547fe927ae.dir
+      size: 6385541
+      nfiles: 81
+    - path: data/raw/
+      hash: md5
+      md5: 353cb1dc323f32f64f4f9f92c642157e.dir
+      size: 401903
+      nfiles: 4
+    - path: src/formats/convert_formats.py
+      hash: md5
+      md5: ff8d0f96d97f5c2655f3b63c7df2f54c
+      size: 19642
+    - path: src/metadata/extract_metadata.py
+      hash: md5
+      md5: d0eb09264290e1c4086148a4ab744dc5
+      size: 17371
+    outs:
+    - path: data/intermediate/formats/
+      hash: md5
+      md5: ef3fb83e7b1b884164c2d68c5ce6ee69.dir
+      size: 29513365
+      nfiles: 5
+    - path: data/intermediate/metadata/
+      hash: md5
+      md5: 0048f43db7584a2b69fe358a57b5a941.dir
+      size: 10708353
+      nfiles: 3
