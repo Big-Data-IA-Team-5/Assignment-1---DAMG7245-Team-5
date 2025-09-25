@@ -1,0 +1,122 @@
+# XBRL Cross-Verification Configuration for Project LANTERN
+# Lab 11 - XBRL Validation Configuration
+
+# Directory paths
+tables_directory: "data/intermediate/tables"
+xbrl_directory: "data/raw/xbrl"
+output_directory: "reports/xbrl"
+
+# XBRL Parser Configuration
+parser:
+  # Key financial concepts to extract from XBRL files
+  key_concepts:
+    - "Revenues"
+    - "Revenue" 
+    - "RevenueFromContractWithCustomerExcludingAssessedTax"
+    - "SalesRevenueNet"
+    - "OperatingRevenues"
+    - "TotalRevenues"
+    - "NetIncomeLoss"
+    - "NetIncomeAttributableToCommonShareholders"
+    - "NetIncomeAvailableToCommonStockholdersBasic"
+    - "ProfitLoss"
+    - "Assets"
+    - "AssetsCurrent"
+    - "AssetsNoncurrent"
+    - "TotalAssets"
+    - "Liabilities"
+    - "LiabilitiesCurrent"
+    - "LiabilitiesNoncurrent"
+    - "TotalLiabilities"
+    - "LiabilitiesAndStockholdersEquity"
+    - "StockholdersEquity"
+    - "TotalStockholdersEquity"
+    - "ShareholdersEquity"
+    - "CashAndCashEquivalentsAtCarryingValue"
+    - "NetCashProvidedByUsedInOperatingActivities"
+    - "NetCashProvidedByUsedInInvestingActivities"
+    - "NetCashProvidedByUsedInFinancingActivities"
+    - "CostOfGoodsAndServicesSold"
+    - "CostOfRevenue"
+    - "OperatingIncomeLoss"
+    - "GrossProfit"
+    - "ResearchAndDevelopmentExpense"
+    - "SellingGeneralAndAdministrativeExpense"
+  
+  # Context filters for relevant periods
+  context_filters:
+    period_type:
+      - "instant"
+      - "duration"
+    exclude_segments: true
+
+# PDF-to-XBRL Mapping Configuration
+mapper:
+  # Fuzzy matching parameters
+  fuzzy_threshold: 80                    # Minimum confidence score (0-100)
+  fuzzy_scorer: "token_sort_ratio"       # Fuzzy matching algorithm
+  
+  # Custom mappings (add company-specific terms here)
+  custom_mappings:
+    "total revenue": "Revenues"
+    "total revenues": "Revenues"
+    "net sales": "Revenues"
+    "operating revenue": "OperatingRevenues"
+    "net income": "NetIncomeLoss"
+    "net earnings": "NetIncomeLoss"
+    "profit": "NetIncomeLoss"
+    "total assets": "Assets"
+    "total stockholders' equity": "StockholdersEquity"
+    "stockholders' equity": "StockholdersEquity"
+    "shareholders' equity": "StockholdersEquity"
+    "cash and equivalents": "CashAndCashEquivalentsAtCarryingValue"
+    "operating cash flow": "NetCashProvidedByUsedInOperatingActivities"
+    "investing cash flow": "NetCashProvidedByUsedInInvestingActivities"
+    "financing cash flow": "NetCashProvidedByUsedInFinancingActivities"
+
+# Validation Configuration
+validator:
+  # Tolerance settings for numeric comparisons
+  numeric_tolerance: 0.01               # Absolute tolerance (e.g., $0.01)
+  percentage_tolerance: 0.001           # Relative tolerance (0.1%)
+  relative_tolerance: 1e-6              # Relative tolerance for very small numbers
+  
+  # Validation behavior
+  ignore_unmapped: true                 # Skip unmapped PDF labels
+  strict_matching: false                # Allow fuzzy concept matching
+  aggregate_method: "sum"               # How to handle multiple values: sum, mean, latest
+  
+  # Scale factor detection (for thousands/millions mismatches)
+  scale_factors:
+    thousands: 1000
+    millions: 1000000
+    billions: 1000000000
+
+# Reporting Configuration
+reporter:
+  report_title: "LANTERN XBRL Cross-Verification Report"
+  include_charts: false                 # Enable when plotting libraries available
+
+# Logging Configuration
+logging:
+  level: "INFO"                        # DEBUG, INFO, WARNING, ERROR
+  log_file: "logs/lab11_xbrl.log"
+  console_output: true
+
+# Processing Options
+processing:
+  max_workers: 4                       # Parallel processing workers
+  memory_limit: "2GB"                  # Memory usage limit
+  timeout: 300                         # Timeout in seconds per file
+
+# Output Format Options
+output_formats:
+  - "markdown"                         # Generate Markdown reports
+  - "json"                            # Generate JSON reports
+  - "csv"                             # Generate CSV summaries
+  
+# Quality Thresholds
+quality_thresholds:
+  critical_percentage_threshold: 10.0   # > 10% difference = critical
+  moderate_percentage_threshold: 1.0    # 1-10% difference = moderate
+  minor_percentage_threshold: 0.1       # 0.1-1% difference = minor

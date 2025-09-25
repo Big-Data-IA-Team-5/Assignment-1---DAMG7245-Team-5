@@ -73,6 +73,18 @@ stages:
       - data/intermediate/metadata/
       - data/intermediate/formats/
     desc: "Labs 5-6: Metadata tagging and multi-format conversion"
+    
+  # Stage 7: XBRL Cross-Verification
+  xbrl_validation:
+    cmd: python3 src/xbrl/lab11_xbrl.py --tables data/intermediate/tables --xbrl data/raw/xbrl --output reports/xbrl
+    deps:
+      - src/xbrl/
+      - data/intermediate/tables/  # Depends on tables extraction
+      - data/raw/xbrl/            # XBRL files for validation
+    outs:
+      - data/intermediate/xbrl_validation/
+      - reports/xbrl/
+    desc: "Lab 11: XBRL cross-verification against PDF table data"
 
 
 
