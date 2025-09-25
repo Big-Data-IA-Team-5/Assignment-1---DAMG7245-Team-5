@@ -154,7 +154,7 @@ graph TD
     A[data/raw/*.pdf] --> B[Lab 1: Text Extraction]
     A --> C[Lab 2: Table Extraction]
     B --> C
-    A --> D[Lab 3: Layout Analysis] 
+    A --> D[Lab 3: Layout Analysis]
     B --> D
     C --> D
     A --> E[Lab 4: Docling AI Analysis]
@@ -167,14 +167,13 @@ graph TD
     D --> F
     E --> F
     F --> G[data/intermediate/formats/]
-    B --> H[Lab 7: Google Document AI (optional)]
+    B --> H[Lab 7: Google Document AI]
     C --> H
     D --> H
     H --> F
     F --> I[Lab 11: XBRL Cross-Verification]
     F --> J[Databases / Storage]
     I --> J
-```
 
 ---
 
