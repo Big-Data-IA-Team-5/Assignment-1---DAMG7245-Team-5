@@ -21,7 +21,6 @@
 * [DVC Pipeline](#dvc-pipeline)
 * [XBRL Cross-Verification](#xbrl-cross-verification)
 * [Optional Google Document AI Integration](#optional-google-document-ai-integration)
-* [Architecture Diagram](#architecture-diagram)
 * [Output Structure](#output-structure)
 * [Troubleshooting](#troubleshooting)
 * [Performance](#performance)
