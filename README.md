@@ -1,5 +1,5 @@
 
-````
+````markdown
 # 🎯 Project LANTERN - Smart PDF Processing with XBRL Cross-Verification
 
 **Team 5 – DAMG7245, Fall 2025**
@@ -285,5 +285,3 @@ Big Data Analytics Project – SEC Filing Processing Pipeline
 **MIT License** – see project files for details.
 
 ```
-
-
