@@ -7,13 +7,14 @@ Demonstrates format selection for different use cases, especially RAG pipelines.
 
 import argparse
 import json
-from pathlib import Path
 import logging
 from datetime import datetime
+from pathlib import Path
 
 # Set up logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
+
 
 def convert_metadata_to_formats(jsonl_path, output_dir):
     """
@@ -24,17 +25,17 @@ def convert_metadata_to_formats(jsonl_path, output_dir):
     """
     jsonl_path = Path(jsonl_path)
     output_dir = Path(output_dir)
-    
+
     if not jsonl_path.exists():
         logger.error(f"JSONL file not found: {jsonl_path}")
         return None
-    
+
     # Extract doc_id from path or filename
     doc_id = jsonl_path.stem
     if jsonl_path.parent.name == "metadata":
         # Extract doc_id from the JSONL filename
         doc_id = jsonl_path.stem  # e.g., "goog_2024" from "goog_2024.jsonl"
-    
+
     # Create output directory structure: <unified_output_dir>/formats/
     formats_dir = output_dir / "formats"
     formats_dir.mkdir(parents=True, exist_ok=True)
@@ -44,7 +45,7 @@ def convert_metadata_to_formats(jsonl_path, output_dir):
     # Load and parse JSONL data
     records = []
     try:
-        with open(jsonl_path, 'r', encoding='utf-8') as f:
+        with open(jsonl_path, "r", encoding="utf-8") as f:
             for line_num, line in enumerate(f, 1):
                 line = line.strip()
                 if line:
@@ -72,31 +73,29 @@ def convert_metadata_to_formats(jsonl_path, output_dir):
 
     # Generate all three formats
     results = {}
-    
+
     # 1. Generate Markdown format (optimized for RAG)
-    results['markdown'] = generate_markdown_format(
+    results["markdown"] = generate_markdown_format(
         doc_id, doc_metadata, grouped_by_page, formats_dir
     )
-    
+
     # 2. Generate JSON format (optimized for programmatic access)
-    results['json'] = generate_json_format(
+    results["json"] = generate_json_format(
         doc_id, doc_metadata, records, grouped_by_page, formats_dir
     )
-    
+
     # 3. Generate TXT format (baseline, structure lost)
-    results['txt'] = generate_txt_format(
+    results["txt"] = generate_txt_format(
         doc_id, doc_metadata, grouped_by_page, formats_dir
     )
-    
+
     # 4. Generate comprehensive format analysis
-    results['analysis'] = generate_format_analysis(
-        doc_id, results, formats_dir
-    )
+    results["analysis"] = generate_format_analysis(doc_id, results, formats_dir)
 
     # Create conversion summary
     summary = create_conversion_summary(doc_id, records, results)
     summary_path = formats_dir / "_conversion_summary.json"
-    with open(summary_path, 'w', encoding='utf-8') as f:
+    with open(summary_path, "w", encoding="utf-8") as f:
         json.dump(summary, f, indent=2, ensure_ascii=False)
 
     print(f"\n✅ Format conversion completed for {doc_id}")
@@ -109,45 +108,45 @@ def convert_metadata_to_formats(jsonl_path, output_dir):
 
     return results
 
+
 def extract_document_metadata(records):
     """Extract document-level metadata from records."""
     if not records:
         return {}
-    
+
     first_record = records[0]
     return {
-        'company': first_record.get('company', 'Unknown Company'),
-        'fiscal_year': first_record.get('fiscal_year', 'Unknown Year'),
-        'doc_id': first_record.get('doc_id', 'unknown'),
-        'source_path': first_record.get('source_path', 'Unknown Source'),
-        'total_pages': len(set(r.get('page', 1) for r in records)),
-        'extraction_date': first_record.get('extraction_timestamp', 'Unknown Date')
+        "company": first_record.get("company", "Unknown Company"),
+        "fiscal_year": first_record.get("fiscal_year", "Unknown Year"),
+        "doc_id": first_record.get("doc_id", "unknown"),
+        "source_path": first_record.get("source_path", "Unknown Source"),
+        "total_pages": len(set(r.get("page", 1) for r in records)),
+        "extraction_date": first_record.get("extraction_timestamp", "Unknown Date"),
     }
+
 
 def group_records_by_page(records):
     """Group records by page and section for structured processing."""
     grouped = {}
-    
+
     for record in records:
-        page = record.get('page', 1)
-        section = record.get('section', 'Unknown Section')
-        
+        page = record.get("page", 1)
+        section = record.get("section", "Unknown Section")
+
         if page not in grouped:
-            grouped[page] = {'sections': {}, 'page_metadata': {}}
-        
-        if section not in grouped[page]['sections']:
-            grouped[page]['sections'][section] = []
-        
-        grouped[page]['sections'][section].append(record)
-        
+            grouped[page] = {"sections": {}, "page_metadata": {}}
+
+        if section not in grouped[page]["sections"]:
+            grouped[page]["sections"][section] = []
+
+        grouped[page]["sections"][section].append(record)
+
         # Store page-level metadata
-        if not grouped[page]['page_metadata']:
-            grouped[page]['page_metadata'] = {
-                'page': page,
-                'section': section
-            }
-    
+        if not grouped[page]["page_metadata"]:
+            grouped[page]["page_metadata"] = {"page": page, "section": section}
+
     return grouped
+
 
 def generate_markdown_format(doc_id, doc_metadata, grouped_by_page, output_dir):
     """
@@ -155,50 +154,62 @@ def generate_markdown_format(doc_id, doc_metadata, grouped_by_page, output_dir):
     Preserves semantic structure, headings, and context.
     """
     md_file = output_dir / f"{doc_id}.md"
-    
+
     try:
-        with open(md_file, 'w', encoding='utf-8') as f:
+        with open(md_file, "w", encoding="utf-8") as f:
             # Document header with metadata
             f.write(f"# {doc_metadata['company']} - {doc_metadata['fiscal_year']}\n\n")
             f.write(f"**Document ID:** {doc_id}\n")
             f.write(f"**Source:** {doc_metadata.get('source_path', 'N/A')}\n")
             f.write(f"**Pages:** {doc_metadata.get('total_pages', 'N/A')}\n")
-            f.write(f"**Extraction Date:** {doc_metadata.get('extraction_date', 'N/A')}\n\n")
+            f.write(
+                f"**Extraction Date:** {doc_metadata.get('extraction_date', 'N/A')}\n\n"
+            )
             f.write("---\n\n")
-            
+
             # Process each page with proper structure
             for page_num in sorted(grouped_by_page.keys()):
                 page_data = grouped_by_page[page_num]
-                
+
                 f.write(f"## Page {page_num}\n\n")
-                
+
                 # Process each section on the page
-                for section_name, section_records in page_data['sections'].items():
+                for section_name, section_records in page_data["sections"].items():
                     if section_name != f"Page {page_num}":
                         f.write(f"### {section_name}\n\n")
-                    
+
                     # Group by block type for better structure
                     block_groups = group_records_by_block_type(section_records)
-                    
+
                     # Process different block types with appropriate formatting in logical order
                     block_order = [
-                        'financial_statement_title', 'section_header', 'table_header', 
-                        'executive_summary', 'management_discussion', 'table', 
-                        'financial_data', 'paragraph', 'footnote', 'text_fragment'
+                        "financial_statement_title",
+                        "section_header",
+                        "table_header",
+                        "executive_summary",
+                        "management_discussion",
+                        "table",
+                        "financial_data",
+                        "paragraph",
+                        "footnote",
+                        "text_fragment",
                     ]
-                    
+
                     for block_type in block_order:
                         if block_type in block_groups:
-                            format_blocks_for_markdown(f, block_type, block_groups[block_type])
-                
+                            format_blocks_for_markdown(
+                                f, block_type, block_groups[block_type]
+                            )
+
                 f.write("\n---\n\n")
-        
+
         logger.info(f"Generated Markdown format: {md_file}")
         return md_file
-        
+
     except Exception as e:
         logger.error(f"Error generating Markdown format: {e}")
         return None
+
 
 def generate_json_format(doc_id, doc_metadata, records, grouped_by_page, output_dir):
     """
@@ -206,35 +217,36 @@ def generate_json_format(doc_id, doc_metadata, records, grouped_by_page, output_
     Maintains all metadata and structure for querying and analysis.
     """
     json_file = output_dir / f"{doc_id}.json"
-    
+
     try:
         # Create comprehensive JSON structure
         json_data = {
-            'document_metadata': doc_metadata,
-            'conversion_info': {
-                'format': 'JSON',
-                'purpose': 'Programmatic access and data analysis',
-                'created_at': datetime.now().isoformat(),
-                'total_records': len(records)
+            "document_metadata": doc_metadata,
+            "conversion_info": {
+                "format": "JSON",
+                "purpose": "Programmatic access and data analysis",
+                "created_at": datetime.now().isoformat(),
+                "total_records": len(records),
             },
-            'structure': {
-                'pages': {},
-                'block_types': get_block_type_summary(records),
-                'sections': list(set(r.get('section', 'Unknown') for r in records))
+            "structure": {
+                "pages": {},
+                "block_types": get_block_type_summary(records),
+                "sections": list(set(r.get("section", "Unknown") for r in records)),
             },
-            'records': records,
-            'page_structure': {str(k): v for k, v in grouped_by_page.items()}
+            "records": records,
+            "page_structure": {str(k): v for k, v in grouped_by_page.items()},
         }
-        
-        with open(json_file, 'w', encoding='utf-8') as f:
+
+        with open(json_file, "w", encoding="utf-8") as f:
             json.dump(json_data, f, indent=2, ensure_ascii=False)
-        
+
         logger.info(f"Generated JSON format: {json_file}")
         return json_file
-        
+
     except Exception as e:
         logger.error(f"Error generating JSON format: {e}")
         return None
+
 
 def generate_txt_format(doc_id, doc_metadata, grouped_by_page, output_dir):
     """
@@ -242,42 +254,43 @@ def generate_txt_format(doc_id, doc_metadata, grouped_by_page, output_dir):
     Structure is lost but provides universal compatibility.
     """
     txt_file = output_dir / f"{doc_id}.txt"
-    
+
     try:
-        with open(txt_file, 'w', encoding='utf-8') as f:
+        with open(txt_file, "w", encoding="utf-8") as f:
             # Simple header
             f.write(f"{doc_metadata['company']} - {doc_metadata['fiscal_year']}\n")
             f.write("=" * 50 + "\n\n")
-            
+
             # Process pages sequentially, concatenating all text
             for page_num in sorted(grouped_by_page.keys()):
                 page_data = grouped_by_page[page_num]
-                
+
                 f.write(f"Page {page_num}:\n")
-                
+
                 # Concatenate all text from the page
                 page_text_parts = []
-                for section_name, section_records in page_data['sections'].items():
+                for section_name, section_records in page_data["sections"].items():
                     for record in section_records:
-                        text = record.get('text', '').strip()
+                        text = record.get("text", "").strip()
                         if text:
                             page_text_parts.append(text)
-                
-                page_text = ' '.join(page_text_parts)
+
+                page_text = " ".join(page_text_parts)
                 f.write(page_text)
                 f.write("\n\n")
-        
+
         logger.info(f"Generated TXT format: {txt_file}")
         return txt_file
-        
+
     except Exception as e:
         logger.error(f"Error generating TXT format: {e}")
         return None
 
+
 def generate_format_analysis(doc_id, results, output_dir):
     """Generate comprehensive analysis comparing all three formats."""
     analysis_file = output_dir / "_format_analysis.md"
-    
+
     # Calculate file sizes
     file_sizes = {}
     for format_name, file_path in results.items():
@@ -398,7 +411,7 @@ The combination approach leverages the strengths of both formats while mitigatin
 """
 
     try:
-        with open(analysis_file, 'w', encoding='utf-8') as f:
+        with open(analysis_file, "w", encoding="utf-8") as f:
             f.write(analysis_content)
         logger.info(f"Generated format analysis: {analysis_file}")
         return analysis_file
@@ -406,114 +419,130 @@ The combination approach leverages the strengths of both formats while mitigatin
         logger.error(f"Error generating format analysis: {e}")
         return None
 
+
 def group_records_by_block_type(records):
     """Group records by block type for structured formatting. Handles both old content_type and new block_type fields."""
     groups = {}
     for record in records:
         # Support both new block_type and legacy content_type fields
-        block_type = record.get('block_type') or record.get('content_type', 'text_fragment')
-        
+        block_type = record.get("block_type") or record.get(
+            "content_type", "text_fragment"
+        )
+
         # Map legacy content_type values to new block_type values
-        legacy_mapping = {
-            'page_content': 'paragraph',
-            'table': 'table'
-        }
-        
+        legacy_mapping = {"page_content": "paragraph", "table": "table"}
+
         if block_type in legacy_mapping:
             block_type = legacy_mapping[block_type]
-        
+
         if block_type not in groups:
             groups[block_type] = []
         groups[block_type].append(record)
     return groups
 
+
 def format_blocks_for_markdown(file_handle, block_type, blocks):
     """Format blocks appropriately for Markdown based on their type."""
     if not blocks:
         return
-    
-    if block_type == 'financial_statement_title':
+
+    if block_type == "financial_statement_title":
         for block in blocks:
             file_handle.write(f"#### {block.get('text', '')}\n\n")
-    
-    elif block_type == 'section_header':
+
+    elif block_type == "section_header":
         for block in blocks:
             file_handle.write(f"##### {block.get('text', '')}\n\n")
-    
-    elif block_type == 'table_header':
+
+    elif block_type == "table_header":
         for block in blocks:
             file_handle.write(f"**{block.get('text', '')}**\n\n")
-    
-    elif block_type == 'table':
+
+    elif block_type == "table":
         file_handle.write("**Table Data:**\n\n")
         for block in blocks:
-            text = block.get('text', '')
-            if '|' in text:  # Already formatted as table
+            text = block.get("text", "")
+            if "|" in text:  # Already formatted as table
                 file_handle.write(text + "\n\n")
             else:
                 file_handle.write("```\n")
                 file_handle.write(text)
                 file_handle.write("\n```\n\n")
-    
-    elif block_type == 'financial_data':
+
+    elif block_type == "financial_data":
         file_handle.write("**Financial Data:**\n\n")
         for block in blocks:
             file_handle.write(f"- {block.get('text', '')}\n")
         file_handle.write("\n")
-    
-    elif block_type == 'footnote':
+
+    elif block_type == "footnote":
         file_handle.write("**Notes:**\n\n")
         for block in blocks:
             file_handle.write(f"> {block.get('text', '')}\n\n")
-    
+
     else:  # paragraph, text_fragment
         for block in blocks:
-            text = block.get('text', '').strip()
+            text = block.get("text", "").strip()
             if text:
                 file_handle.write(f"{text}\n\n")
+
 
 def get_block_type_summary(records):
     """Get summary of block types in the records."""
     block_types = {}
     for record in records:
-        block_type = record.get('block_type', 'unknown')
+        block_type = record.get("block_type", "unknown")
         block_types[block_type] = block_types.get(block_type, 0) + 1
     return block_types
+
 
 def create_conversion_summary(doc_id, records, results):
     """Create a summary of the conversion process."""
     return {
-        'document_id': doc_id,
-        'conversion_timestamp': datetime.now().isoformat(),
-        'input_records': len(records),
-        'formats_generated': {
-            format_name: str(file_path) if file_path else None 
+        "document_id": doc_id,
+        "conversion_timestamp": datetime.now().isoformat(),
+        "input_records": len(records),
+        "formats_generated": {
+            format_name: str(file_path) if file_path else None
             for format_name, file_path in results.items()
         },
-        'block_type_distribution': get_block_type_summary(records),
-        'quality_metrics': {
-            'total_characters': sum(len(r.get('text', '')) for r in records),
-            'total_words': sum(len(r.get('text', '').split()) for r in records),
-            'pages_covered': len(set(r.get('page', 1) for r in records)),
-            'sections_identified': len(set(r.get('section', 'Unknown') for r in records))
-        }
+        "block_type_distribution": get_block_type_summary(records),
+        "quality_metrics": {
+            "total_characters": sum(len(r.get("text", "")) for r in records),
+            "total_words": sum(len(r.get("text", "").split()) for r in records),
+            "pages_covered": len(set(r.get("page", 1) for r in records)),
+            "sections_identified": len(
+                set(r.get("section", "Unknown") for r in records)
+            ),
+        },
     }
 
+
 def main():
-    parser = argparse.ArgumentParser(description="Lab 6: Storage Formats - Markdown vs JSON vs TXT")
-    parser.add_argument('--in', dest='input_jsonl', required=True, help='Input JSONL metadata file')
-    parser.add_argument('--out', dest='output_dir', required=True, help='Output directory for format conversions')
-    
+    parser = argparse.ArgumentParser(
+        description="Lab 6: Storage Formats - Markdown vs JSON vs TXT"
+    )
+    parser.add_argument(
+        "--in", dest="input_jsonl", required=True, help="Input JSONL metadata file"
+    )
+    parser.add_argument(
+        "--out",
+        dest="output_dir",
+        required=True,
+        help="Output directory for format conversions",
+    )
+
     args = parser.parse_args()
-    
+
     result = convert_metadata_to_formats(args.input_jsonl, args.output_dir)
-    
+
     if result and any(result.values()):
         logger.info("✅ Lab 6 completed successfully")
         return 0
     else:
         logger.error("❌ Lab 6 failed")
         return 1
+
 
 if __name__ == "__main__":
     exit(main())

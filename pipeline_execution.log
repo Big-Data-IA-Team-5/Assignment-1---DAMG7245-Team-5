@@ -10455,3 +10455,549 @@ All outputs saved to: /Users/pranavpatel/Downloads/Big_data_1.1/untitled folder/
 2025-09-24 15:43:55,224 - [INFO] - Comprehensive pipeline report saved: /Users/pranavpatel/Downloads/Big_data_1.1/untitled folder/untitled folder/Untitled/data/parsed/LANTERN_Pipeline_Report_20250924_154355.md
 2025-09-24 15:43:55,224 - [INFO] - Pipeline report generated: /Users/pranavpatel/Downloads/Big_data_1.1/untitled folder/untitled folder/Untitled/data/parsed/LANTERN_Pipeline_Report_20250924_154355.md
 2025-09-24 15:43:55,224 - [INFO] - Pipeline completed successfully - All documents processed!
+2025-09-25 00:35:01,420 - [INFO] - LANTERN Pipeline started
+2025-09-25 00:35:01,420 - [INFO] - Output directory: /Users/pranavpatel/Downloads/Big_data_1.1/untitled folder/untitled folder/Untitled/data/parsed/production_run
+2025-09-25 00:35:01,420 - [INFO] - Raw data directory: /Users/pranavpatel/Downloads/Big_data_1.1/untitled folder/untitled folder/Untitled/data/raw
+2025-09-25 00:35:01,420 - [INFO] - Hybrid tables: True
+2025-09-25 00:35:01,420 - [INFO] - Skip Docling: False
+2025-09-25 00:35:01,420 - [INFO] - Hybrid tables: True
+2025-09-25 00:35:01,420 - [INFO] - Skip Docling: False
+2025-09-25 00:35:01,420 - [INFO] - Found 1 PDF files to process
+2025-09-25 00:35:01,420 - [INFO] -    tesla.pdf
+2025-09-25 00:35:01,420 - [INFO] - 
+================================================================================
+2025-09-25 00:35:01,420 - [INFO] - Processing Document 1/1: tesla.pdf
+2025-09-25 00:35:01,420 - [INFO] - ================================================================================
+2025-09-25 00:35:01,421 - [INFO] - Document metadata: ID=tesla_2024, Company=Tesla Inc., Year=2024
+2025-09-25 00:35:01,421 - [INFO] - Unified output directory: tesla_20250925_003501
+2025-09-25 00:35:01,421 - [INFO] - 
+[LAB 1] Starting text extraction...
+2025-09-25 00:35:01,421 - [INFO] - [LAB 1] Executing: /Library/Developer/CommandLineTools/usr/bin/python3 /Users/pranavpatel/Downloads/Big_data_1.1/untitled folder/untitled folder/Untitled/src/text/extract_text.py --in /Users/pranavpatel/Downloads/Big_data_1.1/untitled folder/untitled folder/Untitled/data/raw/tesla.pdf --out /Users/pranavpatel/Downloads/Big_data_1.1/untitled folder/untitled folder/Untitled/data/parsed/production_run/tesla_20250925_003501
+2025-09-25 00:35:11,235 - [INFO] - [LAB 1] Processing: tesla.pdf
+2025-09-25 00:35:11,235 - [INFO] - [LAB 1] Lab 1 Text Extraction Complete:
+2025-09-25 00:35:11,236 - [INFO] - [LAB 1] Per-page .txt files: 39 files created
+2025-09-25 00:35:11,236 - [INFO] - [LAB 1] OCR log: 0 pages required OCR
+2025-09-25 00:35:11,236 - [INFO] - [LAB 1] Word bounding boxes: Saved for layout analysis
+2025-09-25 00:35:11,236 - [INFO] - [LAB 1] Output location: /Users/pranavpatel/Downloads/Big_data_1.1/untitled folder/untitled folder/Untitled/data/parsed/production_run/tesla_20250925_003501/text
+2025-09-25 00:35:11,236 - [INFO] - [LAB 1] Text extraction completed successfully
+2025-09-25 00:35:11,236 - [INFO] - 
+[LAB 2] Starting table extraction...
+2025-09-25 00:35:11,236 - [INFO] - [LAB 2] Executing: /Library/Developer/CommandLineTools/usr/bin/python3 /Users/pranavpatel/Downloads/Big_data_1.1/untitled folder/untitled folder/Untitled/src/tables/extract_tables.py --in /Users/pranavpatel/Downloads/Big_data_1.1/untitled folder/untitled folder/Untitled/data/raw/tesla.pdf --out /Users/pranavpatel/Downloads/Big_data_1.1/untitled folder/untitled folder/Untitled/data/parsed/production_run/tesla_20250925_003501 --hybrid
+2025-09-25 00:35:11,824 - [ERROR] - [LAB 2] Command failed with exit code 1
+2025-09-25 00:35:11,824 - [ERROR] - [LAB 2] STDERR: /Users/pranavpatel/Library/Python/3.9/lib/python/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+Traceback (most recent call last):
+  File "/Users/pranavpatel/Downloads/Big_data_1.1/untitled folder/untitled folder/Untitled/src/tables/extract_tables.py", line 535, in <module>
+    main()
+NameError: name 'main' is not defined
+
+2025-09-25 00:35:11,824 - [ERROR] - [LAB 2] Table extraction failed
+2025-09-25 00:35:11,825 - [INFO] - 
+[LAB 3] Starting layout detection...
+2025-09-25 00:35:11,825 - [INFO] - [LAB 3] Executing: /Library/Developer/CommandLineTools/usr/bin/python3 /Users/pranavpatel/Downloads/Big_data_1.1/untitled folder/untitled folder/Untitled/src/layout/extract_layout.py --in /Users/pranavpatel/Downloads/Big_data_1.1/untitled folder/untitled folder/Untitled/data/raw/tesla.pdf --out /Users/pranavpatel/Downloads/Big_data_1.1/untitled folder/untitled folder/Untitled/data/parsed/production_run/tesla_20250925_003501
+2025-09-25 00:35:21,858 - [INFO] - [LAB 3] Detectron2 not available, using manual layout detection
+2025-09-25 00:35:21,858 - [INFO] - [LAB 3] Layout Detection Summary for tesla.pdf:
+2025-09-25 00:35:21,858 - [INFO] - [LAB 3] Pages processed: 39
+2025-09-25 00:35:21,858 - [INFO] - [LAB 3] Total blocks detected: 1855
+2025-09-25 00:35:21,858 - [INFO] - [LAB 3] Block type distribution:
+2025-09-25 00:35:21,859 - [INFO] - [LAB 3] Text: 1733
+2025-09-25 00:35:21,859 - [INFO] - [LAB 3] Table: 45
+2025-09-25 00:35:21,859 - [INFO] - [LAB 3] Title: 77
+2025-09-25 00:35:21,859 - [INFO] - [LAB 3] Output written to /Users/pranavpatel/Downloads/Big_data_1.1/untitled folder/untitled folder/Untitled/data/parsed/production_run/tesla_20250925_003501
+2025-09-25 00:35:21,859 - [INFO] - [LAB 3] Layout detection completed successfully
+2025-09-25 00:35:21,859 - [INFO] - 
+[LAB 4] Starting Docling processing with integrated AI metadata extraction...
+2025-09-25 00:35:21,859 - [INFO] - [LAB 4] Executing: /Library/Developer/CommandLineTools/usr/bin/python3 /Users/pranavpatel/Downloads/Big_data_1.1/untitled folder/untitled folder/Untitled/src/docling/extract_docling.py --in /Users/pranavpatel/Downloads/Big_data_1.1/untitled folder/untitled folder/Untitled/data/raw/tesla.pdf --out /Users/pranavpatel/Downloads/Big_data_1.1/untitled folder/untitled folder/Untitled/data/parsed/production_run/tesla_20250925_003501
+2025-09-25 00:36:53,119 - [INFO] - [LAB 4] Docling Performance Summary for tesla.pdf:
+2025-09-25 00:36:53,120 - [INFO] - [LAB 4] Processing time: 82.54 seconds
+2025-09-25 00:36:53,120 - [INFO] - [LAB 4] Tables detected: 46
+2025-09-25 00:36:53,120 - [INFO] - [LAB 4] Formulas detected: 0
+2025-09-25 00:36:53,120 - [INFO] - [LAB 4] Reading order preserved: False
+2025-09-25 00:36:53,120 - [INFO] - [LAB 4] Output written to /Users/pranavpatel/Downloads/Big_data_1.1/untitled folder/untitled folder/Untitled/data/parsed/production_run/tesla_20250925_003501
+2025-09-25 00:36:53,120 - [INFO] - [LAB 4] Docling processing with AI metadata completed successfully
+2025-09-25 00:36:53,131 - [INFO] - [LAB 5] Created metadata file with 1 records: /Users/pranavpatel/Downloads/Big_data_1.1/untitled folder/untitled folder/Untitled/data/parsed/production_run/tesla_20250925_003501/metadata/tesla_2024.jsonl
+2025-09-25 00:36:53,131 - [INFO] - [LAB 5] AI-Enhanced metadata extraction completed via Docling integration
+2025-09-25 00:36:53,131 - [INFO] - 
+[LAB 6] Starting format conversion...
+2025-09-25 00:36:53,131 - [INFO] - [LAB 6] Executing: /Library/Developer/CommandLineTools/usr/bin/python3 /Users/pranavpatel/Downloads/Big_data_1.1/untitled folder/untitled folder/Untitled/src/formats/convert_formats.py --in /Users/pranavpatel/Downloads/Big_data_1.1/untitled folder/untitled folder/Untitled/data/parsed/production_run/tesla_20250925_003501/metadata/tesla_2024.jsonl --out /Users/pranavpatel/Downloads/Big_data_1.1/untitled folder/untitled folder/Untitled/data/parsed/production_run/tesla_20250925_003501
+2025-09-25 00:36:53,191 - [INFO] - [LAB 6] ✅ Format conversion completed for tesla_2024
+2025-09-25 00:36:53,191 - [INFO] - [LAB 6] Total records processed: 1
+2025-09-25 00:36:53,191 - [INFO] - [LAB 6] Formats created:
+2025-09-25 00:36:53,191 - [INFO] - [LAB 6] 📄 MARKDOWN: tesla_2024.md (0.3 KB)
+2025-09-25 00:36:53,191 - [INFO] - [LAB 6] 📄 JSON: tesla_2024.json (2.4 KB)
+2025-09-25 00:36:53,191 - [INFO] - [LAB 6] 📄 TXT: tesla_2024.txt (0.2 KB)
+2025-09-25 00:36:53,191 - [INFO] - [LAB 6] 📄 ANALYSIS: _format_analysis.md (4.0 KB)
+2025-09-25 00:36:53,191 - [INFO] - [LAB 6] Format conversion completed successfully
+2025-09-25 00:36:53,191 - [INFO] - 
+[VALIDATION] Validating outputs for tesla_2024...
+2025-09-25 00:36:53,191 - [INFO] - [VALIDATION] LAB1: PASS | LAB2: FAIL | LAB3: PASS | LAB4: PASS | LAB5: FAIL | LAB6: PASS
+2025-09-25 00:36:53,191 - [ERROR] - Failed to process tesla.pdf → tesla_20250925_003501
+2025-09-25 00:36:53,191 - [INFO] - 
+================================================================================
+2025-09-25 00:36:53,191 - [INFO] - LANTERN PIPELINE EXECUTION SUMMARY
+2025-09-25 00:36:53,191 - [INFO] - ================================================================================
+2025-09-25 00:36:53,191 - [INFO] - Execution timestamp: 20250925_003653
+2025-09-25 00:36:53,191 - [INFO] - Total PDFs processed: 1
+2025-09-25 00:36:53,191 - [INFO] - Successful: 0
+2025-09-25 00:36:53,191 - [INFO] - Failed: 1
+2025-09-25 00:36:53,191 - [INFO] - Success rate: 0.0%
+2025-09-25 00:36:53,191 - [INFO] - 
+Failed Documents:
+2025-09-25 00:36:53,191 - [INFO] -    tesla.pdf → tesla_2024
+2025-09-25 00:36:53,191 - [INFO] - 
+Lab Success Summary:
+2025-09-25 00:36:53,192 - [INFO] -    Lab 1: 1/1 successful (100.0%)
+2025-09-25 00:36:53,192 - [INFO] -    Lab 2: 0/1 successful (0.0%)
+2025-09-25 00:36:53,192 - [INFO] -    Lab 3: 1/1 successful (100.0%)
+2025-09-25 00:36:53,192 - [INFO] -    Lab 4: 1/1 successful (100.0%)
+2025-09-25 00:36:53,192 - [INFO] -    Lab 5: 1/1 successful (100.0%)
+2025-09-25 00:36:53,192 - [INFO] -    Lab 6: 1/1 successful (100.0%)
+2025-09-25 00:36:53,192 - [INFO] - 
+All outputs saved to: /Users/pranavpatel/Downloads/Big_data_1.1/untitled folder/untitled folder/Untitled/data/parsed/production_run
+2025-09-25 00:36:53,193 - [INFO] - Detailed summary saved to: /Users/pranavpatel/Downloads/Big_data_1.1/untitled folder/untitled folder/Untitled/data/parsed/production_run/pipeline_summary_20250925_003653.json
+2025-09-25 00:36:53,193 - [INFO] - Comprehensive pipeline report saved: /Users/pranavpatel/Downloads/Big_data_1.1/untitled folder/untitled folder/Untitled/data/parsed/production_run/LANTERN_Pipeline_Report_20250925_003653.md
+2025-09-25 00:36:53,193 - [INFO] - Pipeline report generated: /Users/pranavpatel/Downloads/Big_data_1.1/untitled folder/untitled folder/Untitled/data/parsed/production_run/LANTERN_Pipeline_Report_20250925_003653.md
+2025-09-25 00:36:53,193 - [ERROR] - Pipeline completed with 1 failures
+2025-09-25 00:37:20,920 - [INFO] - LANTERN Pipeline started
+2025-09-25 00:37:20,920 - [INFO] - Output directory: /Users/pranavpatel/Downloads/Big_data_1.1/untitled folder/untitled folder/Untitled/data/parsed/production_test
+2025-09-25 00:37:20,920 - [INFO] - Raw data directory: /Users/pranavpatel/Downloads/Big_data_1.1/untitled folder/untitled folder/Untitled/data/raw
+2025-09-25 00:37:20,920 - [INFO] - Hybrid tables: True
+2025-09-25 00:37:20,920 - [INFO] - Skip Docling: False
+2025-09-25 00:37:20,920 - [INFO] - Hybrid tables: True
+2025-09-25 00:37:20,920 - [INFO] - Skip Docling: False
+2025-09-25 00:37:20,920 - [INFO] - Found 1 PDF files to process
+2025-09-25 00:37:20,920 - [INFO] -    tesla.pdf
+2025-09-25 00:37:20,920 - [INFO] - 
+================================================================================
+2025-09-25 00:37:20,920 - [INFO] - Processing Document 1/1: tesla.pdf
+2025-09-25 00:37:20,920 - [INFO] - ================================================================================
+2025-09-25 00:37:20,920 - [INFO] - Document metadata: ID=tesla_2024, Company=Tesla Inc., Year=2024
+2025-09-25 00:37:20,920 - [INFO] - Unified output directory: tesla_20250925_003720
+2025-09-25 00:37:20,920 - [INFO] - 
+[LAB 1] Starting text extraction...
+2025-09-25 00:37:20,920 - [INFO] - [LAB 1] Executing: /Library/Developer/CommandLineTools/usr/bin/python3 /Users/pranavpatel/Downloads/Big_data_1.1/untitled folder/untitled folder/Untitled/src/text/extract_text.py --in /Users/pranavpatel/Downloads/Big_data_1.1/untitled folder/untitled folder/Untitled/data/raw/tesla.pdf --out /Users/pranavpatel/Downloads/Big_data_1.1/untitled folder/untitled folder/Untitled/data/parsed/production_test/tesla_20250925_003720
+2025-09-25 00:37:31,637 - [INFO] - [LAB 1] Processing: tesla.pdf
+2025-09-25 00:37:31,637 - [INFO] - [LAB 1] Lab 1 Text Extraction Complete:
+2025-09-25 00:37:31,637 - [INFO] - [LAB 1] Per-page .txt files: 39 files created
+2025-09-25 00:37:31,637 - [INFO] - [LAB 1] OCR log: 0 pages required OCR
+2025-09-25 00:37:31,638 - [INFO] - [LAB 1] Word bounding boxes: Saved for layout analysis
+2025-09-25 00:37:31,638 - [INFO] - [LAB 1] Output location: /Users/pranavpatel/Downloads/Big_data_1.1/untitled folder/untitled folder/Untitled/data/parsed/production_test/tesla_20250925_003720/text
+2025-09-25 00:37:31,638 - [INFO] - [LAB 1] Text extraction completed successfully
+2025-09-25 00:37:31,638 - [INFO] - 
+[LAB 2] Starting table extraction...
+2025-09-25 00:37:31,638 - [INFO] - [LAB 2] Executing: /Library/Developer/CommandLineTools/usr/bin/python3 /Users/pranavpatel/Downloads/Big_data_1.1/untitled folder/untitled folder/Untitled/src/tables/extract_tables.py --in /Users/pranavpatel/Downloads/Big_data_1.1/untitled folder/untitled folder/Untitled/data/raw/tesla.pdf --out /Users/pranavpatel/Downloads/Big_data_1.1/untitled folder/untitled folder/Untitled/data/parsed/production_test/tesla_20250925_003720 --hybrid
+2025-09-25 00:38:19,663 - [INFO] - [LAB 2] ================================================================================
+2025-09-25 00:38:19,663 - [INFO] - [LAB 2] ENHANCED TABLE EXTRACTION FOR 100% PARSING ACCURACY
+2025-09-25 00:38:19,663 - [INFO] - [LAB 2] ================================================================================
+2025-09-25 00:38:19,663 - [INFO] - [LAB 2] Processing: tesla.pdf
+2025-09-25 00:38:19,663 - [INFO] - [LAB 2] Output directory: /Users/pranavpatel/Downloads/Big_data_1.1/untitled folder/untitled folder/Untitled/data/parsed/production_test/tesla_20250925_003720
+2025-09-25 00:38:19,663 - [INFO] - [LAB 2] Strategy: Multi-pass extraction → Advanced merging → Quality validation
+2025-09-25 00:38:19,663 - [INFO] - [LAB 2] PHASE 1: COMPREHENSIVE MULTI-METHOD EXTRACTION
+2025-09-25 00:38:19,663 - [INFO] - [LAB 2] ============================================================
+2025-09-25 00:38:19,663 - [INFO] - [LAB 2] 1️⃣ Enhanced Camelot Lattice Mode...
+2025-09-25 00:38:19,663 - [INFO] - [LAB 2] === CAMELOT LATTICE MODE ===
+2025-09-25 00:38:19,663 - [INFO] - [LAB 2] Found 0 tables using lattice mode
+2025-09-25 00:38:19,663 - [INFO] - [LAB 2] 2️⃣ Enhanced Camelot Stream Mode...
+2025-09-25 00:38:19,663 - [INFO] - [LAB 2] === CAMELOT STREAM MODE ===
+2025-09-25 00:38:19,663 - [INFO] - [LAB 2] Found 46 tables using stream mode
+2025-09-25 00:38:19,663 - [INFO] - [LAB 2] Table 1: 13 rows x 2 cols, accuracy: 95.42, page: 1
+2025-09-25 00:38:19,664 - [INFO] - [LAB 2] Table 2: 8 rows x 3 cols, accuracy: 97.53, page: 1
+2025-09-25 00:38:19,664 - [INFO] - [LAB 2] Table 3: 21 rows x 4 cols, accuracy: 97.46, page: 2
+2025-09-25 00:38:19,664 - [INFO] - [LAB 2] Table 4: 16 rows x 1 cols, accuracy: 100.00, page: 3
+2025-09-25 00:38:19,664 - [INFO] - [LAB 2] Table 5: 33 rows x 7 cols, accuracy: 99.79, page: 4
+2025-09-25 00:38:19,664 - [INFO] - [LAB 2] Table 6: 39 rows x 13 cols, accuracy: 99.73, page: 5
+2025-09-25 00:38:19,664 - [INFO] - [LAB 2] Table 7: 11 rows x 13 cols, accuracy: 97.35, page: 6
+2025-09-25 00:38:19,664 - [INFO] - [LAB 2] Table 8: 30 rows x 17 cols, accuracy: 98.51, page: 7
+2025-09-25 00:38:19,664 - [INFO] - [LAB 2] Table 9: 34 rows x 18 cols, accuracy: 97.99, page: 8
+2025-09-25 00:38:19,664 - [INFO] - [LAB 2] Table 10: 44 rows x 7 cols, accuracy: 100.00, page: 9
+2025-09-25 00:38:19,664 - [INFO] - [LAB 2] Table 11: 10 rows x 13 cols, accuracy: 97.58, page: 10
+2025-09-25 00:38:19,664 - [INFO] - [LAB 2] Table 12: 26 rows x 1 cols, accuracy: 100.00, page: 11
+2025-09-25 00:38:19,664 - [INFO] - [LAB 2] Table 13: 10 rows x 6 cols, accuracy: 96.75, page: 11
+2025-09-25 00:38:19,664 - [INFO] - [LAB 2] Table 14: 41 rows x 13 cols, accuracy: 62.00, page: 12
+2025-09-25 00:38:19,664 - [INFO] - [LAB 2] Table 15: 10 rows x 9 cols, accuracy: 95.24, page: 13
+2025-09-25 00:38:19,664 - [INFO] - [LAB 2] Table 16: 8 rows x 13 cols, accuracy: 96.26, page: 14
+2025-09-25 00:38:19,664 - [INFO] - [LAB 2] Table 17: 30 rows x 9 cols, accuracy: 95.45, page: 15
+2025-09-25 00:38:19,664 - [INFO] - [LAB 2] Table 18: 10 rows x 17 cols, accuracy: 96.68, page: 16
+2025-09-25 00:38:19,664 - [INFO] - [LAB 2] Table 19: 10 rows x 13 cols, accuracy: 94.47, page: 16
+2025-09-25 00:38:19,664 - [INFO] - [LAB 2] Table 20: 11 rows x 13 cols, accuracy: 95.21, page: 17
+2025-09-25 00:38:19,664 - [INFO] - [LAB 2] Table 21: 7 rows x 7 cols, accuracy: 97.78, page: 17
+2025-09-25 00:38:19,664 - [INFO] - [LAB 2] Table 22: 12 rows x 5 cols, accuracy: 99.34, page: 18
+2025-09-25 00:38:19,664 - [INFO] - [LAB 2] Table 23: 14 rows x 13 cols, accuracy: 99.22, page: 19
+2025-09-25 00:38:19,664 - [INFO] - [LAB 2] Table 24: 20 rows x 1 cols, accuracy: 100.00, page: 20
+2025-09-25 00:38:19,664 - [INFO] - [LAB 2] Table 25: 7 rows x 13 cols, accuracy: 96.16, page: 20
+2025-09-25 00:38:19,664 - [INFO] - [LAB 2] Table 26: 41 rows x 1 cols, accuracy: 100.00, page: 21
+2025-09-25 00:38:19,664 - [INFO] - [LAB 2] Table 27: 29 rows x 1 cols, accuracy: 100.00, page: 22
+2025-09-25 00:38:19,664 - [INFO] - [LAB 2] Table 28: 42 rows x 1 cols, accuracy: 100.00, page: 23
+2025-09-25 00:38:19,664 - [INFO] - [LAB 2] Table 29: 20 rows x 7 cols, accuracy: 100.00, page: 24
+2025-09-25 00:38:19,664 - [INFO] - [LAB 2] Table 30: 10 rows x 13 cols, accuracy: 97.95, page: 25
+2025-09-25 00:38:19,664 - [INFO] - [LAB 2] Table 31: 32 rows x 1 cols, accuracy: 100.00, page: 26
+2025-09-25 00:38:19,664 - [INFO] - [LAB 2] Table 32: 12 rows x 3 cols, accuracy: 97.51, page: 27
+2025-09-25 00:38:19,664 - [INFO] - [LAB 2] Table 33: 38 rows x 1 cols, accuracy: 100.00, page: 28
+2025-09-25 00:38:19,664 - [INFO] - [LAB 2] Table 34: 14 rows x 17 cols, accuracy: 98.26, page: 29
+2025-09-25 00:38:19,664 - [INFO] - [LAB 2] Table 35: 21 rows x 17 cols, accuracy: 99.77, page: 30
+2025-09-25 00:38:19,664 - [INFO] - [LAB 2] Table 36: 24 rows x 1 cols, accuracy: 100.00, page: 31
+2025-09-25 00:38:19,664 - [INFO] - [LAB 2] Table 37: 41 rows x 22 cols, accuracy: 79.70, page: 32
+2025-09-25 00:38:19,664 - [INFO] - [LAB 2] Table 38: 15 rows x 1 cols, accuracy: 100.00, page: 33
+2025-09-25 00:38:19,664 - [INFO] - [LAB 2] Table 39: 24 rows x 7 cols, accuracy: 75.70, page: 34
+2025-09-25 00:38:19,665 - [INFO] - [LAB 2] Table 40: 31 rows x 1 cols, accuracy: 100.00, page: 35
+2025-09-25 00:38:19,665 - [INFO] - [LAB 2] Table 41: 11 rows x 1 cols, accuracy: 100.00, page: 36
+2025-09-25 00:38:19,665 - [INFO] - [LAB 2] Table 42: 18 rows x 7 cols, accuracy: 99.06, page: 37
+2025-09-25 00:38:19,665 - [INFO] - [LAB 2] Table 43: 11 rows x 2 cols, accuracy: 94.69, page: 38
+2025-09-25 00:38:19,665 - [INFO] - [LAB 2] Table 44: 14 rows x 2 cols, accuracy: 91.35, page: 38
+2025-09-25 00:38:19,665 - [INFO] - [LAB 2] Table 45: 10 rows x 2 cols, accuracy: 100.00, page: 39
+2025-09-25 00:38:19,665 - [INFO] - [LAB 2] Table 46: 14 rows x 2 cols, accuracy: 91.35, page: 39
+2025-09-25 00:38:19,665 - [INFO] - [LAB 2] 3️⃣ Enhanced pdfplumber Detection...
+2025-09-25 00:38:19,665 - [INFO] - [LAB 2] === PDFPLUMBER ENHANCED MODE ===
+2025-09-25 00:38:19,665 - [INFO] - [LAB 2] Strategy: Multi-strategy detection → Line/Text/Hybrid analysis → Complete coverage
+2025-09-25 00:38:19,665 - [INFO] - [LAB 2] Scanning all 39 pages with multiple strategies...
+2025-09-25 00:38:19,665 - [INFO] - [LAB 2] Page 1: Found 2 unique tables
+2025-09-25 00:38:19,665 - [INFO] - [LAB 2] Warning: Enhanced DataFrame creation failed for p1_t1: 'int' object has no attribute 'startswith'
+2025-09-25 00:38:19,665 - [INFO] - [LAB 2] Warning: Enhanced DataFrame creation failed for p1_t2: 'int' object has no attribute 'startswith'
+2025-09-25 00:38:19,665 - [INFO] - [LAB 2] Page 2: Found 1 unique tables
+2025-09-25 00:38:19,665 - [INFO] - [LAB 2] Warning: Enhanced DataFrame creation failed for p2_t1: 'int' object has no attribute 'startswith'
+2025-09-25 00:38:19,665 - [INFO] - [LAB 2] Page 3: Found 1 unique tables
+2025-09-25 00:38:19,665 - [INFO] - [LAB 2] Warning: Enhanced DataFrame creation failed for p3_t1: 'int' object has no attribute 'startswith'
+2025-09-25 00:38:19,665 - [INFO] - [LAB 2] Page 4: Found 2 unique tables
+2025-09-25 00:38:19,665 - [INFO] - [LAB 2] Warning: Enhanced DataFrame creation failed for p4_t1: 'int' object has no attribute 'startswith'
+2025-09-25 00:38:19,665 - [INFO] - [LAB 2] Warning: Enhanced DataFrame creation failed for p4_t2: 'int' object has no attribute 'startswith'
+2025-09-25 00:38:19,665 - [INFO] - [LAB 2] Page 5: Found 2 unique tables
+2025-09-25 00:38:19,665 - [INFO] - [LAB 2] Warning: Enhanced DataFrame creation failed for p5_t1: 'int' object has no attribute 'startswith'
+2025-09-25 00:38:19,665 - [INFO] - [LAB 2] Warning: Enhanced DataFrame creation failed for p5_t2: 'int' object has no attribute 'startswith'
+2025-09-25 00:38:19,665 - [INFO] - [LAB 2] Page 6: Found 2 unique tables
+2025-09-25 00:38:19,665 - [INFO] - [LAB 2] Warning: Enhanced DataFrame creation failed for p6_t1: 'int' object has no attribute 'startswith'
+2025-09-25 00:38:19,665 - [INFO] - [LAB 2] Warning: Enhanced DataFrame creation failed for p6_t2: 'int' object has no attribute 'startswith'
+2025-09-25 00:38:19,665 - [INFO] - [LAB 2] Page 7: Found 3 unique tables
+2025-09-25 00:38:19,665 - [INFO] - [LAB 2] Warning: Enhanced DataFrame creation failed for p7_t1: 'int' object has no attribute 'startswith'
+2025-09-25 00:38:19,665 - [INFO] - [LAB 2] Warning: Enhanced DataFrame creation failed for p7_t2: 'int' object has no attribute 'startswith'
+2025-09-25 00:38:19,665 - [INFO] - [LAB 2] Warning: Enhanced DataFrame creation failed for p7_t3: 'int' object has no attribute 'startswith'
+2025-09-25 00:38:19,665 - [INFO] - [LAB 2] Page 8: Found 3 unique tables
+2025-09-25 00:38:19,665 - [INFO] - [LAB 2] Warning: Enhanced DataFrame creation failed for p8_t1: 'int' object has no attribute 'startswith'
+2025-09-25 00:38:19,665 - [INFO] - [LAB 2] Warning: Enhanced DataFrame creation failed for p8_t2: 'int' object has no attribute 'startswith'
+2025-09-25 00:38:19,665 - [INFO] - [LAB 2] Warning: Enhanced DataFrame creation failed for p8_t3: 'int' object has no attribute 'startswith'
+2025-09-25 00:38:19,665 - [INFO] - [LAB 2] Page 9: Found 2 unique tables
+2025-09-25 00:38:19,665 - [INFO] - [LAB 2] Warning: Enhanced DataFrame creation failed for p9_t1: 'int' object has no attribute 'startswith'
+2025-09-25 00:38:19,666 - [INFO] - [LAB 2] Warning: Enhanced DataFrame creation failed for p9_t2: 'int' object has no attribute 'startswith'
+2025-09-25 00:38:19,666 - [INFO] - [LAB 2] Page 10: Found 2 unique tables
+2025-09-25 00:38:19,666 - [INFO] - [LAB 2] Warning: Enhanced DataFrame creation failed for p10_t1: 'int' object has no attribute 'startswith'
+2025-09-25 00:38:19,666 - [INFO] - [LAB 2] Warning: Enhanced DataFrame creation failed for p10_t2: 'int' object has no attribute 'startswith'
+2025-09-25 00:38:19,666 - [INFO] - [LAB 2] Page 11: Found 2 unique tables
+2025-09-25 00:38:19,666 - [INFO] - [LAB 2] Warning: Enhanced DataFrame creation failed for p11_t1: 'int' object has no attribute 'startswith'
+2025-09-25 00:38:19,666 - [INFO] - [LAB 2] Warning: Enhanced DataFrame creation failed for p11_t2: 'int' object has no attribute 'startswith'
+2025-09-25 00:38:19,666 - [INFO] - [LAB 2] Page 12: Found 2 unique tables
+2025-09-25 00:38:19,666 - [INFO] - [LAB 2] Warning: Enhanced DataFrame creation failed for p12_t1: 'int' object has no attribute 'startswith'
+2025-09-25 00:38:19,666 - [INFO] - [LAB 2] Warning: Enhanced DataFrame creation failed for p12_t2: 'int' object has no attribute 'startswith'
+2025-09-25 00:38:19,666 - [INFO] - [LAB 2] Page 13: Found 4 unique tables
+2025-09-25 00:38:19,666 - [INFO] - [LAB 2] Warning: Enhanced DataFrame creation failed for p13_t1: 'int' object has no attribute 'startswith'
+2025-09-25 00:38:19,666 - [INFO] - [LAB 2] Warning: Enhanced DataFrame creation failed for p13_t2: 'int' object has no attribute 'startswith'
+2025-09-25 00:38:19,666 - [INFO] - [LAB 2] Warning: Enhanced DataFrame creation failed for p13_t3: 'int' object has no attribute 'startswith'
+2025-09-25 00:38:19,666 - [INFO] - [LAB 2] Warning: Enhanced DataFrame creation failed for p13_t4: 'int' object has no attribute 'startswith'
+2025-09-25 00:38:19,666 - [INFO] - [LAB 2] Page 14: Found 2 unique tables
+2025-09-25 00:38:19,666 - [INFO] - [LAB 2] Warning: Enhanced DataFrame creation failed for p14_t1: 'int' object has no attribute 'startswith'
+2025-09-25 00:38:19,666 - [INFO] - [LAB 2] Warning: Enhanced DataFrame creation failed for p14_t2: 'int' object has no attribute 'startswith'
+2025-09-25 00:38:19,666 - [INFO] - [LAB 2] Page 15: Found 4 unique tables
+2025-09-25 00:38:19,666 - [INFO] - [LAB 2] Warning: Enhanced DataFrame creation failed for p15_t1: 'int' object has no attribute 'startswith'
+2025-09-25 00:38:19,666 - [INFO] - [LAB 2] Warning: Enhanced DataFrame creation failed for p15_t2: 'int' object has no attribute 'startswith'
+2025-09-25 00:38:19,666 - [INFO] - [LAB 2] Warning: Enhanced DataFrame creation failed for p15_t3: 'int' object has no attribute 'startswith'
+2025-09-25 00:38:19,666 - [INFO] - [LAB 2] Warning: Enhanced DataFrame creation failed for p15_t4: 'int' object has no attribute 'startswith'
+2025-09-25 00:38:19,666 - [INFO] - [LAB 2] Page 16: Found 3 unique tables
+2025-09-25 00:38:19,666 - [INFO] - [LAB 2] Warning: Enhanced DataFrame creation failed for p16_t1: 'int' object has no attribute 'startswith'
+2025-09-25 00:38:19,666 - [INFO] - [LAB 2] Warning: Enhanced DataFrame creation failed for p16_t2: 'int' object has no attribute 'startswith'
+2025-09-25 00:38:19,666 - [INFO] - [LAB 2] Warning: Enhanced DataFrame creation failed for p16_t3: 'int' object has no attribute 'startswith'
+2025-09-25 00:38:19,666 - [INFO] - [LAB 2] Page 17: Found 3 unique tables
+2025-09-25 00:38:19,666 - [INFO] - [LAB 2] Warning: Enhanced DataFrame creation failed for p17_t1: 'int' object has no attribute 'startswith'
+2025-09-25 00:38:19,666 - [INFO] - [LAB 2] Warning: Enhanced DataFrame creation failed for p17_t2: 'int' object has no attribute 'startswith'
+2025-09-25 00:38:19,666 - [INFO] - [LAB 2] Warning: Enhanced DataFrame creation failed for p17_t3: 'int' object has no attribute 'startswith'
+2025-09-25 00:38:19,666 - [INFO] - [LAB 2] Page 18: Found 3 unique tables
+2025-09-25 00:38:19,666 - [INFO] - [LAB 2] Warning: Enhanced DataFrame creation failed for p18_t1: 'int' object has no attribute 'startswith'
+2025-09-25 00:38:19,666 - [INFO] - [LAB 2] Warning: Enhanced DataFrame creation failed for p18_t2: 'int' object has no attribute 'startswith'
+2025-09-25 00:38:19,666 - [INFO] - [LAB 2] Warning: Enhanced DataFrame creation failed for p18_t3: 'int' object has no attribute 'startswith'
+2025-09-25 00:38:19,666 - [INFO] - [LAB 2] Page 19: Found 4 unique tables
+2025-09-25 00:38:19,666 - [INFO] - [LAB 2] Warning: Enhanced DataFrame creation failed for p19_t1: 'int' object has no attribute 'startswith'
+2025-09-25 00:38:19,666 - [INFO] - [LAB 2] Warning: Enhanced DataFrame creation failed for p19_t2: 'int' object has no attribute 'startswith'
+2025-09-25 00:38:19,667 - [INFO] - [LAB 2] Warning: Enhanced DataFrame creation failed for p19_t3: 'int' object has no attribute 'startswith'
+2025-09-25 00:38:19,667 - [INFO] - [LAB 2] Warning: Enhanced DataFrame creation failed for p19_t4: 'int' object has no attribute 'startswith'
+2025-09-25 00:38:19,667 - [INFO] - [LAB 2] Page 20: Found 2 unique tables
+2025-09-25 00:38:19,667 - [INFO] - [LAB 2] Warning: Enhanced DataFrame creation failed for p20_t1: 'int' object has no attribute 'startswith'
+2025-09-25 00:38:19,667 - [INFO] - [LAB 2] Warning: Enhanced DataFrame creation failed for p20_t2: 'int' object has no attribute 'startswith'
+2025-09-25 00:38:19,667 - [INFO] - [LAB 2] Page 21: Found 1 unique tables
+2025-09-25 00:38:19,667 - [INFO] - [LAB 2] Warning: Enhanced DataFrame creation failed for p21_t1: 'int' object has no attribute 'startswith'
+2025-09-25 00:38:19,667 - [INFO] - [LAB 2] Page 22: Found 1 unique tables
+2025-09-25 00:38:19,667 - [INFO] - [LAB 2] Warning: Enhanced DataFrame creation failed for p22_t1: 'int' object has no attribute 'startswith'
+2025-09-25 00:38:19,667 - [INFO] - [LAB 2] Page 23: Found 1 unique tables
+2025-09-25 00:38:19,667 - [INFO] - [LAB 2] Warning: Enhanced DataFrame creation failed for p23_t1: 'int' object has no attribute 'startswith'
+2025-09-25 00:38:19,667 - [INFO] - [LAB 2] Page 24: Found 2 unique tables
+2025-09-25 00:38:19,667 - [INFO] - [LAB 2] Warning: Enhanced DataFrame creation failed for p24_t1: 'int' object has no attribute 'startswith'
+2025-09-25 00:38:19,667 - [INFO] - [LAB 2] Warning: Enhanced DataFrame creation failed for p24_t2: 'int' object has no attribute 'startswith'
+2025-09-25 00:38:19,667 - [INFO] - [LAB 2] Page 25: Found 5 unique tables
+2025-09-25 00:38:19,667 - [INFO] - [LAB 2] Warning: Enhanced DataFrame creation failed for p25_t1: 'int' object has no attribute 'startswith'
+2025-09-25 00:38:19,667 - [INFO] - [LAB 2] Warning: Enhanced DataFrame creation failed for p25_t2: 'int' object has no attribute 'startswith'
+2025-09-25 00:38:19,667 - [INFO] - [LAB 2] Warning: Enhanced DataFrame creation failed for p25_t3: 'int' object has no attribute 'startswith'
+2025-09-25 00:38:19,667 - [INFO] - [LAB 2] Warning: Enhanced DataFrame creation failed for p25_t4: 'int' object has no attribute 'startswith'
+2025-09-25 00:38:19,667 - [INFO] - [LAB 2] Warning: Enhanced DataFrame creation failed for p25_t5: 'int' object has no attribute 'startswith'
+2025-09-25 00:38:19,667 - [INFO] - [LAB 2] Page 26: Found 1 unique tables
+2025-09-25 00:38:19,667 - [INFO] - [LAB 2] Warning: Enhanced DataFrame creation failed for p26_t1: 'int' object has no attribute 'startswith'
+2025-09-25 00:38:19,667 - [INFO] - [LAB 2] Page 27: Found 4 unique tables
+2025-09-25 00:38:19,667 - [INFO] - [LAB 2] Warning: Enhanced DataFrame creation failed for p27_t1: 'int' object has no attribute 'startswith'
+2025-09-25 00:38:19,667 - [INFO] - [LAB 2] Warning: Enhanced DataFrame creation failed for p27_t2: 'int' object has no attribute 'startswith'
+2025-09-25 00:38:19,667 - [INFO] - [LAB 2] Warning: Enhanced DataFrame creation failed for p27_t3: 'int' object has no attribute 'startswith'
+2025-09-25 00:38:19,667 - [INFO] - [LAB 2] Warning: Enhanced DataFrame creation failed for p27_t4: 'int' object has no attribute 'startswith'
+2025-09-25 00:38:19,667 - [INFO] - [LAB 2] Page 28: Found 1 unique tables
+2025-09-25 00:38:19,667 - [INFO] - [LAB 2] Warning: Enhanced DataFrame creation failed for p28_t1: 'int' object has no attribute 'startswith'
+2025-09-25 00:38:19,667 - [INFO] - [LAB 2] Page 29: Found 2 unique tables
+2025-09-25 00:38:19,667 - [INFO] - [LAB 2] Warning: Enhanced DataFrame creation failed for p29_t1: 'int' object has no attribute 'startswith'
+2025-09-25 00:38:19,667 - [INFO] - [LAB 2] Warning: Enhanced DataFrame creation failed for p29_t2: 'int' object has no attribute 'startswith'
+2025-09-25 00:38:19,667 - [INFO] - [LAB 2] Page 30: Found 2 unique tables
+2025-09-25 00:38:19,667 - [INFO] - [LAB 2] Warning: Enhanced DataFrame creation failed for p30_t1: 'int' object has no attribute 'startswith'
+2025-09-25 00:38:19,667 - [INFO] - [LAB 2] Warning: Enhanced DataFrame creation failed for p30_t2: 'int' object has no attribute 'startswith'
+2025-09-25 00:38:19,668 - [INFO] - [LAB 2] Page 31: Found 2 unique tables
+2025-09-25 00:38:19,668 - [INFO] - [LAB 2] Warning: Enhanced DataFrame creation failed for p31_t1: 'int' object has no attribute 'startswith'
+2025-09-25 00:38:19,668 - [INFO] - [LAB 2] Warning: Enhanced DataFrame creation failed for p31_t2: 'int' object has no attribute 'startswith'
+2025-09-25 00:38:19,668 - [INFO] - [LAB 2] Page 32: Found 5 unique tables
+2025-09-25 00:38:19,668 - [INFO] - [LAB 2] Warning: Enhanced DataFrame creation failed for p32_t1: 'int' object has no attribute 'startswith'
+2025-09-25 00:38:19,668 - [INFO] - [LAB 2] Warning: Enhanced DataFrame creation failed for p32_t2: 'int' object has no attribute 'startswith'
+2025-09-25 00:38:19,668 - [INFO] - [LAB 2] Warning: Enhanced DataFrame creation failed for p32_t3: 'int' object has no attribute 'startswith'
+2025-09-25 00:38:19,668 - [INFO] - [LAB 2] Warning: Enhanced DataFrame creation failed for p32_t4: 'int' object has no attribute 'startswith'
+2025-09-25 00:38:19,668 - [INFO] - [LAB 2] Warning: Enhanced DataFrame creation failed for p32_t5: 'int' object has no attribute 'startswith'
+2025-09-25 00:38:19,669 - [INFO] - [LAB 2] Page 33: Found 1 unique tables
+2025-09-25 00:38:19,669 - [INFO] - [LAB 2] Warning: Enhanced DataFrame creation failed for p33_t1: 'int' object has no attribute 'startswith'
+2025-09-25 00:38:19,669 - [INFO] - [LAB 2] Page 34: Found 2 unique tables
+2025-09-25 00:38:19,669 - [INFO] - [LAB 2] Warning: Enhanced DataFrame creation failed for p34_t1: 'int' object has no attribute 'startswith'
+2025-09-25 00:38:19,669 - [INFO] - [LAB 2] Warning: Enhanced DataFrame creation failed for p34_t2: 'int' object has no attribute 'startswith'
+2025-09-25 00:38:19,669 - [INFO] - [LAB 2] Page 35: Found 1 unique tables
+2025-09-25 00:38:19,669 - [INFO] - [LAB 2] Warning: Enhanced DataFrame creation failed for p35_t1: 'int' object has no attribute 'startswith'
+2025-09-25 00:38:19,669 - [INFO] - [LAB 2] Page 36: Found 1 unique tables
+2025-09-25 00:38:19,669 - [INFO] - [LAB 2] Warning: Enhanced DataFrame creation failed for p36_t1: 'int' object has no attribute 'startswith'
+2025-09-25 00:38:19,669 - [INFO] - [LAB 2] Page 37: Found 1 unique tables
+2025-09-25 00:38:19,670 - [INFO] - [LAB 2] Warning: Enhanced DataFrame creation failed for p37_t1: 'int' object has no attribute 'startswith'
+2025-09-25 00:38:19,670 - [INFO] - [LAB 2] Page 38: Found 1 unique tables
+2025-09-25 00:38:19,670 - [INFO] - [LAB 2] Warning: Enhanced DataFrame creation failed for p38_t1: 'int' object has no attribute 'startswith'
+2025-09-25 00:38:19,670 - [INFO] - [LAB 2] Page 39: Found 1 unique tables
+2025-09-25 00:38:19,670 - [INFO] - [LAB 2] Warning: Enhanced DataFrame creation failed for p39_t1: 'int' object has no attribute 'startswith'
+2025-09-25 00:38:19,670 - [INFO] - [LAB 2] pdfplumber enhanced: 84 tables using multi-strategy approach
+2025-09-25 00:38:19,670 - [INFO] - [LAB 2] PHASE 2: INTELLIGENT MERGING & DEDUPLICATION
+2025-09-25 00:38:19,670 - [INFO] - [LAB 2] ============================================================
+2025-09-25 00:38:19,670 - [INFO] - [LAB 2] Advanced merging: Deduplicating and ranking tables by quality...
+2025-09-25 00:38:19,670 - [INFO] - [LAB 2] Page 1: 4 tables found
+2025-09-25 00:38:19,670 - [INFO] - [LAB 2] Page 2: 2 tables found
+2025-09-25 00:38:19,670 - [INFO] - [LAB 2] Page 3: 2 tables found
+2025-09-25 00:38:19,670 - [INFO] - [LAB 2] Page 4: 3 tables found
+2025-09-25 00:38:19,670 - [INFO] - [LAB 2] Page 5: 3 tables found
+2025-09-25 00:38:19,670 - [INFO] - [LAB 2] Page 6: 3 tables found
+2025-09-25 00:38:19,670 - [INFO] - [LAB 2] Page 7: 4 tables found
+2025-09-25 00:38:19,670 - [INFO] - [LAB 2] Page 8: 4 tables found
+2025-09-25 00:38:19,670 - [INFO] - [LAB 2] Page 9: 3 tables found
+2025-09-25 00:38:19,670 - [INFO] - [LAB 2] Page 10: 3 tables found
+2025-09-25 00:38:19,670 - [INFO] - [LAB 2] Page 11: 4 tables found
+2025-09-25 00:38:19,670 - [INFO] - [LAB 2] Page 12: 3 tables found
+2025-09-25 00:38:19,670 - [INFO] - [LAB 2] Page 13: 5 tables found
+2025-09-25 00:38:19,670 - [INFO] - [LAB 2] Page 14: 3 tables found
+2025-09-25 00:38:19,670 - [INFO] - [LAB 2] Page 15: 5 tables found
+2025-09-25 00:38:19,670 - [INFO] - [LAB 2] Page 16: 5 tables found
+2025-09-25 00:38:19,670 - [INFO] - [LAB 2] Page 17: 5 tables found
+2025-09-25 00:38:19,670 - [INFO] - [LAB 2] Page 18: 4 tables found
+2025-09-25 00:38:19,670 - [INFO] - [LAB 2] Page 19: 5 tables found
+2025-09-25 00:38:19,671 - [INFO] - [LAB 2] Page 20: 4 tables found
+2025-09-25 00:38:19,671 - [INFO] - [LAB 2] Page 21: 2 tables found
+2025-09-25 00:38:19,671 - [INFO] - [LAB 2] Page 22: 2 tables found
+2025-09-25 00:38:19,671 - [INFO] - [LAB 2] Page 23: 2 tables found
+2025-09-25 00:38:19,671 - [INFO] - [LAB 2] Page 24: 3 tables found
+2025-09-25 00:38:19,671 - [INFO] - [LAB 2] Page 25: 6 tables found
+2025-09-25 00:38:19,671 - [INFO] - [LAB 2] Page 26: 2 tables found
+2025-09-25 00:38:19,671 - [INFO] - [LAB 2] Page 27: 5 tables found
+2025-09-25 00:38:19,671 - [INFO] - [LAB 2] Page 28: 2 tables found
+2025-09-25 00:38:19,671 - [INFO] - [LAB 2] Page 29: 3 tables found
+2025-09-25 00:38:19,671 - [INFO] - [LAB 2] Page 30: 3 tables found
+2025-09-25 00:38:19,671 - [INFO] - [LAB 2] Page 31: 3 tables found
+2025-09-25 00:38:19,671 - [INFO] - [LAB 2] Page 32: 6 tables found
+2025-09-25 00:38:19,672 - [INFO] - [LAB 2] Page 33: 2 tables found
+2025-09-25 00:38:19,672 - [INFO] - [LAB 2] Page 34: 3 tables found
+2025-09-25 00:38:19,672 - [INFO] - [LAB 2] Page 35: 2 tables found
+2025-09-25 00:38:19,672 - [INFO] - [LAB 2] Page 36: 2 tables found
+2025-09-25 00:38:19,672 - [INFO] - [LAB 2] Page 37: 2 tables found
+2025-09-25 00:38:19,672 - [INFO] - [LAB 2] Page 38: 3 tables found
+2025-09-25 00:38:19,672 - [INFO] - [LAB 2] Page 39: 3 tables found
+2025-09-25 00:38:19,672 - [INFO] - [LAB 2] Merged 130 raw tables → 129 unique tables
+2025-09-25 00:38:19,672 - [INFO] - [LAB 2] PHASE 3: QUALITY VALIDATION & ENHANCEMENT
+2025-09-25 00:38:19,672 - [INFO] - [LAB 2] ============================================================
+2025-09-25 00:38:19,672 - [INFO] - [LAB 2] Validating and enhancing table quality...
+2025-09-25 00:38:19,672 - [INFO] - [LAB 2] Validated 125/129 tables
+2025-09-25 00:38:19,672 - [INFO] - [LAB 2] PHASE 4: COMPREHENSIVE OUTPUT GENERATION
+2025-09-25 00:38:19,672 - [INFO] - [LAB 2] ============================================================
+2025-09-25 00:38:19,672 - [INFO] - [LAB 2] Saving enhanced tables and comprehensive analysis...
+2025-09-25 00:38:19,672 - [INFO] - [LAB 2] Saved 125 enhanced CSV files
+2025-09-25 00:38:19,672 - [INFO] - [LAB 2] Created comprehensive index: /Users/pranavpatel/Downloads/Big_data_1.1/untitled folder/untitled folder/Untitled/data/parsed/production_test/tesla_20250925_003720/tables/_comprehensive_index.csv
+2025-09-25 00:38:19,673 - [INFO] - [LAB 2] Created detailed analysis: /Users/pranavpatel/Downloads/Big_data_1.1/untitled folder/untitled folder/Untitled/data/parsed/production_test/tesla_20250925_003720/tables/_comprehensive_analysis.json
+2025-09-25 00:38:19,673 - [INFO] - [LAB 2] ================================================================================
+2025-09-25 00:38:19,673 - [INFO] - [LAB 2] 100% ACCURACY TABLE EXTRACTION COMPLETE
+2025-09-25 00:38:19,673 - [INFO] - [LAB 2] ================================================================================
+2025-09-25 00:38:19,673 - [INFO] - [LAB 2] Total tables extracted: 125
+2025-09-25 00:38:19,673 - [INFO] - [LAB 2] Camelot lattice mode: 0 tables
+2025-09-25 00:38:19,673 - [INFO] - [LAB 2] Camelot stream mode: 46 tables
+2025-09-25 00:38:19,673 - [INFO] - [LAB 2] pdfplumber enhanced: 84 tables
+2025-09-25 00:38:19,673 - [INFO] - [LAB 2] Clean CSV files saved: 125
+2025-09-25 00:38:19,673 - [INFO] - [LAB 2] Quality validation: Complete
+2025-09-25 00:38:19,673 - [INFO] - [LAB 2] Coverage: 100% (all pages scanned)
+2025-09-25 00:38:19,673 - [INFO] - [LAB 2] Table extraction completed successfully
+2025-09-25 00:38:19,673 - [INFO] - [LAB 2] Results saved to: /Users/pranavpatel/Downloads/Big_data_1.1/untitled folder/untitled folder/Untitled/data/parsed/production_test/tesla_20250925_003720/tables
+2025-09-25 00:38:19,673 - [INFO] - [LAB 2] Table extraction completed successfully
+2025-09-25 00:38:19,673 - [INFO] - 
+[LAB 3] Starting layout detection...
+2025-09-25 00:38:19,673 - [INFO] - [LAB 3] Executing: /Library/Developer/CommandLineTools/usr/bin/python3 /Users/pranavpatel/Downloads/Big_data_1.1/untitled folder/untitled folder/Untitled/src/layout/extract_layout.py --in /Users/pranavpatel/Downloads/Big_data_1.1/untitled folder/untitled folder/Untitled/data/raw/tesla.pdf --out /Users/pranavpatel/Downloads/Big_data_1.1/untitled folder/untitled folder/Untitled/data/parsed/production_test/tesla_20250925_003720
+2025-09-25 00:38:29,986 - [INFO] - [LAB 3] Detectron2 not available, using manual layout detection
+2025-09-25 00:38:29,986 - [INFO] - [LAB 3] Layout Detection Summary for tesla.pdf:
+2025-09-25 00:38:29,986 - [INFO] - [LAB 3] Pages processed: 39
+2025-09-25 00:38:29,986 - [INFO] - [LAB 3] Total blocks detected: 1855
+2025-09-25 00:38:29,986 - [INFO] - [LAB 3] Block type distribution:
+2025-09-25 00:38:29,986 - [INFO] - [LAB 3] Text: 1733
+2025-09-25 00:38:29,986 - [INFO] - [LAB 3] Table: 45
+2025-09-25 00:38:29,986 - [INFO] - [LAB 3] Title: 77
+2025-09-25 00:38:29,987 - [INFO] - [LAB 3] Output written to /Users/pranavpatel/Downloads/Big_data_1.1/untitled folder/untitled folder/Untitled/data/parsed/production_test/tesla_20250925_003720
+2025-09-25 00:38:29,987 - [INFO] - [LAB 3] Layout detection completed successfully
+2025-09-25 00:38:29,987 - [INFO] - 
+[LAB 4] Starting Docling processing with integrated AI metadata extraction...
+2025-09-25 00:38:29,987 - [INFO] - [LAB 4] Executing: /Library/Developer/CommandLineTools/usr/bin/python3 /Users/pranavpatel/Downloads/Big_data_1.1/untitled folder/untitled folder/Untitled/src/docling/extract_docling.py --in /Users/pranavpatel/Downloads/Big_data_1.1/untitled folder/untitled folder/Untitled/data/raw/tesla.pdf --out /Users/pranavpatel/Downloads/Big_data_1.1/untitled folder/untitled folder/Untitled/data/parsed/production_test/tesla_20250925_003720
+2025-09-25 00:40:08,317 - [INFO] - [LAB 4] Docling Performance Summary for tesla.pdf:
+2025-09-25 00:40:08,319 - [INFO] - [LAB 4] Processing time: 92.50 seconds
+2025-09-25 00:40:08,319 - [INFO] - [LAB 4] Tables detected: 46
+2025-09-25 00:40:08,319 - [INFO] - [LAB 4] Formulas detected: 0
+2025-09-25 00:40:08,319 - [INFO] - [LAB 4] Reading order preserved: False
+2025-09-25 00:40:08,319 - [INFO] - [LAB 4] Output written to /Users/pranavpatel/Downloads/Big_data_1.1/untitled folder/untitled folder/Untitled/data/parsed/production_test/tesla_20250925_003720
+2025-09-25 00:40:08,319 - [INFO] - [LAB 4] Docling processing with AI metadata completed successfully
+2025-09-25 00:40:08,365 - [INFO] - [LAB 5] Created metadata file with 80 records: /Users/pranavpatel/Downloads/Big_data_1.1/untitled folder/untitled folder/Untitled/data/parsed/production_test/tesla_20250925_003720/metadata/tesla_2024.jsonl
+2025-09-25 00:40:08,365 - [INFO] - [LAB 5] AI-Enhanced metadata extraction completed via Docling integration
+2025-09-25 00:40:08,365 - [INFO] - 
+[LAB 6] Starting format conversion...
+2025-09-25 00:40:08,365 - [INFO] - [LAB 6] Executing: /Library/Developer/CommandLineTools/usr/bin/python3 /Users/pranavpatel/Downloads/Big_data_1.1/untitled folder/untitled folder/Untitled/src/formats/convert_formats.py --in /Users/pranavpatel/Downloads/Big_data_1.1/untitled folder/untitled folder/Untitled/data/parsed/production_test/tesla_20250925_003720/metadata/tesla_2024.jsonl --out /Users/pranavpatel/Downloads/Big_data_1.1/untitled folder/untitled folder/Untitled/data/parsed/production_test/tesla_20250925_003720
+2025-09-25 00:40:08,461 - [INFO] - [LAB 6] ✅ Format conversion completed for tesla_2024
+2025-09-25 00:40:08,461 - [INFO] - [LAB 6] Total records processed: 80
+2025-09-25 00:40:08,461 - [INFO] - [LAB 6] Formats created:
+2025-09-25 00:40:08,461 - [INFO] - [LAB 6] 📄 MARKDOWN: tesla_2024.md (1075.3 KB)
+2025-09-25 00:40:08,461 - [INFO] - [LAB 6] 📄 JSON: tesla_2024.json (2255.7 KB)
+2025-09-25 00:40:08,461 - [INFO] - [LAB 6] 📄 TXT: tesla_2024.txt (1071.2 KB)
+2025-09-25 00:40:08,461 - [INFO] - [LAB 6] 📄 ANALYSIS: _format_analysis.md (4.0 KB)
+2025-09-25 00:40:08,461 - [INFO] - [LAB 6] Format conversion completed successfully
+2025-09-25 00:40:08,461 - [INFO] - 
+[VALIDATION] Validating outputs for tesla_2024...
+2025-09-25 00:40:08,461 - [INFO] - [VALIDATION] LAB1: PASS | LAB2: PASS | LAB3: PASS | LAB4: PASS | LAB5: FAIL | LAB6: PASS
+2025-09-25 00:40:08,462 - [INFO] - Successfully processed tesla.pdf → tesla_20250925_003720
+2025-09-25 00:40:08,462 - [INFO] - 
+================================================================================
+2025-09-25 00:40:08,462 - [INFO] - LANTERN PIPELINE EXECUTION SUMMARY
+2025-09-25 00:40:08,462 - [INFO] - ================================================================================
+2025-09-25 00:40:08,462 - [INFO] - Execution timestamp: 20250925_004008
+2025-09-25 00:40:08,462 - [INFO] - Total PDFs processed: 1
+2025-09-25 00:40:08,462 - [INFO] - Successful: 1
+2025-09-25 00:40:08,462 - [INFO] - Failed: 0
+2025-09-25 00:40:08,462 - [INFO] - Success rate: 100.0%
+2025-09-25 00:40:08,462 - [INFO] - 
+Successfully Processed Documents:
+2025-09-25 00:40:08,462 - [INFO] -    tesla.pdf → tesla_2024
+2025-09-25 00:40:08,462 - [INFO] - 
+Lab Success Summary:
+2025-09-25 00:40:08,462 - [INFO] -    Lab 1: 1/1 successful (100.0%)
+2025-09-25 00:40:08,462 - [INFO] -    Lab 2: 1/1 successful (100.0%)
+2025-09-25 00:40:08,462 - [INFO] -    Lab 3: 1/1 successful (100.0%)
+2025-09-25 00:40:08,462 - [INFO] -    Lab 4: 1/1 successful (100.0%)
+2025-09-25 00:40:08,462 - [INFO] -    Lab 5: 1/1 successful (100.0%)
+2025-09-25 00:40:08,462 - [INFO] -    Lab 6: 1/1 successful (100.0%)
+2025-09-25 00:40:08,462 - [INFO] - 
+All outputs saved to: /Users/pranavpatel/Downloads/Big_data_1.1/untitled folder/untitled folder/Untitled/data/parsed/production_test
+2025-09-25 00:40:08,462 - [INFO] - Detailed summary saved to: /Users/pranavpatel/Downloads/Big_data_1.1/untitled folder/untitled folder/Untitled/data/parsed/production_test/pipeline_summary_20250925_004008.json
+2025-09-25 00:40:08,463 - [INFO] - Comprehensive pipeline report saved: /Users/pranavpatel/Downloads/Big_data_1.1/untitled folder/untitled folder/Untitled/data/parsed/production_test/LANTERN_Pipeline_Report_20250925_004008.md
+2025-09-25 00:40:08,463 - [INFO] - Pipeline report generated: /Users/pranavpatel/Downloads/Big_data_1.1/untitled folder/untitled folder/Untitled/data/parsed/production_test/LANTERN_Pipeline_Report_20250925_004008.md
+2025-09-25 00:40:08,463 - [INFO] - Pipeline completed successfully - All documents processed!
+2025-09-25 00:44:16,986 - [INFO] - LANTERN Pipeline started
+2025-09-25 00:44:16,986 - [INFO] - Output directory: /Users/pranavpatel/Downloads/Big_data_1.1/untitled folder/untitled folder/Untitled/data/parsed/final_test
+2025-09-25 00:44:16,986 - [INFO] - Raw data directory: /Users/pranavpatel/Downloads/Big_data_1.1/untitled folder/untitled folder/Untitled/data/raw
+2025-09-25 00:44:16,986 - [INFO] - Hybrid tables: True
+2025-09-25 00:44:16,987 - [INFO] - Skip Docling: False
+2025-09-25 00:44:16,987 - [INFO] - Hybrid tables: True
+2025-09-25 00:44:16,987 - [INFO] - Skip Docling: False
+2025-09-25 00:44:16,987 - [INFO] - Found 1 PDF files to process
+2025-09-25 00:44:16,987 - [INFO] -    tesla.pdf
+2025-09-25 00:44:16,987 - [INFO] - 
+================================================================================
+2025-09-25 00:44:16,987 - [INFO] - Processing Document 1/1: tesla.pdf
+2025-09-25 00:44:16,987 - [INFO] - ================================================================================
+2025-09-25 00:44:16,987 - [INFO] - Document metadata: ID=tesla_2024, Company=Tesla Inc., Year=2024
+2025-09-25 00:44:16,987 - [INFO] - Unified output directory: tesla_20250925_004416
+2025-09-25 00:44:16,987 - [INFO] - 
+[LAB 1] Starting text extraction...
+2025-09-25 00:44:16,987 - [INFO] - [LAB 1] Executing: /Library/Developer/CommandLineTools/usr/bin/python3 /Users/pranavpatel/Downloads/Big_data_1.1/untitled folder/untitled folder/Untitled/src/text/extract_text.py --in /Users/pranavpatel/Downloads/Big_data_1.1/untitled folder/untitled folder/Untitled/data/raw/tesla.pdf --out /Users/pranavpatel/Downloads/Big_data_1.1/untitled folder/untitled folder/Untitled/data/parsed/final_test/tesla_20250925_004416
+2025-09-25 00:44:27,017 - [INFO] - [LAB 1] Processing: tesla.pdf
+2025-09-25 00:44:27,018 - [INFO] - [LAB 1] Lab 1 Text Extraction Complete:
+2025-09-25 00:44:27,018 - [INFO] - [LAB 1] Per-page .txt files: 39 files created
+2025-09-25 00:44:27,018 - [INFO] - [LAB 1] OCR log: 0 pages required OCR
+2025-09-25 00:44:27,018 - [INFO] - [LAB 1] Word bounding boxes: Saved for layout analysis
+2025-09-25 00:44:27,018 - [INFO] - [LAB 1] Output location: /Users/pranavpatel/Downloads/Big_data_1.1/untitled folder/untitled folder/Untitled/data/parsed/final_test/tesla_20250925_004416/text
+2025-09-25 00:44:27,018 - [INFO] - [LAB 1] Text extraction completed successfully
+2025-09-25 00:44:27,018 - [INFO] - 
+[LAB 2] Starting table extraction...
+2025-09-25 00:44:27,018 - [INFO] - [LAB 2] Executing: /Library/Developer/CommandLineTools/usr/bin/python3 /Users/pranavpatel/Downloads/Big_data_1.1/untitled folder/untitled folder/Untitled/src/tables/extract_tables.py --in /Users/pranavpatel/Downloads/Big_data_1.1/untitled folder/untitled folder/Untitled/data/raw/tesla.pdf --out /Users/pranavpatel/Downloads/Big_data_1.1/untitled folder/untitled folder/Untitled/data/parsed/final_test/tesla_20250925_004416 --hybrid
+2025-09-25 00:45:12,275 - [INFO] - [LAB 2] Table extraction completed successfully
+2025-09-25 00:45:12,276 - [INFO] - 
+[LAB 3] Starting layout detection...
+2025-09-25 00:45:12,276 - [INFO] - [LAB 3] Executing: /Library/Developer/CommandLineTools/usr/bin/python3 /Users/pranavpatel/Downloads/Big_data_1.1/untitled folder/untitled folder/Untitled/src/layout/extract_layout.py --in /Users/pranavpatel/Downloads/Big_data_1.1/untitled folder/untitled folder/Untitled/data/raw/tesla.pdf --out /Users/pranavpatel/Downloads/Big_data_1.1/untitled folder/untitled folder/Untitled/data/parsed/final_test/tesla_20250925_004416
+2025-09-25 00:45:22,608 - [INFO] - [LAB 3] Detectron2 not available, using manual layout detection
+2025-09-25 00:45:22,608 - [INFO] - [LAB 3] Layout Detection Summary for tesla.pdf:
+2025-09-25 00:45:22,608 - [INFO] - [LAB 3] Pages processed: 39
+2025-09-25 00:45:22,608 - [INFO] - [LAB 3] Total blocks detected: 1855
+2025-09-25 00:45:22,608 - [INFO] - [LAB 3] Block type distribution:
+2025-09-25 00:45:22,608 - [INFO] - [LAB 3] Text: 1733
+2025-09-25 00:45:22,608 - [INFO] - [LAB 3] Table: 45
+2025-09-25 00:45:22,608 - [INFO] - [LAB 3] Title: 77
+2025-09-25 00:45:22,608 - [INFO] - [LAB 3] Output written to /Users/pranavpatel/Downloads/Big_data_1.1/untitled folder/untitled folder/Untitled/data/parsed/final_test/tesla_20250925_004416
+2025-09-25 00:45:22,608 - [INFO] - [LAB 3] Layout detection completed successfully
+2025-09-25 00:45:22,609 - [INFO] - 
+[LAB 4] Starting Docling processing with integrated AI metadata extraction...
+2025-09-25 00:45:22,609 - [INFO] - [LAB 4] Executing: /Library/Developer/CommandLineTools/usr/bin/python3 /Users/pranavpatel/Downloads/Big_data_1.1/untitled folder/untitled folder/Untitled/src/docling/extract_docling.py --in /Users/pranavpatel/Downloads/Big_data_1.1/untitled folder/untitled folder/Untitled/data/raw/tesla.pdf --out /Users/pranavpatel/Downloads/Big_data_1.1/untitled folder/untitled folder/Untitled/data/parsed/final_test/tesla_20250925_004416
+2025-09-25 00:46:46,615 - [INFO] - [LAB 4] Docling Performance Summary for tesla.pdf:
+2025-09-25 00:46:46,616 - [INFO] - [LAB 4] Processing time: 78.80 seconds
+2025-09-25 00:46:46,616 - [INFO] - [LAB 4] Tables detected: 46
+2025-09-25 00:46:46,616 - [INFO] - [LAB 4] Formulas detected: 0
+2025-09-25 00:46:46,616 - [INFO] - [LAB 4] Reading order preserved: False
+2025-09-25 00:46:46,617 - [INFO] - [LAB 4] Output written to /Users/pranavpatel/Downloads/Big_data_1.1/untitled folder/untitled folder/Untitled/data/parsed/final_test/tesla_20250925_004416
+2025-09-25 00:46:46,617 - [INFO] - [LAB 4] Docling processing with AI metadata completed successfully
+2025-09-25 00:46:46,637 - [INFO] - [LAB 5] Created metadata file with 46 records: /Users/pranavpatel/Downloads/Big_data_1.1/untitled folder/untitled folder/Untitled/data/parsed/final_test/tesla_20250925_004416/metadata/tesla_2024.jsonl
+2025-09-25 00:46:46,637 - [INFO] - [LAB 5] AI-Enhanced metadata extraction completed via Docling integration
+2025-09-25 00:46:46,637 - [INFO] - 
+[LAB 6] Starting format conversion...
+2025-09-25 00:46:46,637 - [INFO] - [LAB 6] Executing: /Library/Developer/CommandLineTools/usr/bin/python3 /Users/pranavpatel/Downloads/Big_data_1.1/untitled folder/untitled folder/Untitled/src/formats/convert_formats.py --in /Users/pranavpatel/Downloads/Big_data_1.1/untitled folder/untitled folder/Untitled/data/parsed/final_test/tesla_20250925_004416/metadata/tesla_2024.jsonl --out /Users/pranavpatel/Downloads/Big_data_1.1/untitled folder/untitled folder/Untitled/data/parsed/final_test/tesla_20250925_004416
+2025-09-25 00:46:46,707 - [INFO] - [LAB 6] ✅ Format conversion completed for tesla_2024
+2025-09-25 00:46:46,708 - [INFO] - [LAB 6] Total records processed: 46
+2025-09-25 00:46:46,708 - [INFO] - [LAB 6] Formats created:
+2025-09-25 00:46:46,708 - [INFO] - [LAB 6] 📄 MARKDOWN: tesla_2024.md (28.6 KB)
+2025-09-25 00:46:46,708 - [INFO] - [LAB 6] 📄 JSON: tesla_2024.json (117.0 KB)
+2025-09-25 00:46:46,708 - [INFO] - [LAB 6] 📄 TXT: tesla_2024.txt (26.2 KB)
+2025-09-25 00:46:46,708 - [INFO] - [LAB 6] 📄 ANALYSIS: _format_analysis.md (4.0 KB)
+2025-09-25 00:46:46,708 - [INFO] - [LAB 6] Format conversion completed successfully
+2025-09-25 00:46:46,708 - [INFO] - 
+[VALIDATION] Validating outputs for tesla_2024...
+2025-09-25 00:46:46,708 - [INFO] - [VALIDATION] LAB1: PASS | LAB2: PASS | LAB3: PASS | LAB4: PASS | LAB5: FAIL | LAB6: PASS
+2025-09-25 00:46:46,708 - [INFO] - Successfully processed tesla.pdf → tesla_20250925_004416
+2025-09-25 00:46:46,708 - [INFO] - 
+================================================================================
+2025-09-25 00:46:46,708 - [INFO] - LANTERN PIPELINE EXECUTION SUMMARY
+2025-09-25 00:46:46,708 - [INFO] - ================================================================================
+2025-09-25 00:46:46,708 - [INFO] - Execution timestamp: 20250925_004646
+2025-09-25 00:46:46,708 - [INFO] - Total PDFs processed: 1
+2025-09-25 00:46:46,708 - [INFO] - Successful: 1
+2025-09-25 00:46:46,708 - [INFO] - Failed: 0
+2025-09-25 00:46:46,708 - [INFO] - Success rate: 100.0%
+2025-09-25 00:46:46,708 - [INFO] - 
+Successfully Processed Documents:
+2025-09-25 00:46:46,708 - [INFO] -    tesla.pdf → tesla_2024
+2025-09-25 00:46:46,708 - [INFO] - 
+Lab Success Summary:
+2025-09-25 00:46:46,708 - [INFO] -    Lab 1: 1/1 successful (100.0%)
+2025-09-25 00:46:46,708 - [INFO] -    Lab 2: 1/1 successful (100.0%)
+2025-09-25 00:46:46,708 - [INFO] -    Lab 3: 1/1 successful (100.0%)
+2025-09-25 00:46:46,708 - [INFO] -    Lab 4: 1/1 successful (100.0%)
+2025-09-25 00:46:46,708 - [INFO] -    Lab 5: 1/1 successful (100.0%)
+2025-09-25 00:46:46,709 - [INFO] -    Lab 6: 1/1 successful (100.0%)
+2025-09-25 00:46:46,709 - [INFO] - 
+All outputs saved to: /Users/pranavpatel/Downloads/Big_data_1.1/untitled folder/untitled folder/Untitled/data/parsed/final_test
+2025-09-25 00:46:46,709 - [INFO] - Detailed summary saved to: /Users/pranavpatel/Downloads/Big_data_1.1/untitled folder/untitled folder/Untitled/data/parsed/final_test/pipeline_summary_20250925_004646.json
+2025-09-25 00:46:46,709 - [INFO] - Comprehensive pipeline report saved: /Users/pranavpatel/Downloads/Big_data_1.1/untitled folder/untitled folder/Untitled/data/parsed/final_test/LANTERN_Pipeline_Report_20250925_004646.md
+2025-09-25 00:46:46,709 - [INFO] - Pipeline report generated: /Users/pranavpatel/Downloads/Big_data_1.1/untitled folder/untitled folder/Untitled/data/parsed/final_test/LANTERN_Pipeline_Report_20250925_004646.md
+2025-09-25 00:46:46,709 - [INFO] - Pipeline completed successfully - All documents processed!

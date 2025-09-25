@@ -1,5 +1,7 @@
 import os
+
 from sec_edgar_downloader import Downloader
+
 
 def download_filings(company_name, email, filing_type="10-K", count=2):
     """
@@ -17,6 +19,7 @@ def download_filings(company_name, email, filing_type="10-K", count=2):
 
     # Download filings
     downloader.get(filing_type, company_name, count=count)
+
 
 if __name__ == "__main__":
     # Example usage

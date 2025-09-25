@@ -1,0 +1,13 @@
+# Development and Code Quality Tools
+# Install with: pip install -r requirements-dev.txt
+
+# Code formatting and linting
+black>=22.0.0,<26.0.0
+isort>=5.10.0,<6.0.0
+flake8>=4.0.0,<8.0.0
+
+# Type checking (optional)
+mypy>=1.0.0,<2.0.0
+
+# Testing tools
+pytest-cov>=4.0.0,<5.0.0
