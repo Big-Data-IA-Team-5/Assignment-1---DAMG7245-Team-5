@@ -1,242 +1,402 @@
-Project LANTERN – PDF Processing Pipeline
 
-Team 5 – DAMG7245, Fall 2025
+---
 
-A production-ready pipeline to extract text, tables, layout, and metadata from PDFs. Outputs structured data in multiple formats suitable for RAG systems, financial analysis, and machine learning applications.
+# 📄 Smart PDF Processing Pipeline with Dynamic DVC
 
-Table of Contents
+**Team 5 – DAMG7245, Fall 2025**
 
-System Requirements
+A **production-ready, self-configuring** pipeline that extracts **text, tables, layout, metadata** (and optionally **Google Document AI**) from PDFs. Uses **DVC** for reproducible orchestration and a **smart setup** that adapts to your Python (3.7–3.12) and platform.
 
-Dependencies
+---
 
-Environment Setup
+## 🧭 Table of Contents
 
-Project Structure
+* [🚀 One-Command Setup](#-one-command-setup)
+* [🔧 System Requirements](#-system-requirements)
+* [⚡ Quick Start](#-quick-start)
+* [🛠️ Advanced Setup](#️-advanced-setup)
+* [📊 DVC Pipeline Usage](#-dvc-pipeline-usage)
+* [🏗️ Project Structure](#️-project-structure)
+* [🔬 Pipeline Labs](#-pipeline-labs)
+* [🤖 Lab 7: Google Document AI (Optional)](#-lab-7-google-document-ai-optional)
+* [📤 Output Structure](#-output-structure)
+* [🧩 Troubleshooting](#-troubleshooting)
+* [⚡ Performance](#-performance)
+* [👥 Team](#-team)
+* [📝 License](#-license)
 
-Pipeline Labs
+---
 
-Lab 7: Google Document AI Integration
+## 🚀 One-Command Setup
 
-Usage Examples
+Works with **any Python 3.7+** (auto-adapts to 3.7–3.12):
 
-Output Structure
+```bash
+git clone https://github.com/Big-Data-IA-Team-5/Assignment-1---DAMG7245-Team-5.git
+cd Assignment-1---DAMG7245-Team-5
 
-Troubleshooting
+# Smart, cross-platform bootstrap
+python3 setup/smart_setup.py
 
-Performance
+# Activate and run
+source activate.sh            # Windows: activate.bat
+dvc repro
+```
 
-Team
+**What the smart setup does**
 
-License
+* ✅ Detects Python version and OS
+* ✅ Creates virtual env and pins compatible dependencies
+* ✅ Initializes DVC (if needed)
+* ✅ Generates activation scripts for your OS
 
-System Requirements
+---
 
-Python: 3.8+
+## 🔧 System Requirements
 
-RAM: 4GB minimum (8GB recommended)
+* **Python**: 3.7+ (3.10–3.12 recommended)
+* **RAM**: 4 GB minimum (8 GB+ for long PDFs)
+* **Disk**: 2 GB free
+* **OS**: Windows / macOS / Linux
+* **Optional**:
 
-Disk Space: 2GB free
+  * **Tesseract OCR** (auto-detected if installed)
+  * **Java** (for some Camelot backends)
+  * **Google Document AI** creds for Lab 7
 
-OS: Windows, macOS, Linux
+**System packages**
 
-Dependencies
-Core Dependencies
+* macOS: `brew install tesseract` (and `xcode-select --install`)
+* Ubuntu/Debian: `sudo apt-get install -y tesseract-ocr libtesseract-dev build-essential`
+* Windows: Install [Tesseract OCR (UB Mannheim build)](https://github.com/UB-Mannheim/tesseract/wiki) and add to `PATH`.
 
-pdfplumber – PDF text extraction
+---
 
-camelot-py – Table extraction
+## ⚡ Quick Start
 
-pytesseract – OCR
+### Option A — Smart (Recommended)
 
-pandas, numpy – Data manipulation
+```bash
+python3 setup/smart_setup.py                  # auto setup
+python3 setup/smart_setup.py --minimal        # essential deps only
+python3 setup/smart_setup.py --force-reinstall
+python3 setup/smart_setup.py --skip-dvc
+```
 
-layoutparser (optional) – Layout detection
+### Option B — Traditional
 
-docling (optional) – AI PDF understanding
+```bash
+python3 -m venv .venv
+source .venv/bin/activate                     # Windows: .venv\Scripts\activate
+pip install -r setup/requirements.txt         # dynamic, version-aware
+```
 
-torch – ML features
+### Option C — Shell Script (Unix/macOS)
 
-Pipeline Management
+```bash
+chmod +x setup/setup_smart.sh
+./setup/setup_smart.sh
+```
 
-dvc – Data Version Control
+**Verify**
 
-git – Version control integration
+```bash
+python3 setup/verify_setup.py
+```
 
-Environment Setup
+---
 
-Create virtual environment
+## 🛠️ Advanced Setup
 
-python3 -m venv venv
-source venv/bin/activate       # macOS/Linux
-venv\Scripts\activate          # Windows
+**Dynamic requirements (auto-selects versions by Python runtime)**
 
+* `setup/requirements.txt` – dynamic, recommended
+* `setup/requirements-minimal.txt` – lean install
+* `requirements/` – pinned/constraints by family
 
-Install dependencies
+**Manual switches**
 
-pip install --upgrade pip setuptools wheel
-pip install -r requirements.txt
+```bash
+source .venv/bin/activate
+pip install -r setup/requirements-minimal.txt
+pip install -r setup/requirements.txt
+```
 
+---
 
-Install Tesseract for OCR
+## 📊 DVC Pipeline Usage
 
-macOS: brew install tesseract && xcode-select --install
+**Why DVC?** Reproducible runs, clear DAGs, cache, and collaboration.
 
-Linux: sudo apt-get install tesseract-ocr libtesseract-dev python3-dev build-essential
+### Pipeline Overview
 
-Windows: Install Tesseract OCR
- and add to PATH
+```mermaid
+graph TD
+    A[data/raw/*.pdf] --> B[parse: Text Extraction]
+    A --> C[tables: Table Extraction]
+    A --> D[layout: Layout Analysis]
+    B --> E[docling: Advanced AI Analysis]
+    C --> E
+    D --> E
+    E --> F[export: Multi-format Output]
+```
 
-Project Structure
+### Essential Commands
+
+```bash
+source activate.sh                   # Windows: activate.bat
+dvc status                           # what will run
+dvc repro                            # run full pipeline
+dvc repro parse                      # run a specific stage
+dvc repro tables
+dvc repro layout
+dvc dag                              # visualize pipeline DAG
+dvc pipeline show                    # detailed view
+# If remote configured:
+dvc push | dvc pull
+```
+
+---
+
+## 🏗️ Project Structure
+
+```
 Assignment-1---DAMG7245-Team-5/
-├── run_complete_pipeline.py      # Main script
-├── requirements.txt
-├── data/
-│   ├── raw/      # Input PDFs
-│   └── parsed/   # Pipeline outputs
-├── src/
-│   ├── text/      # Lab 1
-│   ├── tables/    # Lab 2
-│   ├── layout/    # Lab 3
-│   ├── docling/   # Lab 4
-│   ├── metadata/  # Lab 5
-│   ├── formats/   # Lab 6
-│   └── google_ai/ # Lab 7 (optional)
-├── credentials/   # Secure keys
-├── reports/       # AI analysis reports
-├── configs/
-├── utils/
-├── tests/
-└── docs/
+├─ README.md
+├─ dvc.yaml / dvc.lock
+├─ run_complete_pipeline.py                 # orchestrates Labs 1–6
+├─ activate.sh / activate.bat               # env activation
+│
+├─ setup/
+│  ├─ smart_setup.py                        # dynamic installer
+│  ├─ verify_setup.py
+│  ├─ requirements.txt                      # dynamic
+│  └─ requirements-minimal.txt
+│
+├─ dvc/
+│  ├─ dvc_pipeline_setup.py
+│  └─ dvc_utils.py
+│
+├─ data/
+│  ├─ raw.dvc                               # DVC-tracked PDFs
+│  ├─ raw/                                  # drop PDFs here
+│  ├─ intermediate/
+│  │  ├─ text/  ├─ tables/  └─ layout/
+│  └─ parsed/                               # final outputs
+│
+├─ src/
+│  ├─ text/       # Lab 1
+│  ├─ tables/     # Lab 2 (extract_tables.py)
+│  ├─ layout/     # Lab 3
+│  ├─ docling/    # Lab 4
+│  ├─ metadata/   # Lab 5
+│  └─ formats/    # Lab 6
+│
+├─ google_ai/                               # Lab 7 (optional)
+├─ credentials/                             # (gitignored) keys
+├─ reports/
+├─ configs/
+├─ utils/
+├─ tests/
+└─ .dvc/
+```
 
-Pipeline Labs
-Lab	Purpose	Output	Status
-Lab 1	Text Extraction	.txt files	✅ Working
-Lab 2	Table Extraction	.csv files	✅ Working
-Lab 3	Layout Analysis	.json structure	✅ Working
-Lab 4	AI Processing	.json, .md	✅ Working
-Lab 5	Metadata Tagging	.jsonl metadata	✅ Working
-Lab 6	Format Conversion	JSON, Markdown, TXT	✅ Working
-Lab 7	Google Document AI	AI-powered extraction & comparison	✅ Optional
-Lab 7: Google Document AI Integration
+---
 
-Enhanced AI-Powered PDF Analysis
+## 🔬 Pipeline Labs
 
-Lab 7 integrates Google's Document AI for advanced PDF processing and comparison with traditional parsing results.
+| Lab       | Purpose                                 | Outputs                    | Status     |
+| --------- | --------------------------------------- | -------------------------- | ---------- |
+| **Lab 1** | Text extraction (OCR fallback)          | `.txt`, per-page           | ✅ Working  |
+| **Lab 2** | Table extraction (Camelot + PDFPlumber) | `.csv`, index + analysis   | ✅ Working  |
+| **Lab 3** | Layout analysis                         | `layout_*.json`            | ✅ Working  |
+| **Lab 4** | Docling AI processing                   | `.json`, `.md`             | ✅ Working  |
+| **Lab 5** | Metadata & provenance                   | `.jsonl`, `.md`, summaries | ✅ Working  |
+| **Lab 6** | Multi-format export                     | Markdown / JSON / TXT      | ✅ Working  |
+| **Lab 7** | Google Document AI (optional)           | AI extracts + comparison   | ✅ Optional |
 
-Key Features
+**Manual execution (alternative to DVC):**
 
-Smart page selection (specific pages or random sampling)
-
-AI-powered extraction: text, tables, entities, forms
-
-Comparative analysis with Lab 1–6 outputs
-
-Comprehensive reporting with metrics
-
-Organized folder hierarchy
-
-Setup Requirements
-
-Place service account JSON in credentials/google-credentials.json
-
-Configure configs/google_ai_config.json with processor ID
-
-Optional environment variable:
-
-export GOOGLE_APPLICATION_CREDENTIALS="path/to/credentials.json"
-
-
-Usage Examples
-
-Random pages:
-
-python3 google_ai/run_lab7.py --pdf data/raw/tesla.pdf --random 2
-
-
-Specific pages:
-
-python3 google_ai/run_lab7.py --pdf data/raw/tesla.pdf --pages 5 12
-
-Usage Examples
-
-Run full pipeline:
-
+```bash
 python3 run_complete_pipeline.py --out data/parsed --hybrid-tables --verbose
 
+# Individual labs
+python3 src/text/extract_text.py      --in data/raw/your.pdf --out data/parsed/
+python3 src/tables/extract_tables.py  --in data/raw/your.pdf --out data/parsed/ --hybrid
+python3 src/layout/extract_layout.py  --in data/raw/your.pdf --out data/parsed/
+python3 src/docling/extract_docling.py --in data/raw/your.pdf --out data/parsed/
+python3 src/metadata/extract_metadata.py --in data/raw/your.pdf --out data/parsed/
+python3 src/formats/convert_formats.py --in data/parsed/<doc>/metadata/<doc>.jsonl --out data/parsed/<doc>/
+```
 
-Run individual labs:
+---
 
-python3 src/text/extract_text.py --in data/raw/your_file.pdf --out data/parsed/
-python3 src/tables/extract_tables.py --in data/raw/your_file.pdf --out data/parsed/ --hybrid
-python3 src/layout/extract_layout.py --in data/raw/your_file.pdf --out data/parsed/
-python3 src/docling/extract_docling.py --in data/raw/your_file.pdf --out data/parsed/
-python3 src/metadata/extract_metadata.py --in data/raw/your_file.pdf --out data/parsed/
-python3 src/formats/convert_formats.py --in data/parsed/metadata/doc.jsonl --out data/parsed/
+## 🤖 Lab 7: Google Document AI (Optional)
 
+**What it adds**
 
-Lab 7 Google AI:
+* AI-powered extraction: text, tables, entities, forms
+* Smart page selection (random/sample or explicit pages)
+* Side-by-side comparison with Labs 1–6
+* Clean reports under `reports/google_ai/`
 
+**Setup**
+
+1. Place service account JSON at `credentials/google-credentials.json`
+2. Update `configs/google_ai_config.json` (processor ID, project, location)
+3. (Optional) export:
+
+   ```bash
+   export GOOGLE_APPLICATION_CREDENTIALS="credentials/google-credentials.json"
+   ```
+
+**Usage**
+
+```bash
+# Random N pages
 python3 google_ai/run_lab7.py --pdf data/raw/tesla.pdf --random 2
+
+# Specific pages
 python3 google_ai/run_lab7.py --pdf data/raw/tesla.pdf --pages 5 12
+```
 
-Output Structure
+---
 
-Pipeline results:
+## 📤 Output Structure
 
+### Main pipeline
+
+```
 data/parsed/
-├── your_document_<timestamp>/
-│   ├── text/
-│   ├── tables/
-│   ├── layout/
-│   ├── docling/
-│   ├── metadata/
-│   └── formats/
-├── LANTERN_Pipeline_Report_<timestamp>.md
-└── pipeline_summary_<timestamp>.json
+└─ <your_document>_<timestamp>/
+   ├─ text/
+   ├─ tables/
+   │  ├─ *_p<page>_t<table>.csv
+   │  ├─ _comprehensive_index.csv
+   │  └─ _comprehensive_analysis.json
+   ├─ layout/
+   ├─ docling/
+   ├─ metadata/
+   └─ formats/
+LANTERN_Pipeline_Report_<timestamp>.md
+pipeline_summary_<timestamp>.json
+```
 
+### Lab 7 (Google AI)
 
-Lab 7 AI results:
-
+```
 reports/google_ai/lab7_session_<timestamp>/
-├── temp_pdfs/
-├── raw_google_ai_results/
-├── parsed_results/
-├── parsed_data_comparison/
-└── final_reports/
+├─ temp_pdfs/
+├─ raw_google_ai_results/
+├─ parsed_results/
+├─ parsed_data_comparison/
+└─ final_reports/
+```
 
-Troubleshooting
+---
 
-Ensure python3 and virtual environment are active
+## 🧩 Troubleshooting
 
-Install missing packages: pip install -r requirements.txt
+### Environment
 
-PDFs must exist in data/raw/
+```bash
+source .venv/bin/activate                 # ensure venv is active
+pip install --upgrade pip setuptools wheel
+pip install -r setup/requirements.txt
+python3 setup/verify_setup.py
+```
 
-Use chmod +x run_complete_pipeline.py setup.sh on macOS/Linux
+### Python version
 
-Monitor logs:
+* Supported: **3.7–3.12** (auto-adapted)
+* Recommended: **3.10–3.12**
+* Check: `python3 --version`
 
+### System deps
+
+* Tesseract not found → install (see requirements) and ensure it’s on `PATH`.
+* Java not found → some Camelot backends may require Java for best results.
+
+### DVC
+
+```bash
+dvc init                 # if repo not initialized
+dvc status
+dvc repro --verbose
+dvc cache dir            # inspect cache
+dvc repair               # repair corrupted cache
+```
+
+### Files & permissions (Unix/macOS)
+
+```bash
+chmod +x run_complete_pipeline.py setup/smart_setup.py setup/setup_smart.sh
+```
+
+### Logs & monitoring
+
+```bash
 tail -f pipeline_execution.log
 tail -f lab7_execution.log
+dvc repro --verbose
+```
 
-Performance
+**Common Errors**
 
-100-page PDF: ~4–6 min, ~4GB RAM
+| Error                 | Fix                                         |
+| --------------------- | ------------------------------------------- |
+| `ModuleNotFoundError` | Activate venv; reinstall requirements       |
+| `Tesseract not found` | Install Tesseract; add to `PATH`            |
+| `DVC pipeline failed` | `dvc status` → fix missing deps/inputs      |
+| `Permission denied`   | `chmod +x` the script                       |
+| `PDF not found`       | Place PDFs under `data/raw/` or update path |
 
-2-page Lab 7 AI extraction: ~3–5 sec, ~2GB RAM
+---
 
-High success rate and output quality
+## ⚡ Performance (Typical)
 
-Timestamped folders for traceability
+* **100-page PDF**: ~4–6 minutes, ~4 GB RAM
+* **Lab 7** (2 pages): ~3–5 seconds, ~2 GB RAM
+* Timestamped outputs for traceability and reproducibility
 
-Team
+---
 
-Team 5 – DAMG7245, Fall 2025
+## 👥 Team
+
+**Team 5 – DAMG7245 (Fall 2025)**
 Big Data Analytics Project – SEC Filing Processing Pipeline
+Lab 7 contributors: Google Document AI integration, page selection, AI analysis, security, testing.
 
-Lab 7 Contributors: Google Document AI integration, page selection, AI analysis, security, testing
+---
 
-License
+## 📝 License
 
-MIT License – see project files for details
+**MIT License** – see project files for details.
+
+---
+
+### 🔎 Quick Reference
+
+**Setup & Verify**
+
+```bash
+python3 setup/smart_setup.py
+python3 setup/verify_setup.py
+```
+
+**DVC Ops via Utils (optional)**
+
+```bash
+python dvc/dvc_utils.py status
+python dvc/dvc_utils.py run
+```
+
+**Run Main Pipeline**
+
+```bash
+python run_complete_pipeline.py
+dvc repro
+```
+
+---
+
