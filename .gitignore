@@ -1,13 +1,29 @@
-# DVC-managed pipeline outputs
-/data/parsed/
-/reports/google_ai/
+# =============================================================================
+# TEAM COLLABORATION - PRIVATE REPOSITORY
+# =============================================================================
+# This repository is PRIVATE for team collaboration.
+# Team members can see ALL files including:
+# ✅ credentials/google-credentials.json
+# ✅ credentials/damg-big-data-*.json
+# ✅ lab7_execution.log
+# ✅ pipeline_execution.log
+# ✅ .setup_info.json
+# ✅ runs_registry.json
+# ❌ Public cannot access anything (repository is private).
+# Only temporary/generated files are excluded from version control.
+# =============================================================================
 
-# Python
+
+# =============================================================================
+# PYTHON
+# =============================================================================
 __pycache__/
 *.py[cod]
 *$py.class
 *.so
 .Python
+
+# Build/distribution
 build/
 develop-eggs/
 dist/
@@ -27,36 +43,154 @@ share/python-wheels/
 *.egg
 MANIFEST
 
-# Virtual environments
+# PyInstaller
+*.manifest
+*.spec
+
+# Unit test / coverage
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# Jupyter
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/
+
+
+# =============================================================================
+# VIRTUAL ENVIRONMENTS
+# =============================================================================
 .env
+.env.local
+.env.personal
 .venv
-env/
 venv/
 ENV/
 env.bak/
 venv.bak/
+.conda/
+conda-meta/
 
-# IDE
+
+# =============================================================================
+# IDE AND EDITORS
+# =============================================================================
 .vscode/
 .idea/
 *.swp
 *.swo
+*~
+.project
+.classpath
+.settings/
+*.sublime-project
+*.sublime-workspace
 
-# OS
+
+# =============================================================================
+# OPERATING SYSTEM
+# =============================================================================
+# macOS
 .DS_Store
 .DS_Store?
 ._*
 .Spotlight-V100
 .Trashes
+.AppleDouble
+.LSOverride
+
+# Windows
 ehthumbs.db
 Thumbs.db
+Desktop.ini
 
-# Logs
-*.log
+# Linux
+*~
+.directory
+
+
+# =============================================================================
+# LOGS & TEMP FILES
+# =============================================================================
+# Personal log files
+*_personal.log
+*_local.log
+debug_*.log
 
 # Temporary files
 *.tmp
 *.temp
+*.bak
+*.backup
+temp/
+tmp/
 
+
+# =============================================================================
+# DVC AND DATA MANAGEMENT
+# =============================================================================
+# DVC cache
+.dvc/cache/
+.dvc/tmp/
+.dvc/plots/
+
+# DVC-managed pipeline outputs
+/data/parsed/
+/data/intermediate/
+/reports/google_ai/
+/metrics/
+/versioned_outputs/
+
+# Raw and large datasets
+/data/raw/*.pdf
+/data/raw/temp_pdfs/
+/data/raw/large_datasets/
+/data/raw/xbrl/*_personal*
+/data/raw/xbrl/*_backup*
+
+# Keep folder structure
+!/data/raw/.gitkeep
+
+
+# =============================================================================
+# APPLICATION SPECIFIC
+# =============================================================================
 # Cache
 .cache/
+cache/
+*.cache
+
+# Backup credential files
+credentials/*-backup*
+credentials/*-copy*
+credentials/*-temp*
+
+# Model files and large binaries
+*.pkl
+*.pickle
+*.joblib
+*.h5
+*.hdf5
+*.onnx
+*.pb
+
+
+# =============================================================================
+# DEVELOPMENT & TESTING
+# =============================================================================
+# Test outputs
+test-results/
+test-output/
+
+# Benchmark results
+benchmark/
+benchmarks/
