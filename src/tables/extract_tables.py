@@ -49,6 +49,13 @@ def setup_logging(verbose: bool = False) -> None:
         level=level,
         format="%(asctime)s - [%(levelname)s] - %(message)s",
     )
+    
+    # Disable verbose logging from PDF processing libraries
+    logging.getLogger('pdfminer').setLevel(logging.WARNING)
+    logging.getLogger('pdfplumber').setLevel(logging.WARNING)
+    logging.getLogger('camelot').setLevel(logging.WARNING)
+    logging.getLogger('urllib3').setLevel(logging.WARNING)
+    logging.getLogger('matplotlib').setLevel(logging.WARNING)
 
 
 # ---------------------------------------------------------------------
@@ -335,6 +342,132 @@ def choose_preferred_method(
     return {"method": method, "reason": reasons[method]}
 
 
+def select_best_tables_only(
+    lattice: List[TableResult], stream: List[TableResult], plumber: List[TableResult]
+) -> List[TableResult]:
+    """
+    Select only the highest-quality tables with aggressive filtering and deduplication.
+    This implements a multi-stage filtering process:
+    1. Apply quality thresholds to eliminate low-quality extractions
+    2. Deduplicate similar tables from different methods
+    3. Select only one best table per page (most aggressive filtering)
+    """
+    # Stage 1: Apply quality thresholds to filter out low-quality tables
+    def meets_quality_threshold(table: TableResult) -> bool:
+        """Aggressive quality filtering - only keep truly high-quality tables"""
+        quality = table.content_quality or 0
+        accuracy = table.accuracy or 0
+        financial_score = table.financial_score or 0
+        
+        # Minimum quality thresholds
+        if quality < 0.4:  # Raise minimum quality threshold
+            return False
+            
+        # Size filtering - ignore tiny or overly large tables
+        rows, cols = table.shape
+        if rows < 2 or cols < 2:  # Must have at least 2x2
+            return False
+        if rows * cols > 500:  # Ignore massive tables (likely extraction artifacts)
+            return False
+            
+        # Financial relevance bonus
+        if financial_score >= 5:  # High financial relevance
+            return quality >= 0.3  # Lower threshold for financial tables
+        elif financial_score >= 2:  # Some financial relevance
+            return quality >= 0.4
+        else:  # Non-financial tables need higher quality
+            return quality >= 0.5
+            
+    # Filter each method's results
+    filtered_lattice = [t for t in lattice if meets_quality_threshold(t)]
+    filtered_stream = [t for t in stream if meets_quality_threshold(t)]
+    filtered_plumber = [t for t in plumber if meets_quality_threshold(t)]
+    
+    LOG.info("Quality filtering results:")
+    LOG.info("  - Camelot Lattice: %d -> %d tables", len(lattice), len(filtered_lattice))
+    LOG.info("  - Camelot Stream: %d -> %d tables", len(stream), len(filtered_stream))
+    LOG.info("  - PDFPlumber: %d -> %d tables", len(plumber), len(filtered_plumber))
+    
+    # Stage 2: Combine and deduplicate similar tables
+    all_filtered = filtered_lattice + filtered_stream + filtered_plumber
+    
+    if not all_filtered:
+        LOG.info("No tables passed quality filtering")
+        return []
+    
+    # Group similar tables by page and approximate characteristics
+    page_groups: Dict[int, List[TableResult]] = {}
+    for table in all_filtered:
+        page = table.page
+        if page not in page_groups:
+            page_groups[page] = []
+        page_groups[page].append(table)
+    
+    best_tables = []
+    
+    # Stage 3: For each page, select only the single best table
+    for page_num, page_tables in page_groups.items():
+        if not page_tables:
+            continue
+            
+        if len(page_tables) == 1:
+            best_tables.append(page_tables[0])
+            LOG.info("Page %d: Single high-quality table (%s method)", 
+                    page_num, page_tables[0].method)
+        else:
+            # Multiple high-quality tables on same page - pick the absolute best
+            best_table = None
+            best_score = -1
+            
+            for table in page_tables:
+                # Comprehensive scoring with emphasis on quality and relevance
+                quality_score = (table.content_quality or 0) * 2.0  # Weight quality heavily
+                accuracy_score = (table.accuracy or 0) / 50.0  # Moderate weight for accuracy
+                financial_score = min((table.financial_score or 0) / 10.0, 0.5)  # Cap financial bonus
+                size_score = min((table.shape[0] * table.shape[1]) / 200.0, 0.3)  # Moderate size bonus
+                
+                # Strong method-specific bonuses for proven performers
+                method_bonus = 0
+                if table.method == "camelot_stream":
+                    method_bonus = 0.3  # Strong bonus for financial tables
+                elif table.method == "camelot_lattice" and table.accuracy and table.accuracy > 90:
+                    method_bonus = 0.4  # Very strong bonus for high-accuracy bordered tables
+                elif table.method == "pdfplumber":
+                    method_bonus = 0.2  # Moderate bonus for general purpose
+                
+                total_score = quality_score + accuracy_score + financial_score + size_score + method_bonus
+                
+                if total_score > best_score:
+                    best_score = total_score
+                    best_table = table
+            
+            if best_table:
+                best_tables.append(best_table)
+                LOG.info("Page %d: Selected %s method (score: %.3f) from %d high-quality candidates", 
+                        page_num, best_table.method, best_score, len(page_tables))
+    
+    # Final sort by page
+    best_tables.sort(key=lambda x: x.page)
+    
+    LOG.info("FINAL RESULT: %d unique, highest-quality tables selected from %d total extractions", 
+             len(best_tables), len(lattice + stream + plumber))
+    
+    # Show final breakdown
+    if best_tables:
+        method_counts = {}
+        page_range = f"{min(t.page for t in best_tables)}-{max(t.page for t in best_tables)}"
+        for table in best_tables:
+            method = table.method
+            method_counts[method] = method_counts.get(method, 0) + 1
+        
+        LOG.info("Final selection breakdown:")
+        for method, count in sorted(method_counts.items()):
+            LOG.info("  - %s: %d tables", method, count)
+        LOG.info("  - Page range: %s", page_range)
+    
+    return best_tables
+
+
 # ---------------------------------------------------------------------
 # Save outputs
 # ---------------------------------------------------------------------
@@ -432,16 +565,43 @@ def extract_tables_assignment_hybrid(pdf_path: Path, output_dir: Path, use_hybri
     stream = camelot_stream(pdf_path)
     plumber = plumber_all_pages(pdf_path)
 
-    # Merge & dedupe
-    merged_unique = dedupe_tables(lattice + stream + plumber)
-
-    # If --hybrid flag set, we already used multiple methods; nothing else needed.
+    # Log initial extraction results
+    LOG.info("Initial extraction results:")
+    LOG.info("  - Camelot Lattice: %d tables", len(lattice))
+    LOG.info("  - Camelot Stream: %d tables", len(stream))
+    LOG.info("  - PDFPlumber: %d tables", len(plumber))
+    
+    # Apply selection strategy based on hybrid flag
+    if use_hybrid:
+        # Hybrid mode: Apply aggressive filtering and selection to get only the best unique tables
+        LOG.info("HYBRID MODE: Applying intelligent selection to get best unique tables only")
+        best_only = select_best_tables_only(lattice, stream, plumber)
+    else:
+        # Non-hybrid mode: Use all tables with basic deduplication
+        LOG.info("STANDARD MODE: Using all extracted tables with basic deduplication")
+        all_results = lattice + stream + plumber
+        best_only = dedupe_tables(all_results)
+    
+    LOG.info("Final result: Selected %d best tables (duplicates eliminated)", len(best_only))
+    
+    # Show summary of selected methods
+    if best_only:
+        method_counts = {}
+        for table in best_only:
+            method = table.method
+            method_counts[method] = method_counts.get(method, 0) + 1
+        
+        LOG.info("Methods selected:")
+        for method, count in method_counts.items():
+            LOG.info("  - %s: %d tables", method, count)
+    
+    # Save results using only the best tables
     saved, index_path, analysis_path = save_results(
-        tables_dir, base_name, lattice, stream, plumber, merged_unique
+        tables_dir, base_name, lattice, stream, plumber, best_only
     )
 
     return {
-        "total_tables": len(merged_unique),
+        "total_tables": len(best_only),
         "files_saved": saved,
         "index": str(index_path),
         "analysis": str(analysis_path),

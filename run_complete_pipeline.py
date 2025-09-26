@@ -24,18 +24,38 @@ import logging
 import re
 import subprocess
 import sys
+import io
 from pathlib import Path
 
 # Set up comprehensive logging
+# Wrap stdout in a UTF-8 text wrapper so Windows consoles (cp1252) won't raise
+# UnicodeEncodeError when logging characters like arrows (→).
+_utf8_stdout = io.TextIOWrapper(getattr(sys.stdout, "buffer", sys.stdout), encoding="utf-8", write_through=True)
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s - [%(levelname)s] - %(message)s",
     handlers=[
-        logging.StreamHandler(sys.stdout),
-        logging.FileHandler("pipeline_execution.log"),
+        logging.StreamHandler(_utf8_stdout),
+        logging.FileHandler("pipeline_execution.log", encoding="utf-8"),
     ],
 )
+
+# Suppress verbose logging from PDF processing libraries to reduce noise
+logging.getLogger('pdfminer').setLevel(logging.WARNING)
+logging.getLogger('pdfplumber').setLevel(logging.WARNING) 
+logging.getLogger('camelot').setLevel(logging.WARNING)
+logging.getLogger('urllib3').setLevel(logging.WARNING)
+logging.getLogger('matplotlib').setLevel(logging.WARNING)
+
 logger = logging.getLogger(__name__)
+
+# Import comprehensive metadata extraction functionality after logger is defined
+try:
+    from src.metadata.extract_comprehensive import extract_comprehensive_metadata
+    comprehensive_extractor_available = True
+except ImportError:
+    comprehensive_extractor_available = False
+    logger.warning("Comprehensive metadata extractor not available, falling back to basic extraction")
 
 
 def run_command(cmd, lab_name="Unknown"):
@@ -360,51 +380,55 @@ def create_metadata_from_docling(
     metadata_records = []
 
     # Read Lab 1 text outputs
-    text_dir = unified_output_dir / "text"
+    text_dir = unified_output_dir / "text" / "pages"
     if text_dir.exists():
         for text_file in text_dir.glob("page_*.txt"):
             try:
-                page_num = int(text_file.stem.split("_")[1])
+                # Extract page number from filenames like page_001.txt, page_002.txt
+                page_str = text_file.stem.split("_")[1]
+                page_num = int(page_str)
+                
                 with open(text_file, "r", encoding="utf-8") as f:
                     text_content = f.read().strip()
 
-                if text_content:
-                    metadata_records.append(
-                        {
-                            "doc_id": doc_id,
-                            "company": company,
-                            "fiscal_year": fiscal_year,
-                            "source_path": str(pdf_path),
-                            "extraction_timestamp": datetime.now().isoformat(),
-                            "extraction_method": "pdfplumber_text",
-                            "page": page_num,
-                            "section": f"Page {page_num}",
-                            "block_type": "paragraph",
-                            "text": text_content,
-                            "confidence": 0.9,
-                            "bbox": None,
-                        }
-                    )
-            except (ValueError, IndexError):
-                continue
-
-    # Read Lab 2 table outputs
-    tables_dir = unified_output_dir / "tables"
-    if tables_dir.exists():
-        for csv_file in tables_dir.glob("*.csv"):
-            try:
-                # Extract page and table info from filename
-                filename_parts = csv_file.stem.split("_")
-                if len(filename_parts) >= 4:  # e.g., "tesla_pdfplumber_p1_t1"
-                    page_num = int(filename_parts[2][1:])  # Extract number from "p1"
-                    table_num = int(filename_parts[3][1:])  # Extract number from "t1"
-
-                    with open(csv_file, "r", encoding="utf-8") as f:
-                        csv_reader = csv.reader(f)
-                        table_rows = list(csv_reader)
-
-                    if table_rows:
-                        table_text = "\n".join([",".join(row) for row in table_rows])
+                if text_content and len(text_content) > 50:  # Only include substantial content
+                    # Split long text into smaller chunks for better processing
+                    max_chunk_size = 2000
+                    if len(text_content) > max_chunk_size:
+                        # Split into sentences to avoid breaking mid-sentence
+                        sentences = text_content.replace('. ', '.|').split('|')
+                        chunks = []
+                        current_chunk = ""
+                        
+                        for sentence in sentences:
+                            if len(current_chunk) + len(sentence) <= max_chunk_size:
+                                current_chunk += sentence
+                            else:
+                                if current_chunk:
+                                    chunks.append(current_chunk.strip())
+                                current_chunk = sentence
+                        if current_chunk:
+                            chunks.append(current_chunk.strip())
+                            
+                        # Add each chunk as a separate record
+                        for i, chunk in enumerate(chunks):
+                            metadata_records.append(
+                                {
+                                    "doc_id": doc_id,
+                                    "company": company,
+                                    "fiscal_year": fiscal_year,
+                                    "source_path": str(pdf_path),
+                                    "extraction_timestamp": datetime.now().isoformat(),
+                                    "extraction_method": "pdfplumber_text",
+                                    "page": page_num,
+                                    "section": f"Page {page_num} Part {i+1}" if len(chunks) > 1 else f"Page {page_num}",
+                                    "block_type": "paragraph",
+                                    "text": chunk,
+                                    "confidence": 0.9,
+                                    "bbox": None,
+                                }
+                            )
+                    else:
                         metadata_records.append(
                             {
                                 "doc_id": doc_id,
@@ -412,21 +436,95 @@ def create_metadata_from_docling(
                                 "fiscal_year": fiscal_year,
                                 "source_path": str(pdf_path),
                                 "extraction_timestamp": datetime.now().isoformat(),
-                                "extraction_method": "hybrid_table_extraction",
+                                "extraction_method": "pdfplumber_text",
                                 "page": page_num,
-                                "section": f"Page {page_num} Table {table_num}",
-                                "block_type": "table",
-                                "text": table_text,
-                                "confidence": 0.85,
+                                "section": f"Page {page_num}",
+                                "block_type": "paragraph",
+                                "text": text_content,
+                                "confidence": 0.9,
                                 "bbox": None,
-                                "table_info": {
-                                    "rows": len(table_rows),
-                                    "cols": len(table_rows[0]) if table_rows else 0,
-                                    "table_id": table_num,
-                                },
                             }
                         )
-            except (ValueError, IndexError):
+            except (ValueError, IndexError, Exception) as e:
+                logger.warning(f"Could not process text file {text_file}: {e}")
+                continue
+
+    # Read Lab 2 table outputs
+    tables_dir = unified_output_dir / "tables"
+    if tables_dir.exists():
+        for csv_file in tables_dir.glob("*.csv"):
+            # Skip index and analysis files
+            if csv_file.name.startswith("_"):
+                continue
+                
+            try:
+                # Extract page and table info from filename
+                filename_parts = csv_file.stem.split("_")
+                if len(filename_parts) >= 4:  # e.g., "tesla_pdfplumber_p1_t1" or "tesla_camelot_stream_p1_t1"
+                    if filename_parts[1] == "camelot" and len(filename_parts) >= 5:
+                        # Handle camelot_stream format: tesla_camelot_stream_p1_t1
+                        method = "camelot_stream"
+                        page_num = int(filename_parts[3][1:])  # Extract number from "p1"
+                        table_num = int(filename_parts[4][1:])  # Extract number from "t1"
+                    else:
+                        # Handle pdfplumber format: tesla_pdfplumber_p1_t1
+                        method = filename_parts[1]  # pdfplumber
+                        page_num = int(filename_parts[2][1:])  # Extract number from "p1"
+                        table_num = int(filename_parts[3][1:])  # Extract number from "t1"
+
+                    with open(csv_file, "r", encoding="utf-8") as f:
+                        csv_reader = csv.reader(f)
+                        table_rows = list(csv_reader)
+
+                    if table_rows and len(table_rows) > 0:
+                        # Create readable table text with proper formatting
+                        if len(table_rows) > 1:
+                            # First row as headers if available
+                            headers = table_rows[0]
+                            data_rows = table_rows[1:]
+                            
+                            # Create formatted table text
+                            table_text = f"Table Headers: {', '.join([str(h) for h in headers if str(h).strip()])}\n"
+                            
+                            # Add data rows with meaningful formatting
+                            for i, row in enumerate(data_rows):
+                                if i < 10:  # Limit to first 10 rows to avoid excessive length
+                                    clean_row = [str(cell).strip() for cell in row if str(cell).strip()]
+                                    if clean_row:  # Only add non-empty rows
+                                        table_text += f"Row {i+1}: {' | '.join(clean_row)}\n"
+                                elif i == 10:
+                                    table_text += f"... ({len(data_rows) - 10} more rows)\n"
+                        else:
+                            # Single row table
+                            table_text = f"Single row table: {' | '.join([str(cell).strip() for cell in table_rows[0] if str(cell).strip()])}"
+                        
+                        # Only include tables with substantial content
+                        if len(table_text.strip()) > 20:
+                            metadata_records.append(
+                                {
+                                    "doc_id": doc_id,
+                                    "company": company,
+                                    "fiscal_year": fiscal_year,
+                                    "source_path": str(pdf_path),
+                                    "extraction_timestamp": datetime.now().isoformat(),
+                                    "extraction_method": f"hybrid_table_extraction_{method}",
+                                    "page": page_num,
+                                    "section": f"Page {page_num} - Table {table_num} ({method})",
+                                    "block_type": "table",
+                                    "text": table_text.strip(),
+                                    "confidence": 0.85,
+                                    "bbox": None,
+                                    "table_info": {
+                                        "rows": len(table_rows),
+                                        "cols": len(table_rows[0]) if table_rows else 0,
+                                        "table_id": table_num,
+                                        "extraction_method": method,
+                                        "file_name": csv_file.name,
+                                    },
+                                }
+                            )
+            except (ValueError, IndexError, Exception) as e:
+                logger.warning(f"Could not process table file {csv_file}: {e}")
                 continue
 
     # Read Lab 3 layout outputs if available
@@ -462,36 +560,86 @@ def create_metadata_from_docling(
             except Exception as e:
                 logger.warning(f"Could not read layout analysis: {e}")
 
-    # Read Docling output
-    docling_json_path = unified_output_dir / "docling" / "output.json"
-    if docling_json_path.exists():
-        try:
-            with open(docling_json_path, "r", encoding="utf-8") as f:
-                docling_data = json.load(f)
+    # Read Docling output - both JSON and Markdown
+    docling_dir = unified_output_dir / "docling"
+    if docling_dir.exists():
+        # Read Docling JSON analysis
+        docling_json_path = docling_dir / "output.json"
+        if docling_json_path.exists():
+            try:
+                with open(docling_json_path, "r", encoding="utf-8") as f:
+                    docling_data = json.load(f)
 
-            # Add Docling-specific metadata
-            metadata_records.append(
-                {
-                    "doc_id": doc_id,
-                    "company": company,
-                    "fiscal_year": fiscal_year,
-                    "source_path": str(pdf_path),
-                    "extraction_timestamp": datetime.now().isoformat(),
-                    "extraction_method": "docling_ai",
-                    "page": 1,
-                    "section": "Docling Analysis",
-                    "block_type": "document_analysis",
-                    "text": f"Advanced AI analysis completed. Tables detected: {len(docling_data.get('tables', []))}, Document structure analyzed.",
-                    "confidence": 0.95,
-                    "bbox": None,
-                    "docling_analysis": {
-                        "tables_count": len(docling_data.get("tables", [])),
-                        "document_info": docling_data.get("document_info", {}),
-                    },
-                }
-            )
-        except Exception as e:
-            logger.warning(f"Could not read Docling output: {e}")
+                # Add Docling-specific metadata with more detailed analysis
+                analysis_text = f"""Docling AI Analysis Results:
+- Tables detected: {len(docling_data.get('tables', []))}
+- Document structure analyzed with advanced AI
+- Main text content length: {len(str(docling_data.get('main_text', '')))} characters
+- Processed with Docling's state-of-the-art PDF understanding"""
+
+                metadata_records.append(
+                    {
+                        "doc_id": doc_id,
+                        "company": company,
+                        "fiscal_year": fiscal_year,
+                        "source_path": str(pdf_path),
+                        "extraction_timestamp": datetime.now().isoformat(),
+                        "extraction_method": "docling_ai_analysis",
+                        "page": 1,
+                        "section": "Document AI Analysis",
+                        "block_type": "ai_analysis",
+                        "text": analysis_text,
+                        "confidence": 0.95,
+                        "bbox": None,
+                        "docling_analysis": {
+                            "tables_count": len(docling_data.get("tables", [])),
+                            "document_info": docling_data.get("document_info", {}),
+                            "main_text_length": len(str(docling_data.get('main_text', ''))),
+                        },
+                    }
+                )
+            except Exception as e:
+                logger.warning(f"Could not read Docling JSON output: {e}")
+        
+        # Read Docling Markdown output for rich content
+        docling_md_path = docling_dir / "output.md"
+        if docling_md_path.exists():
+            try:
+                with open(docling_md_path, "r", encoding="utf-8") as f:
+                    md_content = f.read().strip()
+
+                if md_content and len(md_content) > 100:
+                    # Split markdown into sections for better processing
+                    sections = md_content.split('\n## ')  # Split on H2 headers
+                    for i, section in enumerate(sections[:10]):  # Limit to first 10 sections
+                        if section.strip():
+                            section_title = section.split('\n')[0].strip('# ')
+                            section_content = '\n'.join(section.split('\n')[1:]).strip()
+                            
+                            if len(section_content) > 50:  # Only substantial content
+                                metadata_records.append(
+                                    {
+                                        "doc_id": doc_id,
+                                        "company": company,
+                                        "fiscal_year": fiscal_year,
+                                        "source_path": str(pdf_path),
+                                        "extraction_timestamp": datetime.now().isoformat(),
+                                        "extraction_method": "docling_markdown_extraction",
+                                        "page": i + 1,
+                                        "section": f"Docling Section: {section_title}",
+                                        "block_type": "structured_content",
+                                        "text": section_content[:1500] + ("..." if len(section_content) > 1500 else ""),  # Limit length
+                                        "confidence": 0.92,
+                                        "bbox": None,
+                                        "section_info": {
+                                            "title": section_title,
+                                            "content_length": len(section_content),
+                                            "section_number": i + 1,
+                                        },
+                                    }
+                                )
+            except Exception as e:
+                logger.warning(f"Could not read Docling Markdown output: {e}")
 
     # If no metadata records were created, create a minimal one
     if not metadata_records:
@@ -569,6 +717,12 @@ Examples:
     parser.add_argument(
         "--verbose", "-v", action="store_true", help="Enable verbose logging"
     )
+    parser.add_argument(
+        "--comprehensive-extraction",
+        action="store_true",
+        default=True,
+        help="Use comprehensive metadata extraction for ALL content types (default: enabled)"
+    )
 
     args = parser.parse_args()
 
@@ -601,8 +755,11 @@ Examples:
     logger.info(f"Raw data directory: {raw_dir}")
     logger.info(f"Hybrid tables: {args.hybrid_tables}")
     logger.info(f"Skip Docling: {args.skip_docling}")
-    logger.info(f"Hybrid tables: {args.hybrid_tables}")
-    logger.info(f"Skip Docling: {args.skip_docling}")
+    logger.info(f"Comprehensive extraction: {args.comprehensive_extraction}")
+    if comprehensive_extractor_available:
+        logger.info("✅ Comprehensive metadata extractor available - will extract ALL content types")
+    else:
+        logger.warning("⚠️ Comprehensive metadata extractor not available - falling back to basic extraction")
 
     # Find all PDFs in raw directory
     pdf_files = list(raw_dir.glob("*.pdf"))
@@ -726,39 +883,48 @@ Examples:
                 logger.info(
                     "[LAB 4] Docling processing with AI metadata completed successfully"
                 )
-                # Create metadata file from Docling output for Lab 6
-                create_metadata_from_docling(
-                    unified_output_dir, doc_id, company, fiscal_year, pdf_path
-                )
-                # Mark Lab 5 as completed since it's now integrated into Docling
-                lab_results[doc_id]["lab5"] = True
-                logger.info(
-                    "[LAB 5] AI-Enhanced metadata extraction completed via Docling integration"
-                )
         else:
             logger.info("[LAB 4] Skipped (--skip-docling flag set)")
             lab_results[doc_id]["lab4"] = True  # Don't count as failure
 
-            # Run standalone metadata extraction if Docling is skipped
-            logger.info("\n[LAB 5] Starting standalone metadata extraction...")
-            lab5_success = run_command(
-                [
-                    py_exec,
-                    str(base_dir / "src" / "metadata" / "extract_metadata.py"),
-                    "--in",
-                    str(pdf_path),
-                    "--out",
-                    str(unified_output_dir),
-                    "--doc-id",
-                    doc_id,
-                    "--company",
-                    company,
-                    "--fiscal-year",
-                    fiscal_year,
-                ],
-                "LAB 5",
+        # Lab 5: Comprehensive Metadata Extraction (ALWAYS RUN - extracts ALL content types)
+        logger.info("\n[LAB 5] Starting comprehensive metadata extraction...")
+        
+        if comprehensive_extractor_available:
+            try:
+                # Use our comprehensive extractor that extracts ALL document elements
+                logger.info("[LAB 5] Using comprehensive metadata extractor for ALL content types...")
+                extraction_success = extract_comprehensive_metadata(
+                    pdf_path=str(pdf_path),
+                    doc_id=doc_id,
+                    company=company,
+                    fiscal_year=fiscal_year,
+                    output_dir=str(unified_output_dir),
+                    unified_dir=str(unified_output_dir)
+                )
+                
+                lab_results[doc_id]["lab5"] = extraction_success
+                if extraction_success:
+                    logger.info("[LAB 5] Comprehensive metadata extraction completed successfully - extracted ALL content types (text, tables, headings, structure, etc.)")
+                else:
+                    logger.error("[LAB 5] Comprehensive metadata extraction failed")
+                
+            except Exception as e:
+                logger.error(f"[LAB 5] Comprehensive metadata extraction failed: {e}")
+                logger.info("[LAB 5] Falling back to basic metadata creation...")
+                
+                # Fallback to basic metadata creation
+                create_metadata_from_docling(
+                    unified_output_dir, doc_id, company, fiscal_year, pdf_path
+                )
+                lab_results[doc_id]["lab5"] = True
+        else:
+            # Fallback to existing metadata extraction logic
+            logger.info("[LAB 5] Using fallback metadata extraction...")
+            create_metadata_from_docling(
+                unified_output_dir, doc_id, company, fiscal_year, pdf_path
             )
-            lab_results[doc_id]["lab5"] = lab5_success
+            lab_results[doc_id]["lab5"] = True
 
         # Lab 6: Storage Format Conversion (requires Lab 5 output)
         logger.info("\n[LAB 6] Starting format conversion...")

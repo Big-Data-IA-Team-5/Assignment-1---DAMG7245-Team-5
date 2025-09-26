@@ -1,0 +1,315 @@
+# Comprehensive Metadata Schema Definition
+# This schema defines the structure for extracting ALL document elements
+
+metadata_schema:
+  # Core identification fields (REQUIRED for all records)
+  core_fields:
+    doc_id:
+      type: string
+      description: "Unique document identifier (e.g., 'tesla_2024')"
+      required: true
+      
+    company:
+      type: string
+      description: "Company name (e.g., 'Tesla Inc.')"
+      required: true
+      
+    fiscal_year:
+      type: string
+      description: "Fiscal year of the document (e.g., '2024')"
+      required: true
+      
+    source_path:
+      type: string
+      description: "Full path to the source PDF file"
+      required: true
+      
+    extraction_timestamp:
+      type: string
+      format: iso_datetime
+      description: "When this record was extracted"
+      required: true
+
+  # Document structure fields (REQUIRED for all records)
+  structure_fields:
+    page:
+      type: integer
+      description: "Page number where this content appears"
+      required: true
+      min: 1
+      
+    section:
+      type: string
+      description: "Section identifier or description (e.g., 'Page 5 - Financial Statements')"
+      required: true
+      
+    block_type:
+      type: string
+      description: "Type of content block"
+      required: true
+      allowed_values:
+        # Text content types
+        - "paragraph"
+        - "heading"
+        - "subheading" 
+        - "header"
+        - "footer"
+        - "caption"
+        - "footnote"
+        - "text_block"
+        - "structured_content"
+        
+        # Table and data types
+        - "table"
+        - "table_header"
+        - "table_cell"
+        - "list"
+        - "list_item"
+        
+        # Visual elements
+        - "image"
+        - "chart"
+        - "diagram"
+        - "signature"
+        - "logo"
+        
+        # Layout elements
+        - "column"
+        - "text_region"
+        - "layout_block"
+        
+        # Special content
+        - "form_field"
+        - "checkbox"
+        - "barcode"
+        - "qr_code"
+        
+        # Analysis results
+        - "ai_analysis"
+        - "docling_section"
+        - "google_ai_entity"
+        
+        # Fallback
+        - "unknown"
+
+  # Content fields
+  content_fields:
+    text:
+      type: string
+      description: "Extracted text content"
+      required: true
+      
+    confidence:
+      type: float
+      description: "Confidence score for extraction (0.0 to 1.0)"
+      required: false
+      min: 0.0
+      max: 1.0
+      default: 1.0
+
+  # Positional fields
+  position_fields:
+    bbox:
+      type: object
+      description: "Bounding box coordinates [x1, y1, x2, y2] or null"
+      required: false
+      properties:
+        x1: {type: float, description: "Left coordinate"}
+        y1: {type: float, description: "Top coordinate"}  
+        x2: {type: float, description: "Right coordinate"}
+        y2: {type: float, description: "Bottom coordinate"}
+
+  # Processing metadata
+  processing_fields:
+    extraction_method:
+      type: string
+      description: "Method used for extraction"
+      required: true
+      allowed_values:
+        # Text extraction methods
+        - "pdfplumber_text"
+        - "pypdf_text" 
+        - "docling_text"
+        - "google_ai_text"
+        
+        # Table extraction methods
+        - "camelot_stream"
+        - "camelot_lattice"
+        - "pdfplumber_table"
+        - "tabula"
+        - "hybrid_table_extraction_camelot_stream"
+        - "hybrid_table_extraction_pdfplumber"
+        
+        # Layout analysis methods
+        - "layout_detection"
+        - "google_ai_layout"
+        - "docling_layout"
+        
+        # AI/ML methods
+        - "docling_ai_analysis"
+        - "docling_markdown_extraction"
+        - "google_document_ai"
+        - "openai_analysis"
+        
+        # Combined methods
+        - "hybrid_extraction"
+        - "unified_extraction"
+        - "multi_method_extraction"
+        
+        # Fallback
+        - "manual_extraction"
+        - "unknown_method"
+
+  # Extended metadata (optional, specific to content type)
+  extended_fields:
+    # Table-specific metadata
+    table_info:
+      type: object
+      description: "Additional metadata for table content"
+      required: false
+      properties:
+        rows: {type: integer, description: "Number of rows"}
+        cols: {type: integer, description: "Number of columns"}
+        table_id: {type: integer, description: "Table identifier on page"}
+        extraction_method: {type: string, description: "Specific table extraction method"}
+        file_name: {type: string, description: "Associated CSV file name"}
+        has_headers: {type: boolean, description: "Whether table has header row"}
+        
+    # Image-specific metadata  
+    image_info:
+      type: object
+      description: "Additional metadata for image content"
+      required: false
+      properties:
+        width: {type: integer, description: "Image width in pixels"}
+        height: {type: integer, description: "Image height in pixels"}
+        format: {type: string, description: "Image format (jpg, png, etc.)"}
+        alt_text: {type: string, description: "Alternative text description"}
+        
+    # Layout-specific metadata
+    layout_info:
+      type: object
+      description: "Additional layout and formatting information"
+      required: false
+      properties:
+        font_size: {type: float, description: "Font size"}
+        font_family: {type: string, description: "Font family"}
+        is_bold: {type: boolean, description: "Whether text is bold"}
+        is_italic: {type: boolean, description: "Whether text is italic"}
+        text_color: {type: string, description: "Text color"}
+        background_color: {type: string, description: "Background color"}
+        
+    # Section-specific metadata
+    section_info:
+      type: object  
+      description: "Section hierarchy and structure information"
+      required: false
+      properties:
+        title: {type: string, description: "Section title"}
+        level: {type: integer, description: "Heading level (1-6)"}
+        content_length: {type: integer, description: "Character count"}
+        section_number: {type: integer, description: "Sequential section number"}
+        
+    # AI analysis metadata
+    ai_analysis:
+      type: object
+      description: "AI/ML analysis results and metadata"
+      required: false
+      properties:
+        model_name: {type: string, description: "AI model used"}
+        analysis_type: {type: string, description: "Type of analysis performed"}
+        entities_detected: {type: array, description: "Named entities found"}
+        sentiment_score: {type: float, description: "Sentiment analysis score"}
+        topics: {type: array, description: "Topic classifications"}
+
+# Processing guidelines for comprehensive extraction
+extraction_guidelines:
+  text_processing:
+    - "Extract ALL text content, not just tables"
+    - "Preserve paragraph structure and formatting"  
+    - "Identify headings, subheadings, and hierarchical structure"
+    - "Capture headers, footers, and page-level metadata"
+    - "Extract lists, captions, and footnotes"
+    
+  content_prioritization:
+    - "Financial data and tables (highest priority)"
+    - "Main document text and narratives" 
+    - "Headings and structural elements"
+    - "Captions and supplementary text"
+    - "Headers, footers, and metadata"
+    
+  quality_standards:
+    - "Minimum text length: 10 characters (except for structural elements)"
+    - "Maximum chunk size: 2000 characters (split longer content)"
+    - "Preserve meaningful whitespace and formatting"
+    - "Include confidence scores for all extractions"
+    
+  coverage_requirements:
+    - "Every page must have at least one text record"
+    - "Tables AND surrounding text must both be extracted"
+    - "Document structure (TOC, sections) must be preserved"
+    - "All visible text content should be captured"
+
+# Example complete record structure
+example_records:
+  paragraph_example:
+    doc_id: "tesla_2024"
+    company: "Tesla Inc."
+    fiscal_year: "2024" 
+    source_path: "/path/to/tesla.pdf"
+    extraction_timestamp: "2025-09-26T02:21:43.928589"
+    page: 5
+    section: "Page 5 - Management Discussion"
+    block_type: "paragraph"
+    text: "During the second quarter of 2025, Tesla continued to execute on our mission to accelerate the world's transition to sustainable energy..."
+    confidence: 0.95
+    extraction_method: "pdfplumber_text"
+    bbox: [72, 150, 540, 200]
+    layout_info:
+      font_size: 11.0
+      font_family: "Arial"
+      is_bold: false
+      
+  table_example:
+    doc_id: "tesla_2024"
+    company: "Tesla Inc."
+    fiscal_year: "2024"
+    source_path: "/path/to/tesla.pdf" 
+    extraction_timestamp: "2025-09-26T02:21:43.928589"
+    page: 18
+    section: "Page 18 - Table 22 (camelot_stream)"
+    block_type: "table"
+    text: "Table Headers: 0, 1, 2, 3, 4\nRow 1: June 30, | December 31,\nRow 2: 2025 | 2024..."
+    confidence: 0.85
+    extraction_method: "hybrid_table_extraction_camelot_stream"
+    bbox: [50, 100, 550, 400]
+    table_info:
+      rows: 13
+      cols: 5
+      table_id: 22
+      extraction_method: "camelot_stream"
+      file_name: "tesla_camelot_stream_p18_t22.csv"
+      has_headers: true
+      
+  heading_example:
+    doc_id: "tesla_2024"
+    company: "Tesla Inc."
+    fiscal_year: "2024"
+    source_path: "/path/to/tesla.pdf"
+    extraction_timestamp: "2025-09-26T02:21:43.928589"  
+    page: 1
+    section: "Page 1 - Document Title"
+    block_type: "heading"
+    text: "TESLA, INC. QUARTERLY REPORT FORM 10-Q"
+    confidence: 0.98
+    extraction_method: "pdfplumber_text"
+    bbox: [150, 50, 450, 80]
+    section_info:
+      title: "TESLA, INC. QUARTERLY REPORT FORM 10-Q"
+      level: 1
+      content_length: 35
+      section_number: 1
+    layout_info:
+      font_size: 16.0
+      font_family: "Arial"
+      is_bold: true

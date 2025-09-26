@@ -1,0 +1,11 @@
+{
+  "python_version": "3.11.1",
+  "platform": "Darwin arm64",
+  "installation_date": "1758863456.8708277",
+  "venv_path": "/Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv",
+  "options": {
+    "force_reinstall": false,
+    "skip_dvc": false,
+    "minimal": false
+  }
+}
