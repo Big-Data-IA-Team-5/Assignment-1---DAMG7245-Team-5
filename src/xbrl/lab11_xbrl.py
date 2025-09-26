@@ -14,6 +14,7 @@ Usage:
 import argparse
 import sys
 import os
+import glob
 import logging
 from pathlib import Path
 from datetime import datetime
@@ -28,7 +29,9 @@ sys.path.insert(0, str(project_root))
 
 try:
     from src.xbrl.parse_xbrl import XBRLParser
+    from src.xbrl.simple_xbrl_parser import SimpleXBRLParser
     from src.xbrl.map_pdf_to_xbrl import PDFXBRLMapper
+    from src.xbrl.enhanced_pdf_xbrl_mapper import EnhancedPDFXBRLMapper
     from src.xbrl.validate_xbrl import XBRLValidator
     from src.xbrl.report_xbrl import XBRLReporter
 except ImportError as e:
@@ -73,11 +76,19 @@ class Lab11XBRLWorkflow:
         self.config = config or {}
         self.session_id = datetime.now().strftime("%Y%m%d_%H%M%S")
         
-        # Initialize components
-        self.parser = None
-        self.mapper = None
-        self.validator = None
-        self.reporter = None
+        # Initialize enhanced mapper with fallback to basic mapper
+        mapper_config = self.config.get('mapper', {})
+        try:
+            self.mapper = EnhancedPDFXBRLMapper(mapper_config)
+            logger.info("Using EnhancedPDFXBRLMapper with NLP capabilities")
+        except Exception as e:
+            logger.warning(f"Could not initialize EnhancedPDFXBRLMapper: {e}")
+            try:
+                self.mapper = PDFXBRLMapper(mapper_config)
+                logger.info("Falling back to basic PDFXBRLMapper")
+            except Exception as e2:
+                logger.warning(f"Could not initialize PDFXBRLMapper: {e2}")
+                self.mapper = None
         
         # Data storage
         self.pdf_data = {}
@@ -91,7 +102,10 @@ class Lab11XBRLWorkflow:
         """Initialize XBRL processing components."""
         try:
             parser_config = self.config.get('parser', {})
-            self.parser = XBRLParser(parser_config)
+            
+            # Use SimpleXBRLParser directly for better compatibility
+            logger.info("Using SimpleXBRLParser for XBRL processing")
+            self.parser = SimpleXBRLParser(parser_config)
             
             mapper_config = self.config.get('mapper', {})
             self.mapper = PDFXBRLMapper(mapper_config)
@@ -160,35 +174,51 @@ class Lab11XBRLWorkflow:
         self.pdf_data = pdf_tables
         return pdf_tables
     
-    def load_xbrl_files(self, xbrl_directory: str) -> Dict[str, pd.DataFrame]:
+    def load_xbrl_files(self, xbrl_dir: str) -> List[Dict[str, Any]]:
         """
-        Load and parse XBRL files from the XBRL directory.
+        Load and parse XBRL files from specified directory.
         
         Args:
-            xbrl_directory: Path to directory containing XBRL files
+            xbrl_dir: Directory containing XBRL files
             
         Returns:
-            Dictionary mapping file names to DataFrames
+            List of parsed XBRL data dictionaries
         """
-        logger.info(f"Loading XBRL files from {xbrl_directory}")
+        xbrl_files = []
         
-        if self.parser is None:
-            raise RuntimeError("XBRL parser not initialized")
+        # Dynamically detect XBRL files with multiple extensions
+        xbrl_extensions = ['.xml', '.xbrl']
+        found_files = []
         
-        try:
-            xbrl_data = self.parser.parse_multiple_xbrl_files(
-                xbrl_directory, 
-                file_pattern="*.xml"
-            )
-            
-            self.xbrl_data = xbrl_data
-            logger.info(f"Loaded {len(xbrl_data)} XBRL files")
-            
-            return xbrl_data
-            
-        except Exception as e:
-            logger.error(f"Error loading XBRL files: {str(e)}")
-            raise
+        for ext in xbrl_extensions:
+            pattern = os.path.join(xbrl_dir, f"*{ext}")
+            matching_files = glob.glob(pattern)
+            found_files.extend(matching_files)
+        
+        logger.info(f"Found {len(found_files)} XBRL files in {xbrl_dir}")
+        
+        if not found_files:
+            logger.warning(f"No XBRL files found in {xbrl_dir}")
+            return []
+        
+        # Process each XBRL file
+        for xbrl_file in found_files:
+            try:
+                logger.info(f"Processing XBRL file: {xbrl_file}")
+                parsed_data = self.parser.parse_xbrl_file(xbrl_file)
+                # Create a proper dictionary structure for xbrl_files
+                xbrl_data_dict = {
+                    'file': xbrl_file,
+                    'data': parsed_data
+                }
+                xbrl_files.append(xbrl_data_dict)
+                logger.info(f"Successfully parsed {xbrl_file}")
+            except Exception as e:
+                logger.error(f"Error processing {xbrl_file}: {str(e)}")
+                continue
+        
+        logger.info(f"Total XBRL files processed: {len(xbrl_files)}")
+        return xbrl_files
     
     def create_mappings(self) -> Dict[str, Dict[str, str]]:
         """
@@ -215,17 +245,34 @@ class Lab11XBRLWorkflow:
                     if 'concept' in xbrl_df.columns:
                         all_xbrl_concepts.update(xbrl_df['concept'].unique())
                 
-                # Create mappings
-                file_mapping = self.mapper.map_pdf_labels_to_xbrl(
-                    pdf_labels, 
-                    list(all_xbrl_concepts)
-                )
-                
-                mappings[pdf_file] = file_mapping
-                
-                # Log mapping statistics
-                mapped_count = sum(1 for v in file_mapping.values() if v is not None)
-                logger.info(f"Mapped {mapped_count}/{len(pdf_labels)} labels for {pdf_file}")
+                # Create enhanced mappings with analysis
+                if hasattr(self.mapper, 'generate_mapping_analysis'):
+                    # Use enhanced mapper with detailed analysis
+                    mapping_analysis = self.mapper.generate_mapping_analysis(
+                        pdf_labels, list(all_xbrl_concepts)
+                    )
+                    mappings[pdf_file] = mapping_analysis['detailed_mappings']
+                    
+                    # Log enhanced mapping statistics
+                    mapped_count = mapping_analysis['mapped_labels']
+                    total_count = mapping_analysis['total_labels']
+                    mapping_rate = mapping_analysis['mapping_rate']
+                    logger.info(f"Enhanced mapping for {pdf_file}: {mapped_count}/{total_count} labels mapped ({mapping_rate:.1%})")
+                    
+                    # Log confidence distribution
+                    conf_dist = mapping_analysis['confidence_distribution']
+                    logger.info(f"  High confidence: {conf_dist['high_confidence']}, Medium: {conf_dist['medium_confidence']}, Low: {conf_dist['low_confidence']}")
+                    
+                else:
+                    # Fallback to basic mapping
+                    file_mapping = self.mapper.map_pdf_labels_to_xbrl(
+                        pdf_labels, list(all_xbrl_concepts)
+                    )
+                    mappings[pdf_file] = file_mapping
+                    
+                    # Log basic mapping statistics
+                    mapped_count = sum(1 for v in file_mapping.values() if v is not None)
+                    logger.info(f"Basic mapping for {pdf_file}: {mapped_count}/{len(pdf_labels)} labels mapped")
                 
             except Exception as e:
                 logger.error(f"Error creating mappings for {pdf_file}: {str(e)}")
@@ -407,7 +454,7 @@ class Lab11XBRLWorkflow:
         return report_files
     
     def run_full_workflow(self, tables_dir: str, xbrl_dir: str, 
-                         output_dir: str = "reports/xbrl") -> Dict[str, Any]:
+                         output_dir: str = "data/intermediate/xbrl_validation") -> Dict[str, Any]:
         """
         Run the complete XBRL cross-verification workflow.
         
@@ -437,6 +484,8 @@ class Lab11XBRLWorkflow:
             
             # Step 4: Validate data
             validation_results = self.validate_data()
+            
+
             
             # Step 5: Generate reports
             report_files = self.generate_reports(output_dir)
@@ -522,8 +571,8 @@ Examples:
     parser.add_argument(
         '--output', 
         type=str, 
-        default='reports/xbrl',
-        help='Output directory for reports (default: reports/xbrl)'
+        default=None,
+        help='Output directory for reports (default: data/parsed/xbrl_validation_<timestamp>)'
     )
     
     parser.add_argument(
@@ -549,16 +598,14 @@ Examples:
         if args.config:
             config = load_config(args.config)
         
-        # Validate required arguments
-        tables_dir = args.tables or config.get('tables_directory')
-        xbrl_dir = args.xbrl or config.get('xbrl_directory')
-        output_dir = args.output or config.get('output_directory', 'reports/xbrl')
-        
-        if not tables_dir or not xbrl_dir:
-            parser.error("Either provide --tables and --xbrl arguments, or use --config with these settings")
-        
         # Initialize and run workflow
         workflow = Lab11XBRLWorkflow(config)
+        
+        # Use hardcoded paths as defaults
+        tables_dir = args.tables or "data/parsed/tesla_20250926_023933/tables"
+        xbrl_dir = args.xbrl or "data/raw/xbrl_files"
+        output_dir = args.output or "data/intermediate/xbrl_validation"
+        
         results = workflow.run_full_workflow(tables_dir, xbrl_dir, output_dir)
         
         # Print summary

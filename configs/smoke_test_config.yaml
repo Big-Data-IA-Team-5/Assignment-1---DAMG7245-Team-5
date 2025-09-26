@@ -1,0 +1,29 @@
+# Smoke Test Configuration
+# This file allows customization of smoke test behavior without hardcoding
+
+# Pipeline validation settings
+pipeline:
+  min_stages: 1  # Minimum number of pipeline stages expected
+  required_files:
+    - "dvc.yaml"
+    - "dvc.lock"
+  optional_directories:
+    - "data/intermediate"
+    - "data/parsed"
+
+# Metadata validation settings  
+metadata:
+  min_records: 10  # Minimum metadata records for quality check
+  check_extraction_methods: true  # Whether to validate extraction methods exist
+  
+# CI/CD settings
+ci:
+  python_version: "3.11"
+  timeout_minutes: 15
+  cache_dependencies: true
+  
+# Test behavior
+tests:
+  skip_missing_outputs: true  # Skip tests if pipeline outputs don't exist
+  verbose_logging: true
+  fail_fast: false

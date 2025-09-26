@@ -1,4 +1,42 @@
-# DAMG7245 Assignment-1: Complete PDF Processing Pipeline
+
+# DAMG7245 Assignment-1: Complete P# PART 1: Complete Pipeline Demo (Labs 1-6)
+python3 run_complete_pipeline.py
+
+# PART 2: Lab 7 - Google AI vs Open Source  
+python3 google_ai/run_lab7.py --pdf data/raw/tesla.pdf --random 2
+
+# PART 3: DVC Pipeline & CI/CD (MAIN FOCUS)
+dvc repro  # Complete repr### **Essential Demo Commands**:
+```bash
+# Setup & Activation
+source setup/.venv/bin/activate
+
+# Complete Pipeline Demo  
+python3 run_complete_pipeline.py
+
+# DVC Pipeline Execution
+dvc reproipeline
+
+# PART 4: Lab 11 - XBRL Integration
+python src/xbrl/lab11_xbrl.py --pdf data/raw/tesla.pdfng Pipeline
+
+**Team 5 – Big Data IA Fall 2025** | 
+[![DVC Pipeline](https://img.s#### **Run Complete Pipeline**:
+```bash
+# Execute full reproducible pipeline
+dvc repro
+
+# Check execution status  
+dvc status && python scripts/check_data_versioning.py
+```
+
+#### **Testing & CI/CD**:badge/DVC-Pipeline%20Ready-brightgreen.svg)](https://dvc.org) 
+[![Python](https://img.shields.io/badge/Python-3.11+-blue.svg)](https://www.python.org)
+[![Tests](https://img.shields.io/badge/Tests-Passing-success.svg)](https://github.com/Big-Data-IA-Team-5/Assignment-1---DAMG7245-Team-5)
+
+## **QUICK DEMO - One Command Per Component**
+
+### **Presentation Flow**: Complete Pipeline → Lab 7 → DVC → Lab 1145 Assignment-1: Complete PDF Processing Pipeline
 
 **Team 5 – Big Data IA Fall 2025** | 
 [![DVC Pipeline](https://img.shields.io/badge/DVC-Pipeline%20Ready-brightgreen.svg)](https://dvc.org) 
@@ -55,6 +93,7 @@ python3 src/xbrl/lab11_xbrl.py --pdf data/raw/tesla.pdf
 ### **What It Does**: End-to-End PDF Processing with 6 Extraction Methods
 **Demo Time**: 3-5 minutes | **One Command Execution**
 
+```bash
 ```bash
 # Complete integrated pipeline
 python3 run_complete_pipeline.py
@@ -116,13 +155,13 @@ dvc --version && dvc dag --ascii
 
 ### **Core Demo Commands**:
 
-#### **🔄 Run Complete Pipeline**:
+#### **� Run Complete Pipeline**:
 ```bash
 # Execute full reproducible pipeline
 dvc repro
 
 # Check execution status  
-dvc status && python3 scripts/check_data_versioning.py
+dvc status && python scripts/check_data_versioning.py
 ```
 
 #### **🧪 Testing & CI/CD**:
@@ -319,3 +358,4 @@ python3 src/xbrl/lab11_xbrl.py --pdf data/raw/tesla.pdf             # Lab 11
 ---
 
 *Ready to demonstrate advanced data engineering with DVC!*
+

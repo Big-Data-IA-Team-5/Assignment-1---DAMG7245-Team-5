@@ -12,7 +12,7 @@ from pathlib import Path
 
 def run_command(cmd, description, check_success=True):
     """Run a command and handle output."""
-    print(f"\n🚀 {description}")
+    print(f"\n[RUNNING] {description}")
     print(f"Command: {cmd}")
     print("=" * 60)
     
@@ -22,32 +22,32 @@ def run_command(cmd, description, check_success=True):
         elapsed = time.time() - start_time
         
         if result.returncode == 0 or not check_success:
-            print(f"✅ {description} completed in {elapsed:.1f}s")
+            print(f"[SUCCESS] {description} completed in {elapsed:.1f}s")
             if result.stdout:
                 # Show last few lines of output
                 lines = result.stdout.strip().split('\n')
                 for line in lines[-10:]:  # Last 10 lines
                     print(f"   {line}")
         else:
-            print(f"❌ {description} failed (exit code: {result.returncode})")
+            print(f"[FAILED] {description} failed (exit code: {result.returncode})")
             if result.stderr:
                 print("Error output:")
                 print(result.stderr)
             return False
             
     except Exception as e:
-        print(f"❌ Error running {description}: {e}")
+        print(f"[ERROR] Error running {description}: {e}")
         return False
     
     return True
 
 def check_environment():
     """Check if environment is properly set up."""
-    print("🔍 Checking Environment Setup...")
+    print("[CHECKING] Environment Setup...")
     
     # Check if virtual environment is activated
     if not os.environ.get('VIRTUAL_ENV'):
-        print("⚠️  Virtual environment not detected. Please run:")
+        print("[WARNING] Virtual environment not detected. Please run:")
         print("   source setup/.venv/bin/activate")
         return False
     
@@ -55,41 +55,41 @@ def check_environment():
     try:
         result = subprocess.run(["dvc", "--version"], capture_output=True, text=True)
         if result.returncode == 0:
-            print(f"✅ DVC Version: {result.stdout.strip()}")
+            print(f"[SUCCESS] DVC Version: {result.stdout.strip()}")
         else:
-            print("❌ DVC not found")
+            print("[FAILED] DVC not found")
             return False
     except FileNotFoundError:
-        print("❌ DVC not installed")
+        print("[FAILED] DVC not installed")
         return False
     
     # Check if required directories exist
     required_dirs = ["data/raw", "src", "tests"]
     for dir_path in required_dirs:
         if not Path(dir_path).exists():
-            print(f"❌ Missing directory: {dir_path}")
+            print(f"[FAILED] Missing directory: {dir_path}")
             return False
     
-    print("✅ Environment setup verified")
+    print("[SUCCESS] Environment setup verified")
     return True
 
 def main():
     """Run the complete demo presentation flow."""
     
-    print("🎯 DAMG7245 Assignment-1 Complete Demo")
+    print("DAMG7245 Assignment-1 Complete Demo")
     print("Presentation Flow: Pipeline → Lab 7 → DVC → Lab 11")
     print("=" * 60)
     
     # Environment check
     if not check_environment():
-        print("\n❌ Environment setup failed. Please fix the issues above.")
+        print("\n[FAILED] Environment setup failed. Please fix the issues above.")
         sys.exit(1)
     
     # Demo configuration
     demo_pdf = "data/raw/tesla.pdf"
     output_dir = "demo_presentation_output"
     
-    print(f"\n📋 Demo Configuration:")
+    print(f"\n[CONFIG] Demo Configuration:")
     print(f"   PDF: {demo_pdf}")
     print(f"   Output Directory: {output_dir}")
     
@@ -98,30 +98,30 @@ def main():
     
     # PART 1: Complete Pipeline Demo (Labs 1-6)
     print(f"\n{'='*60}")
-    print("🚀 PART 1: Complete Pipeline Demo (Labs 1-6)")
+    print("PART 1: Complete Pipeline Demo (Labs 1-6)")
     print("   Expected: 21,287+ metadata records, 3 output formats")
     print(f"{'='*60}")
     
-    pipeline_cmd = f"python src/integrated_pipeline.py --pdf {demo_pdf} --output-dir {output_dir}"
+    pipeline_cmd = f"python run_complete_pipeline.py --out {output_dir} --hybrid-tables"
     if not run_command(pipeline_cmd, "Complete Pipeline (Labs 1-6)", check_success=True):
-        print("⚠️  Pipeline failed, but continuing with DVC demo...")
+        print("[WARNING] Pipeline failed, but continuing with DVC demo...")
     
     # Show pipeline results
     run_command(f"ls -la {output_dir}/", "Pipeline Output Summary", check_success=False)
     
     # PART 2: Lab 7 - Google AI (Optional)
     print(f"\n{'='*60}")
-    print("🤖 PART 2: Lab 7 - Google AI Integration (Optional)")
+    print("PART 2: Lab 7 - Google AI Integration (Optional)")
     print("   Note: Requires Google Cloud credentials")
     print(f"{'='*60}")
     
     lab7_cmd = f"python google_ai/run_lab7.py --pdf {demo_pdf} --random 2"
     if not run_command(lab7_cmd, "Google AI Processing (Lab 7)", check_success=False):
-        print("⚠️  Lab 7 skipped (likely missing Google Cloud credentials)")
+        print("[WARNING] Lab 7 skipped (likely missing Google Cloud credentials)")
     
     # PART 3: DVC Pipeline & CI/CD (MAIN FOCUS)
     print(f"\n{'='*60}")
-    print("📈 PART 3: DVC Pipeline & CI/CD ⭐ MAIN FOCUS")
+    print("PART 3: DVC Pipeline & CI/CD -- MAIN FOCUS")
     print("   5-stage pipeline with full reproducibility")
     print(f"{'='*60}")
     
@@ -130,7 +130,7 @@ def main():
     
     # Run DVC pipeline
     if not run_command("dvc repro", "DVC Pipeline Execution", check_success=True):
-        print("⚠️  DVC pipeline had issues, but continuing...")
+        print("[WARNING] DVC pipeline had issues, but continuing...")
     
     # Show DVC status
     run_command("dvc status", "DVC Pipeline Status", check_success=False)
@@ -140,35 +140,35 @@ def main():
     
     # PART 4: Lab 11 - XBRL Integration
     print(f"\n{'='*60}")
-    print("🔍 PART 4: Lab 11 - XBRL Integration")
+    print("PART 4: Lab 11 - XBRL Integration")
     print("   Financial document analysis and validation")
     print(f"{'='*60}")
     
     lab11_cmd = f"python src/xbrl/lab11_xbrl.py --pdf {demo_pdf}"
     if not run_command(lab11_cmd, "XBRL Integration (Lab 11)", check_success=False):
-        print("⚠️  Lab 11 had issues, but demo completed")
+        print("[WARNING] Lab 11 had issues, but demo completed")
     
     # Final Summary
     print(f"\n{'='*60}")
-    print("🎯 DEMO COMPLETION SUMMARY")
+    print("DEMO COMPLETION SUMMARY")
     print(f"{'='*60}")
     
     # Check final outputs
     run_command("python scripts/check_data_versioning.py", "Final Data Versioning Check", check_success=False)
     
-    print("\n🏆 Demo Completed!")
+    print("\n[COMPLETED] Demo Completed!")
     print("=" * 60)
-    print("✅ Complete Pipeline: Labs 1-6 integration")
-    print("🤖 Lab 7: Google AI comparison (if configured)")  
-    print("📈 DVC: Reproducible pipeline with CI/CD")
-    print("🔍 Lab 11: XBRL validation")
-    print("\n📊 Key Outputs:")
+    print("[SUCCESS] Complete Pipeline: Labs 1-6 integration")
+    print("[SUCCESS] Lab 7: Google AI comparison (if configured)")  
+    print("[SUCCESS] DVC: Reproducible pipeline with CI/CD")
+    print("[SUCCESS] Lab 11: XBRL validation")
+    print("\n[OUTPUTS] Key Outputs:")
     print(f"   - Demo outputs: {output_dir}/")
     print("   - DVC pipeline: data/intermediate/")
     print("   - XBRL reports: reports/xbrl/")
     print("   - Test results: Smoke tests passed")
     
-    print(f"\n🎯 Ready for presentation! Time to showcase your DVC pipeline mastery! 🚀")
+    print(f"\n[READY] Ready for presentation! Time to showcase your DVC pipeline mastery!")
 
 if __name__ == "__main__":
     main()
