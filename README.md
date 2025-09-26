@@ -1,234 +1,320 @@
 
----
+# � DAMG7245 Assignment-1: Complete PDF Processing Pipeline
 
-# 📄 Project LANTERN – Smart PDF & XBRL Processing Pipeline
-
-**Team 5 – DAMG7245, Fall 2025**
-
-[![Status](https://img.shields.io/badge/Status-Complete-green.svg)](https://github.com/Big-Data-IA-Team-5/Assignment-1---DAMG7245-Team-5)
+**Team 5 – Big Data IA Fall 2025** | 
+[![DVC Pipeline](https://img.shields.io/badge/DVC-Pipeline%20Ready-brightgreen.svg)](https://dvc.org) 
 [![Python](https://img.shields.io/badge/Python-3.11+-blue.svg)](https://www.python.org)
-[![XBRL](https://img.shields.io/badge/XBRL-Supported-orange.svg)](https://www.xbrl.org)
+[![Tests](https://img.shields.io/badge/Tests-Passing-success.svg)](https://github.com/Big-Data-IA-Team-5/Assignment-1---DAMG7245-Team-5)
 
----
+## 🎯 **QUICK DEMO - One Command Per Component**
 
-## 🧭 Table of Contents
-
-* [Overview](#overview)
-* [System Requirements](#system-requirements)
-* [Setup & Quick Start](#setup--quick-start)
-* [Pipeline Labs](#pipeline-labs)
-* [DVC Pipeline](#dvc-pipeline)
-* [Lab 11: XBRL Cross-Verification](#lab-11-xbrl-cross-verification)
-* [Optional Google Document AI](#optional-google-document-ai)
-* [Output Structure](#output-structure)
-* [Troubleshooting](#troubleshooting)
-* [Performance](#performance)
-* [Team](#team)
-* [License](#license)
-
----
-
-## Overview
-
-Project LANTERN is a **production-ready pipeline** for extracting and validating structured data from PDF filings and XBRL files.
-
-**Features:**
-
-* PDF text, tables, layout, metadata extraction
-* AI-enhanced processing via Docling
-* Optional Google Document AI integration
-* XBRL cross-verification of financial data
-* DVC-powered reproducibility, caching, and versioning
-
----
-
-## System Requirements
-
-* **Python:** 3.7+ (3.10–3.12 recommended)
-* **RAM:** 4 GB minimum (8 GB+ for large PDFs)
-* **Disk Space:** 2 GB free
-* **OS:** Windows / macOS / Linux
-* **Optional:** Tesseract OCR, Java, Google AI credentials
-
-**System Packages:**
-
-* macOS: `brew install tesseract && xcode-select --install`
-* Ubuntu/Debian: `sudo apt-get install -y tesseract-ocr libtesseract-dev build-essential`
-* Windows: Install Tesseract OCR (UB Mannheim) and add to `PATH`
-
----
-
-## Setup & Quick Start
-
-**Smart Setup (Recommended)**
+### **📋 Presentation Flow**: Complete Pipeline → Lab 7 → DVC → Lab 11
 
 ```bash
+# 🔥 SETUP (One Time Only)
 git clone https://github.com/Big-Data-IA-Team-5/Assignment-1---DAMG7245-Team-5.git
 cd Assignment-1---DAMG7245-Team-5
+python setup/smart_setup.py && source setup/.venv/bin/activate
 
-# Smart cross-platform setup
-python3 setup/smart_setup.py
+# 🚀 PART 1: Complete Pipeline Demo (Labs 1-6)
+python src/integrated_pipeline.py --pdf data/raw/tesla.pdf --output-dir demo_output
 
-# Activate environment
-source activate.sh       # Windows: activate.bat
+# 🤖 PART 2: Lab 7 - Google AI vs Open Source  
+python google_ai/run_lab7.py --pdf data/raw/tesla.pdf --random 2
 
-# Run the DVC pipeline
+# 📈 PART 3: DVC Pipeline & CI/CD (MAIN FOCUS)
+dvc repro  # Complete reproducible pipeline
+
+# 🔍 PART 4: Lab 11 - XBRL Integration
+python src/xbrl/lab11_xbrl.py --pdf data/raw/tesla.pdf
+```
+
+## 📊 **Expected Results**
+- **Pipeline**: 21,287+ metadata records, 3 output formats (JSON 11.7MB, MD 830KB, TXT 517KB)
+- **Lab 7**: AI vs open-source comparison analysis
+- **DVC**: 5-stage pipeline (parse→tables→layout→docling→export) with full reproducibility  
+- **Lab 11**: XBRL financial data validation and cross-verification
+
+---
+
+## 📋 **Table of Contents**
+
+* [🎯 Quick Demo](#quick-demo---one-command-per-component)
+* [🚀 Complete Pipeline (Labs 1-6)](#complete-pipeline-labs-1-6)
+* [🤖 Lab 7: Google AI Integration](#lab-7-google-ai-integration)
+* [📈 DVC Pipeline & CI/CD](#dvc-pipeline--cicd)
+* [🔍 Lab 11: XBRL Integration](#lab-11-xbrl-integration)
+* [⚙️ Setup & Requirements](#setup--requirements)
+* [📁 Output Structure](#output-structure)
+* [🧪 Testing & Validation](#testing--validation)
+* [👥 Team](#team)
+
+---
+
+## 🚀 **Complete Pipeline (Labs 1-6)**
+
+### **What It Does**: End-to-End PDF Processing with 6 Extraction Methods
+**⏱️ Demo Time**: 3-5 minutes | **🎯 One Command Execution**
+
+```bash
+# Complete integrated pipeline
+python src/integrated_pipeline.py --pdf data/raw/tesla.pdf --output-dir demo_output
+
+# View results
+ls -la demo_output/ && cat demo_output/summary.txt
+```
+
+### **Pipeline Components**:
+| Lab | Method | Output | Performance |
+|-----|--------|--------|-------------|
+| 📄 Lab 1 | **Text Extraction** | 39 pages processed | pdfplumber + OCR fallback |
+| 📊 Lab 2 | **Table Extraction** | 28 tables found | Camelot + pdfplumber hybrid |
+| 🎨 Lab 3 | **Layout Detection** | 1,855 blocks detected | LayoutParser (1,733 text + 45 table + 77 title) |
+| 🤖 Lab 4 | **Docling AI** | 46 tables detected | Advanced AI processing (87 seconds) |
+| 📋 Lab 5 | **Metadata Integration** | 21,287 total records | All extraction methods combined |
+| 📁 Lab 6 | **Format Conversion** | JSON/MD/TXT outputs | Multiple format exports |
+
+**🎯 Key Results**: 
+- **Scale**: 21,287+ metadata records from multiple extraction methods
+- **Formats**: JSON (11.7MB), Markdown (830KB), TXT (517KB) 
+- **Speed**: Complete pipeline in ~2 minutes
+
+---
+
+## 🤖 **Lab 7: Google AI Integration**
+
+### **What It Does**: AI-Powered Document Intelligence Comparison
+**⏱️ Demo Time**: 4-6 minutes | **🔥 Google Cloud Document AI**
+
+```bash
+# Run Google AI document processing
+python google_ai/run_lab7.py --pdf data/raw/tesla.pdf --random 2
+
+# View comparison analysis
+cat Lab7_GoogleAI_vs_OpenSource_Comparison_Report.md
+```
+
+### **Key Features**:
+- 🧠 **Google Document AI**: Advanced OCR and layout understanding
+- 📊 **Performance Comparison**: Speed, accuracy, cost analysis  
+- 🎯 **Multi-Modal Processing**: Text + images + tables + forms
+- 💡 **Business Insights**: When to use AI vs open-source tools
+
+**Prerequisites**: Google Cloud credentials in `credentials/google-credentials.json`
+
+---
+
+## 📈 **DVC Pipeline & CI/CD**
+
+### **What It Does**: Data Version Control & Reproducible ML Pipeline
+**⏱️ Demo Time**: 6-8 minutes | **⭐ MAIN PRESENTATION FOCUS**
+
+### **Quick Verification**:
+```bash
+# Check DVC is ready
+dvc --version && dvc dag --ascii
+```
+
+### **Core Demo Commands**:
+
+#### **� Run Complete Pipeline**:
+```bash
+# Execute full reproducible pipeline
 dvc repro
+
+# Check execution status  
+dvc status && python scripts/check_data_versioning.py
 ```
 
-**Traditional Setup**
+#### **🧪 Testing & CI/CD**:
+```bash
+# Run smoke tests locally
+python tests/test_dvc_pipeline.py
+
+# Show GitHub Actions workflow
+cat .github/workflows/dvc-smoke-test.yml
+```
+
+### **Pipeline Architecture**:
+```
+Raw PDF → Parse (39 pages) → Tables (28 tables) → Layout (1,855 blocks) 
+       → Docling (46 tables) → Export (21,287 records) → 3 Output Formats
+```
+
+### **✅ DVC Checkpoints Completed**:
+- ✅ **Working DVC pipeline** that reproduces parsed outputs from raw PDFs
+- ✅ **Data and model artifacts** are stored and versioned  
+- ✅ **GitHub Actions workflow** runs smoke test on every pull request
+- ✅ **Git preserves data lineage** via dvc.lock and .dvc files
+
+### **🎯 Key Advantages**:
+- **Reproducibility**: Exact same outputs every time via `dvc.lock`
+- **Version Control**: Git tracks pipeline config, DVC tracks data
+- **CI/CD Integration**: Automatic testing on every PR
+- **Data Lineage**: Complete audit trail of data transformations
+- **Caching**: Only changed stages rerun (80-85% efficiency)
+
+---
+
+## 🔍 **Lab 11: XBRL Integration**
+
+### **What It Does**: Financial Document Analysis & Validation  
+**⏱️ Demo Time**: 3-4 minutes | **💼 SEC Filing Intelligence**
 
 ```bash
-python3 -m venv .venv
-source .venv/bin/activate      # Windows: .venv\Scripts\activate
-pip install -r setup/requirements.txt
+# Run XBRL mapping and validation
+python src/xbrl/lab11_xbrl.py --pdf data/raw/tesla.pdf
+
+# View results
+cat Lab11_XBRL_Mapping_Analysis.md && ls reports/xbrl/
 ```
 
-**Verify Setup**
+### **Key Features**:
+- 💼 **Financial Intelligence**: SEC filing analysis
+- 🔍 **XBRL Mapping**: Connect extracted data to financial taxonomies
+- ✅ **Validation Pipeline**: Ensure compliance with reporting standards  
+- 📊 **Cross-Verification**: PDF content vs XBRL structured data
 
+---
+
+## ⚙️ **Setup & Requirements**
+
+### **System Requirements**:
+- **Python**: 3.11+ (recommended)
+- **RAM**: 4GB minimum (8GB+ for large PDFs)
+- **OS**: Windows/macOS/Linux
+
+### **One-Command Setup**:
 ```bash
-python3 setup/verify_setup.py
+# Smart cross-platform setup
+python setup/smart_setup.py && source setup/.venv/bin/activate
+
+# Verify installation
+python setup/verify_setup.py
 ```
 
----
-
-## Pipeline Labs
-
-| Lab    | Purpose                                 | Outputs                  | Status     |
-| ------ | --------------------------------------- | ------------------------ | ---------- |
-| Lab 1  | Text extraction (OCR fallback)          | `.txt`, per-page         | ✅ Working  |
-| Lab 2  | Table extraction (Camelot + PDFPlumber) | `.csv`, index + analysis | ✅ Working  |
-| Lab 3  | Layout analysis                         | `layout_*.json`          | ✅ Working  |
-| Lab 4  | Docling AI processing                   | `.json`, `.md`           | ✅ Working  |
-| Lab 5  | Metadata & provenance                   | `.jsonl`, summaries      | ✅ Working  |
-| Lab 6  | Multi-format export                     | Markdown / JSON / TXT    | ✅ Working  |
-| Lab 7  | Google Document AI (optional)           | AI extracts + comparison | ✅ Optional |
-| Lab 11 | XBRL Verification                       | CSV / summary            | ✅ Working  |
-
-**Manual Execution (Alternative to DVC)**
-
+### **Manual Setup** (if needed):
 ```bash
-python3 run_complete_pipeline.py --out data/parsed --hybrid-tables --verbose
-
-# Individual labs
-python3 src/text/extract_text.py      --in data/raw/your.pdf --out data/parsed/
-python3 src/tables/extract_tables.py  --in data/raw/your.pdf --out data/parsed/ --hybrid
-python3 src/layout/extract_layout.py  --in data/raw/your.pdf --out data/parsed/
-python3 src/docling/extract_docling.py --in data/raw/your.pdf --out data/parsed/
-python3 src/metadata/extract_metadata.py --in data/raw/your.pdf --out data/parsed/
-python3 src/formats/convert_formats.py --in data/parsed/<doc>/metadata/<doc>.jsonl --out data/parsed/<doc>/
+python -m venv setup/.venv
+source setup/.venv/bin/activate  # Windows: setup\.venv\Scripts\activate
+pip install -r requirements.txt
 ```
 
 ---
 
-## DVC Pipeline
+## 📁 **Output Structure**
 
-**Sequential stages:** Text → Tables → Layout → Docling → Export
-**Caching & reproducibility:** Only changed stages rerun
-**Versioning:** Track pipeline state via `dvc.lock`
+### **Complete Pipeline Outputs**:
+```
+📁 demo_output/                    # Integrated pipeline results
+├── pdf_doc.json                   # Complete metadata (11.7MB)  
+├── pdf_doc.md                     # Markdown format (830KB)
+├── pdf_doc.txt                    # Plain text (517KB)
+└── summary.txt                    # Execution summary
 
+📁 data/intermediate/               # DVC pipeline stages
+├── text/         # Lab 1: Text extraction (39 pages)
+├── tables/       # Lab 2: Table extraction (28 tables)  
+├── layout/       # Lab 3: Layout detection (1,855 blocks)
+├── docling/      # Lab 4: Docling AI (46 tables)
+├── metadata/     # Lab 5: Metadata integration (21,287 records)
+└── formats/      # Lab 6: Format conversion (JSON/MD/TXT)
+
+📁 reports/                        # Analysis reports
+├── google_ai/    # Lab 7: Google AI comparison
+└── xbrl/         # Lab 11: XBRL validation
+
+📁 .github/workflows/              # CI/CD configuration
+└── dvc-smoke-test.yml             # Automated testing
+```
+
+---
+
+## 🧪 **Testing & Validation**
+
+### **Automated Testing**:
 ```bash
-dvc status
-dvc dag
-dvc repro                # Run full pipeline
-dvc repro parse          # Run only text extraction
-dvc repro tables
-dvc repro layout
-dvc repro docling
-dvc repro export
-dvc pipeline show
-dvc metrics show
-dvc plots show
-dvc push                 # Upload to remote
-dvc pull                 # Download from remote
-dvc checkout             # Restore workspace
+# Run comprehensive smoke tests
+python tests/test_dvc_pipeline.py
+
+# Check data versioning status  
+python scripts/check_data_versioning.py
+
+# Verify DVC pipeline integrity
+dvc dag --ascii && dvc status
 ```
 
+### **CI/CD Pipeline**:
+- ✅ **GitHub Actions**: Automated testing on every PR
+- ✅ **Smoke Tests**: Validate pipeline structure and outputs
+- ✅ **Data Versioning**: Track all artifacts with DVC
+- ✅ **Reproducibility**: Ensure consistent results across environments
 
+### **Performance Metrics**:
+- **Processing Speed**: ~2 minutes for complete pipeline
+- **Memory Usage**: ~4GB RAM for typical PDFs
+- **Cache Efficiency**: 80-85% stage skip on reruns
+- **Test Coverage**: 6 comprehensive validation methods
 
-## Lab 11: XBRL Cross-Verification
+---
 
-* Parse XBRL using Simple XML parser or Arelle
-* Extract Revenue, Net Income, Total Assets
-* Map PDF tables to XBRL taxonomy using mapping dictionary
-* Validate numerical values and report discrepancies
+## 🎯 **Quick Commands Reference**
 
-**Run XBRL verification**
-
+### **Essential Demo Commands**:
 ```bash
-python3 src/xbrl/lab11_xbrl.py --tables data/intermediate/tables --xbrl data/raw/xbrl
+# Setup & Activation
+source setup/.venv/bin/activate
+
+# Complete Pipeline Demo  
+python src/integrated_pipeline.py --pdf data/raw/tesla.pdf --output-dir demo_output
+
+# DVC Pipeline Execution
+dvc repro
+
+# Testing & Validation
+python tests/test_dvc_pipeline.py
+
+# Individual Components
+python google_ai/run_lab7.py --pdf data/raw/tesla.pdf --random 2    # Lab 7
+python src/xbrl/lab11_xbrl.py --pdf data/raw/tesla.pdf             # Lab 11
 ```
 
----
-
-## Optional Google Document AI
-
-```bash
-python3 google_ai/run_lab7.py --pdf data/raw/tesla.pdf --random 2
-python3 google_ai/run_lab7.py --pdf data/raw/tesla.pdf --pages 5 12
-```
+### **Presentation Flow Timing**:
+- **Setup**: 30 seconds
+- **Pipeline Demo**: 4 minutes  
+- **DVC & CI/CD**: 7 minutes ⭐ (Main focus)
+- **Lab 7 & 11**: 5 minutes
+- **Q&A**: 5 minutes
 
 ---
 
-## Output Structure
+## 👥 **Team**
 
-**Main pipeline**
+**Team 5 – DAMG7245 Big Data Analytics (Fall 2025)**  
+*SEC Filing Processing Pipeline with DVC Integration*
 
-```
-data/parsed/
-└─ <document>_<timestamp>/
-   ├─ text/
-   ├─ tables/
-   ├─ layout/
-   ├─ docling/
-   ├─ metadata/
-   └─ formats/
-LANTERN_Pipeline_Report_<timestamp>.md
-pipeline_summary_<timestamp>.json
-```
-
-**Lab 7 (Google AI)**
-
-```
-reports/google_ai/lab7_session_<timestamp>/
-├─ temp_pdfs/
-├─ raw_google_ai_results/
-├─ parsed_results/
-├─ parsed_data_comparison/
-└─ final_reports/
-```
+**Project Focus**: Data Version Control, Reproducible ML Pipelines, CI/CD Integration
 
 ---
 
-## Troubleshooting
+## 📚 **Additional Resources**
 
-* Activate virtual environment
-* Install missing dependencies: `pip install -r setup/requirements.txt`
-* Ensure PDFs are in `data/raw/`
-* Tesseract OCR must be on `PATH`
-* Check DVC status and repair cache if needed
-
----
-
-## Performance
-
-* 100-page PDF: ~4–6 minutes, ~4 GB RAM
-* Lab 7 (2 pages): ~3–5 seconds, ~2 GB RAM
-* Timestamped outputs for traceability
-* Cache efficiency: 80–85% stage skip on reruns
+- 📖 **[PRESENTATION_GUIDE.md](PRESENTATION_GUIDE.md)**: Complete presentation walkthrough
+- 🔧 **[DVC_WORKFLOW_GUIDE.md](DVC_WORKFLOW_GUIDE.md)**: Detailed DVC documentation  
+- 🌩️ **[GOOGLE_CLOUD_SETUP.md](GOOGLE_CLOUD_SETUP.md)**: Lab 7 configuration
+- 🔍 **[XBRL_INTEGRATION_GUIDE.md](XBRL_INTEGRATION_GUIDE.md)**: Lab 11 setup
 
 ---
 
-## Team
+## 🎯 **Project Highlights**
 
-**Team 5 – DAMG7245 (Fall 2025)**
-Big Data Analytics Project – SEC Filing Processing Pipeline
-
----
-
-## License
-
-MIT License – see project files for details
+- ✅ **21,287+ metadata records** from comprehensive extraction
+- ✅ **5-stage DVC pipeline** with full reproducibility
+- ✅ **Automated CI/CD testing** via GitHub Actions  
+- ✅ **Multi-format outputs** (JSON/Markdown/TXT)
+- ✅ **Enterprise-grade** data versioning and lineage
 
 ---
+
+*Ready to demonstrate advanced data engineering with DVC! 🚀*
 
