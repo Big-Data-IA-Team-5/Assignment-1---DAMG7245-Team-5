@@ -1,0 +1,157 @@
+{
+  "session_id": "20250926_123619",
+  "validation_timestamp": "2025-09-26T12:36:19.809998",
+  "file_results": {
+    "tesla_camelot_stream_p18_t22.csv": {
+      "discrepancies": [],
+      "discrepancy_count": 0,
+      "mapping_count": 5
+    },
+    "tesla_pdfplumber_p31_t1.csv": {
+      "discrepancies": [],
+      "discrepancy_count": 0,
+      "mapping_count": 28
+    },
+    "tesla_camelot_stream_p1_t1.csv": {
+      "discrepancies": [],
+      "discrepancy_count": 0,
+      "mapping_count": 2
+    },
+    "tesla_camelot_stream_p15_t17.csv": {
+      "discrepancies": [],
+      "discrepancy_count": 0,
+      "mapping_count": 9
+    },
+    "tesla_camelot_stream_p14_t16.csv": {
+      "discrepancies": [],
+      "discrepancy_count": 0,
+      "mapping_count": 13
+    },
+    "tesla_camelot_stream_p27_t32.csv": {
+      "discrepancies": [],
+      "discrepancy_count": 0,
+      "mapping_count": 3
+    },
+    "tesla_camelot_stream_p19_t23.csv": {
+      "discrepancies": [],
+      "discrepancy_count": 0,
+      "mapping_count": 13
+    },
+    "tesla_camelot_stream_p25_t30.csv": {
+      "discrepancies": [],
+      "discrepancy_count": 0,
+      "mapping_count": 13
+    },
+    "tesla_pdfplumber_p8_t1.csv": {
+      "discrepancies": [],
+      "discrepancy_count": 0,
+      "mapping_count": 27
+    },
+    "tesla_camelot_stream_p30_t35.csv": {
+      "discrepancies": [],
+      "discrepancy_count": 0,
+      "mapping_count": 17
+    },
+    "tesla_camelot_stream_p24_t29.csv": {
+      "discrepancies": [],
+      "discrepancy_count": 0,
+      "mapping_count": 7
+    },
+    "tesla_camelot_stream_p29_t34.csv": {
+      "discrepancies": [],
+      "discrepancy_count": 0,
+      "mapping_count": 17
+    },
+    "_comprehensive_index.csv": {
+      "discrepancies": [],
+      "discrepancy_count": 0,
+      "mapping_count": 8
+    },
+    "tesla_camelot_stream_p16_t19.csv": {
+      "discrepancies": [],
+      "discrepancy_count": 0,
+      "mapping_count": 13
+    },
+    "tesla_camelot_stream_p2_t3.csv": {
+      "discrepancies": [],
+      "discrepancy_count": 0,
+      "mapping_count": 4
+    },
+    "tesla_camelot_stream_p13_t15.csv": {
+      "discrepancies": [],
+      "discrepancy_count": 0,
+      "mapping_count": 9
+    },
+    "tesla_camelot_stream_p17_t21.csv": {
+      "discrepancies": [],
+      "discrepancy_count": 0,
+      "mapping_count": 7
+    },
+    "tesla_camelot_stream_p34_t39.csv": {
+      "discrepancies": [],
+      "discrepancy_count": 0,
+      "mapping_count": 7
+    },
+    "tesla_camelot_stream_p20_t25.csv": {
+      "discrepancies": [],
+      "discrepancy_count": 0,
+      "mapping_count": 13
+    },
+    "tesla_camelot_stream_p10_t11.csv": {
+      "discrepancies": [],
+      "discrepancy_count": 0,
+      "mapping_count": 13
+    },
+    "tesla_pdfplumber_p7_t1.csv": {
+      "discrepancies": [],
+      "discrepancy_count": 0,
+      "mapping_count": 27
+    },
+    "tesla_pdfplumber_p12_t1.csv": {
+      "discrepancies": [],
+      "discrepancy_count": 0,
+      "mapping_count": 12
+    },
+    "tesla_camelot_stream_p4_t5.csv": {
+      "discrepancies": [],
+      "discrepancy_count": 0,
+      "mapping_count": 7
+    },
+    "tesla_camelot_stream_p38_t43.csv": {
+      "discrepancies": [],
+      "discrepancy_count": 0,
+      "mapping_count": 2
+    },
+    "tesla_camelot_stream_p9_t10.csv": {
+      "discrepancies": [],
+      "discrepancy_count": 0,
+      "mapping_count": 7
+    },
+    "tesla_camelot_stream_p11_t13.csv": {
+      "discrepancies": [],
+      "discrepancy_count": 0,
+      "mapping_count": 6
+    },
+    "tesla_pdfplumber_p5_t1.csv": {
+      "discrepancies": [],
+      "discrepancy_count": 0,
+      "mapping_count": 12
+    },
+    "tesla_camelot_stream_p6_t7.csv": {
+      "discrepancies": [],
+      "discrepancy_count": 0,
+      "mapping_count": 13
+    },
+    "tesla_camelot_stream_p39_t45.csv": {
+      "discrepancies": [],
+      "discrepancy_count": 0,
+      "mapping_count": 2
+    }
+  },
+  "summary": {
+    "total_discrepancies": 0,
+    "validation_timestamp": "2025-09-26T12:36:19.811180"
+  },
+  "categorized_discrepancies": {},
+  "all_discrepancies": []
+}

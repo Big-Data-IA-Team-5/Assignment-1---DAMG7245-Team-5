@@ -52,7 +52,10 @@ class PDFXBRLMapper:
         
         # Fuzzy matching parameters
         self.fuzzy_threshold = self.config.get('fuzzy_threshold', 80)
-        self.fuzzy_scorer = self.config.get('fuzzy_scorer', fuzz.token_sort_ratio)
+        if FUZZYWUZZY_AVAILABLE:
+            self.fuzzy_scorer = self.config.get('fuzzy_scorer', fuzz.token_sort_ratio)
+        else:
+            self.fuzzy_scorer = None
         
         # Initialize predefined mappings
         self.concept_mappings = self._load_concept_mappings()
@@ -340,11 +343,26 @@ class PDFXBRLMapper:
         
         # Find best match
         try:
-            match_result = process.extractOne(
-                cleaned_label, 
-                search_terms,
-                scorer=self.fuzzy_scorer
-            )
+            if FUZZYWUZZY_AVAILABLE and self.fuzzy_scorer:
+                match_result = process.extractOne(
+                    cleaned_label, 
+                    search_terms,
+                    scorer=self.fuzzy_scorer
+                )
+            else:
+                # Fallback to basic string matching when fuzzywuzzy is not available
+                match_result = None
+                best_score = 0
+                for term in search_terms:
+                    # Simple case-insensitive substring matching
+                    if cleaned_label.lower() in term.lower() or term.lower() in cleaned_label.lower():
+                        score = 90  # High score for substring matches
+                        if score > best_score:
+                            best_score = score
+                            match_result = (term, score)
+                    elif cleaned_label.lower() == term.lower():
+                        match_result = (term, 100)  # Perfect match
+                        break
             
             if match_result and match_result[1] >= self.fuzzy_threshold:
                 matched_term, score = match_result

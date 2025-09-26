@@ -37,7 +37,7 @@ def load_smoke_test_config():
                         default_config[section].update(values)
                     else:
                         default_config[section] = values
-            except Exception as e:
+        except Exception as e:
             print(f"[WARN] Warning: Could not load config file: {e}. Using defaults.")
     
     return default_config# Load configuration

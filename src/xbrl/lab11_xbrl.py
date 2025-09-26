@@ -391,13 +391,26 @@ class Lab11XBRLWorkflow:
         Returns:
             Dictionary with paths to generated reports
         """
-        logger.info(f"Generating XBRL validation reports in {output_directory}")
+        # Create timestamped session directory
+        session_output_dir = Path(output_directory) / f"xbrl_session_{self.session_id}"
+        session_output_dir.mkdir(parents=True, exist_ok=True)
+        
+        # Create organized subdirectories for this session
+        subdirs = {
+            'mapping': session_output_dir / 'mapping',
+            'validation': session_output_dir / 'validation', 
+            'analysis': session_output_dir / 'analysis',
+            'reports': session_output_dir / 'reports',
+            'extracted_data': session_output_dir / 'extracted_data'
+        }
+        
+        for subdir in subdirs.values():
+            subdir.mkdir(parents=True, exist_ok=True)
+        
+        logger.info(f"Generating XBRL validation reports in {session_output_dir}")
         
         if self.reporter is None:
             raise RuntimeError("XBRL reporter not initialized")
-        
-        output_path = Path(output_directory)
-        output_path.mkdir(parents=True, exist_ok=True)
         
         report_files = {}
         
@@ -420,8 +433,8 @@ class Lab11XBRLWorkflow:
                 validation_summary, all_discrepancies, categorized_discrepancies, metadata
             )
             
-            markdown_file = output_path / f"XBRL_Validation_Report_{self.session_id}.md"
-            self.reporter.save_markdown_report(markdown_content, markdown_file)
+            markdown_file = subdirs['reports'] / f"XBRL_Validation_Report_{self.session_id}.md"
+            self.reporter.save_markdown_report(markdown_content, str(markdown_file))
             report_files['markdown_report'] = str(markdown_file)
             
             # Generate JSON report
@@ -429,21 +442,32 @@ class Lab11XBRLWorkflow:
                 validation_summary, all_discrepancies, categorized_discrepancies, metadata
             )
             
-            json_file = output_path / f"XBRL_Validation_Report_{self.session_id}.json"
-            self.reporter.save_json_report(json_report, json_file)
+            json_file = subdirs['reports'] / f"XBRL_Validation_Report_{self.session_id}.json"
+            self.reporter.save_json_report(json_report, str(json_file))
             report_files['json_report'] = str(json_file)
             
             # Save detailed validation results
-            detailed_file = output_path / f"XBRL_Validation_Detailed_{self.session_id}.json"
+            detailed_file = subdirs['validation'] / f"XBRL_Validation_Detailed_{self.session_id}.json"
             with open(detailed_file, 'w') as f:
                 json.dump(self.validation_results, f, indent=2, default=str)
             report_files['detailed_results'] = str(detailed_file)
             
             # Save mappings
-            mappings_file = output_path / f"XBRL_Mappings_{self.session_id}.json"
+            mappings_file = subdirs['mapping'] / f"XBRL_Mappings_{self.session_id}.json"
             with open(mappings_file, 'w') as f:
                 json.dump(self.mappings, f, indent=2)
             report_files['mappings'] = str(mappings_file)
+            
+            # Save extracted data (if any)
+            if hasattr(self, 'pdf_data') and self.pdf_data:
+                extracted_data_file = subdirs['extracted_data'] / f"PDF_Extracted_Data_{self.session_id}.json"
+                with open(extracted_data_file, 'w') as f:
+                    # Convert DataFrames to JSON-serializable format
+                    serializable_data = {}
+                    for filename, df in self.pdf_data.items():
+                        serializable_data[filename] = df.to_dict('records')
+                    json.dump(serializable_data, f, indent=2, default=str)
+                report_files['extracted_data'] = str(extracted_data_file)
             
             logger.info("Reports generated successfully")
             
@@ -454,7 +478,7 @@ class Lab11XBRLWorkflow:
         return report_files
     
     def run_full_workflow(self, tables_dir: str, xbrl_dir: str, 
-                         output_dir: str = "data/intermediate/xbrl_validation") -> Dict[str, Any]:
+                         output_dir: str = "data/xbrl_outputs") -> Dict[str, Any]:
         """
         Run the complete XBRL cross-verification workflow.
         
@@ -475,9 +499,17 @@ class Lab11XBRLWorkflow:
                 raise ValueError("No PDF table data loaded")
             
             # Step 2: Load XBRL files
-            xbrl_data = self.load_xbrl_files(xbrl_dir)
-            if not xbrl_data:
+            xbrl_files_list = self.load_xbrl_files(xbrl_dir)
+            if not xbrl_files_list:
                 raise ValueError("No XBRL data loaded")
+            
+            # Convert list to dictionary format expected by other methods
+            self.xbrl_data = {}
+            for xbrl_item in xbrl_files_list:
+                file_path = xbrl_item['file']
+                file_name = os.path.basename(file_path)
+                # Store the parsed DataFrame data
+                self.xbrl_data[file_name] = xbrl_item['data']
             
             # Step 3: Create mappings
             mappings = self.create_mappings()
@@ -495,7 +527,7 @@ class Lab11XBRLWorkflow:
                 'session_id': self.session_id,
                 'success': True,
                 'pdf_files_processed': len(pdf_data),
-                'xbrl_files_processed': len(xbrl_data),
+                'xbrl_files_processed': len(self.xbrl_data),
                 'total_discrepancies': len(validation_results.get('all_discrepancies', [])),
                 'report_files': report_files,
                 'validation_summary': validation_results.get('summary', {}),
@@ -572,7 +604,7 @@ Examples:
         '--output', 
         type=str, 
         default=None,
-        help='Output directory for reports (default: data/parsed/xbrl_validation_<timestamp>)'
+        help='Output directory for reports (default: data/xbrl_outputs)'
     )
     
     parser.add_argument(
@@ -604,7 +636,7 @@ Examples:
         # Use hardcoded paths as defaults
         tables_dir = args.tables or "data/parsed/tesla_20250926_023933/tables"
         xbrl_dir = args.xbrl or "data/raw/xbrl_files"
-        output_dir = args.output or "data/intermediate/xbrl_validation"
+        output_dir = args.output or "data/xbrl_outputs"
         
         results = workflow.run_full_workflow(tables_dir, xbrl_dir, output_dir)
         

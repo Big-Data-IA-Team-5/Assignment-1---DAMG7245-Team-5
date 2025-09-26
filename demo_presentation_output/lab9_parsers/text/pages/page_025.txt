@@ -1,0 +1,41 @@
+Table of Contents
+Note 12 – Segment Reporting and Information about Geographic Areas
+We have two operating and reportable segments: (i) automotive and (ii) energy generation and storage. The following table presents revenues, cost of
+revenues and gross profit by reportable segment (in millions):
+Three Months Ended June 30, Six Months Ended June 30,
+2025 2024 2025 2024
+Automotive segment
+Revenues $ 19,707 $ 22,486 $ 36,312 $ 42,152
+Cost of revenues (1) $ 16,675 $ 18,648 $ 30,912 $ 35,021
+Gross profit $ 3,032 $ 3,838 $ 5,400 $ 7,131
+Energy generation and storage segment
+Revenues $ 2,789 $ 3,014 $ 5,519 $ 4,649
+Cost of revenues (2) $ 1,943 $ 2,274 $ 3,888 $ 3,506
+Gross profit $ 846 $ 740 $ 1,631 $ 1,143
+(1) Depreciation and amortization included in Cost of revenues for the automotive segment for the three and six months ended June 30, 2025 was $891
+million and $1.84 billion, respectively. Depreciation and amortization included in Cost of revenues for the automotive segment for the three and six
+months ended June 30, 2024 was $885 million and $1.76 billion, respectively.
+(2) Depreciation and amortization included in Cost of revenues for the energy generation and storage segment for the three and six months ended June 30,
+2025 was $87 million and $170 million, respectively. Depreciation and amortization included in Cost of revenues for the energy generation and storage
+segment for the three and six months ended June 30, 2024 was $94 million and $185 million, respectively.
+The following table presents revenues by geographic area based on the sales location of our products (in millions):
+Three Months Ended June 30, Six Months Ended June 30,
+2025 2024 2025 2024
+United States $ 11,809 $ 13,256 $ 22,142 $ 23,018
+China 4,305 4,636 8,608 9,228
+Other international 6,382 7,608 11,081 14,555
+Total $ 22,496 $ 25,500 $ 41,831 $ 46,801
+The following table presents long-lived assets by geographic area (in millions):
+June 30, December 31,
+2025 2024
+United States $ 34,096 $ 32,461
+Germany 4,801 4,175
+Other international 4,465 4,124
+Total $ 43,362 $ 40,760
+The following table presents inventory by reportable segment (in millions):
+June 30, December 31,
+2025 2024
+Automotive $ 12,124 $ 9,988
+Energy generation and storage 2,446 2,029
+Total $ 14,570 $ 12,017
+25

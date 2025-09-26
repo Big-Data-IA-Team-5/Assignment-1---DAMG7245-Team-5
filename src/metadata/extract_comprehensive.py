@@ -45,37 +45,37 @@ def extract_comprehensive_metadata(pdf_path: str, doc_id: str, company: str,
     
     all_records = []
     
-    logger.info(f"🚀 Starting comprehensive extraction for {doc_id}")
+    logger.info(f"Starting comprehensive extraction for {doc_id}")
     
     # PART 1: Extract ALL text content from PDF pages
-    logger.info("📄 Extracting full document text content...")
+    logger.info("Extracting full document text content...")
     text_records = extract_full_document_text(pdf_path, doc_id, company, fiscal_year)
     all_records.extend(text_records)
-    logger.info(f"✅ Extracted {len(text_records)} text records")
+    logger.info(f"Extracted {len(text_records)} text records")
     
     # PART 2: Extract table content from existing CSV files
-    logger.info("📊 Processing existing table extractions...")
+    logger.info("Processing existing table extractions...")
     table_records = extract_existing_table_content(unified_base, doc_id, company, fiscal_year, pdf_path)
     all_records.extend(table_records)
-    logger.info(f"✅ Extracted {len(table_records)} table records")
+    logger.info(f"Extracted {len(table_records)} table records")
     
     # PART 3: Extract docling AI content
-    logger.info("🤖 Processing Docling AI content...")
+    logger.info("Processing Docling AI content...")
     docling_records = extract_docling_ai_content(unified_base, doc_id, company, fiscal_year, pdf_path)
     all_records.extend(docling_records)
-    logger.info(f"✅ Extracted {len(docling_records)} Docling AI records")
+    logger.info(f"Extracted {len(docling_records)} Docling AI records")
     
     # PART 4: Extract document structure and layout
-    logger.info("🏗️ Extracting document structure...")
+    logger.info("Extracting document structure...")
     structure_records = extract_document_structure(pdf_path, doc_id, company, fiscal_year)
     all_records.extend(structure_records)
-    logger.info(f"✅ Extracted {len(structure_records)} structure records")
+    logger.info(f"Extracted {len(structure_records)} structure records")
     
     # PART 5: Extract headers, footers, and page metadata
-    logger.info("📑 Extracting page metadata...")
+    logger.info("Extracting page metadata...")
     metadata_records = extract_page_level_metadata(pdf_path, doc_id, company, fiscal_year)
     all_records.extend(metadata_records)
-    logger.info(f"✅ Extracted {len(metadata_records)} metadata records")
+    logger.info(f"Extracted {len(metadata_records)} metadata records")
     
     # Write comprehensive JSONL file
     with open(jsonl_path, 'w', encoding='utf-8') as f:
@@ -85,9 +85,9 @@ def extract_comprehensive_metadata(pdf_path: str, doc_id: str, company: str,
     # Generate comprehensive summary
     generate_extraction_summary(all_records, metadata_dir, doc_id)
     
-    logger.info(f"🎉 COMPREHENSIVE EXTRACTION COMPLETE!")
-    logger.info(f"📈 Total records: {len(all_records)}")
-    logger.info(f"📁 Output: {jsonl_path}")
+    logger.info(f"COMPREHENSIVE EXTRACTION COMPLETE!")
+    logger.info(f"Total records: {len(all_records)}")
+    logger.info(f"Output: {jsonl_path}")
     
     # Show coverage by content type
     content_types = {}
@@ -95,7 +95,7 @@ def extract_comprehensive_metadata(pdf_path: str, doc_id: str, company: str,
         block_type = record.get('block_type', 'unknown')
         content_types[block_type] = content_types.get(block_type, 0) + 1
     
-    logger.info("📊 Content Coverage:")
+    logger.info("Content Coverage:")
     for content_type, count in sorted(content_types.items()):
         logger.info(f"   {content_type}: {count} records")
     
@@ -645,7 +645,7 @@ def generate_extraction_summary(records: List[Dict], metadata_dir: Path, doc_id:
     with open(summary_path, 'w', encoding='utf-8') as f:
         json.dump(summary, f, indent=2, ensure_ascii=False)
     
-    logger.info(f"📋 Extraction summary written to: {summary_path}")
+    logger.info(f"Extraction summary written to: {summary_path}")
 
 if __name__ == "__main__":
     import argparse
@@ -665,6 +665,6 @@ if __name__ == "__main__":
     )
     
     if success:
-        print("✅ Comprehensive metadata extraction completed successfully!")
+        print("Comprehensive metadata extraction completed successfully!")
     else:
-        print("❌ Comprehensive metadata extraction failed!")
+        print("Comprehensive metadata extraction failed!")

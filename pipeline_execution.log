@@ -1,1354 +1,468 @@
-2025-09-26 01:15:08,949 - [INFO] - LANTERN Pipeline started
-2025-09-26 01:15:08,949 - [INFO] - Output directory: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed
-2025-09-26 01:15:08,949 - [INFO] - Raw data directory: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw
-2025-09-26 01:15:08,949 - [INFO] - Hybrid tables: True
-2025-09-26 01:15:08,949 - [INFO] - Skip Docling: False
-2025-09-26 01:15:08,949 - [INFO] - Hybrid tables: True
-2025-09-26 01:15:08,949 - [INFO] - Skip Docling: False
-2025-09-26 01:15:08,949 - [INFO] - Found 1 PDF files to process
-2025-09-26 01:15:08,949 - [INFO] -    uber.pdf
-2025-09-26 01:15:08,949 - [INFO] - 
+2025-09-26 13:11:48,928 - [INFO] - LANTERN Pipeline started
+2025-09-26 13:11:48,928 - [INFO] - Output directory: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed
+2025-09-26 13:11:48,928 - [INFO] - Raw data directory: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw
+2025-09-26 13:11:48,928 - [INFO] - Hybrid tables: True
+2025-09-26 13:11:48,928 - [INFO] - Skip Docling: False
+2025-09-26 13:11:48,928 - [INFO] - Comprehensive extraction: True
+2025-09-26 13:11:48,928 - [INFO] - ✅ Comprehensive metadata extractor available - will extract ALL content types
+2025-09-26 13:11:48,928 - [INFO] - Found 1 PDF files to process
+2025-09-26 13:11:48,928 - [INFO] -    tesla.pdf
+2025-09-26 13:11:48,928 - [INFO] - 
 ================================================================================
-2025-09-26 01:15:08,949 - [INFO] - Processing Document 1/1: uber.pdf
-2025-09-26 01:15:08,949 - [INFO] - ================================================================================
-2025-09-26 01:15:08,949 - [INFO] - Document metadata: ID=uber_2024, Company=Unknown Company, Year=2024
-2025-09-26 01:15:08,949 - [INFO] - Unified output directory: uber_20250926_011508
-2025-09-26 01:15:08,950 - [INFO] - 
+2025-09-26 13:11:48,928 - [INFO] - Processing Document 1/1: tesla.pdf
+2025-09-26 13:11:48,928 - [INFO] - ================================================================================
+2025-09-26 13:11:48,928 - [INFO] - Document metadata: ID=tesla_2024, Company=Tesla Inc., Year=2024
+2025-09-26 13:11:48,928 - [INFO] - Unified output directory: tesla_20250926_131148
+2025-09-26 13:11:48,928 - [INFO] - 
 [LAB 1] Starting text extraction...
-2025-09-26 01:15:08,950 - [INFO] - [LAB 1] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/text/extract_text.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw/uber.pdf --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/uber_20250926_011508
-2025-09-26 01:15:11,505 - [INFO] - [LAB 1] Processing: uber.pdf
-2025-09-26 01:15:11,505 - [INFO] - [LAB 1] Lab 1 Text Extraction Complete:
-2025-09-26 01:15:11,505 - [INFO] - [LAB 1] Per-page .txt files: 11 files created
-2025-09-26 01:15:11,505 - [INFO] - [LAB 1] OCR log: 0 pages required OCR
-2025-09-26 01:15:11,505 - [INFO] - [LAB 1] Word bounding boxes: Saved for layout analysis
-2025-09-26 01:15:11,505 - [INFO] - [LAB 1] Output location: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/uber_20250926_011508/text
-2025-09-26 01:15:11,505 - [INFO] - [LAB 1] Text extraction completed successfully
-2025-09-26 01:15:11,506 - [INFO] - 
+2025-09-26 13:11:48,928 - [INFO] - [LAB 1] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python3 /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/text/extract_text.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw/tesla.pdf --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_131148
+2025-09-26 13:11:54,913 - [INFO] - [LAB 1] Processing: tesla.pdf
+2025-09-26 13:11:54,913 - [INFO] - [LAB 1] Lab 1 Text Extraction Complete:
+2025-09-26 13:11:54,914 - [INFO] - [LAB 1] Per-page .txt files: 39 files created
+2025-09-26 13:11:54,914 - [INFO] - [LAB 1] OCR log: 0 pages required OCR
+2025-09-26 13:11:54,914 - [INFO] - [LAB 1] Word bounding boxes: Saved for layout analysis
+2025-09-26 13:11:54,914 - [INFO] - [LAB 1] Output location: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_131148/text
+2025-09-26 13:11:54,914 - [INFO] - [LAB 1] Text extraction completed successfully
+2025-09-26 13:11:54,914 - [INFO] - 
 [LAB 2] Starting table extraction...
-2025-09-26 01:15:11,506 - [INFO] - [LAB 2] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/tables/extract_tables.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw/uber.pdf --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/uber_20250926_011508 --hybrid
-2025-09-26 01:15:28,329 - [INFO] - [LAB 2] Table extraction completed successfully
-2025-09-26 01:15:28,329 - [INFO] - 
+2025-09-26 13:11:54,914 - [INFO] - [LAB 2] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python3 /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/tables/extract_tables.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw/tesla.pdf --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_131148 --hybrid
+2025-09-26 13:12:23,602 - [INFO] - [LAB 2] Table extraction completed successfully
+2025-09-26 13:12:23,602 - [INFO] - 
 [LAB 3] Starting layout detection...
-2025-09-26 01:15:28,329 - [INFO] - [LAB 3] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/layout/extract_layout.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw/uber.pdf --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/uber_20250926_011508
-2025-09-26 01:15:29,750 - [INFO] - [LAB 3] layoutparser not available, using manual layout detection
-2025-09-26 01:15:29,750 - [INFO] - [LAB 3] Layout Detection Summary for uber.pdf:
-2025-09-26 01:15:29,750 - [INFO] - [LAB 3] Pages processed: 11
-2025-09-26 01:15:29,751 - [INFO] - [LAB 3] Total blocks detected: 516
-2025-09-26 01:15:29,751 - [INFO] - [LAB 3] Block type distribution:
-2025-09-26 01:15:29,751 - [INFO] - [LAB 3] Text: 482
-2025-09-26 01:15:29,751 - [INFO] - [LAB 3] Title: 22
-2025-09-26 01:15:29,751 - [INFO] - [LAB 3] Table: 12
-2025-09-26 01:15:29,751 - [INFO] - [LAB 3] Output written to /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/uber_20250926_011508
-2025-09-26 01:15:29,751 - [INFO] - [LAB 3] Layout detection completed successfully
-2025-09-26 01:15:29,751 - [INFO] - 
+2025-09-26 13:12:23,603 - [INFO] - [LAB 3] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python3 /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/layout/extract_layout.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw/tesla.pdf --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_131148
+2025-09-26 13:12:29,387 - [INFO] - [LAB 3] Detectron2 not available, using manual layout detection
+2025-09-26 13:12:29,388 - [INFO] - [LAB 3] Layout Detection Summary for tesla.pdf:
+2025-09-26 13:12:29,388 - [INFO] - [LAB 3] Pages processed: 39
+2025-09-26 13:12:29,388 - [INFO] - [LAB 3] Total blocks detected: 1855
+2025-09-26 13:12:29,388 - [INFO] - [LAB 3] Block type distribution:
+2025-09-26 13:12:29,388 - [INFO] - [LAB 3] Text: 1733
+2025-09-26 13:12:29,388 - [INFO] - [LAB 3] Table: 45
+2025-09-26 13:12:29,388 - [INFO] - [LAB 3] Title: 77
+2025-09-26 13:12:29,388 - [INFO] - [LAB 3] Output written to /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_131148
+2025-09-26 13:12:29,388 - [INFO] - [LAB 3] Layout detection completed successfully
+2025-09-26 13:12:29,388 - [INFO] - 
 [LAB 4] Starting Docling processing with integrated AI metadata extraction...
-2025-09-26 01:15:29,751 - [INFO] - [LAB 4] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/docling/extract_docling.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw/uber.pdf --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/uber_20250926_011508
-2025-09-26 01:15:29,778 - [INFO] - [LAB 4] Docling not available, creating mock analysis
-2025-09-26 01:15:29,778 - [INFO] - [LAB 4] Docling Performance Summary for uber.pdf:
-2025-09-26 01:15:29,778 - [INFO] - [LAB 4] Processing time: 0.10 seconds
-2025-09-26 01:15:29,778 - [INFO] - [LAB 4] Tables detected: 0
-2025-09-26 01:15:29,778 - [INFO] - [LAB 4] Formulas detected: 0
-2025-09-26 01:15:29,778 - [INFO] - [LAB 4] Reading order preserved: True
-2025-09-26 01:15:29,778 - [INFO] - [LAB 4] Output written to /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/uber_20250926_011508
-2025-09-26 01:15:29,778 - [INFO] - [LAB 4] Docling processing with AI metadata completed successfully
-2025-09-26 01:15:29,780 - [INFO] - [LAB 5] Created metadata file with 13 records: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/uber_20250926_011508/metadata/uber_2024.jsonl
-2025-09-26 01:15:29,780 - [INFO] - [LAB 5] AI-Enhanced metadata extraction completed via Docling integration
-2025-09-26 01:15:29,780 - [INFO] - 
-[LAB 6] Starting format conversion...
-2025-09-26 01:15:29,780 - [INFO] - [LAB 6] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/formats/convert_formats.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/uber_20250926_011508/metadata/uber_2024.jsonl --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/uber_20250926_011508
-2025-09-26 01:15:29,795 - [ERROR] - [LAB 6] Command failed with exit code 1
-2025-09-26 01:15:29,795 - [ERROR] - [LAB 6] STDERR:   File "/Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/formats/convert_formats.py", line 16
-    - **File Size**: {file_sizes.get('text', 0):.1f} KB
-                                                 ^
-SyntaxError: invalid decimal literal
-
-2025-09-26 01:15:29,795 - [ERROR] - [LAB 6] Format conversion failed
-2025-09-26 01:15:29,795 - [INFO] - 
-[VALIDATION] Validating outputs for uber_2024...
-2025-09-26 01:15:29,795 - [INFO] - [VALIDATION] LAB1: PASS | LAB2: PASS | LAB3: PASS | LAB4: PASS | LAB5: FAIL | LAB6: FAIL
-2025-09-26 01:15:29,795 - [ERROR] - Failed to process uber.pdf → uber_20250926_011508
-2025-09-26 01:15:29,796 - [INFO] - 
-================================================================================
-2025-09-26 01:15:29,796 - [INFO] - LANTERN PIPELINE EXECUTION SUMMARY
-2025-09-26 01:15:29,796 - [INFO] - ================================================================================
-2025-09-26 01:15:29,796 - [INFO] - Execution timestamp: 20250926_011529
-2025-09-26 01:15:29,796 - [INFO] - Total PDFs processed: 1
-2025-09-26 01:15:29,796 - [INFO] - Successful: 0
-2025-09-26 01:15:29,796 - [INFO] - Failed: 1
-2025-09-26 01:15:29,796 - [INFO] - Success rate: 0.0%
-2025-09-26 01:15:29,796 - [INFO] - 
-Failed Documents:
-2025-09-26 01:15:29,796 - [INFO] -    uber.pdf → uber_2024
-2025-09-26 01:15:29,796 - [INFO] - 
-Lab Success Summary:
-2025-09-26 01:15:29,796 - [INFO] -    Lab 1: 1/1 successful (100.0%)
-2025-09-26 01:15:29,796 - [INFO] -    Lab 2: 1/1 successful (100.0%)
-2025-09-26 01:15:29,796 - [INFO] -    Lab 3: 1/1 successful (100.0%)
-2025-09-26 01:15:29,796 - [INFO] -    Lab 4: 1/1 successful (100.0%)
-2025-09-26 01:15:29,796 - [INFO] -    Lab 5: 1/1 successful (100.0%)
-2025-09-26 01:15:29,796 - [INFO] -    Lab 6: 0/1 successful (0.0%)
-2025-09-26 01:15:29,796 - [INFO] - 
-All outputs saved to: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed
-2025-09-26 01:15:29,796 - [INFO] - Detailed summary saved to: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/pipeline_summary_20250926_011529.json
-2025-09-26 01:15:29,796 - [INFO] - Comprehensive pipeline report saved: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/LANTERN_Pipeline_Report_20250926_011529.md
-2025-09-26 01:15:29,796 - [INFO] - Pipeline report generated: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/LANTERN_Pipeline_Report_20250926_011529.md
-2025-09-26 01:15:29,796 - [ERROR] - Pipeline completed with 1 failures
-2025-09-26 01:17:59,945 - [INFO] - LANTERN Pipeline started
-2025-09-26 01:17:59,946 - [INFO] - Output directory: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed
-2025-09-26 01:17:59,946 - [INFO] - Raw data directory: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw
-2025-09-26 01:17:59,946 - [INFO] - Hybrid tables: True
-2025-09-26 01:17:59,946 - [INFO] - Skip Docling: False
-2025-09-26 01:17:59,946 - [INFO] - Hybrid tables: True
-2025-09-26 01:17:59,946 - [INFO] - Skip Docling: False
-2025-09-26 01:17:59,946 - [INFO] - Found 1 PDF files to process
-2025-09-26 01:17:59,946 - [INFO] -    uber.pdf
-2025-09-26 01:17:59,946 - [INFO] - 
-================================================================================
-2025-09-26 01:17:59,946 - [INFO] - Processing Document 1/1: uber.pdf
-2025-09-26 01:17:59,946 - [INFO] - ================================================================================
-2025-09-26 01:17:59,946 - [INFO] - Document metadata: ID=uber_2024, Company=Unknown Company, Year=2024
-2025-09-26 01:17:59,946 - [INFO] - Unified output directory: uber_20250926_011759
-2025-09-26 01:17:59,946 - [INFO] - 
-[LAB 1] Starting text extraction...
-2025-09-26 01:17:59,946 - [INFO] - [LAB 1] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python3 /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/text/extract_text.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw/uber.pdf --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/uber_20250926_011759
-2025-09-26 01:18:01,500 - [INFO] - [LAB 1] Processing: uber.pdf
-2025-09-26 01:18:01,501 - [INFO] - [LAB 1] Lab 1 Text Extraction Complete:
-2025-09-26 01:18:01,501 - [INFO] - [LAB 1] Per-page .txt files: 11 files created
-2025-09-26 01:18:01,501 - [INFO] - [LAB 1] OCR log: 0 pages required OCR
-2025-09-26 01:18:01,501 - [INFO] - [LAB 1] Word bounding boxes: Saved for layout analysis
-2025-09-26 01:18:01,501 - [INFO] - [LAB 1] Output location: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/uber_20250926_011759/text
-2025-09-26 01:18:01,501 - [INFO] - [LAB 1] Text extraction completed successfully
-2025-09-26 01:18:01,501 - [INFO] - 
-[LAB 2] Starting table extraction...
-2025-09-26 01:18:01,501 - [INFO] - [LAB 2] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python3 /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/tables/extract_tables.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw/uber.pdf --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/uber_20250926_011759 --hybrid
-2025-09-26 01:18:08,769 - [INFO] - [LAB 2] Table extraction completed successfully
-2025-09-26 01:18:08,769 - [INFO] - 
-[LAB 3] Starting layout detection...
-2025-09-26 01:18:08,769 - [INFO] - [LAB 3] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python3 /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/layout/extract_layout.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw/uber.pdf --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/uber_20250926_011759
-2025-09-26 01:18:10,129 - [INFO] - [LAB 3] layoutparser not available, using manual layout detection
-2025-09-26 01:18:10,129 - [INFO] - [LAB 3] Layout Detection Summary for uber.pdf:
-2025-09-26 01:18:10,129 - [INFO] - [LAB 3] Pages processed: 11
-2025-09-26 01:18:10,129 - [INFO] - [LAB 3] Total blocks detected: 516
-2025-09-26 01:18:10,129 - [INFO] - [LAB 3] Block type distribution:
-2025-09-26 01:18:10,129 - [INFO] - [LAB 3] Text: 482
-2025-09-26 01:18:10,129 - [INFO] - [LAB 3] Title: 22
-2025-09-26 01:18:10,129 - [INFO] - [LAB 3] Table: 12
-2025-09-26 01:18:10,129 - [INFO] - [LAB 3] Output written to /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/uber_20250926_011759
-2025-09-26 01:18:10,129 - [INFO] - [LAB 3] Layout detection completed successfully
-2025-09-26 01:18:10,129 - [INFO] - 
-[LAB 4] Starting Docling processing with integrated AI metadata extraction...
-2025-09-26 01:18:10,129 - [INFO] - [LAB 4] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python3 /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/docling/extract_docling.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw/uber.pdf --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/uber_20250926_011759
-2025-09-26 01:18:10,157 - [INFO] - [LAB 4] Docling not available, creating mock analysis
-2025-09-26 01:18:10,157 - [INFO] - [LAB 4] Docling Performance Summary for uber.pdf:
-2025-09-26 01:18:10,158 - [INFO] - [LAB 4] Processing time: 0.10 seconds
-2025-09-26 01:18:10,158 - [INFO] - [LAB 4] Tables detected: 0
-2025-09-26 01:18:10,158 - [INFO] - [LAB 4] Formulas detected: 0
-2025-09-26 01:18:10,158 - [INFO] - [LAB 4] Reading order preserved: True
-2025-09-26 01:18:10,158 - [INFO] - [LAB 4] Output written to /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/uber_20250926_011759
-2025-09-26 01:18:10,158 - [INFO] - [LAB 4] Docling processing with AI metadata completed successfully
-2025-09-26 01:18:10,160 - [INFO] - [LAB 5] Created metadata file with 13 records: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/uber_20250926_011759/metadata/uber_2024.jsonl
-2025-09-26 01:18:10,160 - [INFO] - [LAB 5] AI-Enhanced metadata extraction completed via Docling integration
-2025-09-26 01:18:10,160 - [INFO] - 
-[LAB 6] Starting format conversion...
-2025-09-26 01:18:10,160 - [INFO] - [LAB 6] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python3 /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/formats/convert_formats.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/uber_20250926_011759/metadata/uber_2024.jsonl --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/uber_20250926_011759
-2025-09-26 01:18:10,175 - [ERROR] - [LAB 6] Command failed with exit code 1
-2025-09-26 01:18:10,175 - [ERROR] - [LAB 6] STDERR:   File "/Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/formats/convert_formats.py", line 16
-    - **File Size**: {file_sizes.get('text', 0):.1f} KB
-                                                 ^
-SyntaxError: invalid decimal literal
-
-2025-09-26 01:18:10,175 - [ERROR] - [LAB 6] Format conversion failed
-2025-09-26 01:18:10,175 - [INFO] - 
-[VALIDATION] Validating outputs for uber_2024...
-2025-09-26 01:18:10,175 - [INFO] - [VALIDATION] LAB1: PASS | LAB2: PASS | LAB3: PASS | LAB4: PASS | LAB5: FAIL | LAB6: FAIL
-2025-09-26 01:18:10,175 - [ERROR] - Failed to process uber.pdf → uber_20250926_011759
-2025-09-26 01:18:10,175 - [INFO] - 
-================================================================================
-2025-09-26 01:18:10,175 - [INFO] - LANTERN PIPELINE EXECUTION SUMMARY
-2025-09-26 01:18:10,175 - [INFO] - ================================================================================
-2025-09-26 01:18:10,175 - [INFO] - Execution timestamp: 20250926_011810
-2025-09-26 01:18:10,175 - [INFO] - Total PDFs processed: 1
-2025-09-26 01:18:10,175 - [INFO] - Successful: 0
-2025-09-26 01:18:10,175 - [INFO] - Failed: 1
-2025-09-26 01:18:10,175 - [INFO] - Success rate: 0.0%
-2025-09-26 01:18:10,175 - [INFO] - 
-Failed Documents:
-2025-09-26 01:18:10,175 - [INFO] -    uber.pdf → uber_2024
-2025-09-26 01:18:10,175 - [INFO] - 
-Lab Success Summary:
-2025-09-26 01:18:10,175 - [INFO] -    Lab 1: 1/1 successful (100.0%)
-2025-09-26 01:18:10,175 - [INFO] -    Lab 2: 1/1 successful (100.0%)
-2025-09-26 01:18:10,175 - [INFO] -    Lab 3: 1/1 successful (100.0%)
-2025-09-26 01:18:10,175 - [INFO] -    Lab 4: 1/1 successful (100.0%)
-2025-09-26 01:18:10,175 - [INFO] -    Lab 5: 1/1 successful (100.0%)
-2025-09-26 01:18:10,175 - [INFO] -    Lab 6: 0/1 successful (0.0%)
-2025-09-26 01:18:10,175 - [INFO] - 
-All outputs saved to: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed
-2025-09-26 01:18:10,176 - [INFO] - Detailed summary saved to: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/pipeline_summary_20250926_011810.json
-2025-09-26 01:18:10,176 - [INFO] - Comprehensive pipeline report saved: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/LANTERN_Pipeline_Report_20250926_011810.md
-2025-09-26 01:18:10,176 - [INFO] - Pipeline report generated: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/LANTERN_Pipeline_Report_20250926_011810.md
-2025-09-26 01:18:10,176 - [ERROR] - Pipeline completed with 1 failures
-2025-09-26 01:20:04,970 - [INFO] - LANTERN Pipeline started
-2025-09-26 01:20:04,971 - [INFO] - Output directory: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed
-2025-09-26 01:20:04,971 - [INFO] - Raw data directory: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw
-2025-09-26 01:20:04,971 - [INFO] - Hybrid tables: True
-2025-09-26 01:20:04,971 - [INFO] - Skip Docling: False
-2025-09-26 01:20:04,971 - [INFO] - Hybrid tables: True
-2025-09-26 01:20:04,971 - [INFO] - Skip Docling: False
-2025-09-26 01:20:04,971 - [INFO] - Found 1 PDF files to process
-2025-09-26 01:20:04,971 - [INFO] -    tesla.pdf
-2025-09-26 01:20:04,971 - [INFO] - 
-================================================================================
-2025-09-26 01:20:04,971 - [INFO] - Processing Document 1/1: tesla.pdf
-2025-09-26 01:20:04,971 - [INFO] - ================================================================================
-2025-09-26 01:20:04,971 - [INFO] - Document metadata: ID=tesla_2024, Company=Tesla Inc., Year=2024
-2025-09-26 01:20:04,971 - [INFO] - Unified output directory: tesla_20250926_012004
-2025-09-26 01:20:04,971 - [INFO] - 
-[LAB 1] Starting text extraction...
-2025-09-26 01:20:04,971 - [INFO] - [LAB 1] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/text/extract_text.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw/tesla.pdf --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_012004
-2025-09-26 01:20:11,707 - [INFO] - [LAB 1] Processing: tesla.pdf
-2025-09-26 01:20:11,708 - [INFO] - [LAB 1] Lab 1 Text Extraction Complete:
-2025-09-26 01:20:11,708 - [INFO] - [LAB 1] Per-page .txt files: 39 files created
-2025-09-26 01:20:11,708 - [INFO] - [LAB 1] OCR log: 0 pages required OCR
-2025-09-26 01:20:11,708 - [INFO] - [LAB 1] Word bounding boxes: Saved for layout analysis
-2025-09-26 01:20:11,708 - [INFO] - [LAB 1] Output location: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_012004/text
-2025-09-26 01:20:11,708 - [INFO] - [LAB 1] Text extraction completed successfully
-2025-09-26 01:20:11,708 - [INFO] - 
-[LAB 2] Starting table extraction...
-2025-09-26 01:20:11,708 - [INFO] - [LAB 2] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/tables/extract_tables.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw/tesla.pdf --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_012004 --hybrid
-2025-09-26 01:20:40,125 - [INFO] - [LAB 2] Table extraction completed successfully
-2025-09-26 01:20:40,126 - [INFO] - 
-[LAB 3] Starting layout detection...
-2025-09-26 01:20:40,126 - [INFO] - [LAB 3] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/layout/extract_layout.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw/tesla.pdf --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_012004
-2025-09-26 01:20:45,771 - [INFO] - [LAB 3] layoutparser not available, using manual layout detection
-2025-09-26 01:20:45,771 - [INFO] - [LAB 3] Layout Detection Summary for tesla.pdf:
-2025-09-26 01:20:45,771 - [INFO] - [LAB 3] Pages processed: 39
-2025-09-26 01:20:45,771 - [INFO] - [LAB 3] Total blocks detected: 1855
-2025-09-26 01:20:45,771 - [INFO] - [LAB 3] Block type distribution:
-2025-09-26 01:20:45,771 - [INFO] - [LAB 3] Text: 1733
-2025-09-26 01:20:45,771 - [INFO] - [LAB 3] Table: 45
-2025-09-26 01:20:45,771 - [INFO] - [LAB 3] Title: 77
-2025-09-26 01:20:45,771 - [INFO] - [LAB 3] Output written to /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_012004
-2025-09-26 01:20:45,771 - [INFO] - [LAB 3] Layout detection completed successfully
-2025-09-26 01:20:45,771 - [INFO] - 
-[LAB 4] Starting Docling processing with integrated AI metadata extraction...
-2025-09-26 01:20:45,771 - [INFO] - [LAB 4] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/docling/extract_docling.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw/tesla.pdf --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_012004
-2025-09-26 01:20:45,805 - [INFO] - [LAB 4] Docling not available, creating mock analysis
-2025-09-26 01:20:45,806 - [INFO] - [LAB 4] Docling Performance Summary for tesla.pdf:
-2025-09-26 01:20:45,806 - [INFO] - [LAB 4] Processing time: 0.10 seconds
-2025-09-26 01:20:45,806 - [INFO] - [LAB 4] Tables detected: 0
-2025-09-26 01:20:45,806 - [INFO] - [LAB 4] Formulas detected: 0
-2025-09-26 01:20:45,806 - [INFO] - [LAB 4] Reading order preserved: True
-2025-09-26 01:20:45,806 - [INFO] - [LAB 4] Output written to /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_012004
-2025-09-26 01:20:45,806 - [INFO] - [LAB 4] Docling processing with AI metadata completed successfully
-2025-09-26 01:20:45,810 - [INFO] - [LAB 5] Created metadata file with 46 records: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_012004/metadata/tesla_2024.jsonl
-2025-09-26 01:20:45,810 - [INFO] - [LAB 5] AI-Enhanced metadata extraction completed via Docling integration
-2025-09-26 01:20:45,810 - [INFO] - 
-[LAB 6] Starting format conversion...
-2025-09-26 01:20:45,810 - [INFO] - [LAB 6] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/formats/convert_formats.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_012004/metadata/tesla_2024.jsonl --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_012004
-2025-09-26 01:20:45,825 - [ERROR] - [LAB 6] Command failed with exit code 1
-2025-09-26 01:20:45,825 - [ERROR] - [LAB 6] STDERR:   File "/Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/formats/convert_formats.py", line 16
-    - **File Size**: {file_sizes.get('text', 0):.1f} KB
-                                                 ^
-SyntaxError: invalid decimal literal
-
-2025-09-26 01:20:45,825 - [ERROR] - [LAB 6] Format conversion failed
-2025-09-26 01:20:45,825 - [INFO] - 
-[VALIDATION] Validating outputs for tesla_2024...
-2025-09-26 01:20:45,825 - [INFO] - [VALIDATION] LAB1: PASS | LAB2: PASS | LAB3: PASS | LAB4: PASS | LAB5: FAIL | LAB6: FAIL
-2025-09-26 01:20:45,825 - [ERROR] - Failed to process tesla.pdf → tesla_20250926_012004
-2025-09-26 01:20:45,825 - [INFO] - 
-================================================================================
-2025-09-26 01:20:45,825 - [INFO] - LANTERN PIPELINE EXECUTION SUMMARY
-2025-09-26 01:20:45,825 - [INFO] - ================================================================================
-2025-09-26 01:20:45,825 - [INFO] - Execution timestamp: 20250926_012045
-2025-09-26 01:20:45,825 - [INFO] - Total PDFs processed: 1
-2025-09-26 01:20:45,825 - [INFO] - Successful: 0
-2025-09-26 01:20:45,825 - [INFO] - Failed: 1
-2025-09-26 01:20:45,825 - [INFO] - Success rate: 0.0%
-2025-09-26 01:20:45,826 - [INFO] - 
-Failed Documents:
-2025-09-26 01:20:45,826 - [INFO] -    tesla.pdf → tesla_2024
-2025-09-26 01:20:45,826 - [INFO] - 
-Lab Success Summary:
-2025-09-26 01:20:45,826 - [INFO] -    Lab 1: 1/1 successful (100.0%)
-2025-09-26 01:20:45,826 - [INFO] -    Lab 2: 1/1 successful (100.0%)
-2025-09-26 01:20:45,826 - [INFO] -    Lab 3: 1/1 successful (100.0%)
-2025-09-26 01:20:45,826 - [INFO] -    Lab 4: 1/1 successful (100.0%)
-2025-09-26 01:20:45,826 - [INFO] -    Lab 5: 1/1 successful (100.0%)
-2025-09-26 01:20:45,826 - [INFO] -    Lab 6: 0/1 successful (0.0%)
-2025-09-26 01:20:45,826 - [INFO] - 
-All outputs saved to: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed
-2025-09-26 01:20:45,826 - [INFO] - Detailed summary saved to: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/pipeline_summary_20250926_012045.json
-2025-09-26 01:20:45,826 - [INFO] - Comprehensive pipeline report saved: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/LANTERN_Pipeline_Report_20250926_012045.md
-2025-09-26 01:20:45,826 - [INFO] - Pipeline report generated: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/LANTERN_Pipeline_Report_20250926_012045.md
-2025-09-26 01:20:45,826 - [ERROR] - Pipeline completed with 1 failures
-2025-09-26 01:26:44,462 - [INFO] - LANTERN Pipeline started
-2025-09-26 01:26:44,463 - [INFO] - Output directory: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed
-2025-09-26 01:26:44,463 - [INFO] - Raw data directory: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw
-2025-09-26 01:26:44,463 - [INFO] - Hybrid tables: True
-2025-09-26 01:26:44,463 - [INFO] - Skip Docling: False
-2025-09-26 01:26:44,463 - [INFO] - Hybrid tables: True
-2025-09-26 01:26:44,463 - [INFO] - Skip Docling: False
-2025-09-26 01:26:44,463 - [INFO] - Found 1 PDF files to process
-2025-09-26 01:26:44,463 - [INFO] -    tesla.pdf
-2025-09-26 01:26:44,463 - [INFO] - 
-================================================================================
-2025-09-26 01:26:44,463 - [INFO] - Processing Document 1/1: tesla.pdf
-2025-09-26 01:26:44,463 - [INFO] - ================================================================================
-2025-09-26 01:26:44,463 - [INFO] - Document metadata: ID=tesla_2024, Company=Tesla Inc., Year=2024
-2025-09-26 01:26:44,463 - [INFO] - Unified output directory: tesla_20250926_012644
-2025-09-26 01:26:44,463 - [INFO] - 
-[LAB 1] Starting text extraction...
-2025-09-26 01:26:44,463 - [INFO] - [LAB 1] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/text/extract_text.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw/tesla.pdf --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_012644
-2025-09-26 01:26:50,294 - [INFO] - [LAB 1] Processing: tesla.pdf
-2025-09-26 01:26:50,294 - [INFO] - [LAB 1] Lab 1 Text Extraction Complete:
-2025-09-26 01:26:50,294 - [INFO] - [LAB 1] Per-page .txt files: 39 files created
-2025-09-26 01:26:50,294 - [INFO] - [LAB 1] OCR log: 0 pages required OCR
-2025-09-26 01:26:50,294 - [INFO] - [LAB 1] Word bounding boxes: Saved for layout analysis
-2025-09-26 01:26:50,294 - [INFO] - [LAB 1] Output location: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_012644/text
-2025-09-26 01:26:50,294 - [INFO] - [LAB 1] Text extraction completed successfully
-2025-09-26 01:26:50,294 - [INFO] - 
-[LAB 2] Starting table extraction...
-2025-09-26 01:26:50,294 - [INFO] - [LAB 2] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/tables/extract_tables.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw/tesla.pdf --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_012644 --hybrid
-2025-09-26 01:27:19,030 - [INFO] - [LAB 2] Table extraction completed successfully
-2025-09-26 01:27:19,030 - [INFO] - 
-[LAB 3] Starting layout detection...
-2025-09-26 01:27:19,030 - [INFO] - [LAB 3] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/layout/extract_layout.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw/tesla.pdf --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_012644
-2025-09-26 01:27:25,440 - [INFO] - [LAB 3] layoutparser not available, using manual layout detection
-2025-09-26 01:27:25,440 - [INFO] - [LAB 3] Layout Detection Summary for tesla.pdf:
-2025-09-26 01:27:25,440 - [INFO] - [LAB 3] Pages processed: 39
-2025-09-26 01:27:25,440 - [INFO] - [LAB 3] Total blocks detected: 1855
-2025-09-26 01:27:25,440 - [INFO] - [LAB 3] Block type distribution:
-2025-09-26 01:27:25,440 - [INFO] - [LAB 3] Text: 1733
-2025-09-26 01:27:25,441 - [INFO] - [LAB 3] Table: 45
-2025-09-26 01:27:25,441 - [INFO] - [LAB 3] Title: 77
-2025-09-26 01:27:25,441 - [INFO] - [LAB 3] Output written to /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_012644
-2025-09-26 01:27:25,441 - [INFO] - [LAB 3] Layout detection completed successfully
-2025-09-26 01:27:25,441 - [INFO] - 
-[LAB 4] Starting Docling processing with integrated AI metadata extraction...
-2025-09-26 01:27:25,441 - [INFO] - [LAB 4] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/docling/extract_docling.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw/tesla.pdf --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_012644
-2025-09-26 01:29:22,306 - [INFO] - [LAB 4] Docling Performance Summary for tesla.pdf:
-2025-09-26 01:29:22,308 - [INFO] - [LAB 4] Processing time: 97.13 seconds
-2025-09-26 01:29:22,308 - [INFO] - [LAB 4] Tables detected: 46
-2025-09-26 01:29:22,308 - [INFO] - [LAB 4] Formulas detected: 0
-2025-09-26 01:29:22,308 - [INFO] - [LAB 4] Reading order preserved: False
-2025-09-26 01:29:22,308 - [INFO] - [LAB 4] Output written to /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_012644
-2025-09-26 01:29:22,308 - [INFO] - [LAB 4] Docling processing with AI metadata completed successfully
-2025-09-26 01:29:22,332 - [INFO] - [LAB 5] Created metadata file with 46 records: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_012644/metadata/tesla_2024.jsonl
-2025-09-26 01:29:22,332 - [INFO] - [LAB 5] AI-Enhanced metadata extraction completed via Docling integration
-2025-09-26 01:29:22,332 - [INFO] - 
-[LAB 6] Starting format conversion...
-2025-09-26 01:29:22,332 - [INFO] - [LAB 6] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/formats/convert_formats.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_012644/metadata/tesla_2024.jsonl --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_012644
-2025-09-26 01:29:22,406 - [INFO] - [LAB 6] Format conversion completed successfully
-2025-09-26 01:29:22,406 - [INFO] - 
-[VALIDATION] Validating outputs for tesla_2024...
-2025-09-26 01:29:22,406 - [INFO] - [VALIDATION] LAB1: PASS | LAB2: PASS | LAB3: PASS | LAB4: PASS | LAB5: FAIL | LAB6: PASS
-2025-09-26 01:29:22,406 - [INFO] - Successfully processed tesla.pdf → tesla_20250926_012644
-2025-09-26 01:29:22,406 - [INFO] - 
-================================================================================
-2025-09-26 01:29:22,407 - [INFO] - LANTERN PIPELINE EXECUTION SUMMARY
-2025-09-26 01:29:22,407 - [INFO] - ================================================================================
-2025-09-26 01:29:22,407 - [INFO] - Execution timestamp: 20250926_012922
-2025-09-26 01:29:22,407 - [INFO] - Total PDFs processed: 1
-2025-09-26 01:29:22,407 - [INFO] - Successful: 1
-2025-09-26 01:29:22,407 - [INFO] - Failed: 0
-2025-09-26 01:29:22,407 - [INFO] - Success rate: 100.0%
-2025-09-26 01:29:22,407 - [INFO] - 
-Successfully Processed Documents:
-2025-09-26 01:29:22,407 - [INFO] -    tesla.pdf → tesla_2024
-2025-09-26 01:29:22,407 - [INFO] - 
-Lab Success Summary:
-2025-09-26 01:29:22,407 - [INFO] -    Lab 1: 1/1 successful (100.0%)
-2025-09-26 01:29:22,407 - [INFO] -    Lab 2: 1/1 successful (100.0%)
-2025-09-26 01:29:22,407 - [INFO] -    Lab 3: 1/1 successful (100.0%)
-2025-09-26 01:29:22,407 - [INFO] -    Lab 4: 1/1 successful (100.0%)
-2025-09-26 01:29:22,407 - [INFO] -    Lab 5: 1/1 successful (100.0%)
-2025-09-26 01:29:22,407 - [INFO] -    Lab 6: 1/1 successful (100.0%)
-2025-09-26 01:29:22,407 - [INFO] - 
-All outputs saved to: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed
-2025-09-26 01:29:22,407 - [INFO] - Detailed summary saved to: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/pipeline_summary_20250926_012922.json
-2025-09-26 01:29:22,407 - [INFO] - Comprehensive pipeline report saved: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/LANTERN_Pipeline_Report_20250926_012922.md
-2025-09-26 01:29:22,407 - [INFO] - Pipeline report generated: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/LANTERN_Pipeline_Report_20250926_012922.md
-2025-09-26 01:29:22,407 - [INFO] - Pipeline completed successfully - All documents processed!
-2025-09-26 01:38:03,443 - [INFO] - LANTERN Pipeline started
-2025-09-26 01:38:03,444 - [INFO] - Output directory: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed
-2025-09-26 01:38:03,444 - [INFO] - Raw data directory: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw
-2025-09-26 01:38:03,444 - [INFO] - Hybrid tables: True
-2025-09-26 01:38:03,444 - [INFO] - Skip Docling: False
-2025-09-26 01:38:03,444 - [INFO] - Hybrid tables: True
-2025-09-26 01:38:03,444 - [INFO] - Skip Docling: False
-2025-09-26 01:38:03,444 - [INFO] - Found 1 PDF files to process
-2025-09-26 01:38:03,444 - [INFO] -    tesla.pdf
-2025-09-26 01:38:03,444 - [INFO] - 
-================================================================================
-2025-09-26 01:38:03,444 - [INFO] - Processing Document 1/1: tesla.pdf
-2025-09-26 01:38:03,444 - [INFO] - ================================================================================
-2025-09-26 01:38:03,445 - [INFO] - Document metadata: ID=tesla_2024, Company=Tesla Inc., Year=2024
-2025-09-26 01:38:03,445 - [INFO] - Unified output directory: tesla_20250926_013803
-2025-09-26 01:38:03,445 - [INFO] - 
-[LAB 1] Starting text extraction...
-2025-09-26 01:38:03,445 - [INFO] - [LAB 1] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/text/extract_text.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw/tesla.pdf --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_013803
-2025-09-26 01:38:09,262 - [INFO] - [LAB 1] Processing: tesla.pdf
-2025-09-26 01:38:09,263 - [INFO] - [LAB 1] Lab 1 Text Extraction Complete:
-2025-09-26 01:38:09,263 - [INFO] - [LAB 1] Per-page .txt files: 39 files created
-2025-09-26 01:38:09,263 - [INFO] - [LAB 1] OCR log: 0 pages required OCR
-2025-09-26 01:38:09,263 - [INFO] - [LAB 1] Word bounding boxes: Saved for layout analysis
-2025-09-26 01:38:09,263 - [INFO] - [LAB 1] Output location: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_013803/text
-2025-09-26 01:38:09,263 - [INFO] - [LAB 1] Text extraction completed successfully
-2025-09-26 01:38:09,263 - [INFO] - 
-[LAB 2] Starting table extraction...
-2025-09-26 01:38:09,263 - [INFO] - [LAB 2] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/tables/extract_tables.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw/tesla.pdf --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_013803 --hybrid
-2025-09-26 01:38:37,975 - [INFO] - [LAB 2] Table extraction completed successfully
-2025-09-26 01:38:37,975 - [INFO] - 
-[LAB 3] Starting layout detection...
-2025-09-26 01:38:37,975 - [INFO] - [LAB 3] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/layout/extract_layout.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw/tesla.pdf --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_013803
-2025-09-26 01:38:43,720 - [INFO] - [LAB 3] layoutparser not available, using manual layout detection
-2025-09-26 01:38:43,720 - [INFO] - [LAB 3] Layout Detection Summary for tesla.pdf:
-2025-09-26 01:38:43,720 - [INFO] - [LAB 3] Pages processed: 39
-2025-09-26 01:38:43,720 - [INFO] - [LAB 3] Total blocks detected: 1855
-2025-09-26 01:38:43,720 - [INFO] - [LAB 3] Block type distribution:
-2025-09-26 01:38:43,720 - [INFO] - [LAB 3] Text: 1733
-2025-09-26 01:38:43,720 - [INFO] - [LAB 3] Table: 45
-2025-09-26 01:38:43,720 - [INFO] - [LAB 3] Title: 77
-2025-09-26 01:38:43,720 - [INFO] - [LAB 3] Output written to /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_013803
-2025-09-26 01:38:43,721 - [INFO] - [LAB 3] Layout detection completed successfully
-2025-09-26 01:38:43,721 - [INFO] - 
-[LAB 4] Starting Docling processing with integrated AI metadata extraction...
-2025-09-26 01:38:43,721 - [INFO] - [LAB 4] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/docling/extract_docling.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw/tesla.pdf --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_013803
-2025-09-26 01:40:06,857 - [INFO] - [LAB 4] Docling Performance Summary for tesla.pdf:
-2025-09-26 01:40:06,859 - [INFO] - [LAB 4] Processing time: 78.32 seconds
-2025-09-26 01:40:06,859 - [INFO] - [LAB 4] Tables detected: 46
-2025-09-26 01:40:06,859 - [INFO] - [LAB 4] Formulas detected: 0
-2025-09-26 01:40:06,859 - [INFO] - [LAB 4] Reading order preserved: False
-2025-09-26 01:40:06,859 - [INFO] - [LAB 4] Output written to /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_013803
-2025-09-26 01:40:06,859 - [INFO] - [LAB 4] Docling processing with AI metadata completed successfully
-2025-09-26 01:40:06,877 - [INFO] - [LAB 5] Created metadata file with 27 records: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_013803/metadata/tesla_2024.jsonl
-2025-09-26 01:40:06,877 - [INFO] - [LAB 5] AI-Enhanced metadata extraction completed via Docling integration
-2025-09-26 01:40:06,877 - [INFO] - 
-[LAB 6] Starting format conversion...
-2025-09-26 01:40:06,877 - [INFO] - [LAB 6] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/formats/convert_formats.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_013803/metadata/tesla_2024.jsonl --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_013803
-2025-09-26 01:40:06,948 - [INFO] - [LAB 6] Format conversion completed successfully
-2025-09-26 01:40:06,948 - [INFO] - 
-[VALIDATION] Validating outputs for tesla_2024...
-2025-09-26 01:40:06,948 - [INFO] - [VALIDATION] LAB1: PASS | LAB2: PASS | LAB3: PASS | LAB4: PASS | LAB5: FAIL | LAB6: PASS
-2025-09-26 01:40:06,949 - [INFO] - Successfully processed tesla.pdf → tesla_20250926_013803
-2025-09-26 01:40:06,949 - [INFO] - 
-================================================================================
-2025-09-26 01:40:06,949 - [INFO] - LANTERN PIPELINE EXECUTION SUMMARY
-2025-09-26 01:40:06,949 - [INFO] - ================================================================================
-2025-09-26 01:40:06,949 - [INFO] - Execution timestamp: 20250926_014006
-2025-09-26 01:40:06,949 - [INFO] - Total PDFs processed: 1
-2025-09-26 01:40:06,949 - [INFO] - Successful: 1
-2025-09-26 01:40:06,949 - [INFO] - Failed: 0
-2025-09-26 01:40:06,949 - [INFO] - Success rate: 100.0%
-2025-09-26 01:40:06,949 - [INFO] - 
-Successfully Processed Documents:
-2025-09-26 01:40:06,949 - [INFO] -    tesla.pdf → tesla_2024
-2025-09-26 01:40:06,949 - [INFO] - 
-Lab Success Summary:
-2025-09-26 01:40:06,949 - [INFO] -    Lab 1: 1/1 successful (100.0%)
-2025-09-26 01:40:06,949 - [INFO] -    Lab 2: 1/1 successful (100.0%)
-2025-09-26 01:40:06,949 - [INFO] -    Lab 3: 1/1 successful (100.0%)
-2025-09-26 01:40:06,949 - [INFO] -    Lab 4: 1/1 successful (100.0%)
-2025-09-26 01:40:06,949 - [INFO] -    Lab 5: 1/1 successful (100.0%)
-2025-09-26 01:40:06,949 - [INFO] -    Lab 6: 1/1 successful (100.0%)
-2025-09-26 01:40:06,949 - [INFO] - 
-All outputs saved to: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed
-2025-09-26 01:40:06,949 - [INFO] - Detailed summary saved to: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/pipeline_summary_20250926_014006.json
-2025-09-26 01:40:06,949 - [INFO] - Comprehensive pipeline report saved: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/LANTERN_Pipeline_Report_20250926_014006.md
-2025-09-26 01:40:06,949 - [INFO] - Pipeline report generated: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/LANTERN_Pipeline_Report_20250926_014006.md
-2025-09-26 01:40:06,949 - [INFO] - Pipeline completed successfully - All documents processed!
-2025-09-26 01:43:18,404 - [INFO] - LANTERN Pipeline started
-2025-09-26 01:43:18,404 - [INFO] - Output directory: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed
-2025-09-26 01:43:18,404 - [INFO] - Raw data directory: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw
-2025-09-26 01:43:18,404 - [INFO] - Hybrid tables: True
-2025-09-26 01:43:18,404 - [INFO] - Skip Docling: False
-2025-09-26 01:43:18,404 - [INFO] - Hybrid tables: True
-2025-09-26 01:43:18,404 - [INFO] - Skip Docling: False
-2025-09-26 01:43:18,404 - [INFO] - Found 1 PDF files to process
-2025-09-26 01:43:18,404 - [INFO] -    tesla.pdf
-2025-09-26 01:43:18,404 - [INFO] - 
-================================================================================
-2025-09-26 01:43:18,404 - [INFO] - Processing Document 1/1: tesla.pdf
-2025-09-26 01:43:18,404 - [INFO] - ================================================================================
-2025-09-26 01:43:18,404 - [INFO] - Document metadata: ID=tesla_2024, Company=Tesla Inc., Year=2024
-2025-09-26 01:43:18,404 - [INFO] - Unified output directory: tesla_20250926_014318
-2025-09-26 01:43:18,404 - [INFO] - 
-[LAB 1] Starting text extraction...
-2025-09-26 01:43:18,405 - [INFO] - [LAB 1] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/text/extract_text.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw/tesla.pdf --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_014318
-2025-09-26 01:43:24,228 - [INFO] - [LAB 1] Processing: tesla.pdf
-2025-09-26 01:43:24,228 - [INFO] - [LAB 1] Lab 1 Text Extraction Complete:
-2025-09-26 01:43:24,228 - [INFO] - [LAB 1] Per-page .txt files: 39 files created
-2025-09-26 01:43:24,228 - [INFO] - [LAB 1] OCR log: 0 pages required OCR
-2025-09-26 01:43:24,228 - [INFO] - [LAB 1] Word bounding boxes: Saved for layout analysis
-2025-09-26 01:43:24,228 - [INFO] - [LAB 1] Output location: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_014318/text
-2025-09-26 01:43:24,228 - [INFO] - [LAB 1] Text extraction completed successfully
-2025-09-26 01:43:24,228 - [INFO] - 
-[LAB 2] Starting table extraction...
-2025-09-26 01:43:24,228 - [INFO] - [LAB 2] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/tables/extract_tables.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw/tesla.pdf --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_014318 --hybrid
-2025-09-26 01:43:51,617 - [INFO] - [LAB 2] Table extraction completed successfully
-2025-09-26 01:43:51,618 - [INFO] - 
-[LAB 3] Starting layout detection...
-2025-09-26 01:43:51,618 - [INFO] - [LAB 3] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/layout/extract_layout.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw/tesla.pdf --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_014318
-2025-09-26 01:43:57,204 - [INFO] - [LAB 3] layoutparser not available, using manual layout detection
-2025-09-26 01:43:57,204 - [INFO] - [LAB 3] Layout Detection Summary for tesla.pdf:
-2025-09-26 01:43:57,204 - [INFO] - [LAB 3] Pages processed: 39
-2025-09-26 01:43:57,204 - [INFO] - [LAB 3] Total blocks detected: 1855
-2025-09-26 01:43:57,204 - [INFO] - [LAB 3] Block type distribution:
-2025-09-26 01:43:57,204 - [INFO] - [LAB 3] Text: 1733
-2025-09-26 01:43:57,204 - [INFO] - [LAB 3] Table: 45
-2025-09-26 01:43:57,204 - [INFO] - [LAB 3] Title: 77
-2025-09-26 01:43:57,204 - [INFO] - [LAB 3] Output written to /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_014318
-2025-09-26 01:43:57,204 - [INFO] - [LAB 3] Layout detection completed successfully
-2025-09-26 01:43:57,204 - [INFO] - 
-[LAB 4] Starting Docling processing with integrated AI metadata extraction...
-2025-09-26 01:43:57,204 - [INFO] - [LAB 4] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/docling/extract_docling.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw/tesla.pdf --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_014318
-2025-09-26 01:45:27,493 - [INFO] - LANTERN Pipeline started
-2025-09-26 01:45:27,493 - [INFO] - Output directory: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed
-2025-09-26 01:45:27,493 - [INFO] - Raw data directory: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw
-2025-09-26 01:45:27,493 - [INFO] - Hybrid tables: True
-2025-09-26 01:45:27,493 - [INFO] - Skip Docling: False
-2025-09-26 01:45:27,493 - [INFO] - Hybrid tables: True
-2025-09-26 01:45:27,493 - [INFO] - Skip Docling: False
-2025-09-26 01:45:27,493 - [INFO] - Found 1 PDF files to process
-2025-09-26 01:45:27,493 - [INFO] -    tesla.pdf
-2025-09-26 01:45:27,493 - [INFO] - 
-================================================================================
-2025-09-26 01:45:27,493 - [INFO] - Processing Document 1/1: tesla.pdf
-2025-09-26 01:45:27,493 - [INFO] - ================================================================================
-2025-09-26 01:45:27,493 - [INFO] - Document metadata: ID=tesla_2024, Company=Tesla Inc., Year=2024
-2025-09-26 01:45:27,493 - [INFO] - Unified output directory: tesla_20250926_014527
-2025-09-26 01:45:27,493 - [INFO] - 
-[LAB 1] Starting text extraction...
-2025-09-26 01:45:27,493 - [INFO] - [LAB 1] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/text/extract_text.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw/tesla.pdf --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_014527
-2025-09-26 01:45:33,243 - [INFO] - [LAB 1] Processing: tesla.pdf
-2025-09-26 01:45:33,243 - [INFO] - [LAB 1] Lab 1 Text Extraction Complete:
-2025-09-26 01:45:33,243 - [INFO] - [LAB 1] Per-page .txt files: 39 files created
-2025-09-26 01:45:33,243 - [INFO] - [LAB 1] OCR log: 0 pages required OCR
-2025-09-26 01:45:33,243 - [INFO] - [LAB 1] Word bounding boxes: Saved for layout analysis
-2025-09-26 01:45:33,243 - [INFO] - [LAB 1] Output location: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_014527/text
-2025-09-26 01:45:33,243 - [INFO] - [LAB 1] Text extraction completed successfully
-2025-09-26 01:45:33,243 - [INFO] - 
-[LAB 2] Starting table extraction...
-2025-09-26 01:45:33,243 - [INFO] - [LAB 2] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/tables/extract_tables.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw/tesla.pdf --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_014527 --hybrid
-2025-09-26 01:46:01,031 - [INFO] - [LAB 2] Table extraction completed successfully
-2025-09-26 01:46:01,031 - [INFO] - 
-[LAB 3] Starting layout detection...
-2025-09-26 01:46:01,031 - [INFO] - [LAB 3] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/layout/extract_layout.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw/tesla.pdf --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_014527
-2025-09-26 01:46:06,789 - [INFO] - [LAB 3] layoutparser not available, using manual layout detection
-2025-09-26 01:46:06,789 - [INFO] - [LAB 3] Layout Detection Summary for tesla.pdf:
-2025-09-26 01:46:06,789 - [INFO] - [LAB 3] Pages processed: 39
-2025-09-26 01:46:06,789 - [INFO] - [LAB 3] Total blocks detected: 1855
-2025-09-26 01:46:06,789 - [INFO] - [LAB 3] Block type distribution:
-2025-09-26 01:46:06,789 - [INFO] - [LAB 3] Text: 1733
-2025-09-26 01:46:06,789 - [INFO] - [LAB 3] Table: 45
-2025-09-26 01:46:06,789 - [INFO] - [LAB 3] Title: 77
-2025-09-26 01:46:06,789 - [INFO] - [LAB 3] Output written to /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_014527
-2025-09-26 01:46:06,789 - [INFO] - [LAB 3] Layout detection completed successfully
-2025-09-26 01:46:06,789 - [INFO] - 
-[LAB 4] Starting Docling processing with integrated AI metadata extraction...
-2025-09-26 01:46:06,789 - [INFO] - [LAB 4] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/docling/extract_docling.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw/tesla.pdf --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_014527
-2025-09-26 01:47:32,528 - [INFO] - [LAB 4] Docling Performance Summary for tesla.pdf:
-2025-09-26 01:47:32,530 - [INFO] - [LAB 4] Processing time: 81.15 seconds
-2025-09-26 01:47:32,530 - [INFO] - [LAB 4] Tables detected: 46
-2025-09-26 01:47:32,530 - [INFO] - [LAB 4] Formulas detected: 0
-2025-09-26 01:47:32,530 - [INFO] - [LAB 4] Reading order preserved: False
-2025-09-26 01:47:32,530 - [INFO] - [LAB 4] Output written to /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_014527
-2025-09-26 01:47:32,530 - [INFO] - [LAB 4] Docling processing with AI metadata completed successfully
-2025-09-26 01:47:32,548 - [INFO] - [LAB 5] Created metadata file with 46 records: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_014527/metadata/tesla_2024.jsonl
-2025-09-26 01:47:32,548 - [INFO] - [LAB 5] AI-Enhanced metadata extraction completed via Docling integration
-2025-09-26 01:47:32,548 - [INFO] - 
-[LAB 6] Starting format conversion...
-2025-09-26 01:47:32,548 - [INFO] - [LAB 6] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/formats/convert_formats.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_014527/metadata/tesla_2024.jsonl --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_014527
-2025-09-26 01:47:32,610 - [INFO] - [LAB 6] Format conversion completed successfully
-2025-09-26 01:47:32,610 - [INFO] - 
-[VALIDATION] Validating outputs for tesla_2024...
-2025-09-26 01:47:32,611 - [INFO] - [VALIDATION] LAB1: PASS | LAB2: PASS | LAB3: PASS | LAB4: PASS | LAB5: FAIL | LAB6: PASS
-2025-09-26 01:47:32,611 - [INFO] - Successfully processed tesla.pdf → tesla_20250926_014527
-2025-09-26 01:47:32,611 - [INFO] - 
-================================================================================
-2025-09-26 01:47:32,611 - [INFO] - LANTERN PIPELINE EXECUTION SUMMARY
-2025-09-26 01:47:32,611 - [INFO] - ================================================================================
-2025-09-26 01:47:32,611 - [INFO] - Execution timestamp: 20250926_014732
-2025-09-26 01:47:32,611 - [INFO] - Total PDFs processed: 1
-2025-09-26 01:47:32,611 - [INFO] - Successful: 1
-2025-09-26 01:47:32,611 - [INFO] - Failed: 0
-2025-09-26 01:47:32,611 - [INFO] - Success rate: 100.0%
-2025-09-26 01:47:32,611 - [INFO] - 
-Successfully Processed Documents:
-2025-09-26 01:47:32,611 - [INFO] -    tesla.pdf → tesla_2024
-2025-09-26 01:47:32,611 - [INFO] - 
-Lab Success Summary:
-2025-09-26 01:47:32,611 - [INFO] -    Lab 1: 1/1 successful (100.0%)
-2025-09-26 01:47:32,611 - [INFO] -    Lab 2: 1/1 successful (100.0%)
-2025-09-26 01:47:32,611 - [INFO] -    Lab 3: 1/1 successful (100.0%)
-2025-09-26 01:47:32,611 - [INFO] -    Lab 4: 1/1 successful (100.0%)
-2025-09-26 01:47:32,611 - [INFO] -    Lab 5: 1/1 successful (100.0%)
-2025-09-26 01:47:32,611 - [INFO] -    Lab 6: 1/1 successful (100.0%)
-2025-09-26 01:47:32,611 - [INFO] - 
-All outputs saved to: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed
-2025-09-26 01:47:32,611 - [INFO] - Detailed summary saved to: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/pipeline_summary_20250926_014732.json
-2025-09-26 01:47:32,611 - [INFO] - Comprehensive pipeline report saved: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/LANTERN_Pipeline_Report_20250926_014732.md
-2025-09-26 01:47:32,611 - [INFO] - Pipeline report generated: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/LANTERN_Pipeline_Report_20250926_014732.md
-2025-09-26 01:47:32,611 - [INFO] - Pipeline completed successfully - All documents processed!
-2025-09-26 01:51:30,878 - [INFO] - LANTERN Pipeline started
-2025-09-26 01:51:30,878 - [INFO] - Output directory: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed
-2025-09-26 01:51:30,879 - [INFO] - Raw data directory: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw
-2025-09-26 01:51:30,879 - [INFO] - Hybrid tables: True
-2025-09-26 01:51:30,879 - [INFO] - Skip Docling: False
-2025-09-26 01:51:30,879 - [INFO] - Hybrid tables: True
-2025-09-26 01:51:30,879 - [INFO] - Skip Docling: False
-2025-09-26 01:51:30,879 - [INFO] - Found 1 PDF files to process
-2025-09-26 01:51:30,879 - [INFO] -    tesla.pdf
-2025-09-26 01:51:30,879 - [INFO] - 
-================================================================================
-2025-09-26 01:51:30,879 - [INFO] - Processing Document 1/1: tesla.pdf
-2025-09-26 01:51:30,879 - [INFO] - ================================================================================
-2025-09-26 01:51:30,879 - [INFO] - Document metadata: ID=tesla_2024, Company=Tesla Inc., Year=2024
-2025-09-26 01:51:30,879 - [INFO] - Unified output directory: tesla_20250926_015130
-2025-09-26 01:51:30,879 - [INFO] - 
-[LAB 1] Starting text extraction...
-2025-09-26 01:51:30,879 - [INFO] - [LAB 1] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/text/extract_text.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw/tesla.pdf --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_015130
-2025-09-26 01:51:37,210 - [INFO] - [LAB 1] Processing: tesla.pdf
-2025-09-26 01:51:37,211 - [INFO] - [LAB 1] Lab 1 Text Extraction Complete:
-2025-09-26 01:51:37,211 - [INFO] - [LAB 1] Per-page .txt files: 39 files created
-2025-09-26 01:51:37,211 - [INFO] - [LAB 1] OCR log: 0 pages required OCR
-2025-09-26 01:51:37,211 - [INFO] - [LAB 1] Word bounding boxes: Saved for layout analysis
-2025-09-26 01:51:37,211 - [INFO] - [LAB 1] Output location: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_015130/text
-2025-09-26 01:51:37,211 - [INFO] - [LAB 1] Text extraction completed successfully
-2025-09-26 01:51:37,211 - [INFO] - 
-[LAB 2] Starting table extraction...
-2025-09-26 01:51:37,211 - [INFO] - [LAB 2] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/tables/extract_tables.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw/tesla.pdf --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_015130 --hybrid
-2025-09-26 01:52:04,578 - [INFO] - [LAB 2] Table extraction completed successfully
-2025-09-26 01:52:04,578 - [INFO] - 
-[LAB 3] Starting layout detection...
-2025-09-26 01:52:04,578 - [INFO] - [LAB 3] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/layout/extract_layout.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw/tesla.pdf --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_015130
-2025-09-26 01:52:10,409 - [INFO] - [LAB 3] layoutparser not available, using manual layout detection
-2025-09-26 01:52:10,409 - [INFO] - [LAB 3] Layout Detection Summary for tesla.pdf:
-2025-09-26 01:52:10,409 - [INFO] - [LAB 3] Pages processed: 39
-2025-09-26 01:52:10,409 - [INFO] - [LAB 3] Total blocks detected: 1855
-2025-09-26 01:52:10,409 - [INFO] - [LAB 3] Block type distribution:
-2025-09-26 01:52:10,409 - [INFO] - [LAB 3] Text: 1733
-2025-09-26 01:52:10,409 - [INFO] - [LAB 3] Table: 45
-2025-09-26 01:52:10,409 - [INFO] - [LAB 3] Title: 77
-2025-09-26 01:52:10,409 - [INFO] - [LAB 3] Output written to /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_015130
-2025-09-26 01:52:10,409 - [INFO] - [LAB 3] Layout detection completed successfully
-2025-09-26 01:52:10,409 - [INFO] - 
-[LAB 4] Starting Docling processing with integrated AI metadata extraction...
-2025-09-26 01:52:10,410 - [INFO] - [LAB 4] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/docling/extract_docling.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw/tesla.pdf --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_015130
-2025-09-26 01:53:36,786 - [INFO] - [LAB 4] Docling Performance Summary for tesla.pdf:
-2025-09-26 01:53:36,792 - [INFO] - [LAB 4] Processing time: 80.65 seconds
-2025-09-26 01:53:36,792 - [INFO] - [LAB 4] Tables detected: 46
-2025-09-26 01:53:36,792 - [INFO] - [LAB 4] Formulas detected: 0
-2025-09-26 01:53:36,792 - [INFO] - [LAB 4] Reading order preserved: False
-2025-09-26 01:53:36,792 - [INFO] - [LAB 4] Output written to /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_015130
-2025-09-26 01:53:36,793 - [INFO] - [LAB 4] Docling processing with AI metadata completed successfully
-2025-09-26 01:53:36,826 - [INFO] - [LAB 5] Created metadata file with 27 records: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_015130/metadata/tesla_2024.jsonl
-2025-09-26 01:53:36,827 - [INFO] - [LAB 5] AI-Enhanced metadata extraction completed via Docling integration
-2025-09-26 01:53:36,827 - [INFO] - 
-[LAB 6] Starting format conversion...
-2025-09-26 01:53:36,827 - [INFO] - [LAB 6] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/formats/convert_formats.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_015130/metadata/tesla_2024.jsonl --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_015130
-2025-09-26 01:53:36,896 - [INFO] - [LAB 6] Format conversion completed successfully
-2025-09-26 01:53:36,896 - [INFO] - 
-[VALIDATION] Validating outputs for tesla_2024...
-2025-09-26 01:53:36,896 - [INFO] - [VALIDATION] LAB1: PASS | LAB2: PASS | LAB3: PASS | LAB4: PASS | LAB5: FAIL | LAB6: PASS
-2025-09-26 01:53:36,896 - [INFO] - Successfully processed tesla.pdf → tesla_20250926_015130
-2025-09-26 01:53:36,896 - [INFO] - 
-================================================================================
-2025-09-26 01:53:36,896 - [INFO] - LANTERN PIPELINE EXECUTION SUMMARY
-2025-09-26 01:53:36,896 - [INFO] - ================================================================================
-2025-09-26 01:53:36,896 - [INFO] - Execution timestamp: 20250926_015336
-2025-09-26 01:53:36,896 - [INFO] - Total PDFs processed: 1
-2025-09-26 01:53:36,896 - [INFO] - Successful: 1
-2025-09-26 01:53:36,896 - [INFO] - Failed: 0
-2025-09-26 01:53:36,896 - [INFO] - Success rate: 100.0%
-2025-09-26 01:53:36,896 - [INFO] - 
-Successfully Processed Documents:
-2025-09-26 01:53:36,896 - [INFO] -    tesla.pdf → tesla_2024
-2025-09-26 01:53:36,896 - [INFO] - 
-Lab Success Summary:
-2025-09-26 01:53:36,896 - [INFO] -    Lab 1: 1/1 successful (100.0%)
-2025-09-26 01:53:36,896 - [INFO] -    Lab 2: 1/1 successful (100.0%)
-2025-09-26 01:53:36,896 - [INFO] -    Lab 3: 1/1 successful (100.0%)
-2025-09-26 01:53:36,896 - [INFO] -    Lab 4: 1/1 successful (100.0%)
-2025-09-26 01:53:36,896 - [INFO] -    Lab 5: 1/1 successful (100.0%)
-2025-09-26 01:53:36,896 - [INFO] -    Lab 6: 1/1 successful (100.0%)
-2025-09-26 01:53:36,896 - [INFO] - 
-All outputs saved to: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed
-2025-09-26 01:53:36,897 - [INFO] - Detailed summary saved to: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/pipeline_summary_20250926_015336.json
-2025-09-26 01:53:36,897 - [INFO] - Comprehensive pipeline report saved: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/LANTERN_Pipeline_Report_20250926_015336.md
-2025-09-26 01:53:36,897 - [INFO] - Pipeline report generated: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/LANTERN_Pipeline_Report_20250926_015336.md
-2025-09-26 01:53:36,897 - [INFO] - Pipeline completed successfully - All documents processed!
-2025-09-26 01:54:40,013 - [INFO] - LANTERN Pipeline started
-2025-09-26 01:54:40,013 - [INFO] - Output directory: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed
-2025-09-26 01:54:40,013 - [INFO] - Raw data directory: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw
-2025-09-26 01:54:40,014 - [INFO] - Hybrid tables: True
-2025-09-26 01:54:40,014 - [INFO] - Skip Docling: False
-2025-09-26 01:54:40,014 - [INFO] - Hybrid tables: True
-2025-09-26 01:54:40,014 - [INFO] - Skip Docling: False
-2025-09-26 01:54:40,014 - [INFO] - Found 1 PDF files to process
-2025-09-26 01:54:40,014 - [INFO] -    tesla.pdf
-2025-09-26 01:54:40,014 - [INFO] - 
-================================================================================
-2025-09-26 01:54:40,014 - [INFO] - Processing Document 1/1: tesla.pdf
-2025-09-26 01:54:40,014 - [INFO] - ================================================================================
-2025-09-26 01:54:40,014 - [INFO] - Document metadata: ID=tesla_2024, Company=Tesla Inc., Year=2024
-2025-09-26 01:54:40,014 - [INFO] - Unified output directory: tesla_20250926_015440
-2025-09-26 01:54:40,014 - [INFO] - 
-[LAB 1] Starting text extraction...
-2025-09-26 01:54:40,014 - [INFO] - [LAB 1] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/text/extract_text.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw/tesla.pdf --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_015440
-2025-09-26 01:54:45,766 - [INFO] - [LAB 1] Processing: tesla.pdf
-2025-09-26 01:54:45,767 - [INFO] - [LAB 1] Lab 1 Text Extraction Complete:
-2025-09-26 01:54:45,767 - [INFO] - [LAB 1] Per-page .txt files: 39 files created
-2025-09-26 01:54:45,767 - [INFO] - [LAB 1] OCR log: 0 pages required OCR
-2025-09-26 01:54:45,767 - [INFO] - [LAB 1] Word bounding boxes: Saved for layout analysis
-2025-09-26 01:54:45,767 - [INFO] - [LAB 1] Output location: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_015440/text
-2025-09-26 01:54:45,767 - [INFO] - [LAB 1] Text extraction completed successfully
-2025-09-26 01:54:45,767 - [INFO] - 
-[LAB 2] Starting table extraction...
-2025-09-26 01:54:45,767 - [INFO] - [LAB 2] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/tables/extract_tables.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw/tesla.pdf --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_015440 --hybrid
-2025-09-26 01:55:13,649 - [INFO] - [LAB 2] Table extraction completed successfully
-2025-09-26 01:55:13,649 - [INFO] - 
-[LAB 3] Starting layout detection...
-2025-09-26 01:55:13,649 - [INFO] - [LAB 3] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/layout/extract_layout.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw/tesla.pdf --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_015440
-2025-09-26 01:55:19,399 - [INFO] - [LAB 3] layoutparser not available, using manual layout detection
-2025-09-26 01:55:19,399 - [INFO] - [LAB 3] Layout Detection Summary for tesla.pdf:
-2025-09-26 01:55:19,399 - [INFO] - [LAB 3] Pages processed: 39
-2025-09-26 01:55:19,399 - [INFO] - [LAB 3] Total blocks detected: 1855
-2025-09-26 01:55:19,399 - [INFO] - [LAB 3] Block type distribution:
-2025-09-26 01:55:19,399 - [INFO] - [LAB 3] Text: 1733
-2025-09-26 01:55:19,399 - [INFO] - [LAB 3] Table: 45
-2025-09-26 01:55:19,399 - [INFO] - [LAB 3] Title: 77
-2025-09-26 01:55:19,399 - [INFO] - [LAB 3] Output written to /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_015440
-2025-09-26 01:55:19,399 - [INFO] - [LAB 3] Layout detection completed successfully
-2025-09-26 01:55:19,399 - [INFO] - 
-[LAB 4] Starting Docling processing with integrated AI metadata extraction...
-2025-09-26 01:55:19,399 - [INFO] - [LAB 4] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/docling/extract_docling.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw/tesla.pdf --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_015440
-2025-09-26 01:56:45,761 - [INFO] - [LAB 4] Docling Performance Summary for tesla.pdf:
-2025-09-26 01:56:45,763 - [INFO] - [LAB 4] Processing time: 81.56 seconds
-2025-09-26 01:56:45,763 - [INFO] - [LAB 4] Tables detected: 46
-2025-09-26 01:56:45,763 - [INFO] - [LAB 4] Formulas detected: 0
-2025-09-26 01:56:45,763 - [INFO] - [LAB 4] Reading order preserved: False
-2025-09-26 01:56:45,763 - [INFO] - [LAB 4] Output written to /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_015440
-2025-09-26 01:56:45,763 - [INFO] - [LAB 4] Docling processing with AI metadata completed successfully
-2025-09-26 01:56:45,780 - [INFO] - [LAB 5] Created metadata file with 27 records: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_015440/metadata/tesla_2024.jsonl
-2025-09-26 01:56:45,780 - [INFO] - [LAB 5] AI-Enhanced metadata extraction completed via Docling integration
-2025-09-26 01:56:45,780 - [INFO] - 
-[LAB 6] Starting format conversion...
-2025-09-26 01:56:45,780 - [INFO] - [LAB 6] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/formats/convert_formats.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_015440/metadata/tesla_2024.jsonl --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_015440
-2025-09-26 01:56:45,841 - [INFO] - [LAB 6] Format conversion completed successfully
-2025-09-26 01:56:45,841 - [INFO] - 
-[VALIDATION] Validating outputs for tesla_2024...
-2025-09-26 01:56:45,842 - [INFO] - [VALIDATION] LAB1: PASS | LAB2: PASS | LAB3: PASS | LAB4: PASS | LAB5: FAIL | LAB6: PASS
-2025-09-26 01:56:45,842 - [INFO] - Successfully processed tesla.pdf → tesla_20250926_015440
-2025-09-26 01:56:45,842 - [INFO] - 
-================================================================================
-2025-09-26 01:56:45,842 - [INFO] - LANTERN PIPELINE EXECUTION SUMMARY
-2025-09-26 01:56:45,842 - [INFO] - ================================================================================
-2025-09-26 01:56:45,842 - [INFO] - Execution timestamp: 20250926_015645
-2025-09-26 01:56:45,842 - [INFO] - Total PDFs processed: 1
-2025-09-26 01:56:45,842 - [INFO] - Successful: 1
-2025-09-26 01:56:45,842 - [INFO] - Failed: 0
-2025-09-26 01:56:45,842 - [INFO] - Success rate: 100.0%
-2025-09-26 01:56:45,842 - [INFO] - 
-Successfully Processed Documents:
-2025-09-26 01:56:45,842 - [INFO] -    tesla.pdf → tesla_2024
-2025-09-26 01:56:45,842 - [INFO] - 
-Lab Success Summary:
-2025-09-26 01:56:45,842 - [INFO] -    Lab 1: 1/1 successful (100.0%)
-2025-09-26 01:56:45,842 - [INFO] -    Lab 2: 1/1 successful (100.0%)
-2025-09-26 01:56:45,842 - [INFO] -    Lab 3: 1/1 successful (100.0%)
-2025-09-26 01:56:45,842 - [INFO] -    Lab 4: 1/1 successful (100.0%)
-2025-09-26 01:56:45,842 - [INFO] -    Lab 5: 1/1 successful (100.0%)
-2025-09-26 01:56:45,842 - [INFO] -    Lab 6: 1/1 successful (100.0%)
-2025-09-26 01:56:45,842 - [INFO] - 
-All outputs saved to: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed
-2025-09-26 01:56:45,842 - [INFO] - Detailed summary saved to: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/pipeline_summary_20250926_015645.json
-2025-09-26 01:56:45,842 - [INFO] - Comprehensive pipeline report saved: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/LANTERN_Pipeline_Report_20250926_015645.md
-2025-09-26 01:56:45,842 - [INFO] - Pipeline report generated: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/LANTERN_Pipeline_Report_20250926_015645.md
-2025-09-26 01:56:45,842 - [INFO] - Pipeline completed successfully - All documents processed!
-2025-09-26 02:03:07,221 - [INFO] - LANTERN Pipeline started
-2025-09-26 02:03:07,221 - [INFO] - Output directory: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed
-2025-09-26 02:03:07,221 - [INFO] - Raw data directory: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw
-2025-09-26 02:03:07,222 - [INFO] - Hybrid tables: True
-2025-09-26 02:03:07,222 - [INFO] - Skip Docling: False
-2025-09-26 02:03:07,222 - [INFO] - Hybrid tables: True
-2025-09-26 02:03:07,222 - [INFO] - Skip Docling: False
-2025-09-26 02:03:07,222 - [INFO] - Found 1 PDF files to process
-2025-09-26 02:03:07,222 - [INFO] -    tesla.pdf
-2025-09-26 02:03:07,222 - [INFO] - 
-================================================================================
-2025-09-26 02:03:07,222 - [INFO] - Processing Document 1/1: tesla.pdf
-2025-09-26 02:03:07,222 - [INFO] - ================================================================================
-2025-09-26 02:03:07,222 - [INFO] - Document metadata: ID=tesla_2024, Company=Tesla Inc., Year=2024
-2025-09-26 02:03:07,222 - [INFO] - Unified output directory: tesla_20250926_020307
-2025-09-26 02:03:07,222 - [INFO] - 
-[LAB 1] Starting text extraction...
-2025-09-26 02:03:07,222 - [INFO] - [LAB 1] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/text/extract_text.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw/tesla.pdf --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_020307
-2025-09-26 02:03:12,969 - [INFO] - [LAB 1] Processing: tesla.pdf
-2025-09-26 02:03:12,969 - [INFO] - [LAB 1] Lab 1 Text Extraction Complete:
-2025-09-26 02:03:12,969 - [INFO] - [LAB 1] Per-page .txt files: 39 files created
-2025-09-26 02:03:12,969 - [INFO] - [LAB 1] OCR log: 0 pages required OCR
-2025-09-26 02:03:12,969 - [INFO] - [LAB 1] Word bounding boxes: Saved for layout analysis
-2025-09-26 02:03:12,969 - [INFO] - [LAB 1] Output location: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_020307/text
-2025-09-26 02:03:12,969 - [INFO] - [LAB 1] Text extraction completed successfully
-2025-09-26 02:03:12,969 - [INFO] - 
-[LAB 2] Starting table extraction...
-2025-09-26 02:03:12,969 - [INFO] - [LAB 2] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/tables/extract_tables.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw/tesla.pdf --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_020307 --hybrid
-2025-09-26 02:03:41,722 - [INFO] - [LAB 2] Table extraction completed successfully
-2025-09-26 02:03:41,722 - [INFO] - 
-[LAB 3] Starting layout detection...
-2025-09-26 02:03:41,722 - [INFO] - [LAB 3] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/layout/extract_layout.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw/tesla.pdf --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_020307
-2025-09-26 02:03:47,443 - [INFO] - [LAB 3] layoutparser not available, using manual layout detection
-2025-09-26 02:03:47,444 - [INFO] - [LAB 3] Layout Detection Summary for tesla.pdf:
-2025-09-26 02:03:47,444 - [INFO] - [LAB 3] Pages processed: 39
-2025-09-26 02:03:47,444 - [INFO] - [LAB 3] Total blocks detected: 1855
-2025-09-26 02:03:47,444 - [INFO] - [LAB 3] Block type distribution:
-2025-09-26 02:03:47,444 - [INFO] - [LAB 3] Text: 1733
-2025-09-26 02:03:47,444 - [INFO] - [LAB 3] Table: 45
-2025-09-26 02:03:47,444 - [INFO] - [LAB 3] Title: 77
-2025-09-26 02:03:47,444 - [INFO] - [LAB 3] Output written to /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_020307
-2025-09-26 02:03:47,444 - [INFO] - [LAB 3] Layout detection completed successfully
-2025-09-26 02:03:47,444 - [INFO] - 
-[LAB 4] Starting Docling processing with integrated AI metadata extraction...
-2025-09-26 02:03:47,444 - [INFO] - [LAB 4] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/docling/extract_docling.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw/tesla.pdf --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_020307
-2025-09-26 02:11:09,055 - [INFO] - LANTERN Pipeline started
-2025-09-26 02:11:09,055 - [INFO] - Output directory: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed
-2025-09-26 02:11:09,055 - [INFO] - Raw data directory: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw
-2025-09-26 02:11:09,055 - [INFO] - Hybrid tables: True
-2025-09-26 02:11:09,055 - [INFO] - Skip Docling: False
-2025-09-26 02:11:09,055 - [INFO] - Hybrid tables: True
-2025-09-26 02:11:09,055 - [INFO] - Skip Docling: False
-2025-09-26 02:11:09,056 - [INFO] - Found 1 PDF files to process
-2025-09-26 02:11:09,056 - [INFO] -    tesla.pdf
-2025-09-26 02:11:09,056 - [INFO] - 
-================================================================================
-2025-09-26 02:11:09,056 - [INFO] - Processing Document 1/1: tesla.pdf
-2025-09-26 02:11:09,056 - [INFO] - ================================================================================
-2025-09-26 02:11:09,057 - [INFO] - Document metadata: ID=tesla_2024, Company=Tesla Inc., Year=2024
-2025-09-26 02:11:09,057 - [INFO] - Unified output directory: tesla_20250926_021109
-2025-09-26 02:11:09,057 - [INFO] - 
-[LAB 1] Starting text extraction...
-2025-09-26 02:11:09,057 - [INFO] - [LAB 1] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/text/extract_text.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw/tesla.pdf --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_021109
-2025-09-26 02:11:14,845 - [INFO] - [LAB 1] Processing: tesla.pdf
-2025-09-26 02:11:14,845 - [INFO] - [LAB 1] Lab 1 Text Extraction Complete:
-2025-09-26 02:11:14,845 - [INFO] - [LAB 1] Per-page .txt files: 39 files created
-2025-09-26 02:11:14,845 - [INFO] - [LAB 1] OCR log: 0 pages required OCR
-2025-09-26 02:11:14,845 - [INFO] - [LAB 1] Word bounding boxes: Saved for layout analysis
-2025-09-26 02:11:14,845 - [INFO] - [LAB 1] Output location: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_021109/text
-2025-09-26 02:11:14,845 - [INFO] - [LAB 1] Text extraction completed successfully
-2025-09-26 02:11:14,845 - [INFO] - 
-[LAB 2] Starting table extraction...
-2025-09-26 02:11:14,846 - [INFO] - [LAB 2] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/tables/extract_tables.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw/tesla.pdf --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_021109 --hybrid
-2025-09-26 02:11:42,541 - [INFO] - [LAB 2] Table extraction completed successfully
-2025-09-26 02:11:42,541 - [INFO] - 
-[LAB 3] Starting layout detection...
-2025-09-26 02:11:42,541 - [INFO] - [LAB 3] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/layout/extract_layout.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw/tesla.pdf --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_021109
-2025-09-26 02:11:48,277 - [INFO] - [LAB 3] layoutparser not available, using manual layout detection
-2025-09-26 02:11:48,277 - [INFO] - [LAB 3] Layout Detection Summary for tesla.pdf:
-2025-09-26 02:11:48,277 - [INFO] - [LAB 3] Pages processed: 39
-2025-09-26 02:11:48,277 - [INFO] - [LAB 3] Total blocks detected: 1855
-2025-09-26 02:11:48,277 - [INFO] - [LAB 3] Block type distribution:
-2025-09-26 02:11:48,277 - [INFO] - [LAB 3] Text: 1733
-2025-09-26 02:11:48,277 - [INFO] - [LAB 3] Table: 45
-2025-09-26 02:11:48,277 - [INFO] - [LAB 3] Title: 77
-2025-09-26 02:11:48,277 - [INFO] - [LAB 3] Output written to /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_021109
-2025-09-26 02:11:48,277 - [INFO] - [LAB 3] Layout detection completed successfully
-2025-09-26 02:11:48,277 - [INFO] - 
-[LAB 4] Starting Docling processing with integrated AI metadata extraction...
-2025-09-26 02:11:48,277 - [INFO] - [LAB 4] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/docling/extract_docling.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw/tesla.pdf --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_021109
-2025-09-26 02:13:17,317 - [INFO] - [LAB 4] Docling Performance Summary for tesla.pdf:
-2025-09-26 02:13:17,318 - [INFO] - [LAB 4] Processing time: 84.34 seconds
-2025-09-26 02:13:17,318 - [INFO] - [LAB 4] Tables detected: 46
-2025-09-26 02:13:17,318 - [INFO] - [LAB 4] Formulas detected: 0
-2025-09-26 02:13:17,318 - [INFO] - [LAB 4] Reading order preserved: False
-2025-09-26 02:13:17,318 - [INFO] - [LAB 4] Output written to /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_021109
-2025-09-26 02:13:17,318 - [INFO] - [LAB 4] Docling processing with AI metadata completed successfully
-2025-09-26 02:13:17,333 - [INFO] - [LAB 5] Created metadata file with 6 records: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_021109/metadata/tesla_2024.jsonl
-2025-09-26 02:13:17,333 - [INFO] - [LAB 5] AI-Enhanced metadata extraction completed via Docling integration
-2025-09-26 02:13:17,333 - [INFO] - 
-[LAB 6] Starting format conversion...
-2025-09-26 02:13:17,333 - [INFO] - [LAB 6] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/formats/convert_formats.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_021109/metadata/tesla_2024.jsonl --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_021109
-2025-09-26 02:13:17,392 - [INFO] - [LAB 6] Format conversion completed successfully
-2025-09-26 02:13:17,392 - [INFO] - 
-[VALIDATION] Validating outputs for tesla_2024...
-2025-09-26 02:13:17,393 - [INFO] - [VALIDATION] LAB1: PASS | LAB2: PASS | LAB3: PASS | LAB4: PASS | LAB5: FAIL | LAB6: PASS
-2025-09-26 02:13:17,393 - [INFO] - Successfully processed tesla.pdf → tesla_20250926_021109
-2025-09-26 02:13:17,393 - [INFO] - 
-================================================================================
-2025-09-26 02:13:17,393 - [INFO] - LANTERN PIPELINE EXECUTION SUMMARY
-2025-09-26 02:13:17,393 - [INFO] - ================================================================================
-2025-09-26 02:13:17,393 - [INFO] - Execution timestamp: 20250926_021317
-2025-09-26 02:13:17,393 - [INFO] - Total PDFs processed: 1
-2025-09-26 02:13:17,393 - [INFO] - Successful: 1
-2025-09-26 02:13:17,393 - [INFO] - Failed: 0
-2025-09-26 02:13:17,393 - [INFO] - Success rate: 100.0%
-2025-09-26 02:13:17,393 - [INFO] - 
-Successfully Processed Documents:
-2025-09-26 02:13:17,393 - [INFO] -    tesla.pdf → tesla_2024
-2025-09-26 02:13:17,393 - [INFO] - 
-Lab Success Summary:
-2025-09-26 02:13:17,393 - [INFO] -    Lab 1: 1/1 successful (100.0%)
-2025-09-26 02:13:17,393 - [INFO] -    Lab 2: 1/1 successful (100.0%)
-2025-09-26 02:13:17,393 - [INFO] -    Lab 3: 1/1 successful (100.0%)
-2025-09-26 02:13:17,393 - [INFO] -    Lab 4: 1/1 successful (100.0%)
-2025-09-26 02:13:17,393 - [INFO] -    Lab 5: 1/1 successful (100.0%)
-2025-09-26 02:13:17,393 - [INFO] -    Lab 6: 1/1 successful (100.0%)
-2025-09-26 02:13:17,393 - [INFO] - 
-All outputs saved to: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed
-2025-09-26 02:13:17,394 - [INFO] - Detailed summary saved to: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/pipeline_summary_20250926_021317.json
-2025-09-26 02:13:17,394 - [INFO] - Comprehensive pipeline report saved: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/LANTERN_Pipeline_Report_20250926_021317.md
-2025-09-26 02:13:17,394 - [INFO] - Pipeline report generated: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/LANTERN_Pipeline_Report_20250926_021317.md
-2025-09-26 02:13:17,394 - [INFO] - Pipeline completed successfully - All documents processed!
-2025-09-26 02:15:30,812 - [INFO] - LANTERN Pipeline started
-2025-09-26 02:15:30,813 - [INFO] - Output directory: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/test_metadata
-2025-09-26 02:15:30,813 - [INFO] - Raw data directory: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw
-2025-09-26 02:15:30,813 - [INFO] - Hybrid tables: True
-2025-09-26 02:15:30,813 - [INFO] - Skip Docling: False
-2025-09-26 02:15:30,813 - [INFO] - Hybrid tables: True
-2025-09-26 02:15:30,813 - [INFO] - Skip Docling: False
-2025-09-26 02:15:30,813 - [INFO] - Found 1 PDF files to process
-2025-09-26 02:15:30,813 - [INFO] -    tesla.pdf
-2025-09-26 02:15:30,813 - [INFO] - 
-================================================================================
-2025-09-26 02:15:30,813 - [INFO] - Processing Document 1/1: tesla.pdf
-2025-09-26 02:15:30,813 - [INFO] - ================================================================================
-2025-09-26 02:15:30,813 - [INFO] - Document metadata: ID=tesla_2024, Company=Tesla Inc., Year=2024
-2025-09-26 02:15:30,813 - [INFO] - Unified output directory: tesla_20250926_021530
-2025-09-26 02:15:30,813 - [INFO] - 
-[LAB 1] Starting text extraction...
-2025-09-26 02:15:30,813 - [INFO] - [LAB 1] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/text/extract_text.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw/tesla.pdf --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/test_metadata/tesla_20250926_021530
-2025-09-26 02:15:36,714 - [INFO] - [LAB 1] Processing: tesla.pdf
-2025-09-26 02:15:36,715 - [INFO] - [LAB 1] Lab 1 Text Extraction Complete:
-2025-09-26 02:15:36,715 - [INFO] - [LAB 1] Per-page .txt files: 39 files created
-2025-09-26 02:15:36,715 - [INFO] - [LAB 1] OCR log: 0 pages required OCR
-2025-09-26 02:15:36,715 - [INFO] - [LAB 1] Word bounding boxes: Saved for layout analysis
-2025-09-26 02:15:36,715 - [INFO] - [LAB 1] Output location: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/test_metadata/tesla_20250926_021530/text
-2025-09-26 02:15:36,715 - [INFO] - [LAB 1] Text extraction completed successfully
-2025-09-26 02:15:36,715 - [INFO] - 
-[LAB 2] Starting table extraction...
-2025-09-26 02:15:36,715 - [INFO] - [LAB 2] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/tables/extract_tables.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw/tesla.pdf --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/test_metadata/tesla_20250926_021530 --hybrid
-2025-09-26 02:16:04,413 - [INFO] - [LAB 2] Table extraction completed successfully
-2025-09-26 02:16:04,414 - [INFO] - 
-[LAB 3] Starting layout detection...
-2025-09-26 02:16:04,414 - [INFO] - [LAB 3] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/layout/extract_layout.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw/tesla.pdf --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/test_metadata/tesla_20250926_021530
-2025-09-26 02:16:10,114 - [INFO] - [LAB 3] layoutparser not available, using manual layout detection
-2025-09-26 02:16:10,114 - [INFO] - [LAB 3] Layout Detection Summary for tesla.pdf:
-2025-09-26 02:16:10,114 - [INFO] - [LAB 3] Pages processed: 39
-2025-09-26 02:16:10,114 - [INFO] - [LAB 3] Total blocks detected: 1855
-2025-09-26 02:16:10,114 - [INFO] - [LAB 3] Block type distribution:
-2025-09-26 02:16:10,114 - [INFO] - [LAB 3] Text: 1733
-2025-09-26 02:16:10,114 - [INFO] - [LAB 3] Table: 45
-2025-09-26 02:16:10,114 - [INFO] - [LAB 3] Title: 77
-2025-09-26 02:16:10,114 - [INFO] - [LAB 3] Output written to /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/test_metadata/tesla_20250926_021530
-2025-09-26 02:16:10,114 - [INFO] - [LAB 3] Layout detection completed successfully
-2025-09-26 02:16:10,114 - [INFO] - 
-[LAB 4] Starting Docling processing with integrated AI metadata extraction...
-2025-09-26 02:16:10,115 - [INFO] - [LAB 4] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/docling/extract_docling.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw/tesla.pdf --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/test_metadata/tesla_20250926_021530
-2025-09-26 02:17:38,924 - [INFO] - [LAB 4] Docling Performance Summary for tesla.pdf:
-2025-09-26 02:17:38,926 - [INFO] - [LAB 4] Processing time: 84.30 seconds
-2025-09-26 02:17:38,927 - [INFO] - [LAB 4] Tables detected: 46
-2025-09-26 02:17:38,927 - [INFO] - [LAB 4] Formulas detected: 0
-2025-09-26 02:17:38,927 - [INFO] - [LAB 4] Reading order preserved: False
-2025-09-26 02:17:38,927 - [INFO] - [LAB 4] Output written to /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/test_metadata/tesla_20250926_021530
-2025-09-26 02:17:38,927 - [INFO] - [LAB 4] Docling processing with AI metadata completed successfully
-2025-09-26 02:17:38,943 - [WARNING] - Could not process table file /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/test_metadata/tesla_20250926_021530/tables/tesla_camelot_stream_p18_t22.csv: invalid literal for int() with base 10: 'tream'
-2025-09-26 02:17:38,944 - [WARNING] - Could not process table file /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/test_metadata/tesla_20250926_021530/tables/tesla_camelot_stream_p1_t1.csv: invalid literal for int() with base 10: 'tream'
-2025-09-26 02:17:38,944 - [WARNING] - Could not process table file /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/test_metadata/tesla_20250926_021530/tables/tesla_camelot_stream_p15_t17.csv: invalid literal for int() with base 10: 'tream'
-2025-09-26 02:17:38,944 - [WARNING] - Could not process table file /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/test_metadata/tesla_20250926_021530/tables/tesla_camelot_stream_p14_t16.csv: invalid literal for int() with base 10: 'tream'
-2025-09-26 02:17:38,944 - [WARNING] - Could not process table file /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/test_metadata/tesla_20250926_021530/tables/tesla_camelot_stream_p27_t32.csv: invalid literal for int() with base 10: 'tream'
-2025-09-26 02:17:38,944 - [WARNING] - Could not process table file /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/test_metadata/tesla_20250926_021530/tables/tesla_camelot_stream_p19_t23.csv: invalid literal for int() with base 10: 'tream'
-2025-09-26 02:17:38,944 - [WARNING] - Could not process table file /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/test_metadata/tesla_20250926_021530/tables/tesla_camelot_stream_p25_t30.csv: invalid literal for int() with base 10: 'tream'
-2025-09-26 02:17:38,944 - [WARNING] - Could not process table file /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/test_metadata/tesla_20250926_021530/tables/tesla_camelot_stream_p30_t35.csv: invalid literal for int() with base 10: 'tream'
-2025-09-26 02:17:38,944 - [WARNING] - Could not process table file /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/test_metadata/tesla_20250926_021530/tables/tesla_camelot_stream_p24_t29.csv: invalid literal for int() with base 10: 'tream'
-2025-09-26 02:17:38,944 - [WARNING] - Could not process table file /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/test_metadata/tesla_20250926_021530/tables/tesla_camelot_stream_p29_t34.csv: invalid literal for int() with base 10: 'tream'
-2025-09-26 02:17:38,944 - [WARNING] - Could not process table file /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/test_metadata/tesla_20250926_021530/tables/tesla_camelot_stream_p16_t19.csv: invalid literal for int() with base 10: 'tream'
-2025-09-26 02:17:38,944 - [WARNING] - Could not process table file /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/test_metadata/tesla_20250926_021530/tables/tesla_camelot_stream_p2_t3.csv: invalid literal for int() with base 10: 'tream'
-2025-09-26 02:17:38,944 - [WARNING] - Could not process table file /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/test_metadata/tesla_20250926_021530/tables/tesla_camelot_stream_p13_t15.csv: invalid literal for int() with base 10: 'tream'
-2025-09-26 02:17:38,944 - [WARNING] - Could not process table file /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/test_metadata/tesla_20250926_021530/tables/tesla_camelot_stream_p17_t21.csv: invalid literal for int() with base 10: 'tream'
-2025-09-26 02:17:38,944 - [WARNING] - Could not process table file /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/test_metadata/tesla_20250926_021530/tables/tesla_camelot_stream_p34_t39.csv: invalid literal for int() with base 10: 'tream'
-2025-09-26 02:17:38,944 - [WARNING] - Could not process table file /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/test_metadata/tesla_20250926_021530/tables/tesla_camelot_stream_p20_t25.csv: invalid literal for int() with base 10: 'tream'
-2025-09-26 02:17:38,944 - [WARNING] - Could not process table file /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/test_metadata/tesla_20250926_021530/tables/tesla_camelot_stream_p10_t11.csv: invalid literal for int() with base 10: 'tream'
-2025-09-26 02:17:38,945 - [WARNING] - Could not process table file /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/test_metadata/tesla_20250926_021530/tables/tesla_camelot_stream_p4_t5.csv: invalid literal for int() with base 10: 'tream'
-2025-09-26 02:17:38,945 - [WARNING] - Could not process table file /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/test_metadata/tesla_20250926_021530/tables/tesla_camelot_stream_p38_t43.csv: invalid literal for int() with base 10: 'tream'
-2025-09-26 02:17:38,945 - [WARNING] - Could not process table file /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/test_metadata/tesla_20250926_021530/tables/tesla_camelot_stream_p9_t10.csv: invalid literal for int() with base 10: 'tream'
-2025-09-26 02:17:38,945 - [WARNING] - Could not process table file /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/test_metadata/tesla_20250926_021530/tables/tesla_camelot_stream_p11_t13.csv: invalid literal for int() with base 10: 'tream'
-2025-09-26 02:17:38,945 - [WARNING] - Could not process table file /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/test_metadata/tesla_20250926_021530/tables/tesla_camelot_stream_p6_t7.csv: invalid literal for int() with base 10: 'tream'
-2025-09-26 02:17:38,945 - [WARNING] - Could not process table file /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/test_metadata/tesla_20250926_021530/tables/tesla_camelot_stream_p39_t45.csv: invalid literal for int() with base 10: 'tream'
-2025-09-26 02:17:38,953 - [INFO] - [LAB 5] Created metadata file with 96 records: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/test_metadata/tesla_20250926_021530/metadata/tesla_2024.jsonl
-2025-09-26 02:17:38,953 - [INFO] - [LAB 5] AI-Enhanced metadata extraction completed via Docling integration
-2025-09-26 02:17:38,953 - [INFO] - 
-[LAB 6] Starting format conversion...
-2025-09-26 02:17:38,954 - [INFO] - [LAB 6] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/formats/convert_formats.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/test_metadata/tesla_20250926_021530/metadata/tesla_2024.jsonl --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/test_metadata/tesla_20250926_021530
-2025-09-26 02:17:39,018 - [INFO] - [LAB 6] Format conversion completed successfully
-2025-09-26 02:17:39,018 - [INFO] - 
-[VALIDATION] Validating outputs for tesla_2024...
-2025-09-26 02:17:39,018 - [INFO] - [VALIDATION] LAB1: PASS | LAB2: PASS | LAB3: PASS | LAB4: PASS | LAB5: FAIL | LAB6: PASS
-2025-09-26 02:17:39,018 - [INFO] - Successfully processed tesla.pdf → tesla_20250926_021530
-2025-09-26 02:17:39,019 - [INFO] - 
-================================================================================
-2025-09-26 02:17:39,019 - [INFO] - LANTERN PIPELINE EXECUTION SUMMARY
-2025-09-26 02:17:39,019 - [INFO] - ================================================================================
-2025-09-26 02:17:39,019 - [INFO] - Execution timestamp: 20250926_021739
-2025-09-26 02:17:39,019 - [INFO] - Total PDFs processed: 1
-2025-09-26 02:17:39,019 - [INFO] - Successful: 1
-2025-09-26 02:17:39,019 - [INFO] - Failed: 0
-2025-09-26 02:17:39,019 - [INFO] - Success rate: 100.0%
-2025-09-26 02:17:39,019 - [INFO] - 
-Successfully Processed Documents:
-2025-09-26 02:17:39,019 - [INFO] -    tesla.pdf → tesla_2024
-2025-09-26 02:17:39,019 - [INFO] - 
-Lab Success Summary:
-2025-09-26 02:17:39,019 - [INFO] -    Lab 1: 1/1 successful (100.0%)
-2025-09-26 02:17:39,019 - [INFO] -    Lab 2: 1/1 successful (100.0%)
-2025-09-26 02:17:39,019 - [INFO] -    Lab 3: 1/1 successful (100.0%)
-2025-09-26 02:17:39,019 - [INFO] -    Lab 4: 1/1 successful (100.0%)
-2025-09-26 02:17:39,019 - [INFO] -    Lab 5: 1/1 successful (100.0%)
-2025-09-26 02:17:39,019 - [INFO] -    Lab 6: 1/1 successful (100.0%)
-2025-09-26 02:17:39,019 - [INFO] - 
-All outputs saved to: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/test_metadata
-2025-09-26 02:17:39,019 - [INFO] - Detailed summary saved to: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/test_metadata/pipeline_summary_20250926_021739.json
-2025-09-26 02:17:39,019 - [INFO] - Comprehensive pipeline report saved: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/test_metadata/LANTERN_Pipeline_Report_20250926_021739.md
-2025-09-26 02:17:39,019 - [INFO] - Pipeline report generated: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/test_metadata/LANTERN_Pipeline_Report_20250926_021739.md
-2025-09-26 02:17:39,019 - [INFO] - Pipeline completed successfully - All documents processed!
-2025-09-26 02:19:41,262 - [INFO] - LANTERN Pipeline started
-2025-09-26 02:19:41,263 - [INFO] - Output directory: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed
-2025-09-26 02:19:41,263 - [INFO] - Raw data directory: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw
-2025-09-26 02:19:41,263 - [INFO] - Hybrid tables: True
-2025-09-26 02:19:41,263 - [INFO] - Skip Docling: False
-2025-09-26 02:19:41,263 - [INFO] - Hybrid tables: True
-2025-09-26 02:19:41,263 - [INFO] - Skip Docling: False
-2025-09-26 02:19:41,263 - [INFO] - Found 1 PDF files to process
-2025-09-26 02:19:41,263 - [INFO] -    tesla.pdf
-2025-09-26 02:19:41,263 - [INFO] - 
-================================================================================
-2025-09-26 02:19:41,263 - [INFO] - Processing Document 1/1: tesla.pdf
-2025-09-26 02:19:41,263 - [INFO] - ================================================================================
-2025-09-26 02:19:41,263 - [INFO] - Document metadata: ID=tesla_2024, Company=Tesla Inc., Year=2024
-2025-09-26 02:19:41,263 - [INFO] - Unified output directory: tesla_20250926_021941
-2025-09-26 02:19:41,263 - [INFO] - 
-[LAB 1] Starting text extraction...
-2025-09-26 02:19:41,263 - [INFO] - [LAB 1] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/text/extract_text.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw/tesla.pdf --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_021941
-2025-09-26 02:19:47,336 - [INFO] - [LAB 1] Processing: tesla.pdf
-2025-09-26 02:19:47,336 - [INFO] - [LAB 1] Lab 1 Text Extraction Complete:
-2025-09-26 02:19:47,336 - [INFO] - [LAB 1] Per-page .txt files: 39 files created
-2025-09-26 02:19:47,336 - [INFO] - [LAB 1] OCR log: 0 pages required OCR
-2025-09-26 02:19:47,336 - [INFO] - [LAB 1] Word bounding boxes: Saved for layout analysis
-2025-09-26 02:19:47,336 - [INFO] - [LAB 1] Output location: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_021941/text
-2025-09-26 02:19:47,336 - [INFO] - [LAB 1] Text extraction completed successfully
-2025-09-26 02:19:47,336 - [INFO] - 
-[LAB 2] Starting table extraction...
-2025-09-26 02:19:47,336 - [INFO] - [LAB 2] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/tables/extract_tables.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw/tesla.pdf --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_021941 --hybrid
-2025-09-26 02:20:15,894 - [INFO] - [LAB 2] Table extraction completed successfully
-2025-09-26 02:20:15,895 - [INFO] - 
-[LAB 3] Starting layout detection...
-2025-09-26 02:20:15,895 - [INFO] - [LAB 3] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/layout/extract_layout.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw/tesla.pdf --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_021941
-2025-09-26 02:20:21,743 - [INFO] - [LAB 3] layoutparser not available, using manual layout detection
-2025-09-26 02:20:21,743 - [INFO] - [LAB 3] Layout Detection Summary for tesla.pdf:
-2025-09-26 02:20:21,743 - [INFO] - [LAB 3] Pages processed: 39
-2025-09-26 02:20:21,743 - [INFO] - [LAB 3] Total blocks detected: 1855
-2025-09-26 02:20:21,743 - [INFO] - [LAB 3] Block type distribution:
-2025-09-26 02:20:21,743 - [INFO] - [LAB 3] Text: 1733
-2025-09-26 02:20:21,743 - [INFO] - [LAB 3] Table: 45
-2025-09-26 02:20:21,743 - [INFO] - [LAB 3] Title: 77
-2025-09-26 02:20:21,743 - [INFO] - [LAB 3] Output written to /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_021941
-2025-09-26 02:20:21,743 - [INFO] - [LAB 3] Layout detection completed successfully
-2025-09-26 02:20:21,743 - [INFO] - 
-[LAB 4] Starting Docling processing with integrated AI metadata extraction...
-2025-09-26 02:20:21,743 - [INFO] - [LAB 4] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/docling/extract_docling.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw/tesla.pdf --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_021941
-2025-09-26 02:21:43,914 - [INFO] - [LAB 4] Docling Performance Summary for tesla.pdf:
-2025-09-26 02:21:43,916 - [INFO] - [LAB 4] Processing time: 77.27 seconds
-2025-09-26 02:21:43,916 - [INFO] - [LAB 4] Tables detected: 46
-2025-09-26 02:21:43,916 - [INFO] - [LAB 4] Formulas detected: 0
-2025-09-26 02:21:43,916 - [INFO] - [LAB 4] Reading order preserved: False
-2025-09-26 02:21:43,916 - [INFO] - [LAB 4] Output written to /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_021941
-2025-09-26 02:21:43,916 - [INFO] - [LAB 4] Docling processing with AI metadata completed successfully
-2025-09-26 02:21:43,935 - [INFO] - [LAB 5] Created metadata file with 36 records: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_021941/metadata/tesla_2024.jsonl
-2025-09-26 02:21:43,935 - [INFO] - [LAB 5] AI-Enhanced metadata extraction completed via Docling integration
-2025-09-26 02:21:43,935 - [INFO] - 
-[LAB 6] Starting format conversion...
-2025-09-26 02:21:43,935 - [INFO] - [LAB 6] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/formats/convert_formats.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_021941/metadata/tesla_2024.jsonl --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_021941
-2025-09-26 02:21:43,999 - [INFO] - [LAB 6] Format conversion completed successfully
-2025-09-26 02:21:43,999 - [INFO] - 
-[VALIDATION] Validating outputs for tesla_2024...
-2025-09-26 02:21:43,999 - [INFO] - [VALIDATION] LAB1: FAIL | LAB2: PASS | LAB3: PASS | LAB4: PASS | LAB5: FAIL | LAB6: PASS
-2025-09-26 02:21:43,999 - [INFO] - Successfully processed tesla.pdf → tesla_20250926_021941
-2025-09-26 02:21:43,999 - [INFO] - 
-================================================================================
-2025-09-26 02:21:43,999 - [INFO] - LANTERN PIPELINE EXECUTION SUMMARY
-2025-09-26 02:21:43,999 - [INFO] - ================================================================================
-2025-09-26 02:21:44,000 - [INFO] - Execution timestamp: 20250926_022143
-2025-09-26 02:21:44,000 - [INFO] - Total PDFs processed: 1
-2025-09-26 02:21:44,000 - [INFO] - Successful: 1
-2025-09-26 02:21:44,000 - [INFO] - Failed: 0
-2025-09-26 02:21:44,000 - [INFO] - Success rate: 100.0%
-2025-09-26 02:21:44,000 - [INFO] - 
-Successfully Processed Documents:
-2025-09-26 02:21:44,000 - [INFO] -    tesla.pdf → tesla_2024
-2025-09-26 02:21:44,000 - [INFO] - 
-Lab Success Summary:
-2025-09-26 02:21:44,000 - [INFO] -    Lab 1: 1/1 successful (100.0%)
-2025-09-26 02:21:44,000 - [INFO] -    Lab 2: 1/1 successful (100.0%)
-2025-09-26 02:21:44,000 - [INFO] -    Lab 3: 1/1 successful (100.0%)
-2025-09-26 02:21:44,000 - [INFO] -    Lab 4: 1/1 successful (100.0%)
-2025-09-26 02:21:44,000 - [INFO] -    Lab 5: 1/1 successful (100.0%)
-2025-09-26 02:21:44,000 - [INFO] -    Lab 6: 1/1 successful (100.0%)
-2025-09-26 02:21:44,000 - [INFO] - 
-All outputs saved to: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed
-2025-09-26 02:21:44,000 - [INFO] - Detailed summary saved to: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/pipeline_summary_20250926_022143.json
-2025-09-26 02:21:44,000 - [INFO] - Comprehensive pipeline report saved: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/LANTERN_Pipeline_Report_20250926_022144.md
-2025-09-26 02:21:44,000 - [INFO] - Pipeline report generated: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/LANTERN_Pipeline_Report_20250926_022144.md
-2025-09-26 02:21:44,000 - [INFO] - Pipeline completed successfully - All documents processed!
-2025-09-26 02:34:41,941 - [INFO] - LANTERN Pipeline started
-2025-09-26 02:34:41,941 - [INFO] - Output directory: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed
-2025-09-26 02:34:41,941 - [INFO] - Raw data directory: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw
-2025-09-26 02:34:41,941 - [INFO] - Hybrid tables: True
-2025-09-26 02:34:41,941 - [INFO] - Skip Docling: False
-2025-09-26 02:34:41,942 - [INFO] - Comprehensive extraction: True
-2025-09-26 02:34:41,942 - [INFO] - ✅ Comprehensive metadata extractor available - will extract ALL content types
-2025-09-26 02:34:41,942 - [INFO] - Found 1 PDF files to process
-2025-09-26 02:34:41,942 - [INFO] -    tesla.pdf
-2025-09-26 02:34:41,942 - [INFO] - 
-================================================================================
-2025-09-26 02:34:41,942 - [INFO] - Processing Document 1/1: tesla.pdf
-2025-09-26 02:34:41,942 - [INFO] - ================================================================================
-2025-09-26 02:34:41,942 - [INFO] - Document metadata: ID=tesla_2024, Company=Tesla Inc., Year=2024
-2025-09-26 02:34:41,942 - [INFO] - Unified output directory: tesla_20250926_023441
-2025-09-26 02:34:41,942 - [INFO] - 
-[LAB 1] Starting text extraction...
-2025-09-26 02:34:41,942 - [INFO] - [LAB 1] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/text/extract_text.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw/tesla.pdf --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_023441
-2025-09-26 02:34:47,823 - [INFO] - [LAB 1] Processing: tesla.pdf
-2025-09-26 02:34:47,824 - [INFO] - [LAB 1] Lab 1 Text Extraction Complete:
-2025-09-26 02:34:47,824 - [INFO] - [LAB 1] Per-page .txt files: 39 files created
-2025-09-26 02:34:47,824 - [INFO] - [LAB 1] OCR log: 0 pages required OCR
-2025-09-26 02:34:47,824 - [INFO] - [LAB 1] Word bounding boxes: Saved for layout analysis
-2025-09-26 02:34:47,824 - [INFO] - [LAB 1] Output location: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_023441/text
-2025-09-26 02:34:47,824 - [INFO] - [LAB 1] Text extraction completed successfully
-2025-09-26 02:34:47,824 - [INFO] - 
-[LAB 2] Starting table extraction...
-2025-09-26 02:34:47,824 - [INFO] - [LAB 2] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/tables/extract_tables.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw/tesla.pdf --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_023441 --hybrid
-2025-09-26 02:35:15,100 - [INFO] - [LAB 2] Table extraction completed successfully
-2025-09-26 02:35:15,100 - [INFO] - 
-[LAB 3] Starting layout detection...
-2025-09-26 02:35:15,101 - [INFO] - [LAB 3] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/layout/extract_layout.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw/tesla.pdf --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_023441
-2025-09-26 02:35:20,694 - [INFO] - [LAB 3] layoutparser not available, using manual layout detection
-2025-09-26 02:35:20,695 - [INFO] - [LAB 3] Layout Detection Summary for tesla.pdf:
-2025-09-26 02:35:20,695 - [INFO] - [LAB 3] Pages processed: 39
-2025-09-26 02:35:20,695 - [INFO] - [LAB 3] Total blocks detected: 1855
-2025-09-26 02:35:20,695 - [INFO] - [LAB 3] Block type distribution:
-2025-09-26 02:35:20,695 - [INFO] - [LAB 3] Text: 1733
-2025-09-26 02:35:20,695 - [INFO] - [LAB 3] Table: 45
-2025-09-26 02:35:20,695 - [INFO] - [LAB 3] Title: 77
-2025-09-26 02:35:20,695 - [INFO] - [LAB 3] Output written to /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_023441
-2025-09-26 02:35:20,695 - [INFO] - [LAB 3] Layout detection completed successfully
-2025-09-26 02:35:20,695 - [INFO] - 
-[LAB 4] Starting Docling processing with integrated AI metadata extraction...
-2025-09-26 02:35:20,695 - [INFO] - [LAB 4] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/docling/extract_docling.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw/tesla.pdf --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_023441
-2025-09-26 02:36:42,526 - [INFO] - [LAB 4] Docling Performance Summary for tesla.pdf:
-2025-09-26 02:36:42,527 - [INFO] - [LAB 4] Processing time: 77.21 seconds
-2025-09-26 02:36:42,527 - [INFO] - [LAB 4] Tables detected: 46
-2025-09-26 02:36:42,527 - [INFO] - [LAB 4] Formulas detected: 0
-2025-09-26 02:36:42,527 - [INFO] - [LAB 4] Reading order preserved: False
-2025-09-26 02:36:42,527 - [INFO] - [LAB 4] Output written to /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_023441
-2025-09-26 02:36:42,528 - [INFO] - [LAB 4] Docling processing with AI metadata completed successfully
-2025-09-26 02:36:42,528 - [INFO] - 
+2025-09-26 13:12:29,388 - [INFO] - [LAB 4] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python3 /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/docling/extract_docling.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw/tesla.pdf --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_131148
+2025-09-26 13:13:54,606 - [INFO] - [LAB 4] Docling Performance Summary for tesla.pdf:
+2025-09-26 13:13:54,608 - [INFO] - [LAB 4] Processing time: 79.57 seconds
+2025-09-26 13:13:54,608 - [INFO] - [LAB 4] Tables detected: 46
+2025-09-26 13:13:54,608 - [INFO] - [LAB 4] Formulas detected: 0
+2025-09-26 13:13:54,608 - [INFO] - [LAB 4] Reading order preserved: False
+2025-09-26 13:13:54,608 - [INFO] - [LAB 4] Output written to /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_131148
+2025-09-26 13:13:54,608 - [INFO] - [LAB 4] Docling processing with AI metadata completed successfully
+2025-09-26 13:13:54,608 - [INFO] - 
 [LAB 5] Starting comprehensive metadata extraction...
-2025-09-26 02:36:42,528 - [INFO] - [LAB 5] Using comprehensive metadata extractor for ALL content types...
-2025-09-26 02:36:42,530 - [INFO] - 🚀 Starting comprehensive extraction for tesla_2024
-2025-09-26 02:36:42,531 - [INFO] - 📄 Extracting full document text content...
-2025-09-26 02:36:47,294 - [INFO] - ✅ Extracted 1235 text records
-2025-09-26 02:36:47,295 - [INFO] - 📊 Processing existing table extractions...
-2025-09-26 02:36:47,298 - [INFO] - ✅ Extracted 28 table records
-2025-09-26 02:36:47,298 - [INFO] - 🤖 Processing Docling AI content...
-2025-09-26 02:36:47,303 - [INFO] - ✅ Extracted 91 Docling AI records
-2025-09-26 02:36:47,303 - [INFO] - 🏗️ Extracting document structure...
-2025-09-26 02:36:51,924 - [INFO] - ✅ Extracted 38 structure records
-2025-09-26 02:36:51,925 - [INFO] - 📑 Extracting page metadata...
-2025-09-26 02:36:56,676 - [INFO] - ✅ Extracted 40 metadata records
-2025-09-26 02:36:56,686 - [INFO] - 📋 Extraction summary written to: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_023441/metadata/tesla_2024_extraction_summary.json
-2025-09-26 02:36:56,686 - [INFO] - 🎉 COMPREHENSIVE EXTRACTION COMPLETE!
-2025-09-26 02:36:56,686 - [INFO] - 📈 Total records: 1432
-2025-09-26 02:36:56,686 - [INFO] - 📁 Output: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_023441/metadata/tesla_2024.jsonl
-2025-09-26 02:36:56,686 - [INFO] - 📊 Content Coverage:
-2025-09-26 02:36:56,686 - [INFO] -    ai_analysis: 1 records
-2025-09-26 02:36:56,686 - [INFO] -    footer: 1 records
-2025-09-26 02:36:56,686 - [INFO] -    header: 39 records
-2025-09-26 02:36:56,686 - [INFO] -    heading: 55 records
-2025-09-26 02:36:56,686 - [INFO] -    layout_block: 38 records
-2025-09-26 02:36:56,686 - [INFO] -    list: 18 records
-2025-09-26 02:36:56,686 - [INFO] -    paragraph: 799 records
-2025-09-26 02:36:56,686 - [INFO] -    structured_content: 108 records
-2025-09-26 02:36:56,686 - [INFO] -    subheading: 1 records
-2025-09-26 02:36:56,686 - [INFO] -    table: 28 records
-2025-09-26 02:36:56,686 - [INFO] -    text_block: 344 records
-2025-09-26 02:36:56,687 - [INFO] - [LAB 5] Comprehensive metadata extraction completed successfully - extracted ALL content types (text, tables, headings, structure, etc.)
-2025-09-26 02:36:56,687 - [INFO] - 
+2025-09-26 13:13:54,608 - [INFO] - [LAB 5] Using comprehensive metadata extractor for ALL content types...
+2025-09-26 13:13:54,611 - [INFO] - 🚀 Starting comprehensive extraction for tesla_2024
+2025-09-26 13:13:54,612 - [INFO] - 📄 Extracting full document text content...
+2025-09-26 13:13:59,347 - [INFO] - ✅ Extracted 1235 text records
+2025-09-26 13:13:59,347 - [INFO] - 📊 Processing existing table extractions...
+2025-09-26 13:13:59,352 - [INFO] - ✅ Extracted 28 table records
+2025-09-26 13:13:59,352 - [INFO] - 🤖 Processing Docling AI content...
+2025-09-26 13:13:59,356 - [INFO] - ✅ Extracted 91 Docling AI records
+2025-09-26 13:13:59,356 - [INFO] - 🏗️ Extracting document structure...
+2025-09-26 13:14:04,078 - [INFO] - ✅ Extracted 38 structure records
+2025-09-26 13:14:04,078 - [INFO] - 📑 Extracting page metadata...
+2025-09-26 13:14:08,924 - [INFO] - ✅ Extracted 40 metadata records
+2025-09-26 13:14:08,934 - [INFO] - 📋 Extraction summary written to: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_131148/metadata/tesla_2024_extraction_summary.json
+2025-09-26 13:14:08,934 - [INFO] - 🎉 COMPREHENSIVE EXTRACTION COMPLETE!
+2025-09-26 13:14:08,934 - [INFO] - 📈 Total records: 1432
+2025-09-26 13:14:08,934 - [INFO] - 📁 Output: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_131148/metadata/tesla_2024.jsonl
+2025-09-26 13:14:08,934 - [INFO] - 📊 Content Coverage:
+2025-09-26 13:14:08,934 - [INFO] -    ai_analysis: 1 records
+2025-09-26 13:14:08,934 - [INFO] -    footer: 1 records
+2025-09-26 13:14:08,934 - [INFO] -    header: 39 records
+2025-09-26 13:14:08,934 - [INFO] -    heading: 55 records
+2025-09-26 13:14:08,934 - [INFO] -    layout_block: 38 records
+2025-09-26 13:14:08,934 - [INFO] -    list: 18 records
+2025-09-26 13:14:08,934 - [INFO] -    paragraph: 799 records
+2025-09-26 13:14:08,934 - [INFO] -    structured_content: 108 records
+2025-09-26 13:14:08,934 - [INFO] -    subheading: 1 records
+2025-09-26 13:14:08,934 - [INFO] -    table: 28 records
+2025-09-26 13:14:08,934 - [INFO] -    text_block: 344 records
+2025-09-26 13:14:08,935 - [INFO] - [LAB 5] Comprehensive metadata extraction completed successfully - extracted ALL content types (text, tables, headings, structure, etc.)
+2025-09-26 13:14:08,935 - [INFO] - 
 [LAB 6] Starting format conversion...
-2025-09-26 02:36:56,687 - [INFO] - [LAB 6] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/formats/convert_formats.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_023441/metadata/tesla_2024.jsonl --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_023441
-2025-09-26 02:36:56,825 - [INFO] - [LAB 6] Format conversion completed successfully
-2025-09-26 02:36:56,825 - [INFO] - 
+2025-09-26 13:14:08,935 - [INFO] - [LAB 6] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python3 /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/formats/convert_formats.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_131148/metadata/tesla_2024.jsonl --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_131148
+2025-09-26 13:14:09,029 - [INFO] - [LAB 6] Format conversion completed successfully
+2025-09-26 13:14:09,030 - [INFO] - 
 [VALIDATION] Validating outputs for tesla_2024...
-2025-09-26 02:36:56,825 - [INFO] - [VALIDATION] LAB1: PASS | LAB2: PASS | LAB3: PASS | LAB4: PASS | LAB5: FAIL | LAB6: PASS
-2025-09-26 02:36:56,825 - [INFO] - Successfully processed tesla.pdf → tesla_20250926_023441
-2025-09-26 02:36:56,825 - [INFO] - 
+2025-09-26 13:14:09,030 - [INFO] - [VALIDATION] LAB1: PASS | LAB2: PASS | LAB3: PASS | LAB4: PASS | LAB5: FAIL | LAB6: PASS
+2025-09-26 13:14:09,030 - [INFO] - Successfully processed tesla.pdf → tesla_20250926_131148
+2025-09-26 13:14:09,030 - [INFO] - 
 ================================================================================
-2025-09-26 02:36:56,825 - [INFO] - LANTERN PIPELINE EXECUTION SUMMARY
-2025-09-26 02:36:56,825 - [INFO] - ================================================================================
-2025-09-26 02:36:56,825 - [INFO] - Execution timestamp: 20250926_023656
-2025-09-26 02:36:56,825 - [INFO] - Total PDFs processed: 1
-2025-09-26 02:36:56,825 - [INFO] - Successful: 1
-2025-09-26 02:36:56,825 - [INFO] - Failed: 0
-2025-09-26 02:36:56,825 - [INFO] - Success rate: 100.0%
-2025-09-26 02:36:56,825 - [INFO] - 
+2025-09-26 13:14:09,030 - [INFO] - LANTERN PIPELINE EXECUTION SUMMARY
+2025-09-26 13:14:09,030 - [INFO] - ================================================================================
+2025-09-26 13:14:09,030 - [INFO] - Execution timestamp: 20250926_131409
+2025-09-26 13:14:09,030 - [INFO] - Total PDFs processed: 1
+2025-09-26 13:14:09,030 - [INFO] - Successful: 1
+2025-09-26 13:14:09,030 - [INFO] - Failed: 0
+2025-09-26 13:14:09,030 - [INFO] - Success rate: 100.0%
+2025-09-26 13:14:09,030 - [INFO] - 
 Successfully Processed Documents:
-2025-09-26 02:36:56,825 - [INFO] -    tesla.pdf → tesla_2024
-2025-09-26 02:36:56,825 - [INFO] - 
+2025-09-26 13:14:09,030 - [INFO] -    tesla.pdf → tesla_2024
+2025-09-26 13:14:09,030 - [INFO] - 
 Lab Success Summary:
-2025-09-26 02:36:56,825 - [INFO] -    Lab 1: 1/1 successful (100.0%)
-2025-09-26 02:36:56,825 - [INFO] -    Lab 2: 1/1 successful (100.0%)
-2025-09-26 02:36:56,825 - [INFO] -    Lab 3: 1/1 successful (100.0%)
-2025-09-26 02:36:56,825 - [INFO] -    Lab 4: 1/1 successful (100.0%)
-2025-09-26 02:36:56,825 - [INFO] -    Lab 5: 1/1 successful (100.0%)
-2025-09-26 02:36:56,825 - [INFO] -    Lab 6: 1/1 successful (100.0%)
-2025-09-26 02:36:56,825 - [INFO] - 
+2025-09-26 13:14:09,030 - [INFO] -    Lab 1: 1/1 successful (100.0%)
+2025-09-26 13:14:09,030 - [INFO] -    Lab 2: 1/1 successful (100.0%)
+2025-09-26 13:14:09,030 - [INFO] -    Lab 3: 1/1 successful (100.0%)
+2025-09-26 13:14:09,030 - [INFO] -    Lab 4: 1/1 successful (100.0%)
+2025-09-26 13:14:09,030 - [INFO] -    Lab 5: 1/1 successful (100.0%)
+2025-09-26 13:14:09,030 - [INFO] -    Lab 6: 1/1 successful (100.0%)
+2025-09-26 13:14:09,030 - [INFO] - 
 All outputs saved to: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed
-2025-09-26 02:36:56,826 - [INFO] - Detailed summary saved to: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/pipeline_summary_20250926_023656.json
-2025-09-26 02:36:56,826 - [INFO] - Comprehensive pipeline report saved: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/LANTERN_Pipeline_Report_20250926_023656.md
-2025-09-26 02:36:56,827 - [INFO] - Pipeline report generated: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/LANTERN_Pipeline_Report_20250926_023656.md
-2025-09-26 02:36:56,827 - [INFO] - Pipeline completed successfully - All documents processed!
-2025-09-26 02:39:33,349 - [INFO] - LANTERN Pipeline started
-2025-09-26 02:39:33,349 - [INFO] - Output directory: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed
-2025-09-26 02:39:33,349 - [INFO] - Raw data directory: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw
-2025-09-26 02:39:33,349 - [INFO] - Hybrid tables: True
-2025-09-26 02:39:33,349 - [INFO] - Skip Docling: False
-2025-09-26 02:39:33,349 - [INFO] - Comprehensive extraction: True
-2025-09-26 02:39:33,349 - [INFO] - ✅ Comprehensive metadata extractor available - will extract ALL content types
-2025-09-26 02:39:33,350 - [INFO] - Found 1 PDF files to process
-2025-09-26 02:39:33,350 - [INFO] -    tesla.pdf
-2025-09-26 02:39:33,350 - [INFO] - 
+2025-09-26 13:14:09,031 - [INFO] - Detailed summary saved to: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/pipeline_summary_20250926_131409.json
+2025-09-26 13:14:09,031 - [INFO] - Comprehensive pipeline report saved: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/LANTERN_Pipeline_Report_20250926_131409.md
+2025-09-26 13:14:09,031 - [INFO] - Pipeline report generated: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/LANTERN_Pipeline_Report_20250926_131409.md
+2025-09-26 13:14:09,031 - [INFO] - Pipeline completed successfully - All documents processed!
+2025-09-26 13:33:36,250 - [INFO] - LANTERN Pipeline started
+2025-09-26 13:33:36,250 - [INFO] - Output directory: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed
+2025-09-26 13:33:36,250 - [INFO] - Raw data directory: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw
+2025-09-26 13:33:36,250 - [INFO] - Hybrid tables: True
+2025-09-26 13:33:36,250 - [INFO] - Skip Docling: False
+2025-09-26 13:33:36,250 - [INFO] - Comprehensive extraction: True
+2025-09-26 13:33:36,250 - [INFO] - ✅ Comprehensive metadata extractor available - will extract ALL content types
+2025-09-26 13:33:36,251 - [INFO] - Found 1 PDF files to process
+2025-09-26 13:33:36,251 - [INFO] -    tesla.pdf
+2025-09-26 13:33:36,251 - [INFO] - 
 ================================================================================
-2025-09-26 02:39:33,350 - [INFO] - Processing Document 1/1: tesla.pdf
-2025-09-26 02:39:33,350 - [INFO] - ================================================================================
-2025-09-26 02:39:33,350 - [INFO] - Document metadata: ID=tesla_2024, Company=Tesla Inc., Year=2024
-2025-09-26 02:39:33,350 - [INFO] - Unified output directory: tesla_20250926_023933
-2025-09-26 02:39:33,350 - [INFO] - 
+2025-09-26 13:33:36,251 - [INFO] - Processing Document 1/1: tesla.pdf
+2025-09-26 13:33:36,251 - [INFO] - ================================================================================
+2025-09-26 13:33:36,251 - [INFO] - Document metadata: ID=tesla_2024, Company=Tesla Inc., Year=2024
+2025-09-26 13:33:36,251 - [INFO] - Unified output directory: tesla_20250926_133336
+2025-09-26 13:33:36,251 - [INFO] - 
 [LAB 1] Starting text extraction...
-2025-09-26 02:39:33,350 - [INFO] - [LAB 1] Executing: /Library/Developer/CommandLineTools/usr/bin/python3 /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/text/extract_text.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw/tesla.pdf --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_023933
-2025-09-26 02:39:43,900 - [INFO] - [LAB 1] Processing: tesla.pdf
-2025-09-26 02:39:43,900 - [INFO] - [LAB 1] Lab 1 Text Extraction Complete:
-2025-09-26 02:39:43,900 - [INFO] - [LAB 1] Per-page .txt files: 39 files created
-2025-09-26 02:39:43,900 - [INFO] - [LAB 1] OCR log: 0 pages required OCR
-2025-09-26 02:39:43,900 - [INFO] - [LAB 1] Word bounding boxes: Saved for layout analysis
-2025-09-26 02:39:43,900 - [INFO] - [LAB 1] Output location: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_023933/text
-2025-09-26 02:39:43,901 - [INFO] - [LAB 1] Text extraction completed successfully
-2025-09-26 02:39:43,901 - [INFO] - 
+2025-09-26 13:33:36,251 - [INFO] - [LAB 1] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python3 /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/text/extract_text.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw/tesla.pdf --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_133336
+2025-09-26 13:33:42,316 - [INFO] - [LAB 1] Processing: tesla.pdf
+2025-09-26 13:33:42,316 - [INFO] - [LAB 1] Lab 1 Text Extraction Complete:
+2025-09-26 13:33:42,316 - [INFO] - [LAB 1] Per-page .txt files: 39 files created
+2025-09-26 13:33:42,316 - [INFO] - [LAB 1] OCR log: 0 pages required OCR
+2025-09-26 13:33:42,316 - [INFO] - [LAB 1] Word bounding boxes: Saved for layout analysis
+2025-09-26 13:33:42,316 - [INFO] - [LAB 1] Output location: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_133336/text
+2025-09-26 13:33:42,316 - [INFO] - [LAB 1] Text extraction completed successfully
+2025-09-26 13:33:42,316 - [INFO] - 
 [LAB 2] Starting table extraction...
-2025-09-26 02:39:43,901 - [INFO] - [LAB 2] Executing: /Library/Developer/CommandLineTools/usr/bin/python3 /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/tables/extract_tables.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw/tesla.pdf --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_023933 --hybrid
-2025-09-26 02:40:25,911 - [INFO] - [LAB 2] Table extraction completed successfully
-2025-09-26 02:40:25,912 - [INFO] - 
+2025-09-26 13:33:42,316 - [INFO] - [LAB 2] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python3 /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/tables/extract_tables.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw/tesla.pdf --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_133336 --hybrid
+2025-09-26 13:34:10,190 - [INFO] - [LAB 2] Table extraction completed successfully
+2025-09-26 13:34:10,190 - [INFO] - 
 [LAB 3] Starting layout detection...
-2025-09-26 02:40:25,912 - [INFO] - [LAB 3] Executing: /Library/Developer/CommandLineTools/usr/bin/python3 /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/layout/extract_layout.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw/tesla.pdf --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_023933
-2025-09-26 02:40:36,144 - [INFO] - [LAB 3] Detectron2 not available, using manual layout detection
-2025-09-26 02:40:36,145 - [INFO] - [LAB 3] Layout Detection Summary for tesla.pdf:
-2025-09-26 02:40:36,145 - [INFO] - [LAB 3] Pages processed: 39
-2025-09-26 02:40:36,145 - [INFO] - [LAB 3] Total blocks detected: 1855
-2025-09-26 02:40:36,145 - [INFO] - [LAB 3] Block type distribution:
-2025-09-26 02:40:36,145 - [INFO] - [LAB 3] Text: 1733
-2025-09-26 02:40:36,145 - [INFO] - [LAB 3] Table: 45
-2025-09-26 02:40:36,145 - [INFO] - [LAB 3] Title: 77
-2025-09-26 02:40:36,145 - [INFO] - [LAB 3] Output written to /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_023933
-2025-09-26 02:40:36,145 - [INFO] - [LAB 3] Layout detection completed successfully
-2025-09-26 02:40:36,145 - [INFO] - 
+2025-09-26 13:34:10,190 - [INFO] - [LAB 3] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python3 /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/layout/extract_layout.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw/tesla.pdf --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_133336
+2025-09-26 13:34:15,846 - [INFO] - [LAB 3] Detectron2 not available, using manual layout detection
+2025-09-26 13:34:15,846 - [INFO] - [LAB 3] Layout Detection Summary for tesla.pdf:
+2025-09-26 13:34:15,846 - [INFO] - [LAB 3] Pages processed: 39
+2025-09-26 13:34:15,846 - [INFO] - [LAB 3] Total blocks detected: 1855
+2025-09-26 13:34:15,846 - [INFO] - [LAB 3] Block type distribution:
+2025-09-26 13:34:15,846 - [INFO] - [LAB 3] Text: 1733
+2025-09-26 13:34:15,846 - [INFO] - [LAB 3] Table: 45
+2025-09-26 13:34:15,846 - [INFO] - [LAB 3] Title: 77
+2025-09-26 13:34:15,846 - [INFO] - [LAB 3] Output written to /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_133336
+2025-09-26 13:34:15,846 - [INFO] - [LAB 3] Layout detection completed successfully
+2025-09-26 13:34:15,846 - [INFO] - 
 [LAB 4] Starting Docling processing with integrated AI metadata extraction...
-2025-09-26 02:40:36,145 - [INFO] - [LAB 4] Executing: /Library/Developer/CommandLineTools/usr/bin/python3 /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/docling/extract_docling.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw/tesla.pdf --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_023933
-2025-09-26 02:42:01,104 - [INFO] - [LAB 4] Docling Performance Summary for tesla.pdf:
-2025-09-26 02:42:01,106 - [INFO] - [LAB 4] Processing time: 79.08 seconds
-2025-09-26 02:42:01,106 - [INFO] - [LAB 4] Tables detected: 46
-2025-09-26 02:42:01,106 - [INFO] - [LAB 4] Formulas detected: 0
-2025-09-26 02:42:01,106 - [INFO] - [LAB 4] Reading order preserved: False
-2025-09-26 02:42:01,106 - [INFO] - [LAB 4] Output written to /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_023933
-2025-09-26 02:42:01,106 - [INFO] - [LAB 4] Docling processing with AI metadata completed successfully
-2025-09-26 02:42:01,106 - [INFO] - 
+2025-09-26 13:34:15,846 - [INFO] - [LAB 4] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python3 /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/docling/extract_docling.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw/tesla.pdf --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_133336
+2025-09-26 13:35:39,459 - [INFO] - [LAB 4] Docling Performance Summary for tesla.pdf:
+2025-09-26 13:35:39,460 - [INFO] - [LAB 4] Processing time: 78.10 seconds
+2025-09-26 13:35:39,460 - [INFO] - [LAB 4] Tables detected: 46
+2025-09-26 13:35:39,460 - [INFO] - [LAB 4] Formulas detected: 0
+2025-09-26 13:35:39,461 - [INFO] - [LAB 4] Reading order preserved: False
+2025-09-26 13:35:39,461 - [INFO] - [LAB 4] Output written to /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_133336
+2025-09-26 13:35:39,461 - [INFO] - [LAB 4] Docling processing with AI metadata completed successfully
+2025-09-26 13:35:39,461 - [INFO] - 
 [LAB 5] Starting comprehensive metadata extraction...
-2025-09-26 02:42:01,106 - [INFO] - [LAB 5] Using comprehensive metadata extractor for ALL content types...
-2025-09-26 02:42:01,109 - [INFO] - 🚀 Starting comprehensive extraction for tesla_2024
-2025-09-26 02:42:01,109 - [INFO] - 📄 Extracting full document text content...
-2025-09-26 02:42:10,074 - [INFO] - ✅ Extracted 1235 text records
-2025-09-26 02:42:10,074 - [INFO] - 📊 Processing existing table extractions...
-2025-09-26 02:42:10,080 - [INFO] - ✅ Extracted 28 table records
-2025-09-26 02:42:10,080 - [INFO] - 🤖 Processing Docling AI content...
-2025-09-26 02:42:10,085 - [INFO] - ✅ Extracted 91 Docling AI records
-2025-09-26 02:42:10,085 - [INFO] - 🏗️ Extracting document structure...
-2025-09-26 02:42:18,746 - [INFO] - ✅ Extracted 38 structure records
-2025-09-26 02:42:18,746 - [INFO] - 📑 Extracting page metadata...
-2025-09-26 02:42:27,722 - [INFO] - ✅ Extracted 40 metadata records
-2025-09-26 02:42:27,737 - [INFO] - 📋 Extraction summary written to: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_023933/metadata/tesla_2024_extraction_summary.json
-2025-09-26 02:42:27,737 - [INFO] - 🎉 COMPREHENSIVE EXTRACTION COMPLETE!
-2025-09-26 02:42:27,737 - [INFO] - 📈 Total records: 1432
-2025-09-26 02:42:27,737 - [INFO] - 📁 Output: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_023933/metadata/tesla_2024.jsonl
-2025-09-26 02:42:27,737 - [INFO] - 📊 Content Coverage:
-2025-09-26 02:42:27,737 - [INFO] -    ai_analysis: 1 records
-2025-09-26 02:42:27,737 - [INFO] -    footer: 1 records
-2025-09-26 02:42:27,737 - [INFO] -    header: 39 records
-2025-09-26 02:42:27,737 - [INFO] -    heading: 55 records
-2025-09-26 02:42:27,737 - [INFO] -    layout_block: 38 records
-2025-09-26 02:42:27,737 - [INFO] -    list: 18 records
-2025-09-26 02:42:27,737 - [INFO] -    paragraph: 799 records
-2025-09-26 02:42:27,737 - [INFO] -    structured_content: 108 records
-2025-09-26 02:42:27,737 - [INFO] -    subheading: 1 records
-2025-09-26 02:42:27,737 - [INFO] -    table: 28 records
-2025-09-26 02:42:27,737 - [INFO] -    text_block: 344 records
-2025-09-26 02:42:27,738 - [INFO] - [LAB 5] Comprehensive metadata extraction completed successfully - extracted ALL content types (text, tables, headings, structure, etc.)
-2025-09-26 02:42:27,738 - [INFO] - 
+2025-09-26 13:35:39,461 - [INFO] - [LAB 5] Using comprehensive metadata extractor for ALL content types...
+2025-09-26 13:35:39,464 - [INFO] - 🚀 Starting comprehensive extraction for tesla_2024
+2025-09-26 13:35:39,464 - [INFO] - 📄 Extracting full document text content...
+2025-09-26 13:35:44,232 - [INFO] - ✅ Extracted 1235 text records
+2025-09-26 13:35:44,232 - [INFO] - 📊 Processing existing table extractions...
+2025-09-26 13:35:44,238 - [INFO] - ✅ Extracted 28 table records
+2025-09-26 13:35:44,238 - [INFO] - 🤖 Processing Docling AI content...
+2025-09-26 13:35:44,242 - [INFO] - ✅ Extracted 91 Docling AI records
+2025-09-26 13:35:44,242 - [INFO] - 🏗️ Extracting document structure...
+2025-09-26 13:35:48,850 - [INFO] - ✅ Extracted 38 structure records
+2025-09-26 13:35:48,850 - [INFO] - 📑 Extracting page metadata...
+2025-09-26 13:35:53,629 - [INFO] - ✅ Extracted 40 metadata records
+2025-09-26 13:35:53,639 - [INFO] - 📋 Extraction summary written to: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_133336/metadata/tesla_2024_extraction_summary.json
+2025-09-26 13:35:53,639 - [INFO] - 🎉 COMPREHENSIVE EXTRACTION COMPLETE!
+2025-09-26 13:35:53,639 - [INFO] - 📈 Total records: 1432
+2025-09-26 13:35:53,639 - [INFO] - 📁 Output: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_133336/metadata/tesla_2024.jsonl
+2025-09-26 13:35:53,639 - [INFO] - 📊 Content Coverage:
+2025-09-26 13:35:53,639 - [INFO] -    ai_analysis: 1 records
+2025-09-26 13:35:53,639 - [INFO] -    footer: 1 records
+2025-09-26 13:35:53,639 - [INFO] -    header: 39 records
+2025-09-26 13:35:53,639 - [INFO] -    heading: 55 records
+2025-09-26 13:35:53,639 - [INFO] -    layout_block: 38 records
+2025-09-26 13:35:53,639 - [INFO] -    list: 18 records
+2025-09-26 13:35:53,639 - [INFO] -    paragraph: 799 records
+2025-09-26 13:35:53,639 - [INFO] -    structured_content: 108 records
+2025-09-26 13:35:53,639 - [INFO] -    subheading: 1 records
+2025-09-26 13:35:53,639 - [INFO] -    table: 28 records
+2025-09-26 13:35:53,639 - [INFO] -    text_block: 344 records
+2025-09-26 13:35:53,640 - [INFO] - [LAB 5] Comprehensive metadata extraction completed successfully - extracted ALL content types (text, tables, headings, structure, etc.)
+2025-09-26 13:35:53,640 - [INFO] - 
 [LAB 6] Starting format conversion...
-2025-09-26 02:42:27,738 - [INFO] - [LAB 6] Executing: /Library/Developer/CommandLineTools/usr/bin/python3 /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/formats/convert_formats.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_023933/metadata/tesla_2024.jsonl --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_023933
-2025-09-26 02:42:27,848 - [INFO] - [LAB 6] Format conversion completed successfully
-2025-09-26 02:42:27,848 - [INFO] - 
+2025-09-26 13:35:53,640 - [INFO] - [LAB 6] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python3 /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/formats/convert_formats.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_133336/metadata/tesla_2024.jsonl --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_133336
+2025-09-26 13:35:53,730 - [INFO] - [LAB 6] Format conversion completed successfully
+2025-09-26 13:35:53,730 - [INFO] - 
 [VALIDATION] Validating outputs for tesla_2024...
-2025-09-26 02:42:27,849 - [INFO] - [VALIDATION] LAB1: PASS | LAB2: PASS | LAB3: PASS | LAB4: PASS | LAB5: FAIL | LAB6: PASS
-2025-09-26 02:42:27,849 - [INFO] - Successfully processed tesla.pdf → tesla_20250926_023933
-2025-09-26 02:42:27,849 - [INFO] - 
+2025-09-26 13:35:53,731 - [INFO] - [VALIDATION] LAB1: PASS | LAB2: PASS | LAB3: PASS | LAB4: PASS | LAB5: FAIL | LAB6: PASS
+2025-09-26 13:35:53,731 - [INFO] - Successfully processed tesla.pdf → tesla_20250926_133336
+2025-09-26 13:35:53,731 - [INFO] - 
 ================================================================================
-2025-09-26 02:42:27,849 - [INFO] - LANTERN PIPELINE EXECUTION SUMMARY
-2025-09-26 02:42:27,849 - [INFO] - ================================================================================
-2025-09-26 02:42:27,849 - [INFO] - Execution timestamp: 20250926_024227
-2025-09-26 02:42:27,849 - [INFO] - Total PDFs processed: 1
-2025-09-26 02:42:27,849 - [INFO] - Successful: 1
-2025-09-26 02:42:27,849 - [INFO] - Failed: 0
-2025-09-26 02:42:27,849 - [INFO] - Success rate: 100.0%
-2025-09-26 02:42:27,849 - [INFO] - 
+2025-09-26 13:35:53,731 - [INFO] - LANTERN PIPELINE EXECUTION SUMMARY
+2025-09-26 13:35:53,731 - [INFO] - ================================================================================
+2025-09-26 13:35:53,731 - [INFO] - Execution timestamp: 20250926_133553
+2025-09-26 13:35:53,731 - [INFO] - Total PDFs processed: 1
+2025-09-26 13:35:53,731 - [INFO] - Successful: 1
+2025-09-26 13:35:53,731 - [INFO] - Failed: 0
+2025-09-26 13:35:53,731 - [INFO] - Success rate: 100.0%
+2025-09-26 13:35:53,731 - [INFO] - 
 Successfully Processed Documents:
-2025-09-26 02:42:27,849 - [INFO] -    tesla.pdf → tesla_2024
-2025-09-26 02:42:27,850 - [INFO] - 
+2025-09-26 13:35:53,731 - [INFO] -    tesla.pdf → tesla_2024
+2025-09-26 13:35:53,731 - [INFO] - 
 Lab Success Summary:
-2025-09-26 02:42:27,850 - [INFO] -    Lab 1: 1/1 successful (100.0%)
-2025-09-26 02:42:27,850 - [INFO] -    Lab 2: 1/1 successful (100.0%)
-2025-09-26 02:42:27,850 - [INFO] -    Lab 3: 1/1 successful (100.0%)
-2025-09-26 02:42:27,850 - [INFO] -    Lab 4: 1/1 successful (100.0%)
-2025-09-26 02:42:27,850 - [INFO] -    Lab 5: 1/1 successful (100.0%)
-2025-09-26 02:42:27,850 - [INFO] -    Lab 6: 1/1 successful (100.0%)
-2025-09-26 02:42:27,850 - [INFO] - 
+2025-09-26 13:35:53,731 - [INFO] -    Lab 1: 1/1 successful (100.0%)
+2025-09-26 13:35:53,731 - [INFO] -    Lab 2: 1/1 successful (100.0%)
+2025-09-26 13:35:53,731 - [INFO] -    Lab 3: 1/1 successful (100.0%)
+2025-09-26 13:35:53,731 - [INFO] -    Lab 4: 1/1 successful (100.0%)
+2025-09-26 13:35:53,733 - [INFO] -    Lab 5: 1/1 successful (100.0%)
+2025-09-26 13:35:53,733 - [INFO] -    Lab 6: 1/1 successful (100.0%)
+2025-09-26 13:35:53,733 - [INFO] - 
 All outputs saved to: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed
-2025-09-26 02:42:27,850 - [INFO] - Detailed summary saved to: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/pipeline_summary_20250926_024227.json
-2025-09-26 02:42:27,850 - [INFO] - Comprehensive pipeline report saved: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/LANTERN_Pipeline_Report_20250926_024227.md
-2025-09-26 02:42:27,851 - [INFO] - Pipeline report generated: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/LANTERN_Pipeline_Report_20250926_024227.md
-2025-09-26 02:42:27,851 - [INFO] - Pipeline completed successfully - All documents processed!
-2025-09-26 04:10:33,572 - [INFO] - LANTERN Pipeline started
-2025-09-26 04:10:33,576 - [INFO] - Output directory: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed
-2025-09-26 04:10:33,576 - [INFO] - Raw data directory: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw
-2025-09-26 04:10:33,576 - [INFO] - Hybrid tables: True
-2025-09-26 04:10:33,576 - [INFO] - Skip Docling: False
-2025-09-26 04:10:33,576 - [INFO] - Comprehensive extraction: True
-2025-09-26 04:10:33,576 - [INFO] - ✅ Comprehensive metadata extractor available - will extract ALL content types
-2025-09-26 04:10:33,579 - [INFO] - Found 1 PDF files to process
-2025-09-26 04:10:33,579 - [INFO] -    tesla.pdf
-2025-09-26 04:10:33,579 - [INFO] - 
+2025-09-26 13:35:53,733 - [INFO] - Detailed summary saved to: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/pipeline_summary_20250926_133553.json
+2025-09-26 13:35:53,733 - [INFO] - Comprehensive pipeline report saved: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/LANTERN_Pipeline_Report_20250926_133553.md
+2025-09-26 13:35:53,733 - [INFO] - Pipeline report generated: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/LANTERN_Pipeline_Report_20250926_133553.md
+2025-09-26 13:35:53,733 - [INFO] - Pipeline completed successfully - All documents processed!
+2025-09-26 15:19:48,996 - [INFO] - LANTERN Pipeline started
+2025-09-26 15:19:48,996 - [INFO] - Output directory: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed
+2025-09-26 15:19:48,996 - [INFO] - Raw data directory: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw
+2025-09-26 15:19:48,996 - [INFO] - Hybrid tables: True
+2025-09-26 15:19:48,996 - [INFO] - Skip Docling: False
+2025-09-26 15:19:48,996 - [INFO] - Comprehensive extraction: True
+2025-09-26 15:19:48,996 - [INFO] - ✅ Comprehensive metadata extractor available - will extract ALL content types
+2025-09-26 15:19:48,997 - [INFO] - Found 1 PDF files to process
+2025-09-26 15:19:48,997 - [INFO] -    tesla.pdf
+2025-09-26 15:19:48,997 - [INFO] - 
 ================================================================================
-2025-09-26 04:10:33,579 - [INFO] - Processing Document 1/1: tesla.pdf
-2025-09-26 04:10:33,579 - [INFO] - ================================================================================
-2025-09-26 04:10:33,579 - [INFO] - Document metadata: ID=tesla_2024, Company=Tesla Inc., Year=2024
-2025-09-26 04:10:33,579 - [INFO] - Unified output directory: tesla_20250926_041033
-2025-09-26 04:10:33,579 - [INFO] - 
+2025-09-26 15:19:48,997 - [INFO] - Processing Document 1/1: tesla.pdf
+2025-09-26 15:19:48,997 - [INFO] - ================================================================================
+2025-09-26 15:19:48,997 - [INFO] - Document metadata: ID=tesla_2024, Company=Tesla Inc., Year=2024
+2025-09-26 15:19:48,997 - [INFO] - Unified output directory: tesla_20250926_151948
+2025-09-26 15:19:48,997 - [INFO] - 
 [LAB 1] Starting text extraction...
-2025-09-26 04:10:33,579 - [INFO] - [LAB 1] Executing: /Library/Developer/CommandLineTools/usr/bin/python3 /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/text/extract_text.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw/tesla.pdf --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_041033
+2025-09-26 15:19:48,997 - [INFO] - [LAB 1] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python3 /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/text/extract_text.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw/tesla.pdf --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_151948
+2025-09-26 15:19:55,701 - [INFO] - [LAB 1] Processing: tesla.pdf
+2025-09-26 15:19:55,702 - [INFO] - [LAB 1] Lab 1 Text Extraction Complete:
+2025-09-26 15:19:55,702 - [INFO] - [LAB 1] Per-page .txt files: 39 files created
+2025-09-26 15:19:55,702 - [INFO] - [LAB 1] OCR log: 0 pages required OCR
+2025-09-26 15:19:55,702 - [INFO] - [LAB 1] Word bounding boxes: Saved for layout analysis
+2025-09-26 15:19:55,702 - [INFO] - [LAB 1] Output location: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_151948/text
+2025-09-26 15:19:55,702 - [INFO] - [LAB 1] Text extraction completed successfully
+2025-09-26 15:19:55,702 - [INFO] - 
+[LAB 2] Starting table extraction...
+2025-09-26 15:19:55,702 - [INFO] - [LAB 2] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python3 /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/tables/extract_tables.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw/tesla.pdf --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_151948 --hybrid
+2025-09-26 15:20:23,964 - [INFO] - [LAB 2] Table extraction completed successfully
+2025-09-26 15:20:23,964 - [INFO] - 
+[LAB 3] Starting layout detection...
+2025-09-26 15:20:23,964 - [INFO] - [LAB 3] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python3 /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/layout/extract_layout.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw/tesla.pdf --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_151948
+2025-09-26 15:20:29,790 - [INFO] - [LAB 3] Detectron2 not available, using manual layout detection
+2025-09-26 15:20:29,791 - [INFO] - [LAB 3] Layout Detection Summary for tesla.pdf:
+2025-09-26 15:20:29,791 - [INFO] - [LAB 3] Pages processed: 39
+2025-09-26 15:20:29,791 - [INFO] - [LAB 3] Total blocks detected: 1855
+2025-09-26 15:20:29,791 - [INFO] - [LAB 3] Block type distribution:
+2025-09-26 15:20:29,791 - [INFO] - [LAB 3] Text: 1733
+2025-09-26 15:20:29,791 - [INFO] - [LAB 3] Table: 45
+2025-09-26 15:20:29,791 - [INFO] - [LAB 3] Title: 77
+2025-09-26 15:20:29,791 - [INFO] - [LAB 3] Output written to /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_151948
+2025-09-26 15:20:29,791 - [INFO] - [LAB 3] Layout detection completed successfully
+2025-09-26 15:20:29,791 - [INFO] - 
+[LAB 4] Starting Docling processing with integrated AI metadata extraction...
+2025-09-26 15:20:29,792 - [INFO] - [LAB 4] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python3 /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/docling/extract_docling.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw/tesla.pdf --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_151948
+2025-09-26 15:21:57,810 - [INFO] - [LAB 4] Docling Performance Summary for tesla.pdf:
+2025-09-26 15:21:57,812 - [INFO] - [LAB 4] Processing time: 82.55 seconds
+2025-09-26 15:21:57,812 - [INFO] - [LAB 4] Tables detected: 46
+2025-09-26 15:21:57,812 - [INFO] - [LAB 4] Formulas detected: 0
+2025-09-26 15:21:57,812 - [INFO] - [LAB 4] Reading order preserved: False
+2025-09-26 15:21:57,812 - [INFO] - [LAB 4] Output written to /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_151948
+2025-09-26 15:21:57,813 - [INFO] - [LAB 4] Docling processing with AI metadata completed successfully
+2025-09-26 15:21:57,813 - [INFO] - 
+[LAB 5] Starting comprehensive metadata extraction...
+2025-09-26 15:21:57,813 - [INFO] - [LAB 5] Using comprehensive metadata extractor for ALL content types...
+2025-09-26 15:21:57,815 - [INFO] - 🚀 Starting comprehensive extraction for tesla_2024
+2025-09-26 15:21:57,816 - [INFO] - 📄 Extracting full document text content...
+2025-09-26 15:22:02,669 - [INFO] - ✅ Extracted 1235 text records
+2025-09-26 15:22:02,669 - [INFO] - 📊 Processing existing table extractions...
+2025-09-26 15:22:02,675 - [INFO] - ✅ Extracted 28 table records
+2025-09-26 15:22:02,675 - [INFO] - 🤖 Processing Docling AI content...
+2025-09-26 15:22:02,679 - [INFO] - ✅ Extracted 91 Docling AI records
+2025-09-26 15:22:02,680 - [INFO] - 🏗️ Extracting document structure...
+2025-09-26 15:22:07,310 - [INFO] - ✅ Extracted 38 structure records
+2025-09-26 15:22:07,310 - [INFO] - 📑 Extracting page metadata...
+2025-09-26 15:22:12,093 - [INFO] - ✅ Extracted 40 metadata records
+2025-09-26 15:22:12,103 - [INFO] - 📋 Extraction summary written to: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_151948/metadata/tesla_2024_extraction_summary.json
+2025-09-26 15:22:12,103 - [INFO] - 🎉 COMPREHENSIVE EXTRACTION COMPLETE!
+2025-09-26 15:22:12,104 - [INFO] - 📈 Total records: 1432
+2025-09-26 15:22:12,104 - [INFO] - 📁 Output: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_151948/metadata/tesla_2024.jsonl
+2025-09-26 15:22:12,104 - [INFO] - 📊 Content Coverage:
+2025-09-26 15:22:12,104 - [INFO] -    ai_analysis: 1 records
+2025-09-26 15:22:12,104 - [INFO] -    footer: 1 records
+2025-09-26 15:22:12,104 - [INFO] -    header: 39 records
+2025-09-26 15:22:12,104 - [INFO] -    heading: 55 records
+2025-09-26 15:22:12,104 - [INFO] -    layout_block: 38 records
+2025-09-26 15:22:12,104 - [INFO] -    list: 18 records
+2025-09-26 15:22:12,104 - [INFO] -    paragraph: 799 records
+2025-09-26 15:22:12,104 - [INFO] -    structured_content: 108 records
+2025-09-26 15:22:12,104 - [INFO] -    subheading: 1 records
+2025-09-26 15:22:12,104 - [INFO] -    table: 28 records
+2025-09-26 15:22:12,104 - [INFO] -    text_block: 344 records
+2025-09-26 15:22:12,104 - [INFO] - [LAB 5] Comprehensive metadata extraction completed successfully - extracted ALL content types (text, tables, headings, structure, etc.)
+2025-09-26 15:22:12,104 - [INFO] - 
+[LAB 6] Starting format conversion...
+2025-09-26 15:22:12,104 - [INFO] - [LAB 6] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python3 /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/formats/convert_formats.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_151948/metadata/tesla_2024.jsonl --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_151948
+2025-09-26 15:22:12,211 - [INFO] - [LAB 6] Format conversion completed successfully
+2025-09-26 15:22:12,211 - [INFO] - 
+[VALIDATION] Validating outputs for tesla_2024...
+2025-09-26 15:22:12,212 - [INFO] - [VALIDATION] LAB1: PASS | LAB2: PASS | LAB3: PASS | LAB4: PASS | LAB5: FAIL | LAB6: PASS
+2025-09-26 15:22:12,212 - [INFO] - Successfully processed tesla.pdf → tesla_20250926_151948
+2025-09-26 15:22:12,212 - [INFO] - 
+================================================================================
+2025-09-26 15:22:12,212 - [INFO] - LANTERN PIPELINE EXECUTION SUMMARY
+2025-09-26 15:22:12,212 - [INFO] - ================================================================================
+2025-09-26 15:22:12,212 - [INFO] - Execution timestamp: 20250926_152212
+2025-09-26 15:22:12,212 - [INFO] - Total PDFs processed: 1
+2025-09-26 15:22:12,212 - [INFO] - Successful: 1
+2025-09-26 15:22:12,212 - [INFO] - Failed: 0
+2025-09-26 15:22:12,212 - [INFO] - Success rate: 100.0%
+2025-09-26 15:22:12,212 - [INFO] - 
+Successfully Processed Documents:
+2025-09-26 15:22:12,212 - [INFO] -    tesla.pdf → tesla_2024
+2025-09-26 15:22:12,212 - [INFO] - 
+Lab Success Summary:
+2025-09-26 15:22:12,212 - [INFO] -    Lab 1: 1/1 successful (100.0%)
+2025-09-26 15:22:12,212 - [INFO] -    Lab 2: 1/1 successful (100.0%)
+2025-09-26 15:22:12,212 - [INFO] -    Lab 3: 1/1 successful (100.0%)
+2025-09-26 15:22:12,212 - [INFO] -    Lab 4: 1/1 successful (100.0%)
+2025-09-26 15:22:12,212 - [INFO] -    Lab 5: 1/1 successful (100.0%)
+2025-09-26 15:22:12,213 - [INFO] -    Lab 6: 1/1 successful (100.0%)
+2025-09-26 15:22:12,213 - [INFO] - 
+All outputs saved to: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed
+2025-09-26 15:22:12,213 - [INFO] - Detailed summary saved to: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/pipeline_summary_20250926_152212.json
+2025-09-26 15:22:12,213 - [INFO] - Comprehensive pipeline report saved: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/LANTERN_Pipeline_Report_20250926_152212.md
+2025-09-26 15:22:12,213 - [INFO] - Pipeline report generated: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/LANTERN_Pipeline_Report_20250926_152212.md
+2025-09-26 15:22:12,213 - [INFO] - Pipeline completed successfully - All documents processed!
+2025-09-26 15:47:41,799 - [INFO] - LANTERN Pipeline started
+2025-09-26 15:47:41,799 - [INFO] - Output directory: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed
+2025-09-26 15:47:41,799 - [INFO] - Raw data directory: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw
+2025-09-26 15:47:41,799 - [INFO] - Hybrid tables: True
+2025-09-26 15:47:41,799 - [INFO] - Skip Docling: False
+2025-09-26 15:47:41,799 - [INFO] - Comprehensive extraction: True
+2025-09-26 15:47:41,799 - [INFO] -  Comprehensive metadata extractor available - will extract ALL content types
+2025-09-26 15:47:41,799 - [INFO] - Found 1 PDF files to process
+2025-09-26 15:47:41,799 - [INFO] -    tesla.pdf
+2025-09-26 15:47:41,799 - [INFO] - 
+================================================================================
+2025-09-26 15:47:41,799 - [INFO] - Processing Document 1/1: tesla.pdf
+2025-09-26 15:47:41,799 - [INFO] - ================================================================================
+2025-09-26 15:47:41,800 - [INFO] - Document metadata: ID=tesla_2024, Company=Tesla Inc., Year=2024
+2025-09-26 15:47:41,800 - [INFO] - Unified output directory: tesla_20250926_154741
+2025-09-26 15:47:41,800 - [INFO] - 
+[LAB 1] Starting text extraction...
+2025-09-26 15:47:41,800 - [INFO] - [LAB 1] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python3 /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/text/extract_text.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw/tesla.pdf --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_154741
+2025-09-26 15:47:47,687 - [INFO] - [LAB 1] Processing: tesla.pdf
+2025-09-26 15:47:47,688 - [INFO] - [LAB 1] Lab 1 Text Extraction Complete:
+2025-09-26 15:47:47,688 - [INFO] - [LAB 1] Per-page .txt files: 39 files created
+2025-09-26 15:47:47,688 - [INFO] - [LAB 1] OCR log: 0 pages required OCR
+2025-09-26 15:47:47,688 - [INFO] - [LAB 1] Word bounding boxes: Saved for layout analysis
+2025-09-26 15:47:47,688 - [INFO] - [LAB 1] Output location: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_154741/text
+2025-09-26 15:47:47,688 - [INFO] - [LAB 1] Text extraction completed successfully
+2025-09-26 15:47:47,688 - [INFO] - 
+[LAB 2] Starting table extraction...
+2025-09-26 15:47:47,688 - [INFO] - [LAB 2] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python3 /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/tables/extract_tables.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw/tesla.pdf --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_154741 --hybrid
+2025-09-26 15:48:16,910 - [INFO] - [LAB 2] Table extraction completed successfully
+2025-09-26 15:48:16,911 - [INFO] - 
+[LAB 3] Starting layout detection...
+2025-09-26 15:48:16,911 - [INFO] - [LAB 3] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python3 /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/layout/extract_layout.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw/tesla.pdf --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_154741
+2025-09-26 15:48:22,840 - [INFO] - [LAB 3] Detectron2 not available, using manual layout detection
+2025-09-26 15:48:22,841 - [INFO] - [LAB 3] Layout Detection Summary for tesla.pdf:
+2025-09-26 15:48:22,841 - [INFO] - [LAB 3] Pages processed: 39
+2025-09-26 15:48:22,841 - [INFO] - [LAB 3] Total blocks detected: 1855
+2025-09-26 15:48:22,841 - [INFO] - [LAB 3] Block type distribution:
+2025-09-26 15:48:22,841 - [INFO] - [LAB 3] Text: 1733
+2025-09-26 15:48:22,841 - [INFO] - [LAB 3] Table: 45
+2025-09-26 15:48:22,841 - [INFO] - [LAB 3] Title: 77
+2025-09-26 15:48:22,841 - [INFO] - [LAB 3] Output written to /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_154741
+2025-09-26 15:48:22,841 - [INFO] - [LAB 3] Layout detection completed successfully
+2025-09-26 15:48:22,841 - [INFO] - 
+[LAB 4] Starting Docling processing with integrated AI metadata extraction...
+2025-09-26 15:48:22,841 - [INFO] - [LAB 4] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python3 /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/docling/extract_docling.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/raw/tesla.pdf --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_154741
+2025-09-26 15:49:56,196 - [INFO] - [LAB 4] Docling Performance Summary for tesla.pdf:
+2025-09-26 15:49:56,197 - [INFO] - [LAB 4] Processing time: 86.86 seconds
+2025-09-26 15:49:56,197 - [INFO] - [LAB 4] Tables detected: 46
+2025-09-26 15:49:56,197 - [INFO] - [LAB 4] Formulas detected: 0
+2025-09-26 15:49:56,197 - [INFO] - [LAB 4] Reading order preserved: False
+2025-09-26 15:49:56,198 - [INFO] - [LAB 4] Output written to /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_154741
+2025-09-26 15:49:56,198 - [INFO] - [LAB 4] Docling processing with AI metadata completed successfully
+2025-09-26 15:49:56,198 - [INFO] - 
+[LAB 5] Starting comprehensive metadata extraction...
+2025-09-26 15:49:56,198 - [INFO] - [LAB 5] Using comprehensive metadata extractor for ALL content types...
+2025-09-26 15:49:56,202 - [INFO] - Starting comprehensive extraction for tesla_2024
+2025-09-26 15:49:56,202 - [INFO] - Extracting full document text content...
+2025-09-26 15:50:01,903 - [INFO] - Extracted 1235 text records
+2025-09-26 15:50:01,903 - [INFO] - Processing existing table extractions...
+2025-09-26 15:50:01,908 - [INFO] - Extracted 28 table records
+2025-09-26 15:50:01,908 - [INFO] - Processing Docling AI content...
+2025-09-26 15:50:01,913 - [INFO] - Extracted 91 Docling AI records
+2025-09-26 15:50:01,913 - [INFO] - Extracting document structure...
+2025-09-26 15:50:06,811 - [INFO] - Extracted 38 structure records
+2025-09-26 15:50:06,811 - [INFO] - Extracting page metadata...
+2025-09-26 15:50:11,882 - [INFO] - Extracted 40 metadata records
+2025-09-26 15:50:11,893 - [INFO] - Extraction summary written to: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_154741/metadata/tesla_2024_extraction_summary.json
+2025-09-26 15:50:11,893 - [INFO] - COMPREHENSIVE EXTRACTION COMPLETE!
+2025-09-26 15:50:11,893 - [INFO] - Total records: 1432
+2025-09-26 15:50:11,893 - [INFO] - Output: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_154741/metadata/tesla_2024.jsonl
+2025-09-26 15:50:11,894 - [INFO] - Content Coverage:
+2025-09-26 15:50:11,894 - [INFO] -    ai_analysis: 1 records
+2025-09-26 15:50:11,894 - [INFO] -    footer: 1 records
+2025-09-26 15:50:11,894 - [INFO] -    header: 39 records
+2025-09-26 15:50:11,894 - [INFO] -    heading: 55 records
+2025-09-26 15:50:11,894 - [INFO] -    layout_block: 38 records
+2025-09-26 15:50:11,894 - [INFO] -    list: 18 records
+2025-09-26 15:50:11,894 - [INFO] -    paragraph: 799 records
+2025-09-26 15:50:11,894 - [INFO] -    structured_content: 108 records
+2025-09-26 15:50:11,894 - [INFO] -    subheading: 1 records
+2025-09-26 15:50:11,894 - [INFO] -    table: 28 records
+2025-09-26 15:50:11,894 - [INFO] -    text_block: 344 records
+2025-09-26 15:50:11,894 - [INFO] - [LAB 5] Comprehensive metadata extraction completed successfully - extracted ALL content types (text, tables, headings, structure, etc.)
+2025-09-26 15:50:11,894 - [INFO] - 
+[LAB 6] Starting format conversion...
+2025-09-26 15:50:11,894 - [INFO] - [LAB 6] Executing: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/setup/.venv/bin/python3 /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/src/formats/convert_formats.py --in /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_154741/metadata/tesla_2024.jsonl --out /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/tesla_20250926_154741
+2025-09-26 15:50:11,992 - [INFO] - [LAB 6] Format conversion completed successfully
+2025-09-26 15:50:11,992 - [INFO] - 
+[VALIDATION] Validating outputs for tesla_2024...
+2025-09-26 15:50:11,992 - [INFO] - [VALIDATION] LAB1: PASS | LAB2: PASS | LAB3: PASS | LAB4: PASS | LAB5: FAIL | LAB6: PASS
+2025-09-26 15:50:11,992 - [INFO] - Successfully processed tesla.pdf → tesla_20250926_154741
+2025-09-26 15:50:11,992 - [INFO] - 
+================================================================================
+2025-09-26 15:50:11,992 - [INFO] - LANTERN PIPELINE EXECUTION SUMMARY
+2025-09-26 15:50:11,992 - [INFO] - ================================================================================
+2025-09-26 15:50:11,992 - [INFO] - Execution timestamp: 20250926_155011
+2025-09-26 15:50:11,992 - [INFO] - Total PDFs processed: 1
+2025-09-26 15:50:11,992 - [INFO] - Successful: 1
+2025-09-26 15:50:11,992 - [INFO] - Failed: 0
+2025-09-26 15:50:11,992 - [INFO] - Success rate: 100.0%
+2025-09-26 15:50:11,993 - [INFO] - 
+Successfully Processed Documents:
+2025-09-26 15:50:11,993 - [INFO] -    tesla.pdf → tesla_2024
+2025-09-26 15:50:11,993 - [INFO] - 
+Lab Success Summary:
+2025-09-26 15:50:11,993 - [INFO] -    Lab 1: 1/1 successful (100.0%)
+2025-09-26 15:50:11,993 - [INFO] -    Lab 2: 1/1 successful (100.0%)
+2025-09-26 15:50:11,993 - [INFO] -    Lab 3: 1/1 successful (100.0%)
+2025-09-26 15:50:11,993 - [INFO] -    Lab 4: 1/1 successful (100.0%)
+2025-09-26 15:50:11,993 - [INFO] -    Lab 5: 1/1 successful (100.0%)
+2025-09-26 15:50:11,993 - [INFO] -    Lab 6: 1/1 successful (100.0%)
+2025-09-26 15:50:11,993 - [INFO] - 
+All outputs saved to: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed
+2025-09-26 15:50:11,993 - [INFO] - Detailed summary saved to: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/pipeline_summary_20250926_155011.json
+2025-09-26 15:50:11,993 - [INFO] - Comprehensive pipeline report saved: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/LANTERN_Pipeline_Report_20250926_155011.md
+2025-09-26 15:50:11,993 - [INFO] - Pipeline report generated: /Users/pranavpatel/Downloads/untitled folder 2/Assignment-1---DAMG7245-Team-5/data/parsed/LANTERN_Pipeline_Report_20250926_155011.md
+2025-09-26 15:50:11,993 - [INFO] - Pipeline completed successfully - All documents processed!

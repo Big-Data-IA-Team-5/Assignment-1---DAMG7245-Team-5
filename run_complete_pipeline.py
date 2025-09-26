@@ -757,9 +757,9 @@ Examples:
     logger.info(f"Skip Docling: {args.skip_docling}")
     logger.info(f"Comprehensive extraction: {args.comprehensive_extraction}")
     if comprehensive_extractor_available:
-        logger.info("✅ Comprehensive metadata extractor available - will extract ALL content types")
+        logger.info(" Comprehensive metadata extractor available - will extract ALL content types")
     else:
-        logger.warning("⚠️ Comprehensive metadata extractor not available - falling back to basic extraction")
+        logger.warning(" Comprehensive metadata extractor not available - falling back to basic extraction")
 
     # Find all PDFs in raw directory
     pdf_files = list(raw_dir.glob("*.pdf"))

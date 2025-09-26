@@ -3,6 +3,7 @@ name: DVC Pipeline Smoke Test
 on:
   pull_request:
     branches: [ main, develop ]
+    types: [opened, synchronize, reopened]
   push:
     branches: [ main ]
 
@@ -43,8 +44,9 @@ jobs:
         # Install additional dependencies if needed
         if [ -f requirements.txt ]; then
           # Install only essential packages to speed up CI
-          pip install pdfplumber pandas numpy
+          pip install pdfplumber pandas numpy pathlib
         fi
+        echo "[PASS] Dependencies installed successfully"
 
     - name: Verify DVC installation
       run: |
@@ -65,9 +67,15 @@ jobs:
 
     - name: Run DVC smoke test
       run: |
-        # Run the lightweight smoke test (fallback to simple test if pytest unavailable)
-        python tests/simple_smoke_test.py || python tests/test_dvc_pipeline.py
-        echo "[PASS] DVC smoke test completed"
+        # Run the lightweight smoke test first
+        echo "[INFO] Running simple smoke test..."
+        python tests/simple_smoke_test.py
+        
+        # Run full pytest-based smoke test if simple test passes
+        echo "[INFO] Running comprehensive smoke tests..."
+        python -m pytest tests/test_dvc_pipeline.py::test_dvc_pipeline_smoke -v
+        
+        echo "[PASS] All DVC smoke tests completed successfully"
 
     - name: Check pipeline reproducibility
       run: |
