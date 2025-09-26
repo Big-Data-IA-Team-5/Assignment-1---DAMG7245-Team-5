@@ -1,61 +1,98 @@
 # =============================================================================
-# DYNAMIC REQUIREMENTS - Automatically adapts to Python version
+# COMPREHENSIVE REQUIREMENTS - Labs 1-11 Full Dependencies
 # =============================================================================
 
-# Core PDF Processing - Universal compatibility across Python versions
+# Core PDF Processing - Labs 1, 2, 4, 5, 11
 pdfplumber>=0.7.0
 pytesseract>=0.3.8
 Pillow>=9.0.0
 PyPDF2>=2.12.0
+PyMuPDF>=1.23.0  # Advanced PDF processing
 
-# Data Processing - Version adaptive
+# Data Processing & Analysis - All Labs
 pandas>=1.3.0
 numpy>=1.19.0; python_version<"3.8"
 numpy>=1.21.0; python_version>="3.8"
 numpy>=1.24.0; python_version>="3.11"
 
-# Table Extraction - Flexible backend selection
+# Table Extraction - Lab 2, 5, 11
 camelot-py[base]>=0.9.0
 tabula-py>=2.5.0
 
-# Essential Utilities - Broad compatibility
+# Essential Utilities - All Labs
 tqdm>=4.60.0
 requests>=2.25.0
 beautifulsoup4>=4.9.0
 pyyaml>=6.0
 jsonlines>=2.0.0
+# pathlib2>=2.3.0; python_version<"3.4"  # Not needed for Python 3.4+
 
-# Visualization - Python version aware
+# Machine Learning & NLP - Labs 3, 7, 11
+scikit-learn>=1.0.0
+scipy>=1.7.0
+
+# Text Processing & Similarity - Lab 11 XBRL Mapping
+fuzzywuzzy>=0.18.0
+python-Levenshtein>=0.12.0
+# difflib2>=0.1.0  # difflib is built-in
+
+# Visualization - Labs 2, 5, 6, 8-10
 matplotlib>=3.3.0; python_version<"3.10"
 matplotlib>=3.5.0; python_version>="3.10"
-
-# Testing Framework
-pytest>=6.2.0
-
-# Data Version Control & ML Pipeline Management
-dvc[all]>=3.0.0; python_version>="3.9"
-dvc[all]>=2.55.0; python_version<"3.9"
-
-# ML Pipeline Visualization & Metrics
 plotly>=5.0.0
 seaborn>=0.11.0
 
-# Google Cloud Integration - Optional advanced features
+# Testing Framework - All Labs
+pytest>=6.2.0
+pytest-cov>=4.0.0
+
+# Data Version Control & ML Pipeline Management - Labs 8-10
+dvc[all]>=3.0.0; python_version>="3.9"
+dvc[all]>=2.55.0; python_version<"3.9"
+
+# Google Cloud Integration - Lab 7
 google-cloud-documentai>=2.15.0
 google-cloud-storage>=2.7.0
 google-auth>=2.15.0
 google-api-python-client>=2.70.0
+google-cloud-core>=2.3.0
 
-# Computer Vision & Layout Analysis - Adaptive installation
+# Computer Vision & Layout Analysis - Lab 3, 4
 opencv-python-headless>=4.5.0
 scikit-image>=0.18.0; python_version<"3.10"
 scikit-image>=0.19.0; python_version>="3.10"
 
-# Advanced Document Processing - Version specific
-# docling>=2.0.0; python_version>="3.10"
-# layoutparser>=0.3.4; python_version>="3.8"
+# Advanced Document Processing - Lab 4
+docling>=2.0.0; python_version>="3.10"
+layoutparser>=0.3.4; python_version>="3.8"
 
-# XBRL Processing - Lab 11 Dependencies
+# XBRL Processing - Lab 11
 arelle>=1.2.0
-fuzzywuzzy>=0.18.0
-python-Levenshtein>=0.12.0
+lxml>=4.6.0
+
+# Optional ML Enhancement Dependencies
+# torch>=1.9.0; python_version>="3.8"  # PyTorch for advanced ML
+# torchvision>=0.10.0; python_version>="3.8"  # Computer vision
+# transformers>=4.20.0; python_version>="3.8"  # Hugging Face transformers
+
+# Development & Logging
+# logging-config>=1.0.0  # logging is built-in
+colorlog>=6.0.0
+
+# File Format Support
+openpyxl>=3.0.0
+xlrd>=2.0.0
+
+# Network & Security
+certifi>=2021.10.8
+urllib3>=1.26.0
+
+# Database Support (if needed)
+# sqlite3  # Built-in, no installation needed
+
+# Additional Lab-specific Dependencies
+# Lab 6: Metadata Schema Support
+jsonschema>=4.0.0
+
+# Lab 8-10: Pipeline Orchestration
+dask>=2021.0.0; python_version>="3.8"
