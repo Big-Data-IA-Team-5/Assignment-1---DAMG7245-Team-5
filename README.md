@@ -6,7 +6,12 @@
 [![Tests](https://img.shields.io/badge/Tests-Passing-success.svg)](https://github.com/Big-Data-IA-Team-5/Assignment-1---DAMG7245-Team-5)
 
 ## 🎯 **QUICK DEMO - One Command Per Component**
+---
 
+## **🎬 Demo Links**
+
+- **CodedLab Demo**: (https://codelabs-preview.appspot.com/?file_id=1JBeq54zlgnJY6900jnok6JHRmja4hB-EeP6qXQKRBe8#0)
+- **YouTube Demo**: (https://youtu.be/_xDNnss3a0c)
 ### **📋 Presentation Flow**: Complete Pipeline → Lab 7 → DVC → Lab 11
 
 ```bash
